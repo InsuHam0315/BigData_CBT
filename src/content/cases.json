@@ -13,12 +13,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "단계",
-      "구성요소",
-      "역할",
-      "시간_ms"
-    ],
+    "columns": ["단계", "구성요소", "역할", "시간_ms"],
     "rows": [
       {
         "단계": 1,
@@ -61,36 +56,12 @@
       {
         "sourceId": "os",
         "pages": [
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          22
+          4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
         ]
       }
     ],
     "supplements": [],
-    "questionIds": [
-      "C01-Q1",
-      "C01-Q2",
-      "C01-Q3",
-      "C01-Q4",
-      "C01-Q5"
-    ]
+    "questionIds": ["C01-Q1", "C01-Q2", "C01-Q3", "C01-Q4", "C01-Q5"]
   },
   {
     "id": "C02",
@@ -106,12 +77,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "구간",
-      "프로세스",
-      "시간_ms",
-      "종료후"
-    ],
+    "columns": ["구간", "프로세스", "시간_ms", "종료후"],
     "rows": [
       {
         "구간": "0~2",
@@ -159,33 +125,15 @@
     "sources": [
       {
         "sourceId": "os",
-        "pages": [
-          15,
-          16
-        ]
+        "pages": [15, 16]
       },
       {
         "sourceId": "os",
-        "pages": [
-          32,
-          33,
-          34,
-          35,
-          36,
-          37,
-          38,
-          39
-        ]
+        "pages": [32, 33, 34, 35, 36, 37, 38, 39]
       }
     ],
     "supplements": [],
-    "questionIds": [
-      "C02-Q1",
-      "C02-Q2",
-      "C02-Q3",
-      "C02-Q4",
-      "C02-Q5"
-    ]
+    "questionIds": ["C02-Q1", "C02-Q2", "C02-Q3", "C02-Q4", "C02-Q5"]
   },
   {
     "id": "C03",
@@ -201,13 +149,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "영역",
-      "역할",
-      "전체_GiB",
-      "사용_GiB",
-      "빈_GiB"
-    ],
+    "columns": ["영역", "역할", "전체_GiB", "사용_GiB", "빈_GiB"],
     "rows": [
       {
         "영역": "M1",
@@ -244,32 +186,15 @@
     "sources": [
       {
         "sourceId": "os",
-        "pages": [
-          17
-        ]
+        "pages": [17]
       },
       {
         "sourceId": "os",
-        "pages": [
-          41,
-          42,
-          43,
-          44,
-          45,
-          46,
-          47,
-          48
-        ]
+        "pages": [41, 42, 43, 44, 45, 46, 47, 48]
       }
     ],
     "supplements": [],
-    "questionIds": [
-      "C03-Q1",
-      "C03-Q2",
-      "C03-Q3",
-      "C03-Q4",
-      "C03-Q5"
-    ]
+    "questionIds": ["C03-Q1", "C03-Q2", "C03-Q3", "C03-Q4", "C03-Q5"]
   },
   {
     "id": "C04",
@@ -279,15 +204,10 @@
     "unit": "파일",
     "validN": 3,
     "exclusions": "제시된 표 전체. 별도 조건이 있는 문항은 그 조건을 우선한다.",
-    "assumptions": [
-      "1KiB=1024바이트. 파일마다 올림. 블록 공유 없음."
-    ],
+    "assumptions": ["1KiB=1024바이트. 파일마다 올림. 블록 공유 없음."],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "파일",
-      "크기_KiB"
-    ],
+    "columns": ["파일", "크기_KiB"],
     "rows": [
       {
         "파일": "a",
@@ -315,36 +235,15 @@
     "sources": [
       {
         "sourceId": "os",
-        "pages": [
-          18
-        ]
+        "pages": [18]
       },
       {
         "sourceId": "os",
-        "pages": [
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61
-        ]
+        "pages": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
       }
     ],
     "supplements": [],
-    "questionIds": [
-      "C04-Q1",
-      "C04-Q2",
-      "C04-Q3",
-      "C04-Q4",
-      "C04-Q5"
-    ]
+    "questionIds": ["C04-Q1", "C04-Q2", "C04-Q3", "C04-Q4", "C04-Q5"]
   },
   {
     "id": "C05",
@@ -360,12 +259,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "그룹",
-      "유입_건초",
-      "처리_건초",
-      "차이_건초"
-    ],
+    "columns": ["그룹", "유입_건초", "처리_건초", "차이_건초"],
     "rows": [
       {
         "그룹": "온도",
@@ -407,30 +301,16 @@
     "sources": [
       {
         "sourceId": "intro",
-        "pages": [
-          2,
-          3,
-          4,
-          5
-        ]
+        "pages": [2, 3, 4, 5]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          2,
-          3
-        ]
+        "pages": [2, 3]
       }
     ],
-    "questionIds": [
-      "C05-Q1",
-      "C05-Q2",
-      "C05-Q3",
-      "C05-Q4",
-      "C05-Q5"
-    ]
+    "questionIds": ["C05-Q1", "C05-Q2", "C05-Q3", "C05-Q4", "C05-Q5"]
   },
   {
     "id": "C06",
@@ -446,13 +326,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "자산",
-      "형식",
-      "구조",
-      "시간",
-      "공간"
-    ],
+    "columns": ["자산", "형식", "구조", "시간", "공간"],
     "rows": [
       {
         "자산": "GPS 센서",
@@ -496,29 +370,16 @@
     "sources": [
       {
         "sourceId": "intro",
-        "pages": [
-          12,
-          13,
-          14,
-          15
-        ]
+        "pages": [12, 13, 14, 15]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          2
-        ]
+        "pages": [2]
       }
     ],
-    "questionIds": [
-      "C06-Q1",
-      "C06-Q2",
-      "C06-Q3",
-      "C06-Q4",
-      "C06-Q5"
-    ]
+    "questionIds": ["C06-Q1", "C06-Q2", "C06-Q3", "C06-Q4", "C06-Q5"]
   },
   {
     "id": "C07",
@@ -534,12 +395,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "경로",
-      "왕복_ms",
-      "연산_ms",
-      "합계_ms"
-    ],
+    "columns": ["경로", "왕복_ms", "연산_ms", "합계_ms"],
     "rows": [
       {
         "경로": "엣지",
@@ -575,36 +431,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
+        "pages": [2, 3, 4, 5, 6]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          17,
-          18,
-          19,
-          20,
-          21,
-          22,
-          23
-        ]
+        "pages": [17, 18, 19, 20, 21, 22, 23]
       }
     ],
-    "questionIds": [
-      "C07-Q1",
-      "C07-Q2",
-      "C07-Q3",
-      "C07-Q4",
-      "C07-Q5"
-    ]
+    "questionIds": ["C07-Q1", "C07-Q2", "C07-Q3", "C07-Q4", "C07-Q5"]
   },
   {
     "id": "C08",
@@ -620,13 +456,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "경로",
-      "1단계",
-      "2단계",
-      "3단계",
-      "재시도_건"
-    ],
+    "columns": ["경로", "1단계", "2단계", "3단계", "재시도_건"],
     "rows": [
       {
         "경로": "P1",
@@ -656,43 +486,20 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          7,
-          8,
-          9,
-          10,
-          11,
-          12
-        ]
+        "pages": [7, 8, 9, 10, 11, 12]
       }
     ],
     "supplements": [
       {
         "sourceId": "web1",
-        "pages": [
-          3,
-          4
-        ]
+        "pages": [3, 4]
       },
       {
         "sourceId": "web2",
-        "pages": [
-          23,
-          24,
-          25,
-          26,
-          27,
-          28
-        ]
+        "pages": [23, 24, 25, 26, 27, 28]
       }
     ],
-    "questionIds": [
-      "C08-Q1",
-      "C08-Q2",
-      "C08-Q3",
-      "C08-Q4",
-      "C08-Q5"
-    ]
+    "questionIds": ["C08-Q1", "C08-Q2", "C08-Q3", "C08-Q4", "C08-Q5"]
   },
   {
     "id": "C09",
@@ -708,12 +515,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "event_id",
-      "event_time",
-      "arrival_time",
-      "value"
-    ],
+    "columns": ["event_id", "event_time", "arrival_time", "value"],
     "rows": [
       {
         "event_id": "e1",
@@ -753,28 +555,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          12,
-          13
-        ]
+        "pages": [12, 13]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          28,
-          29
-        ]
+        "pages": [28, 29]
       }
     ],
-    "questionIds": [
-      "C09-Q1",
-      "C09-Q2",
-      "C09-Q3",
-      "C09-Q4",
-      "C09-Q5"
-    ]
+    "questionIds": ["C09-Q1", "C09-Q2", "C09-Q3", "C09-Q4", "C09-Q5"]
   },
   {
     "id": "C10",
@@ -789,10 +579,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "파일",
-      "크기_MB"
-    ],
+    "columns": ["파일", "크기_MB"],
     "rows": [
       {
         "파일": "F1",
@@ -820,35 +607,20 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          13,
-          14,
-          15
-        ]
+        "pages": [13, 14, 15]
       },
       {
         "sourceId": "os",
-        "pages": [
-          4
-        ]
+        "pages": [4]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          30,
-          31
-        ]
+        "pages": [30, 31]
       }
     ],
-    "questionIds": [
-      "C10-Q1",
-      "C10-Q2",
-      "C10-Q3",
-      "C10-Q4",
-      "C10-Q5"
-    ]
+    "questionIds": ["C10-Q1", "C10-Q2", "C10-Q3", "C10-Q4", "C10-Q5"]
   },
   {
     "id": "C11",
@@ -864,12 +636,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "서비스",
-      "요구",
-      "자료",
-      "조회_천건초"
-    ],
+    "columns": ["서비스", "요구", "자료", "조회_천건초"],
     "rows": [
       {
         "서비스": "세션",
@@ -909,34 +676,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          15,
-          16,
-          17,
-          18,
-          19
-        ]
+        "pages": [15, 16, 17, 18, 19]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          31,
-          32,
-          33,
-          34,
-          35
-        ]
+        "pages": [31, 32, 33, 34, 35]
       }
     ],
-    "questionIds": [
-      "C11-Q1",
-      "C11-Q2",
-      "C11-Q3",
-      "C11-Q4",
-      "C11-Q5"
-    ]
+    "questionIds": ["C11-Q1", "C11-Q2", "C11-Q3", "C11-Q4", "C11-Q5"]
   },
   {
     "id": "C12",
@@ -952,11 +701,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "country",
-      "age"
-    ],
+    "columns": ["id", "country", "age"],
     "rows": [
       {
         "id": "r1",
@@ -997,30 +742,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          19,
-          20,
-          21
-        ]
+        "pages": [19, 20, 21]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          35,
-          36,
-          37
-        ]
+        "pages": [35, 36, 37]
       }
     ],
-    "questionIds": [
-      "C12-Q1",
-      "C12-Q2",
-      "C12-Q3",
-      "C12-Q4",
-      "C12-Q5"
-    ]
+    "questionIds": ["C12-Q1", "C12-Q2", "C12-Q3", "C12-Q4", "C12-Q5"]
   },
   {
     "id": "C13",
@@ -1036,12 +767,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "결측",
-      "범위위반",
-      "참조위반"
-    ],
+    "columns": ["id", "결측", "범위위반", "참조위반"],
     "rows": [
       {
         "id": "a",
@@ -1087,30 +813,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          21,
-          22,
-          23
-        ]
+        "pages": [21, 22, 23]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          37,
-          38,
-          39
-        ]
+        "pages": [37, 38, 39]
       }
     ],
-    "questionIds": [
-      "C13-Q1",
-      "C13-Q2",
-      "C13-Q3",
-      "C13-Q4",
-      "C13-Q5"
-    ]
+    "questionIds": ["C13-Q1", "C13-Q2", "C13-Q3", "C13-Q4", "C13-Q5"]
   },
   {
     "id": "C14",
@@ -1126,13 +838,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "집단",
-      "연령대",
-      "지역",
-      "인원",
-      "민감값종류"
-    ],
+    "columns": ["집단", "연령대", "지역", "인원", "민감값종류"],
     "rows": [
       {
         "집단": "g1",
@@ -1169,32 +875,16 @@
     "sources": [
       {
         "sourceId": "infra",
-        "pages": [
-          23,
-          24,
-          25,
-          26
-        ]
+        "pages": [23, 24, 25, 26]
       }
     ],
     "supplements": [
       {
         "sourceId": "web2",
-        "pages": [
-          39,
-          40,
-          41,
-          42
-        ]
+        "pages": [39, 40, 41, 42]
       }
     ],
-    "questionIds": [
-      "C14-Q1",
-      "C14-Q2",
-      "C14-Q3",
-      "C14-Q4",
-      "C14-Q5"
-    ]
+    "questionIds": ["C14-Q1", "C14-Q2", "C14-Q3", "C14-Q4", "C14-Q5"]
   },
   {
     "id": "C15",
@@ -1210,13 +900,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "테이블",
-      "열",
-      "의미",
-      "예시",
-      "유효값수"
-    ],
+    "columns": ["테이블", "열", "의미", "예시", "유효값수"],
     "rows": [
       {
         "테이블": "catalog",
@@ -1260,30 +944,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          3,
-          4,
-          5
-        ]
+        "pages": [3, 4, 5]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          26,
-          27,
-          28
-        ]
+        "pages": [26, 27, 28]
       }
     ],
-    "questionIds": [
-      "C15-Q1",
-      "C15-Q2",
-      "C15-Q3",
-      "C15-Q4",
-      "C15-Q5"
-    ]
+    "questionIds": ["C15-Q1", "C15-Q2", "C15-Q3", "C15-Q4", "C15-Q5"]
   },
   {
     "id": "C16",
@@ -1338,39 +1008,20 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          6,
-          7,
-          8,
-          9
-        ]
+        "pages": [6, 7, 8, 9]
       }
     ],
     "supplements": [
       {
         "sourceId": "web1",
-        "pages": [
-          8,
-          9
-        ]
+        "pages": [8, 9]
       },
       {
         "sourceId": "web3",
-        "pages": [
-          29,
-          30,
-          31,
-          32
-        ]
+        "pages": [29, 30, 31, 32]
       }
     ],
-    "questionIds": [
-      "C16-Q1",
-      "C16-Q2",
-      "C16-Q3",
-      "C16-Q4",
-      "C16-Q5"
-    ]
+    "questionIds": ["C16-Q1", "C16-Q2", "C16-Q3", "C16-Q4", "C16-Q5"]
   },
   {
     "id": "C17",
@@ -1460,38 +1111,20 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          9,
-          10,
-          11,
-          12
-        ]
+        "pages": [9, 10, 11, 12]
       },
       {
         "sourceId": "infra",
-        "pages": [
-          19
-        ]
+        "pages": [19]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          32,
-          33,
-          34,
-          35
-        ]
+        "pages": [32, 33, 34, 35]
       }
     ],
-    "questionIds": [
-      "C17-Q1",
-      "C17-Q2",
-      "C17-Q3",
-      "C17-Q4",
-      "C17-Q5"
-    ]
+    "questionIds": ["C17-Q1", "C17-Q2", "C17-Q3", "C17-Q4", "C17-Q5"]
   },
   {
     "id": "C18",
@@ -1507,12 +1140,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "show_id",
-      "director",
-      "date_added",
-      "rating"
-    ],
+    "columns": ["show_id", "director", "date_added", "rating"],
     "rows": [
       {
         "show_id": "a",
@@ -1562,38 +1190,20 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          9,
-          10,
-          11,
-          12
-        ]
+        "pages": [9, 10, 11, 12]
       },
       {
         "sourceId": "infra",
-        "pages": [
-          19
-        ]
+        "pages": [19]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          32,
-          33,
-          34,
-          35
-        ]
+        "pages": [32, 33, 34, 35]
       }
     ],
-    "questionIds": [
-      "C18-Q1",
-      "C18-Q2",
-      "C18-Q3",
-      "C18-Q4",
-      "C18-Q5"
-    ]
+    "questionIds": ["C18-Q1", "C18-Q2", "C18-Q3", "C18-Q4", "C18-Q5"]
   },
   {
     "id": "C19",
@@ -1609,13 +1219,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "show_id",
-      "type",
-      "duration",
-      "value",
-      "unit"
-    ],
+    "columns": ["show_id", "type", "duration", "value", "unit"],
     "rows": [
       {
         "show_id": "a",
@@ -1669,44 +1273,20 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          12,
-          13,
-          14
-        ]
+        "pages": [12, 13, 14]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          18,
-          19,
-          20
-        ]
+        "pages": [18, 19, 20]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          35,
-          36,
-          37,
-          38,
-          39,
-          40,
-          41,
-          42,
-          43
-        ]
+        "pages": [35, 36, 37, 38, 39, 40, 41, 42, 43]
       }
     ],
-    "questionIds": [
-      "C19-Q1",
-      "C19-Q2",
-      "C19-Q3",
-      "C19-Q4",
-      "C19-Q5"
-    ]
+    "questionIds": ["C19-Q1", "C19-Q2", "C19-Q3", "C19-Q4", "C19-Q5"]
   },
   {
     "id": "C20",
@@ -1722,11 +1302,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "show_id",
-      "listed_in",
-      "장르수"
-    ],
+    "columns": ["show_id", "listed_in", "장르수"],
     "rows": [
       {
         "show_id": "a",
@@ -1765,59 +1341,28 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          15,
-          16,
-          17,
-          18,
-          19,
-          20
-        ]
+        "pages": [15, 16, 17, 18, 19, 20]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          36,
-          37,
-          38
-        ]
+        "pages": [36, 37, 38]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          61
-        ]
+        "pages": [61]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          38,
-          39,
-          40,
-          41,
-          42,
-          43
-        ]
+        "pages": [38, 39, 40, 41, 42, 43]
       },
       {
         "sourceId": "web3",
-        "pages": [
-          59,
-          60,
-          61,
-          62
-        ]
+        "pages": [59, 60, 61, 62]
       }
     ],
-    "questionIds": [
-      "C20-Q1",
-      "C20-Q2",
-      "C20-Q3",
-      "C20-Q4",
-      "C20-Q5"
-    ]
+    "questionIds": ["C20-Q1", "C20-Q2", "C20-Q3", "C20-Q4", "C20-Q5"]
   },
   {
     "id": "C21",
@@ -1833,14 +1378,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "country",
-      "genre",
-      "국가수",
-      "장르수",
-      "조합수"
-    ],
+    "columns": ["id", "country", "genre", "국가수", "장르수", "조합수"],
     "rows": [
       {
         "id": "a",
@@ -1883,59 +1421,28 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          15,
-          16,
-          17,
-          18,
-          19,
-          20
-        ]
+        "pages": [15, 16, 17, 18, 19, 20]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          36,
-          37,
-          38
-        ]
+        "pages": [36, 37, 38]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          61
-        ]
+        "pages": [61]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          38,
-          39,
-          40,
-          41,
-          42,
-          43
-        ]
+        "pages": [38, 39, 40, 41, 42, 43]
       },
       {
         "sourceId": "web3",
-        "pages": [
-          59,
-          60,
-          61,
-          62
-        ]
+        "pages": [59, 60, 61, 62]
       }
     ],
-    "questionIds": [
-      "C21-Q1",
-      "C21-Q2",
-      "C21-Q3",
-      "C21-Q4",
-      "C21-Q5"
-    ]
+    "questionIds": ["C21-Q1", "C21-Q2", "C21-Q3", "C21-Q4", "C21-Q5"]
   },
   {
     "id": "C22",
@@ -1951,11 +1458,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "cast",
-      "알려진배우수"
-    ],
+    "columns": ["id", "cast", "알려진배우수"],
     "rows": [
       {
         "id": "a",
@@ -1995,59 +1498,28 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          15,
-          16,
-          17,
-          18,
-          19,
-          20
-        ]
+        "pages": [15, 16, 17, 18, 19, 20]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          36,
-          37,
-          38
-        ]
+        "pages": [36, 37, 38]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          61
-        ]
+        "pages": [61]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          38,
-          39,
-          40,
-          41,
-          42,
-          43
-        ]
+        "pages": [38, 39, 40, 41, 42, 43]
       },
       {
         "sourceId": "web3",
-        "pages": [
-          59,
-          60,
-          61,
-          62
-        ]
+        "pages": [59, 60, 61, 62]
       }
     ],
-    "questionIds": [
-      "C22-Q1",
-      "C22-Q2",
-      "C22-Q3",
-      "C22-Q4",
-      "C22-Q5"
-    ]
+    "questionIds": ["C22-Q1", "C22-Q2", "C22-Q3", "C22-Q4", "C22-Q5"]
   },
   {
     "id": "C23",
@@ -2063,12 +1535,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "release_year",
-      "added_year",
-      "lag"
-    ],
+    "columns": ["id", "release_year", "added_year", "lag"],
     "rows": [
       {
         "id": "a",
@@ -2116,40 +1583,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          32,
-          33
-        ]
+        "pages": [26, 27, 28, 29, 30, 31, 32, 33]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          49,
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56
-        ]
+        "pages": [49, 50, 51, 52, 53, 54, 55, 56]
       }
     ],
-    "questionIds": [
-      "C23-Q1",
-      "C23-Q2",
-      "C23-Q3",
-      "C23-Q4",
-      "C23-Q5"
-    ]
+    "questionIds": ["C23-Q1", "C23-Q2", "C23-Q3", "C23-Q4", "C23-Q5"]
   },
   {
     "id": "C24",
@@ -2165,10 +1608,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "type",
-      "count"
-    ],
+    "columns": ["type", "count"],
     "rows": [
       {
         "type": "Movie",
@@ -2200,42 +1640,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29
-        ]
+        "pages": [21, 22, 23, 24, 25, 26, 27, 28, 29]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          44,
-          45,
-          46,
-          47,
-          48,
-          49,
-          50,
-          51,
-          52
-        ]
+        "pages": [44, 45, 46, 47, 48, 49, 50, 51, 52]
       }
     ],
-    "questionIds": [
-      "C24-Q1",
-      "C24-Q2",
-      "C24-Q3",
-      "C24-Q4",
-      "C24-Q5"
-    ]
+    "questionIds": ["C24-Q1", "C24-Q2", "C24-Q3", "C24-Q4", "C24-Q5"]
   },
   {
     "id": "C25",
@@ -2251,10 +1665,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "구간",
-      "빈도"
-    ],
+    "columns": ["구간", "빈도"],
     "rows": [
       {
         "구간": "2000~2005",
@@ -2298,42 +1709,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29
-        ]
+        "pages": [21, 22, 23, 24, 25, 26, 27, 28, 29]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          44,
-          45,
-          46,
-          47,
-          48,
-          49,
-          50,
-          51,
-          52
-        ]
+        "pages": [44, 45, 46, 47, 48, 49, 50, 51, 52]
       }
     ],
-    "questionIds": [
-      "C25-Q1",
-      "C25-Q2",
-      "C25-Q3",
-      "C25-Q4",
-      "C25-Q5"
-    ]
+    "questionIds": ["C25-Q1", "C25-Q2", "C25-Q3", "C25-Q4", "C25-Q5"]
   },
   {
     "id": "C26",
@@ -2348,10 +1733,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "분"
-    ],
+    "columns": ["id", "분"],
     "rows": [
       {
         "id": "a",
@@ -2403,42 +1785,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29
-        ]
+        "pages": [21, 22, 23, 24, 25, 26, 27, 28, 29]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          44,
-          45,
-          46,
-          47,
-          48,
-          49,
-          50,
-          51,
-          52
-        ]
+        "pages": [44, 45, 46, 47, 48, 49, 50, 51, 52]
       }
     ],
-    "questionIds": [
-      "C26-Q1",
-      "C26-Q2",
-      "C26-Q3",
-      "C26-Q4",
-      "C26-Q5"
-    ]
+    "questionIds": ["C26-Q1", "C26-Q2", "C26-Q3", "C26-Q4", "C26-Q5"]
   },
   {
     "id": "C27",
@@ -2454,12 +1810,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "연도",
-      "등록수",
-      "관측개월",
-      "월평균"
-    ],
+    "columns": ["연도", "등록수", "관측개월", "월평균"],
     "rows": [
       {
         "연도": 2019,
@@ -2501,40 +1852,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          32,
-          33
-        ]
+        "pages": [26, 27, 28, 29, 30, 31, 32, 33]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          49,
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56
-        ]
+        "pages": [49, 50, 51, 52, 53, 54, 55, 56]
       }
     ],
-    "questionIds": [
-      "C27-Q1",
-      "C27-Q2",
-      "C27-Q3",
-      "C27-Q4",
-      "C27-Q5"
-    ]
+    "questionIds": ["C27-Q1", "C27-Q2", "C27-Q3", "C27-Q4", "C27-Q5"]
   },
   {
     "id": "C28",
@@ -2550,12 +1877,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "연도",
-      "1월",
-      "2월",
-      "3월"
-    ],
+    "columns": ["연도", "1월", "2월", "3월"],
     "rows": [
       {
         "연도": 2020,
@@ -2577,11 +1899,7 @@
       "title": "연도·월 추가량",
       "xLabel": "월",
       "yLabel": "연도",
-      "series": [
-        "1월",
-        "2월",
-        "3월"
-      ]
+      "series": ["1월", "2월", "3월"]
     },
     "code": "",
     "codeNotes": [],
@@ -2596,58 +1914,22 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          27,
-          28,
-          29,
-          30
-        ]
+        "pages": [27, 28, 29, 30]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          34,
-          35,
-          36,
-          37,
-          38,
-          39,
-          40,
-          41,
-          42
-        ]
+        "pages": [34, 35, 36, 37, 38, 39, 40, 41, 42]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
         "pages": [
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61,
-          62,
-          63,
-          64,
-          65
+          50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65
         ]
       }
     ],
-    "questionIds": [
-      "C28-Q1",
-      "C28-Q2",
-      "C28-Q3",
-      "C28-Q4",
-      "C28-Q5"
-    ]
+    "questionIds": ["C28-Q1", "C28-Q2", "C28-Q3", "C28-Q4", "C28-Q5"]
   },
   {
     "id": "C29",
@@ -2663,12 +1945,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "장르",
-      "TV-MA",
-      "TV-14",
-      "TV-PG"
-    ],
+    "columns": ["장르", "TV-MA", "TV-14", "TV-PG"],
     "rows": [
       {
         "장르": "Drama",
@@ -2696,11 +1973,7 @@
       "title": "장르·시청 등급",
       "xLabel": "시청 등급",
       "yLabel": "장르",
-      "series": [
-        "TV-MA",
-        "TV-14",
-        "TV-PG"
-      ]
+      "series": ["TV-MA", "TV-14", "TV-PG"]
     },
     "code": "",
     "codeNotes": [],
@@ -2715,58 +1988,22 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          27,
-          28,
-          29,
-          30
-        ]
+        "pages": [27, 28, 29, 30]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          34,
-          35,
-          36,
-          37,
-          38,
-          39,
-          40,
-          41,
-          42
-        ]
+        "pages": [34, 35, 36, 37, 38, 39, 40, 41, 42]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
         "pages": [
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61,
-          62,
-          63,
-          64,
-          65
+          50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65
         ]
       }
     ],
-    "questionIds": [
-      "C29-Q1",
-      "C29-Q2",
-      "C29-Q3",
-      "C29-Q4",
-      "C29-Q5"
-    ]
+    "questionIds": ["C29-Q1", "C29-Q2", "C29-Q3", "C29-Q4", "C29-Q5"]
   },
   {
     "id": "C30",
@@ -2782,11 +2019,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "국가",
-      "Drama",
-      "Comedy"
-    ],
+    "columns": ["국가", "Drama", "Comedy"],
     "rows": [
       {
         "국가": "A",
@@ -2806,10 +2039,7 @@
       "title": "국가·장르 구성",
       "xLabel": "장르",
       "yLabel": "첫 국가",
-      "series": [
-        "Drama",
-        "Comedy"
-      ]
+      "series": ["Drama", "Comedy"]
     },
     "code": "",
     "codeNotes": [],
@@ -2824,58 +2054,22 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          27,
-          28,
-          29,
-          30
-        ]
+        "pages": [27, 28, 29, 30]
       },
       {
         "sourceId": "netflix",
-        "pages": [
-          34,
-          35,
-          36,
-          37,
-          38,
-          39,
-          40,
-          41,
-          42
-        ]
+        "pages": [34, 35, 36, 37, 38, 39, 40, 41, 42]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
         "pages": [
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61,
-          62,
-          63,
-          64,
-          65
+          50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65
         ]
       }
     ],
-    "questionIds": [
-      "C30-Q1",
-      "C30-Q2",
-      "C30-Q3",
-      "C30-Q4",
-      "C30-Q5"
-    ]
+    "questionIds": ["C30-Q1", "C30-Q2", "C30-Q3", "C30-Q4", "C30-Q5"]
   },
   {
     "id": "C31",
@@ -2891,11 +2085,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "연도",
-      "등록수",
-      "투자_십억달러"
-    ],
+    "columns": ["연도", "등록수", "투자_십억달러"],
     "rows": [
       {
         "연도": 2017,
@@ -2925,10 +2115,7 @@
       "title": "가상 투자와 등록",
       "xLabel": "연도",
       "yLabel": "등록 작품 수",
-      "series": [
-        "등록수",
-        "투자_십억달러"
-      ],
+      "series": ["등록수", "투자_십억달러"],
       "rightLabel": "투자액 (십억 달러)"
     },
     "code": "",
@@ -2944,40 +2131,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          32,
-          33
-        ]
+        "pages": [26, 27, 28, 29, 30, 31, 32, 33]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          49,
-          50,
-          51,
-          52,
-          53,
-          54,
-          55,
-          56
-        ]
+        "pages": [49, 50, 51, 52, 53, 54, 55, 56]
       }
     ],
-    "questionIds": [
-      "C31-Q1",
-      "C31-Q2",
-      "C31-Q3",
-      "C31-Q4",
-      "C31-Q5"
-    ]
+    "questionIds": ["C31-Q1", "C31-Q2", "C31-Q3", "C31-Q4", "C31-Q5"]
   },
   {
     "id": "C32",
@@ -2993,10 +2156,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "감독",
-      "배우"
-    ],
+    "columns": ["감독", "배우"],
     "rows": [
       {
         "감독": "D1",
@@ -3044,36 +2204,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          43,
-          44,
-          45,
-          46,
-          47,
-          48
-        ]
+        "pages": [43, 44, 45, 46, 47, 48]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          66,
-          67,
-          68,
-          69,
-          70,
-          71
-        ]
+        "pages": [66, 67, 68, 69, 70, 71]
       }
     ],
-    "questionIds": [
-      "C32-Q1",
-      "C32-Q2",
-      "C32-Q3",
-      "C32-Q4",
-      "C32-Q5"
-    ]
+    "questionIds": ["C32-Q1", "C32-Q2", "C32-Q3", "C32-Q4", "C32-Q5"]
   },
   {
     "id": "C33",
@@ -3089,11 +2229,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "word",
-      "count",
-      "keep"
-    ],
+    "columns": ["word", "count", "keep"],
     "rows": [
       {
         "word": "the",
@@ -3147,39 +2283,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          48,
-          49,
-          50,
-          51,
-          52,
-          53,
-          54,
-          55
-        ]
+        "pages": [48, 49, 50, 51, 52, 53, 54, 55]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          72,
-          73,
-          74,
-          75,
-          76,
-          77,
-          78
-        ]
+        "pages": [72, 73, 74, 75, 76, 77, 78]
       }
     ],
-    "questionIds": [
-      "C33-Q1",
-      "C33-Q2",
-      "C33-Q3",
-      "C33-Q4",
-      "C33-Q5"
-    ]
+    "questionIds": ["C33-Q1", "C33-Q2", "C33-Q3", "C33-Q4", "C33-Q5"]
   },
   {
     "id": "C34",
@@ -3195,11 +2308,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "similarity",
-      "seen"
-    ],
+    "columns": ["id", "similarity", "seen"],
     "rows": [
       {
         "id": "T",
@@ -3248,40 +2357,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61,
-          62
-        ]
+        "pages": [55, 56, 57, 58, 59, 60, 61, 62]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          78,
-          79,
-          80,
-          81,
-          82,
-          83,
-          84,
-          85
-        ]
+        "pages": [78, 79, 80, 81, 82, 83, 84, 85]
       }
     ],
-    "questionIds": [
-      "C34-Q1",
-      "C34-Q2",
-      "C34-Q3",
-      "C34-Q4",
-      "C34-Q5"
-    ]
+    "questionIds": ["C34-Q1", "C34-Q2", "C34-Q3", "C34-Q4", "C34-Q5"]
   },
   {
     "id": "C35",
@@ -3297,13 +2382,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "user",
-      "A",
-      "B",
-      "C",
-      "신규"
-    ],
+    "columns": ["user", "A", "B", "C", "신규"],
     "rows": [
       {
         "user": "u1",
@@ -3341,12 +2420,7 @@
       "title": "가상 사용자 평점",
       "xLabel": "아이템",
       "yLabel": "사용자",
-      "series": [
-        "A",
-        "B",
-        "C",
-        "신규"
-      ]
+      "series": ["A", "B", "C", "신규"]
     },
     "code": "matrix = df.set_index(\"user\")\nsim = matrix.corr(method=\"pearson\", min_periods=2)",
     "codeNotes": [
@@ -3364,40 +2438,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          55,
-          56,
-          57,
-          58,
-          59,
-          60,
-          61,
-          62
-        ]
+        "pages": [55, 56, 57, 58, 59, 60, 61, 62]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          78,
-          79,
-          80,
-          81,
-          82,
-          83,
-          84,
-          85
-        ]
+        "pages": [78, 79, 80, 81, 82, 83, 84, 85]
       }
     ],
-    "questionIds": [
-      "C35-Q1",
-      "C35-Q2",
-      "C35-Q3",
-      "C35-Q4",
-      "C35-Q5"
-    ]
+    "questionIds": ["C35-Q1", "C35-Q2", "C35-Q3", "C35-Q4", "C35-Q5"]
   },
   {
     "id": "C36",
@@ -3413,11 +2463,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "id",
-      "actual",
-      "predicted"
-    ],
+    "columns": ["id", "actual", "predicted"],
     "rows": [
       {
         "id": "a",
@@ -3461,34 +2507,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          63,
-          64,
-          65,
-          66,
-          67
-        ]
+        "pages": [63, 64, 65, 66, 67]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          86,
-          87,
-          88,
-          89,
-          90
-        ]
+        "pages": [86, 87, 88, 89, 90]
       }
     ],
-    "questionIds": [
-      "C36-Q1",
-      "C36-Q2",
-      "C36-Q3",
-      "C36-Q4",
-      "C36-Q5"
-    ]
+    "questionIds": ["C36-Q1", "C36-Q2", "C36-Q3", "C36-Q4", "C36-Q5"]
   },
   {
     "id": "C37",
@@ -3504,13 +2532,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "경로",
-      "fit대상",
-      "transform대상",
-      "학습수",
-      "테스트수"
-    ],
+    "columns": ["경로", "fit대상", "transform대상", "학습수", "테스트수"],
     "rows": [
       {
         "경로": "정상",
@@ -3551,34 +2573,16 @@
     "sources": [
       {
         "sourceId": "netflix",
-        "pages": [
-          63,
-          64,
-          65,
-          66,
-          67
-        ]
+        "pages": [63, 64, 65, 66, 67]
       }
     ],
     "supplements": [
       {
         "sourceId": "web3",
-        "pages": [
-          86,
-          87,
-          88,
-          89,
-          90
-        ]
+        "pages": [86, 87, 88, 89, 90]
       }
     ],
-    "questionIds": [
-      "C37-Q1",
-      "C37-Q2",
-      "C37-Q3",
-      "C37-Q4",
-      "C37-Q5"
-    ]
+    "questionIds": ["C37-Q1", "C37-Q2", "C37-Q3", "C37-Q4", "C37-Q5"]
   },
   {
     "id": "C38",
@@ -3594,11 +2598,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "구성",
-      "역할",
-      "파일수"
-    ],
+    "columns": ["구성", "역할", "파일수"],
     "rows": [
       {
         "구성": "Linux 커널",
@@ -3634,38 +2634,19 @@
     "sources": [
       {
         "sourceId": "os",
-        "pages": [
-          10
-        ]
+        "pages": [10]
       },
       {
         "sourceId": "os",
-        "pages": [
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29,
-          30
-        ]
+        "pages": [23, 24, 25, 26, 27, 28, 29, 30]
       },
       {
         "sourceId": "os",
-        "pages": [
-          62
-        ]
+        "pages": [62]
       }
     ],
     "supplements": [],
-    "questionIds": [
-      "C38-Q1",
-      "C38-Q2",
-      "C38-Q3",
-      "C38-Q4",
-      "C38-Q5"
-    ]
+    "questionIds": ["C38-Q1", "C38-Q2", "C38-Q3", "C38-Q4", "C38-Q5"]
   },
   {
     "id": "C39",
@@ -3681,12 +2662,7 @@
     ],
     "synthetic": true,
     "numericOrigin": "직접 작성한 학습용 가상 데이터. 실제 Netflix·기관 통계가 아님.",
-    "columns": [
-      "단계",
-      "환경",
-      "확대된자료",
-      "순서"
-    ],
+    "columns": ["단계", "환경", "확대된자료", "순서"],
     "rows": [
       {
         "단계": "조직 중심",
@@ -3732,33 +2708,15 @@
     "sources": [
       {
         "sourceId": "intro",
-        "pages": [
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12
-        ]
+        "pages": [5, 6, 7, 8, 9, 10, 11, 12]
       }
     ],
     "supplements": [
       {
         "sourceId": "web1",
-        "pages": [
-          3,
-          4
-        ]
+        "pages": [3, 4]
       }
     ],
-    "questionIds": [
-      "C39-Q1",
-      "C39-Q2",
-      "C39-Q3",
-      "C39-Q4",
-      "C39-Q5"
-    ]
+    "questionIds": ["C39-Q1", "C39-Q2", "C39-Q3", "C39-Q4", "C39-Q5"]
   }
 ]
