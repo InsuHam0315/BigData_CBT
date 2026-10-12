@@ -1,0 +1,35 @@
+{
+  "sources": 7,
+  "primary": 4,
+  "supplement": 3,
+  "lessons": 28,
+  "cases": 39,
+  "questions": 195,
+  "numericRulesVerified": 39,
+  "types": {
+    "choice": 117,
+    "numeric": 39,
+    "short": 15,
+    "essay": 24
+  },
+  "skills": {
+    "표 해석": 112,
+    "개념 적용": 16,
+    "코드 읽기": 18,
+    "그래프 해석": 25,
+    "전처리": 9,
+    "모델 결과 해석": 15
+  },
+  "topics": {
+    "A": 25,
+    "B": 15,
+    "C": 25,
+    "D": 15,
+    "E": 10,
+    "F": 30,
+    "G": 45,
+    "H": 30
+  },
+  "mockBlueprints": 3,
+  "status": "PASS"
+}

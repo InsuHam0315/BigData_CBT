@@ -1,0 +1,44 @@
+[
+  {
+    "id": "os",
+    "filename": "빅데이터환경_개요.pdf",
+    "role": "primary",
+    "pages": 63
+  },
+  {
+    "id": "intro",
+    "filename": "2주차_노션.pdf",
+    "role": "primary",
+    "pages": 15
+  },
+  {
+    "id": "infra",
+    "filename": "3주차_노션.pdf",
+    "role": "primary",
+    "pages": 26
+  },
+  {
+    "id": "netflix",
+    "filename": "4주차_넷플릭스_노션.pdf",
+    "role": "primary",
+    "pages": 68
+  },
+  {
+    "id": "web1",
+    "filename": "웹사이트-week-01.pdf",
+    "role": "supplement",
+    "pages": 13
+  },
+  {
+    "id": "web2",
+    "filename": "웹사이트-week-02.pdf",
+    "role": "supplement",
+    "pages": 42
+  },
+  {
+    "id": "web3",
+    "filename": "웹사이트-week-03.pdf",
+    "role": "supplement",
+    "pages": 90
+  }
+]
