@@ -4,6 +4,8 @@
 
 **28개 강의 / 39개 서로 다른 사례 / 195개 직접 작성한 예상 연습문제 / 학습용 모의고사 3개.** 객관식 117, 숫자 39, 짧은 답 15, 서술 자기 평가 24문항입니다. 기본 모의고사 40문항·60분은 조절 가능한 학습 설정이며 실제 시험 규격은 미확정입니다.
 
+**[공개 학습실 바로가기](https://insuham0315.github.io/BigData_CBT/)** — GitHub Pages에 배포되어 휴대폰·다른 컴퓨터에서도 접속할 수 있습니다. 참고한 소웨공 사이트와 같은 `insuham0315.github.io` 서브도메인을 사용합니다. 로그인과 학습 기록은 접속한 브라우저에 저장하며 기기 간 자동 동기화는 없습니다.
+
 ![홈 화면](docs/screenshots/home-dark.jpg)
 
 ## 실행
@@ -72,10 +74,12 @@ python scripts/document_content.py
 
 콘텐츠 원본 작성본은 `scripts/generate_content.py`이고 앱은 `src/content/*.json`을 사용합니다. 콘텐츠 변경 후 생성 → 독립 검산 → `npm run validate` → 테스트/빌드를 수행하세요. 기존 사용자의 참조가 깨지므로 배포된 문제/선지 ID를 임의 변경하지 마세요.
 
-## GitHub Pages 준비
+## GitHub Pages 배포
 
 Vite base는 `/BigData_CBT/`, 라우터는 HashRouter입니다. `#/lessons/H4` 같은 직접 접속/새로고침을 정적 호스팅에서 지원합니다. `.github/workflows/pages.yml`은 **workflow_dispatch만** 사용해 소스 push로 사이트를 게시하지 않습니다.
 
-공개 배포를 따로 결정한 경우 GitHub Settings → Pages → GitHub Actions를 설정하고 Actions에서 작업 브랜치를 선택해 **Publish Pages manually**를 수동 실행하세요. 이번 작업에서는 Pages 워크플로를 실행하지 않았습니다. 원본 PDF·추출/렌더링·환경변수·인증정보·로컬 학습 백업·기존 프로젝트 자료를 저장소/배포 폴더에 포함하지 않습니다.
+2026-10-12 후속 요청에 따라 GitHub Pages를 GitHub Actions 방식으로 활성화하고 **Publish Pages manually**를 실행해 공개 배포했습니다. [배포 실행](https://github.com/InsuHam0315/BigData_CBT/actions/runs/38265693195)의 콘텐츠 검사·테스트·빌드·배포가 성공했으며 HTTPS 실접속과 자산 5개의 로컬 빌드 일치를 확인했습니다. [공개 배포 검증](docs/deployment.md)에 결과를 기록했습니다.
+
+이후 코드 변경을 배포하려면 Actions에서 `codex/bigdata-midterm-cbt` 브랜치를 선택해 **Publish Pages manually**를 수동 실행하세요. 원본 PDF·추출/렌더링·환경변수·인증정보·로컬 학습 백업·기존 프로젝트 자료를 저장소/배포 폴더에 포함하지 않습니다.
 
 검증 화면은 가상 계정·가상 기록만 사용했습니다. 테스트 데이터와 비밀번호는 실사용 인증정보가 아닌 테스트 fixture이며, 브라우저의 계정 DB나 학습 JSON은 커밋하지 않습니다.
