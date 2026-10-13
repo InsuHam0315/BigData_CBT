@@ -1,32 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   ArrowRight,
   Check,
   Flag,
-  Shuffle,
   Timer,
-  TriangleAlert,
 } from "lucide-react";
 import { BookmarkButton, Heading, kindLabel } from "../components/UI";
 import { useStudy } from "../context";
 import {
-  blueprints,
   caseMap,
+  blueprints,
   cases,
   lessonMap,
   questionMap,
-  questions,
   topics,
 } from "../content";
 import type { Attempt, Question, ExamDraft } from "../types";
-import { filters, grade, newDraft, selectQuestions, shuffle } from "../engine";
+import { grade, topicStats } from "../engine";
 import {
   evaluateEssay,
   patchDraft,
   submitDraft,
-  updateProfile,
 } from "../storage";
 import { Materials, Sources } from "../components/Materials";
 export function answerText(q: Question, value: string | undefined) {
@@ -84,319 +80,6 @@ export function Explanation({ q, answer }: { q: Question; answer?: string }) {
       </Link>
       <Sources refs={q.sources} />
     </div>
-  );
-}
-export function QuizStart({ mock = false }: { mock?: boolean }) {
-  const { profile, session, run, setError } = useStudy(),
-    location = useLocation(),
-    navigate = useNavigate();
-  const params = new URLSearchParams(location.search),
-    givenCase = params.get("case"),
-    givenQ = params.get("question");
-  const [topic, setTopic] = useState(""),
-    [difficulty, setDifficulty] = useState(""),
-    [kind, setKind] = useState(""),
-    [count, setCount] = useState(mock ? 40 : 10),
-    [minutes, setMinutes] = useState(60),
-    [onlyBookmarks, setOnlyBookmarks] = useState(
-      params.get("bookmarks") === "1",
-    ),
-    [mix, setMix] = useState(profile.settings.shuffle),
-    [selectedCase, setSelectedCase] = useState(
-      givenCase && caseMap[givenCase] ? givenCase : "",
-    ),
-    [blueprint, setBlueprint] = useState("mock-1"),
-    [starting, setStarting] = useState(false);
-  let pool = filters(questions, topic, difficulty, kind);
-  if (onlyBookmarks) {
-    const ids = profile.bookmarks
-      .filter((b) => b.kind === "question")
-      .map((b) => b.targetId);
-    pool = pool.filter((q) => ids.includes(q.id));
-  }
-  if (selectedCase) pool = pool.filter((q) => q.caseId === selectedCase);
-  if (givenQ) pool = pool.filter((q) => q.id === givenQ);
-  const chosen = blueprints.find((b) => b.id === blueprint)!;
-  const planned = selectQuestions({
-    pool,
-    count: givenQ ? 1 : selectedCase ? 5 : count,
-    random: false,
-    priority: mock ? chosen.caseIds : [],
-  });
-  const start = async (random: boolean) => {
-    if (!pool.length) {
-      setError("조건에 맞는 문제가 없습니다. 필터를 바꿔 주세요.");
-      return;
-    }
-    if (
-      !Number.isInteger(count) ||
-      count < 1 ||
-      count > questions.length ||
-      !Number.isInteger(minutes) ||
-      minutes < 1 ||
-      minutes > 240
-    ) {
-      setError(
-        `문항 수 1~${questions.length}, 시간 1~240분의 정수를 입력하세요.`,
-      );
-      return;
-    }
-    setStarting(true);
-    const ids = selectQuestions({
-      pool,
-      count: givenQ ? 1 : selectedCase ? 5 : count,
-      random: random && !mock,
-      priority: mock ? chosen.caseIds : [],
-    }).ids;
-    const title = mock
-      ? chosen.title
-      : selectedCase
-        ? caseMap[selectedCase].title
-        : onlyBookmarks
-          ? "북마크 연습"
-          : "사례형 연습";
-    const draft = newDraft(
-      session.userId,
-      mock ? "exam" : "practice",
-      title,
-      ids,
-      minutes,
-      mix,
-    );
-    const result = await run(
-      updateProfile(session.userId, (p) => {
-        p.draft = draft;
-      }),
-    );
-    setStarting(false);
-    if (result) navigate("/quiz");
-  };
-  return (
-    <>
-      <Heading
-        eyebrow={mock ? "PRACTICE EXAM" : "CASE-BASED CBT"}
-        title={mock ? "배운 범위를, 한 번에." : "하나의 자료, 여러 가지 판단."}
-        description={
-          mock
-            ? "학습용 모의고사 3개. 기본 40문항·60분은 실제 시험 규격이 아니며 자유롭게 조절할 수 있습니다."
-            : "직접 작성한 예상 연습문제입니다. 연습에서는 문항별 확인 후 해설을 볼 수 있습니다."
-        }
-      />
-      {profile.draft && (
-        <div className="notice resume-banner">
-          <Timer size={18} />
-          <span>
-            진행 중인 {profile.draft.title}가 있습니다. 새로 시작하면 진행 중
-            초안만 교체됩니다.
-          </span>
-          <Link className="button primary" to="/quiz">
-            이어서 풀기
-          </Link>
-        </div>
-      )}
-      {mock && (
-        <div className="blueprint-grid">
-          {blueprints.map((b) => (
-            <button
-              className={`panel blueprint ${blueprint === b.id ? "selected" : ""}`}
-              key={b.id}
-              onClick={() => setBlueprint(b.id)}
-              aria-pressed={blueprint === b.id}
-            >
-              <span className="topic-letter">{b.id.at(-1)}</span>
-              <h2>{b.title}</h2>
-              <p>{b.description}</p>
-              <small>8개 주제의 사례를 우선 배분 · 40문항 기본</small>
-            </button>
-          ))}
-        </div>
-      )}
-      <section className="panel setup">
-        <h2>나에게 맞는 풀이 설정</h2>
-        <div className="filters">
-          <label>
-            주제
-            <select value={topic} onChange={(e) => setTopic(e.target.value)}>
-              <option value="">모든 주제</option>
-              {topics.map((t) => (
-                <option key={t.id} value={t.id}>
-                  {t.id}. {t.title}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            난이도
-            <select
-              value={difficulty}
-              onChange={(e) => setDifficulty(e.target.value)}
-            >
-              <option value="">모든 난이도</option>
-              {["기초", "보통", "심화"].map((d) => (
-                <option key={d}>{d}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            문제 유형
-            <select value={kind} onChange={(e) => setKind(e.target.value)}>
-              <option value="">모든 유형</option>
-              {Object.entries(kindLabel).map(([id, label]) => (
-                <option key={id} value={id}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </label>
-          {!mock && (
-            <label>
-              사례
-              <select
-                value={selectedCase}
-                onChange={(e) => setSelectedCase(e.target.value)}
-              >
-                <option value="">여러 사례</option>
-                {cases.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.id} · {c.title}
-                  </option>
-                ))}
-              </select>
-            </label>
-          )}
-          <label>
-            목표 문항 수
-            <input
-              type="number"
-              min={1}
-              max={questions.length}
-              value={selectedCase ? 5 : givenQ ? 1 : count}
-              disabled={!!selectedCase || !!givenQ}
-              onChange={(e) => setCount(Number(e.target.value))}
-            />
-          </label>
-          {mock && (
-            <label>
-              시간 (분)
-              <input
-                type="number"
-                min={1}
-                max={240}
-                value={minutes}
-                onChange={(e) => setMinutes(Number(e.target.value))}
-              />
-            </label>
-          )}
-        </div>
-        <div className="checks">
-          <label>
-            <input
-              type="checkbox"
-              checked={mix}
-              onChange={(e) => {
-                const value = e.target.checked;
-                setMix(value);
-                void run(
-                  updateProfile(session.userId, (p) => {
-                    p.settings.shuffle = value;
-                  }),
-                );
-              }}
-            />
-            선지 순서 섞기
-          </label>
-          {!mock && (
-            <label>
-              <input
-                type="checkbox"
-                checked={onlyBookmarks}
-                onChange={(e) => setOnlyBookmarks(e.target.checked)}
-              />
-              북마크 문제만
-            </label>
-          )}
-        </div>
-        <div className="plan-summary">
-          <span>
-            가능한 문제 <strong>{pool.length}</strong>개
-          </span>
-          <span>
-            이번 구성 <strong>{planned.ids.length}</strong>문항
-          </span>
-          <span>
-            사례{" "}
-            <strong>
-              {new Set(planned.ids.map((id) => questionMap[id].caseId)).size}
-            </strong>
-            개
-          </span>
-        </div>
-        <p className="muted">
-          공통 자료의 문항 묶음을 유지해 목표 이하로 구성합니다. 필터나 사례
-          묶음 때문에 목표 수보다 적을 수 있으며 문제를 복제하지 않습니다.
-          40문항 기본 구성은 A~H 각 5문항입니다.
-        </p>
-        <div className="actions">
-          <button
-            className="primary"
-            disabled={starting || !pool.length}
-            onClick={() => void start(false)}
-          >
-            {starting
-              ? "준비 중…"
-              : profile.draft
-                ? "새 응시로 교체"
-                : mock
-                  ? "모의고사 시작"
-                  : "고정 순서로 연습"}
-            <ArrowRight size={16} />
-          </button>
-          {!mock && (
-            <button
-              disabled={starting || !pool.length}
-              onClick={() => void start(true)}
-            >
-              <Shuffle size={16} />
-              사례 랜덤으로 연습
-            </button>
-          )}
-        </div>
-        <p className="muted">
-          미응답은 오답으로 채점합니다. 입력한 서술은 제출 후 자기 평가까지 점수
-          확정을 보류합니다.
-        </p>
-      </section>
-      {!pool.length && (
-        <p className="empty">
-          조건에 맞는 문제가 없습니다. 북마크가 없다면 문제 화면에서 먼저 저장해
-          주세요.
-        </p>
-      )}
-      <div className="case-grid">
-        {cases
-          .filter((c) => pool.some((q) => q.caseId === c.id))
-          .map((c) => (
-            <article key={c.id} className="panel case-card">
-              <div>
-                <span className="tag">
-                  {c.topic} · {c.id}
-                </span>
-                <span className="tag">{c.questionIds.length}문항</span>
-              </div>
-              <h3>{c.title}</h3>
-              <p>{c.scenario}</p>
-              <div className="actions compact">
-                <Link className="button" to={`/reading?case=${c.id}`}>
-                  자료 읽기
-                </Link>
-                <Link className="button" to={`/cbt?case=${c.id}`}>
-                  사례별 풀이
-                </Link>
-              </div>
-            </article>
-          ))}
-      </div>
-    </>
   );
 }
 export function Quiz() {
@@ -728,6 +411,8 @@ export function Results() {
       (filter === "wrong" && a.grades[qid] === false) ||
       (filter === "pending" && a.grades[qid] === null),
   );
+  const stats = topicStats([a]);
+  const round = blueprints.find((b) => a.title.startsWith(b.title));
   return (
     <>
       <Heading
@@ -765,9 +450,11 @@ export function Results() {
           내 기록
         </Link>
         <Link className="button primary" to="/cbt">
-          다음 연습
+          종합 회차 선택
         </Link>
+        {round && <Link className="button" to={`${a.mode === "exam" ? "/mock" : "/cbt"}/${round.id}`}>같은 회차 다시 풀기</Link>}
       </div>
+      <section className="panel"><h2>이번 응시의 주제별 결과</h2>{topics.map((t) => <div className="weakness-row" key={t.id}><span>{t.title}</span>{stats[t.id] ? <><b>{stats[t.id].correct}/{stats[t.id].total} 정답</b><Link to={`/lessons?topic=${t.id}`}>강의 복습 →</Link></> : <small>채점된 응답 없음</small>}</div>)}<p className="muted">자기 평가 대기 응답은 평가를 마친 뒤 포함됩니다.</p></section>
       <div className="filters">
         <label>
           결과 보기

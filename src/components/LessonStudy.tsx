@@ -7,11 +7,11 @@ export function LessonPrimer({ lesson }: { lesson: Lesson }) {
   return (
     <section id="start" className="lesson-primer">
       <span className="eyebrow">START HERE</span>
-      <h2>처음 배우는 분께</h2>
+      <h2>이 강의의 핵심</h2>
       <p>{lesson.intro}</p>
       {lesson.prerequisiteIds.length ? (
         <>
-          <h3>먼저 알면 쉬운 개념</h3>
+          <h3>함께 확인할 강의</h3>
           <div className="prerequisite-links">
             {lesson.prerequisiteIds.map((id) => (
               <Link key={id} to={`/lessons/${id}`}>
@@ -20,8 +20,8 @@ export function LessonPrimer({ lesson }: { lesson: Lesson }) {
             ))}
           </div>
         </>
-      ) : <p className="muted">이 강의부터 시작해도 됩니다. 낯선 용어는 아래에서 차례로 설명합니다.</p>}
-      <p className="study-route">개념 읽기 → 표·그래프 풀이 → 코드 입출력 따라가기 → 답을 가리고 자가 점검 → 사례형 CBT</p>
+      ) : null}
+      <p className="study-route">수업 개념·비교 → 코드·도식 해석 → 사례 풀이 → 자가 점검 → 종합 회차 연습</p>
     </section>
   );
 }
@@ -58,7 +58,7 @@ export function WorkedExamples({ lesson }: { lesson: Lesson }) {
                 ))}
               </ul>
               <p className="notice">주의: {calc.commonError} {concept.commonError}</p>
-              <Link className="button primary" to={`/cbt?case=${data.id}`}>이 자료로 5문항 풀기 →</Link>
+              <Link className="button" to={`/practice?case=${data.id}`}>이 자료 확인 문제 →</Link>
             </div>
           </details>
         );
@@ -68,11 +68,12 @@ export function WorkedExamples({ lesson }: { lesson: Lesson }) {
 }
 
 export function LessonLab({ lesson }: { lesson: Lesson }) {
+  if (!lesson.microLab) return null;
   return (
     <section id="lab">
       <span className="eyebrow">INPUT → OUTPUT</span>
-      <h2>작은 입력부터 코드 따라가기</h2>
-      <p>{lesson.microLab.kind} · 아래 코드는 외부 파일 없이 작은 가상 입력을 사용합니다. 출력은 Python에서 실행해 확인했습니다.</p>
+      <h2>수업 코드의 출력 확인</h2>
+      <p>{lesson.microLab.kind} · 노션에 나온 연산을 작은 가상 입력으로 재구성했습니다. 출력은 Python에서 실행해 확인했습니다.</p>
       <p className="muted">먼저 각 변수와 연산 뒤에 남는 값을 예상한 뒤 출력과 비교하세요.</p>
       <Code code={lesson.microLab.code} notes={lesson.microLab.notes} />
       <details className="lab-output">

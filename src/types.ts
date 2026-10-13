@@ -23,7 +23,8 @@ export interface Lesson {
   prerequisiteIds: string[];
   walkthrough: string[];
   workedExamples: { caseId: string; calculationId: string; conceptId: string }[];
-  microLab: { code: string; output: string; notes: string[]; kind: string };
+  microLab?: { code: string; output: string; notes: string[]; kind: string };
+  codeKind: "diagram" | "python";
   selfChecks: { question: string; answer: string; explanation: string }[];
   keyPoints: string[];
   tags: string[];

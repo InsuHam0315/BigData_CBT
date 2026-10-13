@@ -13,7 +13,7 @@ import {
   sourceMap,
   questionMap,
 } from "../src/content";
-import { calculate, selectQuestions } from "../src/engine";
+import { calculate, roundQuestions } from "../src/engine";
 const text = z.string().min(1),
   ids = z.array(text).min(1);
 const ref = z.object({
@@ -37,15 +37,16 @@ const lessonSchema = z.object({
   title: text,
   objectives: ids,
   intro: text,
-  minutes: z.number().int().min(20),
+  minutes: z.number().int().min(15),
   prerequisiteIds: z.array(text),
   walkthrough: z.array(text).min(3),
   workedExamples: z.array(z.object({ caseId: text, calculationId: text, conceptId: text })).min(1),
-  microLab: z.object({ code: text, output: text, notes: z.array(text).min(3), kind: text }),
+  microLab: z.object({ code: text, output: text, notes: z.array(text).min(3), kind: text }).optional(),
+  codeKind: z.enum(["diagram", "python"]),
   selfChecks: z.array(z.object({ question: text, answer: text, explanation: text })).length(3),
   keyPoints: z.array(text).length(3),
-  sections: z.array(z.object({ heading: text, body: ids })).min(6),
-  terms: z.array(z.array(text).length(3)).min(7),
+  sections: z.array(z.object({ heading: text, body: ids })).min(4),
+  terms: z.array(z.array(text).length(3)).min(4),
   code: text,
   codeNotes: ids,
   readOrder: ids,
@@ -136,10 +137,12 @@ for (const l of lessons) {
   checkRefs(l.supplements, "supplement");
   for (const c of l.caseIds) assert.equal(caseMap[c].lessonId, l.id);
   assert(
-    l.sections.flatMap((s) => s.body).join("").length > 1800,
-    `${l.id}: complete beginner explanation`,
+    l.sections.flatMap((s) => s.body).join("").length > 900,
+    `${l.id}: complete source-aligned explanation`,
   );
   assert.equal(new Set(l.sections.map((s) => s.heading)).size, l.sections.length);
+  assert.equal(l.codeKind, "ABCD".includes(l.topic) ? "diagram" : "python");
+  assert.equal(!!l.microLab, ["E2", "F1", "F2", "F3", "H3", "H4"].includes(l.id));
   for (const prior of l.prerequisiteIds) {
     assert(lessonMap[prior], `${l.id}: prerequisite exists`);
     assert(lessons.indexOf(lessonMap[prior]) < lessons.indexOf(l), `${l.id}: prerequisite is earlier, preventing cycles`);
@@ -196,18 +199,17 @@ for (const q of questions) {
 }
 for (const b of blueprints) {
   assert(b.caseIds.every((id) => caseMap[id]));
-  const result = selectQuestions({
-    count: b.defaultCount,
-    random: false,
-    priority: b.caseIds,
-  });
-  assert.equal(result.ids.length, 40);
+  const ids = roundQuestions(b);
+  assert.equal(new Set(b.caseIds).size, b.caseIds.length);
+  assert.equal(ids.length, b.defaultCount);
+  assert.equal(new Set(ids).size, ids.length);
+  assert.equal(b.defaultCount, 50);
   for (const t of topics)
-    assert.equal(
-      result.ids.filter((id) => questionMap[id].topic === t.id).length,
-      5,
-    );
+    assert(ids.some((id) => questionMap[id].topic === t.id));
 }
+assert.equal(blueprints.length, 5);
+assert.equal(new Set(blueprints.flatMap((b) => b.caseIds)).size, cases.length);
+assert.equal(new Set(blueprints.flatMap(roundQuestions)).size, questions.length);
 assert.equal(sources.filter((s) => s.role === "primary").length, 4);
 assert.equal(sources.filter((s) => s.role === "supplement").length, 3);
 assert(cases.length >= 30 && cases.length <= 40);
@@ -231,14 +233,15 @@ const report = {
   lessonSections: lessons.reduce((total, l) => total + l.sections.length, 0),
   workedExamples: lessons.reduce((total, l) => total + l.workedExamples.length, 0),
   selfChecks: lessons.reduce((total, l) => total + l.selfChecks.length, 0),
-  executableLabs: lessons.length,
+  executableLabs: lessons.filter((l) => l.microLab).length,
   cases: cases.length,
   questions: questions.length,
   numericRulesVerified: numeric,
   types: by("kind"),
   skills: by("skill"),
   topics: by("topic"),
-  mockBlueprints: 3,
+  mockBlueprints: blueprints.length,
+  fixedRoundQuestions: blueprints.map((b) => ({id: b.id, count: roundQuestions(b).length, cases: b.caseIds.length})),
   status: "PASS",
 };
 writeFileSync(

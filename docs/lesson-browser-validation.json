@@ -1,463 +1,1728 @@
 {
-  "desktop": [
+  "toggles": [
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "소프트웨어 스택과 OS의 역할",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/A1"
+      "label": "홈 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "프로그램, 프로세스, PCB와 시분할",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/A2"
+      "label": "강의실 세부 페이지 접기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "메모리 관리와 가상 메모리",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/A3"
+      "label": "데이터 읽기 연습 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "파일·디렉터리·블록·빈 공간",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/A4"
+      "label": "사례형 CBT 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "Linux·오픈소스·배포판",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/A5"
+      "label": "모의고사 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "빅데이터 정의와 5V",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/B1"
+      "label": "오답노트 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "활용 사례와 발전 과정",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/B2"
+      "label": "학습기록 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "정형·반정형·비정형, 시계열·공간",
-      "lab": true,
-      "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/B3"
+      "label": "시험 직전 정리 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "분산 인프라·클라우드·엣지",
-      "lab": true,
+      "label": "계정·백업 세부 페이지 펼치기",
+      "keyboard": true,
+      "changed": true,
+      "restored": true
+    }
+  ],
+  "pages": [
+    {
+      "route": "#/",
+      "active": "#/",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/C1"
+      "sections": 0,
+      "title": "수업의 핵심부터,표와 코드로 풀어가는 중간고사."
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "크롤링·API·센서·ETL/ELT",
-      "lab": true,
+      "route": "#/guide",
+      "active": "#/guide",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/C2"
+      "sections": 0,
+      "title": "수업 자료에서 종합 문제까지."
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "스트리밍·윈도우·중복 처리",
-      "lab": true,
+      "route": "#/lessons",
+      "active": "#/lessons",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/C3"
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "HDFS: 블록, 복제, 메타데이터",
-      "lab": true,
+      "route": "#/lessons?topic=A",
+      "active": "#/lessons?topic=A",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/C4"
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "NoSQL 모델·오브젝트 스토리지·레이크",
-      "lab": true,
+      "route": "#/lessons/A1",
+      "active": "#/lessons/A1",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/C5"
+      "sections": 4,
+      "title": "소프트웨어 스택과 OS의 역할"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "정제: 결측·중복·이상값·표준화",
-      "lab": true,
+      "route": "#/lessons/A2",
+      "active": "#/lessons/A2",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/D1"
+      "sections": 4,
+      "title": "프로그램, 프로세스, PCB와 시분할"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "프로파일링·검증 규칙·메타데이터",
-      "lab": true,
+      "route": "#/lessons/A3",
+      "active": "#/lessons/A3",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/D2"
+      "sections": 4,
+      "title": "메모리 관리와 가상 메모리"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "거버넌스·프라이버시·접근 제어",
-      "lab": true,
+      "route": "#/lessons/A4",
+      "active": "#/lessons/A4",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/D3"
+      "sections": 4,
+      "title": "파일·디렉터리·블록·빈 공간"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "분석 질문, 데이터 사전과 프로세스",
-      "lab": true,
+      "route": "#/lessons/A5",
+      "active": "#/lessons/A5",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/E1"
+      "sections": 4,
+      "title": "Linux·오픈소스·배포판"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "분석 환경·원본 보존·재현성",
-      "lab": true,
+      "route": "#/lessons?topic=B",
+      "active": "#/lessons?topic=B",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/E2"
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
     },
     {
-      "checks": 3,
-      "examples": 2,
-      "h1": "넷플릭스 결측 처리와 유효 N",
-      "lab": true,
+      "route": "#/lessons/B1",
+      "active": "#/lessons/B1",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/F1"
+      "sections": 4,
+      "title": "빅데이터 정의와 5V"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "문자열·날짜·분과 시즌 변환",
-      "lab": true,
+      "route": "#/lessons/B2",
+      "active": "#/lessons/B2",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/F2"
+      "sections": 4,
+      "title": "활용 사례와 발전 과정"
     },
     {
-      "checks": 3,
-      "examples": 3,
-      "h1": "describe·집계·explode·교차표",
-      "lab": true,
+      "route": "#/lessons/B3",
+      "active": "#/lessons/B3",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/F3"
+      "sections": 4,
+      "title": "정형·반정형·비정형, 시계열·공간"
     },
     {
-      "checks": 3,
-      "examples": 3,
-      "h1": "막대·히스토그램·박스플롯",
-      "lab": true,
+      "route": "#/lessons?topic=C",
+      "active": "#/lessons?topic=C",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/G1"
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
     },
     {
-      "checks": 3,
-      "examples": 3,
-      "h1": "등록 추이·산점도·이중 축",
-      "lab": true,
+      "route": "#/lessons/C1",
+      "active": "#/lessons/C1",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/G2"
+      "sections": 4,
+      "title": "분산 인프라·클라우드·엣지"
     },
     {
-      "checks": 3,
-      "examples": 3,
-      "h1": "교차표·히트맵·분모 비교",
-      "lab": true,
+      "route": "#/lessons/C2",
+      "active": "#/lessons/C2",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/G3"
+      "sections": 4,
+      "title": "크롤링·API·센서·ETL/ELT"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "감독·배우 네트워크와 중심성",
-      "lab": true,
+      "route": "#/lessons/C3",
+      "active": "#/lessons/C3",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/H1"
+      "sections": 4,
+      "title": "스트리밍·윈도우·중복 처리"
     },
     {
-      "checks": 3,
-      "examples": 1,
-      "h1": "텍스트 전처리와 워드클라우드",
-      "lab": true,
+      "route": "#/lessons/C4",
+      "active": "#/lessons/C4",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/H2"
+      "sections": 4,
+      "title": "HDFS: 블록, 복제, 메타데이터"
     },
     {
-      "checks": 3,
-      "examples": 2,
-      "h1": "TF-IDF·콘텐츠 추천·협업 필터링",
-      "lab": true,
+      "route": "#/lessons/C5",
+      "active": "#/lessons/C5",
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/H3"
+      "sections": 4,
+      "title": "NoSQL 모델·오브젝트 스토리지·레이크"
     },
     {
-      "checks": 3,
-      "examples": 2,
-      "h1": "회귀·Ridge·학습/테스트·MAE",
+      "route": "#/lessons?topic=D",
+      "active": "#/lessons?topic=D",
+      "overflow": false,
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
+    },
+    {
+      "route": "#/lessons/D1",
+      "active": "#/lessons/D1",
+      "overflow": false,
+      "sections": 4,
+      "title": "정제: 결측·중복·이상값·표준화"
+    },
+    {
+      "route": "#/lessons/D2",
+      "active": "#/lessons/D2",
+      "overflow": false,
+      "sections": 4,
+      "title": "프로파일링·검증 규칙·메타데이터"
+    },
+    {
+      "route": "#/lessons/D3",
+      "active": "#/lessons/D3",
+      "overflow": false,
+      "sections": 4,
+      "title": "거버넌스·프라이버시·접근 제어"
+    },
+    {
+      "route": "#/lessons?topic=E",
+      "active": "#/lessons?topic=E",
+      "overflow": false,
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
+    },
+    {
+      "route": "#/lessons/E1",
+      "active": "#/lessons/E1",
+      "overflow": false,
+      "sections": 4,
+      "title": "분석 질문, 데이터 사전과 프로세스"
+    },
+    {
+      "route": "#/lessons/E2",
+      "active": "#/lessons/E2",
+      "overflow": false,
+      "sections": 4,
+      "title": "분석 환경·원본 보존·재현성"
+    },
+    {
+      "route": "#/lessons?topic=F",
+      "active": "#/lessons?topic=F",
+      "overflow": false,
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
+    },
+    {
+      "route": "#/lessons/F1",
+      "active": "#/lessons/F1",
+      "overflow": false,
+      "sections": 4,
+      "title": "넷플릭스 결측 처리와 유효 N"
+    },
+    {
+      "route": "#/lessons/F2",
+      "active": "#/lessons/F2",
+      "overflow": false,
+      "sections": 4,
+      "title": "문자열·날짜·분과 시즌 변환"
+    },
+    {
+      "route": "#/lessons/F3",
+      "active": "#/lessons/F3",
+      "overflow": false,
+      "sections": 4,
+      "title": "describe·집계·explode·교차표"
+    },
+    {
+      "route": "#/lessons?topic=G",
+      "active": "#/lessons?topic=G",
+      "overflow": false,
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
+    },
+    {
+      "route": "#/lessons/G1",
+      "active": "#/lessons/G1",
+      "overflow": false,
+      "sections": 4,
+      "title": "막대·히스토그램·박스플롯"
+    },
+    {
+      "route": "#/lessons/G2",
+      "active": "#/lessons/G2",
+      "overflow": false,
+      "sections": 4,
+      "title": "등록 추이·산점도·이중 축"
+    },
+    {
+      "route": "#/lessons/G3",
+      "active": "#/lessons/G3",
+      "overflow": false,
+      "sections": 4,
+      "title": "교차표·히트맵·분모 비교"
+    },
+    {
+      "route": "#/lessons?topic=H",
+      "active": "#/lessons?topic=H",
+      "overflow": false,
+      "sections": 0,
+      "title": "노션 수업 자료, 핵심부터."
+    },
+    {
+      "route": "#/lessons/H1",
+      "active": "#/lessons/H1",
+      "overflow": false,
+      "sections": 4,
+      "title": "감독·배우 네트워크와 중심성"
+    },
+    {
+      "route": "#/lessons/H2",
+      "active": "#/lessons/H2",
+      "overflow": false,
+      "sections": 4,
+      "title": "텍스트 전처리와 워드클라우드"
+    },
+    {
+      "route": "#/lessons/H3",
+      "active": "#/lessons/H3",
+      "overflow": false,
+      "sections": 4,
+      "title": "TF-IDF·콘텐츠 추천·협업 필터링"
+    },
+    {
+      "route": "#/lessons/H4",
+      "active": "#/lessons/H4",
+      "overflow": false,
+      "sections": 4,
+      "title": "회귀·Ridge·학습/테스트·MAE"
+    },
+    {
+      "route": "#/reading",
+      "active": "#/reading",
+      "overflow": false,
+      "sections": 0,
+      "title": "자료를 읽고, 근거를 찾기."
+    },
+    {
+      "route": "#/reading?kind=table",
+      "active": "#/reading?kind=table",
+      "overflow": false,
+      "sections": 0,
+      "title": "표 중심 자료 읽기"
+    },
+    {
+      "route": "#/reading?kind=graph",
+      "active": "#/reading?kind=graph",
+      "overflow": false,
+      "sections": 0,
+      "title": "그래프 자료 읽기"
+    },
+    {
+      "route": "#/reading?kind=code",
+      "active": "#/reading?kind=code",
+      "overflow": false,
+      "sections": 0,
+      "title": "코드 자료 읽기"
+    },
+    {
+      "route": "#/reading?case=C01",
+      "active": "#/reading?case=C01",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C02",
+      "active": "#/reading?case=C02",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C03",
+      "active": "#/reading?case=C03",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C04",
+      "active": "#/reading?case=C04",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C05",
+      "active": "#/reading?case=C05",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C06",
+      "active": "#/reading?case=C06",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C07",
+      "active": "#/reading?case=C07",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C08",
+      "active": "#/reading?case=C08",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C09",
+      "active": "#/reading?case=C09",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C10",
+      "active": "#/reading?case=C10",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C11",
+      "active": "#/reading?case=C11",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C12",
+      "active": "#/reading?case=C12",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C13",
+      "active": "#/reading?case=C13",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C14",
+      "active": "#/reading?case=C14",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C15",
+      "active": "#/reading?case=C15",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C16",
+      "active": "#/reading?case=C16",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C17",
+      "active": "#/reading?case=C17",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C18",
+      "active": "#/reading?case=C18",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C19",
+      "active": "#/reading?case=C19",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C20",
+      "active": "#/reading?case=C20",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C21",
+      "active": "#/reading?case=C21",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C22",
+      "active": "#/reading?case=C22",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C23",
+      "active": "#/reading?case=C23",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C24",
+      "active": "#/reading?case=C24",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C25",
+      "active": "#/reading?case=C25",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C26",
+      "active": "#/reading?case=C26",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C27",
+      "active": "#/reading?case=C27",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C28",
+      "active": "#/reading?case=C28",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C29",
+      "active": "#/reading?case=C29",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C30",
+      "active": "#/reading?case=C30",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C31",
+      "active": "#/reading?case=C31",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C32",
+      "active": "#/reading?case=C32",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C33",
+      "active": "#/reading?case=C33",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C34",
+      "active": "#/reading?case=C34",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C35",
+      "active": "#/reading?case=C35",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C36",
+      "active": "#/reading?case=C36",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C37",
+      "active": "#/reading?case=C37",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C38",
+      "active": "#/reading?case=C38",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/reading?case=C39",
+      "active": "#/reading?case=C39",
+      "overflow": false,
+      "sections": 0,
+      "title": "데이터가 말하는 만큼만."
+    },
+    {
+      "route": "#/cbt",
+      "active": "#/cbt",
+      "overflow": false,
+      "sections": 0,
+      "title": "회차별 종합문제 연습"
+    },
+    {
+      "route": "#/cbt/mock-1",
+      "active": "#/cbt/mock-1",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 1회차"
+    },
+    {
+      "route": "#/cbt/mock-2",
+      "active": "#/cbt/mock-2",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 2회차"
+    },
+    {
+      "route": "#/cbt/mock-3",
+      "active": "#/cbt/mock-3",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 3회차"
+    },
+    {
+      "route": "#/cbt/mock-4",
+      "active": "#/cbt/mock-4",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 4회차"
+    },
+    {
+      "route": "#/cbt/mock-5",
+      "active": "#/cbt/mock-5",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 5회차"
+    },
+    {
+      "route": "#/mock",
+      "active": "#/mock",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사"
+    },
+    {
+      "route": "#/mock/mock-1",
+      "active": "#/mock/mock-1",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 1회차"
+    },
+    {
+      "route": "#/mock/mock-2",
+      "active": "#/mock/mock-2",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 2회차"
+    },
+    {
+      "route": "#/mock/mock-3",
+      "active": "#/mock/mock-3",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 3회차"
+    },
+    {
+      "route": "#/mock/mock-4",
+      "active": "#/mock/mock-4",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 4회차"
+    },
+    {
+      "route": "#/mock/mock-5",
+      "active": "#/mock/mock-5",
+      "overflow": false,
+      "sections": 0,
+      "title": "종합모의고사 5회차"
+    },
+    {
+      "route": "#/wrong",
+      "active": "#/wrong",
+      "overflow": false,
+      "sections": 0,
+      "title": "복습할 오답"
+    },
+    {
+      "route": "#/wrong?view=all",
+      "active": "#/wrong?view=all",
+      "overflow": false,
+      "sections": 0,
+      "title": "모든 오답"
+    },
+    {
+      "route": "#/wrong?view=resolved",
+      "active": "#/wrong?view=resolved",
+      "overflow": false,
+      "sections": 0,
+      "title": "해결한 오답"
+    },
+    {
+      "route": "#/wrong?view=repeat",
+      "active": "#/wrong?view=repeat",
+      "overflow": false,
+      "sections": 0,
+      "title": "반복해서 틀린 문제"
+    },
+    {
+      "route": "#/practice?wrong=1",
+      "active": "#/practice?wrong=1",
+      "overflow": false,
+      "sections": 0,
+      "title": "오답 다시 풀기"
+    },
+    {
+      "route": "#/records",
+      "active": "#/records",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 학습기록"
+    },
+    {
+      "route": "#/records?view=progress",
+      "active": "#/records?view=progress",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 강의별 진도"
+    },
+    {
+      "route": "#/records?view=attempts",
+      "active": "#/records?view=attempts",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 응시 이력·점수"
+    },
+    {
+      "route": "#/records?view=weakness",
+      "active": "#/records?view=weakness",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 취약점 분석"
+    },
+    {
+      "route": "#/records?view=bookmarks",
+      "active": "#/records?view=bookmarks",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 내 북마크"
+    },
+    {
+      "route": "#/review",
+      "active": "#/review",
+      "overflow": false,
+      "sections": 0,
+      "title": "시험 직전, 기준을 다시 확인."
+    },
+    {
+      "route": "#/review?topic=A",
+      "active": "#/review?topic=A",
+      "overflow": false,
+      "sections": 0,
+      "title": "시스템 소프트웨어와 운영체제 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=B",
+      "active": "#/review?topic=B",
+      "overflow": false,
+      "sections": 0,
+      "title": "빅데이터 개론 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=C",
+      "active": "#/review?topic=C",
+      "overflow": false,
+      "sections": 0,
+      "title": "인프라·수집·저장 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=D",
+      "active": "#/review?topic=D",
+      "overflow": false,
+      "sections": 0,
+      "title": "품질·거버넌스·보안 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=E",
+      "active": "#/review?topic=E",
+      "overflow": false,
+      "sections": 0,
+      "title": "분석 기초와 환경 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=F",
+      "active": "#/review?topic=F",
+      "overflow": false,
+      "sections": 0,
+      "title": "전처리와 EDA · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=G",
+      "active": "#/review?topic=G",
+      "overflow": false,
+      "sections": 0,
+      "title": "표·그래프 해석 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?topic=H",
+      "active": "#/review?topic=H",
+      "overflow": false,
+      "sections": 0,
+      "title": "넷플릭스 심화 분석 · 시험 직전 정리"
+    },
+    {
+      "route": "#/review?view=checklist",
+      "active": "#/review?view=checklist",
+      "overflow": false,
+      "sections": 0,
+      "title": "자료 해석 체크리스트"
+    },
+    {
+      "route": "#/account",
+      "active": "#/account",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 로컬 계정"
+    },
+    {
+      "route": "#/account?view=register",
+      "active": "#/account?view=register",
+      "overflow": false,
+      "sections": 0,
+      "title": "개편 검증의 로컬 계정"
+    },
+    {
+      "route": "#/account?view=backup",
+      "active": "#/account?view=backup",
+      "overflow": false,
+      "sections": 0,
+      "title": "학습 기록 백업·복원"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "A1",
+      "heading": "소프트웨어 스택과 OS의 역할",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "A2",
+      "heading": "프로그램, 프로세스, PCB와 시분할",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "A3",
+      "heading": "메모리 관리와 가상 메모리",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "A4",
+      "heading": "파일·디렉터리·블록·빈 공간",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "A5",
+      "heading": "Linux·오픈소스·배포판",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "B1",
+      "heading": "빅데이터 정의와 5V",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "B2",
+      "heading": "활용 사례와 발전 과정",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "B3",
+      "heading": "정형·반정형·비정형, 시계열·공간",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "C1",
+      "heading": "분산 인프라·클라우드·엣지",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "C2",
+      "heading": "크롤링·API·센서·ETL/ELT",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "C3",
+      "heading": "스트리밍·윈도우·중복 처리",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "C4",
+      "heading": "HDFS: 블록, 복제, 메타데이터",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "C5",
+      "heading": "NoSQL 모델·오브젝트 스토리지·레이크",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "D1",
+      "heading": "정제: 결측·중복·이상값·표준화",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "D2",
+      "heading": "프로파일링·검증 규칙·메타데이터",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "D3",
+      "heading": "거버넌스·프라이버시·접근 제어",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "E1",
+      "heading": "분석 질문, 데이터 사전과 프로세스",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "E2",
+      "heading": "분석 환경·원본 보존·재현성",
       "lab": true,
       "overflow": false,
-      "sections": 6,
-      "url": "#/lessons/H4"
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "F1",
+      "heading": "넷플릭스 결측 처리와 유효 N",
+      "lab": true,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "F2",
+      "heading": "문자열·날짜·분과 시즌 변환",
+      "lab": true,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "F3",
+      "heading": "describe·집계·explode·교차표",
+      "lab": true,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "G1",
+      "heading": "막대·히스토그램·박스플롯",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "G2",
+      "heading": "등록 추이·산점도·이중 축",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "G3",
+      "heading": "교차표·히트맵·분모 비교",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "H1",
+      "heading": "감독·배우 네트워크와 중심성",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "H2",
+      "heading": "텍스트 전처리와 워드클라우드",
+      "lab": false,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "H3",
+      "heading": "TF-IDF·콘텐츠 추천·협업 필터링",
+      "lab": true,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
+    },
+    {
+      "id": "H4",
+      "heading": "회귀·Ridge·학습/테스트·MAE",
+      "lab": true,
+      "overflow": false,
+      "sections": 4,
+      "selfChecks": 3
     }
   ],
   "mobile": [
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/A1",
-      "width": 390
+      "route": "#/",
+      "heading": "수업의 핵심부터,표와 코드로 풀어가는 중간고사.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/A2",
-      "width": 390
+      "route": "#/guide",
+      "heading": "수업 자료에서 종합 문제까지.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/A3",
-      "width": 390
+      "route": "#/lessons",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/A4",
-      "width": 390
+      "route": "#/lessons?topic=A",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/A5",
-      "width": 390
+      "route": "#/lessons/A1",
+      "heading": "소프트웨어 스택과 OS의 역할",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/B1",
-      "width": 390
+      "route": "#/lessons/A2",
+      "heading": "프로그램, 프로세스, PCB와 시분할",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/B2",
-      "width": 390
+      "route": "#/lessons/A3",
+      "heading": "메모리 관리와 가상 메모리",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/B3",
-      "width": 390
+      "route": "#/lessons/A4",
+      "heading": "파일·디렉터리·블록·빈 공간",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/C1",
-      "width": 390
+      "route": "#/lessons/A5",
+      "heading": "Linux·오픈소스·배포판",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/C2",
-      "width": 390
+      "route": "#/lessons?topic=B",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/C3",
-      "width": 390
+      "route": "#/lessons/B1",
+      "heading": "빅데이터 정의와 5V",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/C4",
-      "width": 390
+      "route": "#/lessons/B2",
+      "heading": "활용 사례와 발전 과정",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/C5",
-      "width": 390
+      "route": "#/lessons/B3",
+      "heading": "정형·반정형·비정형, 시계열·공간",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/D1",
-      "width": 390
+      "route": "#/lessons?topic=C",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/D2",
-      "width": 390
+      "route": "#/lessons/C1",
+      "heading": "분산 인프라·클라우드·엣지",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/D3",
-      "width": 390
+      "route": "#/lessons/C2",
+      "heading": "크롤링·API·센서·ETL/ELT",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/E1",
-      "width": 390
+      "route": "#/lessons/C3",
+      "heading": "스트리밍·윈도우·중복 처리",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/E2",
-      "width": 390
+      "route": "#/lessons/C4",
+      "heading": "HDFS: 블록, 복제, 메타데이터",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/F1",
-      "width": 390
+      "route": "#/lessons/C5",
+      "heading": "NoSQL 모델·오브젝트 스토리지·레이크",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/F2",
-      "width": 390
+      "route": "#/lessons?topic=D",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/F3",
-      "width": 390
+      "route": "#/lessons/D1",
+      "heading": "정제: 결측·중복·이상값·표준화",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/G1",
-      "width": 390
+      "route": "#/lessons/D2",
+      "heading": "프로파일링·검증 규칙·메타데이터",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/G2",
-      "width": 390
+      "route": "#/lessons/D3",
+      "heading": "거버넌스·프라이버시·접근 제어",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/G3",
-      "width": 390
+      "route": "#/lessons?topic=E",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/H1",
-      "width": 390
+      "route": "#/lessons/E1",
+      "heading": "분석 질문, 데이터 사전과 프로세스",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/H2",
-      "width": 390
+      "route": "#/lessons/E2",
+      "heading": "분석 환경·원본 보존·재현성",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/H3",
-      "width": 390
+      "route": "#/lessons?topic=F",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
     },
     {
-      "checks": 3,
-      "mobileToc": "block",
-      "overflow": false,
-      "url": "#/lessons/H4",
-      "width": 390
+      "route": "#/lessons/F1",
+      "heading": "넷플릭스 결측 처리와 유효 N",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/F2",
+      "heading": "문자열·날짜·분과 시즌 변환",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/F3",
+      "heading": "describe·집계·explode·교차표",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons?topic=G",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/G1",
+      "heading": "막대·히스토그램·박스플롯",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/G2",
+      "heading": "등록 추이·산점도·이중 축",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/G3",
+      "heading": "교차표·히트맵·분모 비교",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons?topic=H",
+      "heading": "노션 수업 자료, 핵심부터.",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/H1",
+      "heading": "감독·배우 네트워크와 중심성",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/H2",
+      "heading": "텍스트 전처리와 워드클라우드",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/H3",
+      "heading": "TF-IDF·콘텐츠 추천·협업 필터링",
+      "overflow": false
+    },
+    {
+      "route": "#/lessons/H4",
+      "heading": "회귀·Ridge·학습/테스트·MAE",
+      "overflow": false
+    },
+    {
+      "route": "#/reading",
+      "heading": "자료를 읽고, 근거를 찾기.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?kind=table",
+      "heading": "표 중심 자료 읽기",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?kind=graph",
+      "heading": "그래프 자료 읽기",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?kind=code",
+      "heading": "코드 자료 읽기",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C01",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C02",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C03",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C04",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C05",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C06",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C07",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C08",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C09",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C10",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C11",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C12",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C13",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C14",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C15",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C16",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C17",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C18",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C19",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C20",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C21",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C22",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C23",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C24",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C25",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C26",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C27",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C28",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C29",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C30",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C31",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C32",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C33",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C34",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C35",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C36",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C37",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C38",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/reading?case=C39",
+      "heading": "데이터가 말하는 만큼만.",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt",
+      "heading": "회차별 종합문제 연습",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt/mock-1",
+      "heading": "종합모의고사 1회차",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt/mock-2",
+      "heading": "종합모의고사 2회차",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt/mock-3",
+      "heading": "종합모의고사 3회차",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt/mock-4",
+      "heading": "종합모의고사 4회차",
+      "overflow": false
+    },
+    {
+      "route": "#/cbt/mock-5",
+      "heading": "종합모의고사 5회차",
+      "overflow": false
+    },
+    {
+      "route": "#/mock",
+      "heading": "종합모의고사",
+      "overflow": false
+    },
+    {
+      "route": "#/mock/mock-1",
+      "heading": "종합모의고사 1회차",
+      "overflow": false
+    },
+    {
+      "route": "#/mock/mock-2",
+      "heading": "종합모의고사 2회차",
+      "overflow": false
+    },
+    {
+      "route": "#/mock/mock-3",
+      "heading": "종합모의고사 3회차",
+      "overflow": false
+    },
+    {
+      "route": "#/mock/mock-4",
+      "heading": "종합모의고사 4회차",
+      "overflow": false
+    },
+    {
+      "route": "#/mock/mock-5",
+      "heading": "종합모의고사 5회차",
+      "overflow": false
+    },
+    {
+      "route": "#/wrong",
+      "heading": "복습할 오답",
+      "overflow": false
+    },
+    {
+      "route": "#/wrong?view=all",
+      "heading": "모든 오답",
+      "overflow": false
+    },
+    {
+      "route": "#/wrong?view=resolved",
+      "heading": "해결한 오답",
+      "overflow": false
+    },
+    {
+      "route": "#/wrong?view=repeat",
+      "heading": "반복해서 틀린 문제",
+      "overflow": false
+    },
+    {
+      "route": "#/practice?wrong=1",
+      "heading": "오답 다시 풀기",
+      "overflow": false
+    },
+    {
+      "route": "#/records",
+      "heading": "개편 검증의 학습기록",
+      "overflow": false
+    },
+    {
+      "route": "#/records?view=progress",
+      "heading": "개편 검증의 강의별 진도",
+      "overflow": false
+    },
+    {
+      "route": "#/records?view=attempts",
+      "heading": "개편 검증의 응시 이력·점수",
+      "overflow": false
+    },
+    {
+      "route": "#/records?view=weakness",
+      "heading": "개편 검증의 취약점 분석",
+      "overflow": false
+    },
+    {
+      "route": "#/records?view=bookmarks",
+      "heading": "개편 검증의 내 북마크",
+      "overflow": false
+    },
+    {
+      "route": "#/review",
+      "heading": "시험 직전, 기준을 다시 확인.",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=A",
+      "heading": "시스템 소프트웨어와 운영체제 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=B",
+      "heading": "빅데이터 개론 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=C",
+      "heading": "인프라·수집·저장 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=D",
+      "heading": "품질·거버넌스·보안 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=E",
+      "heading": "분석 기초와 환경 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=F",
+      "heading": "전처리와 EDA · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=G",
+      "heading": "표·그래프 해석 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?topic=H",
+      "heading": "넷플릭스 심화 분석 · 시험 직전 정리",
+      "overflow": false
+    },
+    {
+      "route": "#/review?view=checklist",
+      "heading": "자료 해석 체크리스트",
+      "overflow": false
+    },
+    {
+      "route": "#/account",
+      "heading": "개편 검증의 로컬 계정",
+      "overflow": false
+    },
+    {
+      "route": "#/account?view=register",
+      "heading": "개편 검증의 로컬 계정",
+      "overflow": false
+    },
+    {
+      "route": "#/account?view=backup",
+      "heading": "학습 기록 백업·복원",
+      "overflow": false
     }
   ],
-  "interactions": [
-    "H4 keyboard self-check reveal",
-    "H4 Ridge lab output reveal",
-    "H4 → H3 prerequisite link",
-    "H3 mobile table expansion",
-    "H3 mobile TOC and output reveal",
-    "F3 light/dark theme toggle",
-    "C4 long reference URL wraps without page overflow after repair"
-  ]
+  "quiz": {
+    "practiceQuestions": 50,
+    "practiceAnswerRestored": "30",
+    "nextCaseAt6": "C10-Q1",
+    "practiceSubmitted": true,
+    "examQuestions": 50,
+    "examAnswersHidden": true,
+    "examReload": true,
+    "examSubmitted": true
+  },
+  "records": {
+    "resolvedNote": 1,
+    "progressRows": 28,
+    "completedLessons": 1,
+    "questionBookmark": "C24-Q1",
+    "attempts": 2,
+    "mobileEscape": true,
+    "mobileQueryClose": true
+  },
+  "lessonControls": {
+    "labOutputKeyboard": true,
+    "selfCheckKeyboard": true
+  },
+  "date": "2026-10-13",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 900
+    }
+  ],
+  "consoleErrors": [],
+  "scope": "Source-focused course, five comprehensive rounds, all nine menu groups; fictional local profile only"
 }

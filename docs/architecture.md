@@ -18,3 +18,11 @@
 자료 표/차트/해설은 case ID로 같은 콘텐츠를 읽는다. 숫자 규칙은 조건 필터·집계·셀/행 합·비율·단위 배수·고유/공통 관측·블록·중심성·MAE를 지원하며 정답을 숫자 상수만으로 재현하지 않는다. 별도 Pandas 식이 원시 문자열의 split/explode와 집계 표의 수치 일관성도 검산한다.
 
 기술 검증 기준: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), [PBKDF2 deriveBits](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveBits). 네트워크 요청으로 비밀번호·학습 기록을 전송하는 코드가 없으며 폰트도 로컬 시스템 폰트를 사용한다.
+
+## 종합 회차와 세부 메뉴
+
+`SidebarNav.tsx`는 9개 메뉴 그룹을 독립적으로 펼친다. 부모 링크는 기본 화면으로 이동하고 화살표 버튼은 `aria-expanded`/`aria-controls`로 하위 항목만 토글한다. 현재 경로·쿼리에 맞는 하위 항목을 표시하고 활성 그룹을 자동으로 연다. 메뉴 영역만 스크롤하며 진도·프로필 영역은 고정한다. 모바일은 배경 클릭·Escape·하위 페이지 이동으로 닫힌다.
+
+`QuizStart.tsx`의 `/cbt/:roundId`·`/mock/:roundId`는 5개 청사진의 고정 사례 순서를 `roundQuestions`로 문항 ID에 매핑한다. 단원별 선택·무작위 문제 추출은 종합 출제에 사용하지 않는다. 선지만 섞을 수 있으며 시작 시 저장한다. `/practice`는 강의·자료·오답·북마크에서 연결한 개별 복습이다. 기존 `/cbt?case=...` 링크는 이 화면으로 연결한다.
+
+`RecordViews.tsx`는 진도·응시·취약점·북마크를 쿼리별 화면으로 나눈다. 오답의 미해결/전체/해결/반복 보기와 계정의 로그인/가입/백업 보기 역시 실제 필터·기능을 제공한다. 저장 스키마와 기존 콘텐츠 ID는 유지한다.

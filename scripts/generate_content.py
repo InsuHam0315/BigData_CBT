@@ -508,15 +508,11 @@ notes={
  'C37':['학습 데이터에서 어휘·IDF를 학습한다.','같은 어휘·IDF로 테스트 데이터를 변환한다.','모델도 학습 데이터와 정답으로만 fit한다.']}
 for c in cases:c['codeNotes']=notes.get(c['id'],[])
 blueprints=[]
-for n,title,desc in [(1,'모의고사 1 · 범위 한 바퀴','각 주제의 첫 대표 사례를 고르게 선택한다.'),(2,'모의고사 2 · 전처리와 해석','전체 주제의 다른 사례를 우선해 연습한다.'),(3,'모의고사 3 · 관계와 모델','기본 범위 전체와 심화 사례를 함께 확인한다.')]:
- ids=[]
- for topic in 'ABCDEFGH':
-  pool=[c['id'] for c in cases if c['topic']==topic]
-  ids.append(pool[(n-1)%len(pool)])
- remaining=[c['id'] for c in cases if c['id'] not in ids]
- offset=(n-1)*5
- ids+=remaining[offset:]+remaining[:offset]
- blueprints.append(dict(id=f'mock-{n}',title=title,description=desc,caseIds=ids,defaultCount=40,defaultMinutes=60))
+from enrichment.course_focus import ROUND_CASES
+assert set(cid for ids in ROUND_CASES for cid in ids) == {c['id'] for c in cases}
+for n,ids in enumerate(ROUND_CASES,1):
+ assert {next(c['topic'] for c in cases if c['id']==cid) for cid in ids} == set('ABCDEFGH')
+ blueprints.append(dict(id=f'mock-{n}',title=f'종합모의고사 {n}회차',description='개요·개론·인프라·품질·넷플릭스 분석 전 범위를 섞은 고정 종합 문제입니다.',caseIds=ids,defaultCount=50,defaultMinutes=75))
 from enrichment import apply_enrichment
 apply_enrichment(lessons, cases, questions)
 for name,data in [('sources',sources),('topics',topics),('lessons',lessons),('cases',cases),('questions',questions),('blueprints',blueprints)]:

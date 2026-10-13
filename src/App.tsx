@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import {
   ArrowRight,
@@ -49,18 +50,11 @@ import { topicStats } from "./engine";
 import { Code, Materials, Sources } from "./components/Materials";
 import { LessonPrimer, WorkedExamples, LessonLab, LessonSelfChecks, LessonSummary } from "./components/LessonStudy";
 import { Auth, Records, WrongNotes } from "./pages/Records";
-import { Quiz, QuizStart, Results } from "./pages/Quiz";
+import { Quiz, Results } from "./pages/Quiz";
+import { QuizStart, FocusPracticeStart } from "./pages/QuizStart";
+import { SidebarNav } from "./components/SidebarNav";
+import { Guide } from "./pages/Guide";
 import "./style.css";
-const menus = [
-  ["/", "홈", House],
-  ["/lessons", "강의실", BookOpen],
-  ["/reading", "데이터 읽기 연습", ChartNoAxesCombined],
-  ["/cbt", "사례형 CBT", FlaskConical],
-  ["/mock", "모의고사", Timer],
-  ["/wrong", "오답노트", ClipboardList],
-  ["/records", "학습기록", Layers],
-  ["/review", "시험 직전 정리", Target],
-] as const;
 function Shell() {
   const {
     session,
@@ -78,7 +72,12 @@ function Shell() {
   useEffect(() => {
     setMobile(false);
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobile(false); };
+    if (mobile) window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [mobile]);
   const completed = profile.progress.filter((p) => p.completed).length;
   if (!ready)
     return (
@@ -92,6 +91,7 @@ function Shell() {
       <a className="skip" href="#main">
         본문으로 건너뛰기
       </a>
+      {mobile && <button className="sidebar-backdrop" aria-label="메뉴 닫기" onClick={() => setMobile(false)} />}
       <aside className={`sidebar glass ${mobile ? "open" : ""}`}>
         <Link className="brand" to="/">
           <span className="brand-icon">
@@ -102,20 +102,7 @@ function Shell() {
           </span>
         </Link>
         <p className="sidebar-label">LEARN · READ · PRACTICE</p>
-        <nav aria-label="주요 메뉴">
-          {menus.map(([path, label, Icon]) => (
-            <NavLink key={path} to={path} end={path === "/"}>
-              <Icon size={19} />
-              <span>{label}</span>
-              {path === "/wrong" &&
-                profile.wrongNotes.some((w) => !w.resolved) && (
-                  <span className="nav-count">
-                    {profile.wrongNotes.filter((w) => !w.resolved).length}
-                  </span>
-                )}
-            </NavLink>
-          ))}
-        </nav>
+        <SidebarNav />
         <div className="sidebar-bottom">
           <div className="mini-progress">
             <span>강의 진행</span>
@@ -207,30 +194,32 @@ function Shell() {
           </div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/guide" element={<Guide />} />
             <Route path="/lessons/*" element={<Classroom />} />
             <Route
               path="/reading"
               element={<Reading key={location.search} />}
             />
             <Route
-              path="/cbt"
+              path="/cbt/:roundId?"
               element={
-                <QuizStart key={"cbt" + session.userId + location.search} />
+                <QuizStart key={"cbt" + session.userId + location.pathname + location.search} />
               }
             />
             <Route
-              path="/mock"
-              element={<QuizStart key={"mock" + session.userId} mock />}
+              path="/mock/:roundId?"
+              element={<QuizStart key={"mock" + session.userId + location.pathname} mock />}
             />
+            <Route path="/practice" element={<FocusPracticeStart key={session.userId + location.search} />} />
             <Route path="/quiz" element={<Quiz key={session.userId} />} />
             <Route
               path="/results/:id"
               element={<Results key={session.userId} />}
             />
-            <Route path="/wrong" element={<WrongNotes />} />
+            <Route path="/wrong" element={<WrongNotes key={session.userId + location.search} />} />
             <Route path="/records" element={<Records />} />
             <Route path="/review" element={<Review />} />
-            <Route path="/account" element={<Auth key={session.userId} />} />
+            <Route path="/account" element={<Auth key={session.userId + location.search} />} />
             <Route
               path="*"
               element={
@@ -275,9 +264,9 @@ function Home() {
             <span className="live-dot" /> 데이터로 이해하는 빅데이터
           </div>
           <h1>
-            처음부터 차근차근,
+            수업의 핵심부터,
             <br />
-            <em>읽고 이해하는</em> 중간고사.
+            <em>표와 코드로 풀어가는</em> 중간고사.
           </h1>
           <p>
             개념을 배우고, 표와 그래프에서 근거를 찾으세요.
@@ -411,7 +400,7 @@ function Home() {
             [
               "03",
               "사례로 연결하기",
-              "같은 자료에서 서로 다른 판단 연습",
+              "전 범위를 섞은 회차별 종합 문제",
               "/cbt",
             ],
             [
@@ -514,7 +503,7 @@ function Home() {
             </p>
           )}
           <div className="notice">
-            모의고사 기본값 40문항·60분은 조절 가능한 학습 설정입니다.
+            종합모의고사 1~5회차 · 회차별 50문항. 시험 시간은 기본 75분에서 조절할 수 있습니다.
           </div>
         </aside>
       </div>
@@ -531,6 +520,7 @@ function Classroom() {
   const { profile, session, run } = useStudy();
   const [check, setCheck] = useState(false);
   const lesson = id ? lessonMap[id] : null;
+  useEffect(() => { setTopic(new URLSearchParams(location.search).get("topic") ?? ""); }, [location.search]);
   useEffect(() => {
     setCheck(false);
     if (lesson) void run(readLesson(session.userId, lesson.id));
@@ -547,12 +537,12 @@ function Classroom() {
       ),
       index = lessons.indexOf(lesson);
     const anchors = [
-      ["start", "처음 배우는 분께"],
+      ["start", "이 강의의 핵심"],
       ["goals", "학습목표"],
       ...lesson.sections.map((s, i) => [`section-${i}`, s.heading]),
       ["worked", "표·그래프 단계별 풀이"],
       ["terms", "용어와 비교"],
-      ["lab", "코드 입출력 따라가기"],
+      ...(lesson.microLab ? [["lab", "수업 코드 출력 확인"]] : []),
       ["code", "수업 코드·도식"],
       ["read", "읽는 순서"],
       ["mistakes", "실수·시험 포인트"],
@@ -575,7 +565,7 @@ function Classroom() {
         <Heading
           eyebrow={`${lesson.topic} · ${lesson.id} · 약 ${lesson.minutes}분`}
           title={lesson.title}
-          description="기초부터 개념 이해 · 표와 그래프의 단계별 풀이 · 코드 입출력 · 자가 점검"
+          description="수업 개념·비교 → 코드·도식 → 사례 풀이 → 시험 포인트·자가 점검"
         />
         <div className="lesson-layout">
           <article className="lesson-article panel">
@@ -629,8 +619,8 @@ function Classroom() {
             </section>
             <LessonLab key={`lab-${lesson.id}`} lesson={lesson} />
             <section id="code">
-              <h2>수업 흐름 코드·도식 읽기</h2>
-              <Code code={lesson.code} notes={lesson.codeNotes} />
+              <h2>{lesson.codeKind === "diagram" ? "수업 개념 도식" : "수업 코드 읽기"}</h2>
+              <Code code={lesson.code} notes={lesson.codeNotes} label={lesson.codeKind === "diagram" ? "수업 개념 도식" : "수업 코드 읽기"} />
             </section>
             <section id="read">
               <h2>읽는 순서</h2>
@@ -677,8 +667,8 @@ function Classroom() {
                     <Link className="button" to={`/reading?case=${cid}`}>
                       자료 읽기
                     </Link>
-                    <Link className="button primary" to={`/cbt?case=${cid}`}>
-                      5문항 연습
+                    <Link className="button primary" to={`/practice?case=${cid}`}>
+                      이 자료 확인 문제
                       <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -727,8 +717,8 @@ function Classroom() {
     <>
       <Heading
         eyebrow="CLASSROOM"
-        title="개념부터, 차근차근."
-        description="주자료의 모든 단원을 쉽게 다시 구성했습니다. 검색·태그·주제로 필요한 부분을 바로 찾으세요."
+        title="노션 수업 자료, 핵심부터."
+        description="개요·2주차·3주차·넷플릭스 전체를 수업 개념과 코드 해석 중심으로 정리했습니다. 왼쪽 메뉴에서도 각 강의를 바로 펼쳐 보세요."
       />
       <div className="filters">
         <label>
@@ -793,11 +783,22 @@ function Classroom() {
   );
 }
 function Reading() {
-  const location = useLocation();
+  const location = useLocation(), navigate = useNavigate();
   const initial = new URLSearchParams(location.search).get("case");
-  const [cid, setCid] = useState(initial && caseMap[initial] ? initial : "C18"),
-    [step, setStep] = useState(0);
+  const [step, setStep] = useState(0);
+  const kind = new URLSearchParams(location.search).get("kind") ?? "";
+  const cid = initial ?? "";
   const data = caseMap[cid];
+  if (!initial) {
+    const visible = cases.filter((c) => kind === "graph" ? !!c.chart : kind === "code" ? !!c.code : kind === "table" ? !c.chart : true);
+    return <>
+      <Heading eyebrow="DATA READING LAB" title={kind === "graph" ? "그래프 자료 읽기" : kind === "code" ? "코드 자료 읽기" : kind === "table" ? "표 중심 자료 읽기" : "자료를 읽고, 근거를 찾기."} description="수업 범위에 맞춘 가상 자료입니다. 각 자료에서 축·단위·분모·코드 순서와 해석의 한계를 확인하세요." />
+      <div className="actions catalogue-tabs">{[["", "전체 자료"], ["table", "표 중심"], ["graph", "그래프"], ["code", "코드"]].map(([k, label]) => <Link key={k} className={`button ${kind === k ? "primary" : ""}`} to={k ? `/reading?kind=${k}` : "/reading"} aria-current={kind === k ? "page" : undefined}>{label}</Link>)}</div>
+      <p className="muted">{visible.length}개 자료</p>
+      <div className="case-grid">{visible.map((c) => <article key={c.id} className="panel case-card"><div className="tags"><span className="tag">{c.id}</span><span className="tag">{c.chart ? "그래프" : "표"}{c.code ? " · 코드" : ""}</span></div><h2>{c.title}</h2><p>{c.scenario}</p><Link className="button" to={`/reading?case=${c.id}`}>자료 읽기<ArrowRight size={15} /></Link></article>)}</div>
+    </>;
+  }
+  if (!data) return <div className="empty panel"><h1>자료를 찾을 수 없습니다.</h1><Link to="/reading">전체 자료 보기</Link></div>;
   return (
     <>
       <Heading
@@ -805,13 +806,14 @@ function Reading() {
         title="데이터가 말하는 만큼만."
         description="표를 바꿔 보고, 계산 기준을 확인하고, 그래프의 한계를 설명해 보세요."
       />
+      <Link className="back-link" to="/reading">← 전체 자료</Link>
       <div className="reading-select">
         <label>
           사례 선택
           <select
             value={cid}
             onChange={(e) => {
-              setCid(e.target.value);
+              navigate(`/reading?case=${e.target.value}`);
               setStep(0);
             }}
           >
@@ -832,7 +834,7 @@ function Reading() {
               key={id}
               aria-pressed={cid === id}
               onClick={() => {
-                setCid(id);
+                navigate(`/reading?case=${id}`);
                 setStep(0);
               }}
             >
@@ -863,8 +865,8 @@ function Reading() {
             </button>
           ))}
           <p className="guide-text">{data.guide[step]}</p>
-          <Link className="button primary" to={`/cbt?case=${cid}`}>
-            이 자료로 5문항 풀기
+          <Link className="button primary" to={`/practice?case=${cid}`}>
+            이 자료 확인 문제
             <ArrowRight size={15} />
           </Link>
           <Link className="button" to={`/lessons/${data.lessonId}`}>
@@ -877,15 +879,18 @@ function Reading() {
   );
 }
 function Review() {
+  const params = new URLSearchParams(useLocation().search);
+  const selectedTopic = params.get("topic"), checklist = params.get("view") === "checklist";
+  const visible = topics.filter((t) => !selectedTopic || t.id === selectedTopic);
   return (
     <>
       <Heading
         eyebrow="LAST-MINUTE REVIEW"
-        title="시험 직전, 기준을 다시 확인."
+        title={checklist ? "자료 해석 체크리스트" : selectedTopic ? `${visible[0]?.title ?? "선택 범위"} · 시험 직전 정리` : "시험 직전, 기준을 다시 확인."}
         description="용어보다 비교 기준을 기억하세요. 각 정리에서 대표 문제로 바로 연결됩니다."
       />
-      <div className="review-grid">
-        {topics.map((t) => (
+      {!checklist && <div className="review-grid">
+        {visible.map((t) => (
           <section className="panel review-card" key={t.id}>
             <span className="topic-letter">{t.id}</span>
             <h2>{t.title}</h2>
@@ -919,7 +924,7 @@ function Review() {
                     </Link>
                     <Link
                       className="button primary"
-                      to={`/cbt?case=${l.caseIds[0]}`}
+                      to={`/practice?case=${l.caseIds[0]}`}
                     >
                       대표 문제
                     </Link>
@@ -928,7 +933,7 @@ function Review() {
               ))}
           </section>
         ))}
-      </div>
+      </div>}
       <section className="panel">
         <h2>마지막 5단계</h2>
         <ol>

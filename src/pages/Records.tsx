@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Download, LogOut, Upload } from "lucide-react";
-import { Heading, BookmarkButton } from "../components/UI";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight, Download, LogOut, Upload } from "lucide-react";
+import { Heading } from "../components/UI";
 import { useStudy } from "../context";
-import { cases, lessons, lessonMap, questionMap, topics } from "../content";
 import {
   exportBackup,
   guestSession,
@@ -11,25 +10,13 @@ import {
   login,
   migrateGuest,
   register,
-  updateProfile,
   validateBackup,
 } from "../storage";
-import { topicStats } from "../engine";
-import { DataChart } from "../components/Chart";
-import { Materials } from "../components/Materials";
-import { Explanation, answerText } from "./Quiz";
-const date = (s: string) =>
-  new Date(s).toLocaleString("ko-KR", {
-    timeZone: "Asia/Seoul",
-    month: "numeric",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
 export function Auth() {
+  const view = new URLSearchParams(useLocation().search).get("view");
   const { session, profile, switchSession, run, setError, setNotice } =
     useStudy();
-  const [mode, setMode] = useState<"login" | "register">("login"),
+  const [mode, setMode] = useState<"login" | "register">(view === "register" ? "register" : "login"),
     [loginId, setLoginId] = useState(""),
     [name, setName] = useState(""),
     [password, setPassword] = useState(""),
@@ -92,14 +79,14 @@ export function Auth() {
       <Heading
         eyebrow="LOCAL PROFILE"
         title={
-          session.guest
+          view === "backup" ? "학습 기록 백업·복원" : session.guest
             ? "나의 학습 공간을 만들어요."
             : `${session.displayName}의 로컬 계정`
         }
         description="계정은 현재 브라우저에서 학습 기록을 나누는 개인 프로필입니다. 다른 기기와 자동 동기화되지 않습니다."
       />
-      <div className="account-layout">
-        <section className="panel account-card">
+      <div className="account-layout account-single">
+        {view !== "backup" && <section className="panel account-card">
           <h2>{session.guest ? "로그인 / 회원가입" : "계정 전환"}</h2>
           <p>
             현재 사용자: <b>{session.displayName}</b>
@@ -199,8 +186,8 @@ export function Auth() {
             비밀번호 원문을 저장하지 않습니다. 이 로컬 기능은 서버 인증이나
             기록의 암호화 격리가 아닙니다.
           </p>
-        </section>
-        <section className="panel backup-card">
+        </section>}
+        {view === "backup" && <section className="panel backup-card">
           <h2>학습 기록 백업</h2>
           <p>
             현재 사용자 <b>{session.displayName}</b>의
@@ -255,361 +242,9 @@ export function Auth() {
             로컬 주소와 배포 주소는 서로 다른 저장소입니다. 같은 주소·포트를
             계속 사용하세요.
           </div>
-        </section>
+        </section>}
       </div>
     </>
   );
 }
-export function Records() {
-  const { profile, session } = useStudy();
-  const stats = topicStats(profile.attempts),
-    skills = topicStats(profile.attempts, "skill"),
-    mistakes = topicStats(profile.attempts, "mistake");
-  const completed = profile.progress.filter((p) => p.completed).length;
-  const trend = profile.attempts
-    .filter((a) => a.score !== null)
-    .slice(-10)
-    .map((a, i) => ({ 응시: i + 1, 점수: a.score }));
-  const chartCase = {
-    ...cases[0],
-    chart: {
-      type: "line" as const,
-      x: "응시",
-      y: "점수",
-      title: "확정 점수 추이",
-      xLabel: "최근 확정 응시 순서",
-      yLabel: "점수 (100점 기준)",
-    },
-    rows: trend,
-  };
-  return (
-    <>
-      <Heading
-        eyebrow="MY LEARNING RECORD"
-        title={`${session.displayName}의 학습기록`}
-        description="점수만큼 중요한 것은 틀린 이유입니다. 아직 풀지 않은 주제는 실력 0%로 표시하지 않습니다."
-      />
-      <div className="record-actions actions">
-        <Link className="button" to="/account">
-          계정·백업
-        </Link>
-        <Link className="button" to="/wrong">
-          오답 복습
-        </Link>
-        <Link className="button" to="/cbt?bookmarks=1">
-          북마크 문제 풀이
-        </Link>
-        {profile.draft && (
-          <Link className="button primary" to="/quiz">
-            이어서 풀기
-          </Link>
-        )}
-      </div>
-      <section className="stat-grid">
-        <div className="stat-card glass">
-          <span>누적 응시</span>
-          <strong>{profile.attempts.length}회</strong>
-        </div>
-        <div className="stat-card glass">
-          <span>읽기 완료</span>
-          <strong>
-            {completed}/{lessons.length}
-          </strong>
-        </div>
-        <div className="stat-card glass">
-          <span>복습할 오답</span>
-          <strong>
-            {profile.wrongNotes.filter((w) => !w.resolved).length}개
-          </strong>
-        </div>
-        <div className="stat-card glass">
-          <span>북마크</span>
-          <strong>{profile.bookmarks.length}개</strong>
-        </div>
-      </section>
-      <div className="records-layout">
-        <section className="panel">
-          <h2>점수 추이</h2>
-          {trend.length ? (
-            <DataChart data={chartCase} />
-          ) : (
-            <p className="empty">
-              확정된 점수가 아직 없습니다.
-              <br />
-              서술 답안은 자기 평가 뒤 포함됩니다.
-            </p>
-          )}
-        </section>
-        <section className="panel">
-          <h2>주제별 정답률</h2>
-          {topics.map((t) => (
-            <div className="weakness-row" key={t.id}>
-              <span>
-                {t.id}. {t.title}
-              </span>
-              {stats[t.id] ? (
-                <>
-                  <b>
-                    {Math.round(
-                      (stats[t.id].correct / stats[t.id].total) * 100,
-                    )}
-                    %
-                  </b>
-                  <small>
-                    {stats[t.id].correct}/{stats[t.id].total} · 누적 채점 응답
-                  </small>
-                </>
-              ) : (
-                <small>아직 응시하지 않음</small>
-              )}
-            </div>
-          ))}
-        </section>
-      </div>
-      <div className="records-layout">
-        {[
-          ["학습 기능별 취약점", skills],
-          ["실수 유형별 취약점", mistakes],
-        ].map(([title, groups]) => (
-          <section className="panel" key={String(title)}>
-            <h2>{String(title)}</h2>
-            {Object.entries(groups as typeof skills).length ? (
-              Object.entries(groups as typeof skills).map(([k, s]) => (
-                <div className="weakness-row" key={k}>
-                  <span>{k}</span>
-                  <b>{s.total - s.correct}회 오답</b>
-                  <small>
-                    {s.correct}/{s.total} 정답 · 자기 평가 포함
-                  </small>
-                </div>
-              ))
-            ) : (
-              <p className="empty">채점된 응답이 없습니다.</p>
-            )}
-          </section>
-        ))}
-      </div>
-      <section className="panel">
-        <div className="section-title">
-          <h2>응시 이력</h2>
-          <span>{profile.attempts.length}회</span>
-        </div>
-        {profile.attempts.length ? (
-          <div className="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>응시</th>
-                  <th>날짜 (한국)</th>
-                  <th>정답/전체</th>
-                  <th>점수</th>
-                  <th>결과</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[...profile.attempts].reverse().map((a) => (
-                  <tr key={a.id}>
-                    <td>
-                      {a.title}
-                      <small>{a.mode === "exam" ? "모의고사" : "연습"}</small>
-                    </td>
-                    <td>{date(a.updatedAt)}</td>
-                    <td>
-                      {a.correct}/{a.total}
-                    </td>
-                    <td>
-                      {a.score === null
-                        ? `평가 대기 ${a.pending}개`
-                        : `${a.score}점`}
-                    </td>
-                    <td>
-                      <Link to={`/results/${a.id}`}>보기 →</Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <p className="empty">
-            아직 저장된 응시 기록이 없습니다. 사례형 CBT로 첫 기록을 만들어
-            보세요.
-          </p>
-        )}
-      </section>
-      <section className="panel">
-        <h2>북마크</h2>
-        {profile.bookmarks.length ? (
-          <div className="bookmark-list">
-            {profile.bookmarks.map((b) => (
-              <div className="linked-case" key={b.kind + b.targetId}>
-                <div>
-                  <span className="tag">
-                    {b.kind === "lesson" ? "강의" : "문제"} · {b.targetId}
-                  </span>
-                  <strong>
-                    {b.kind === "lesson"
-                      ? lessonMap[b.targetId].title
-                      : questionMap[b.targetId].stem}
-                  </strong>
-                </div>
-                <Link
-                  className="button"
-                  to={
-                    b.kind === "lesson"
-                      ? `/lessons/${b.targetId}`
-                      : `/cbt?question=${b.targetId}`
-                  }
-                >
-                  {b.kind === "lesson" ? "읽기" : "다시 풀기"}
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="empty">강의와 문제의 북마크 버튼으로 저장하세요.</p>
-        )}
-      </section>
-    </>
-  );
-}
-export function WrongNotes() {
-  const { profile, session, run } = useStudy();
-  const [search, setSearch] = useState(""),
-    [topic, setTopic] = useState(""),
-    [mistake, setMistake] = useState(""),
-    [resolved, setResolved] = useState(false);
-  const visible = profile.wrongNotes.filter((w) => {
-    const q = questionMap[w.questionId];
-    return (
-      (resolved || !w.resolved) &&
-      (!topic || q.topic === topic) &&
-      (!mistake || q.mistake === mistake) &&
-      `${q.id} ${q.stem} ${q.explanation}`
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    );
-  });
-  return (
-    <>
-      <Heading
-        eyebrow="WRONG ANSWER NOTE"
-        title="틀린 이유에서 다시 시작."
-        description="같은 문제는 하나의 항목에 오답 횟수와 최근 결과를 갱신합니다. 다시 풀거나 해결 표시를 남겨 보세요."
-      />
-      <div className="filters">
-        <label>
-          오답 검색
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="문제 ID·내용 검색"
-          />
-        </label>
-        <label>
-          주제
-          <select value={topic} onChange={(e) => setTopic(e.target.value)}>
-            <option value="">모든 주제</option>
-            {topics.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.id}. {t.title}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          실수 유형
-          <select value={mistake} onChange={(e) => setMistake(e.target.value)}>
-            <option value="">모든 유형</option>
-            {[
-              "계산",
-              "분모",
-              "단위",
-              "그래프 읽기",
-              "코드",
-              "개념",
-              "과도한 해석",
-            ].map((m) => (
-              <option key={m}>{m}</option>
-            ))}
-          </select>
-        </label>
-        <label className="checkbox-label">
-          <input
-            type="checkbox"
-            checked={resolved}
-            onChange={(e) => setResolved(e.target.checked)}
-          />
-          해결한 문제도 보기
-        </label>
-      </div>
-      {visible.map((w) => {
-        const q = questionMap[w.questionId],
-          data = cases.find((c) => c.id === q.caseId)!;
-        return (
-          <article className="panel wrong-card" key={w.questionId}>
-            <div className="question-top">
-              <div className="tags">
-                <span className="tag">{q.id}</span>
-                <span className="tag">{q.mistake}</span>
-                <span className="tag">오답 {w.count}회</span>
-                <span className="tag">
-                  {w.resolved ? "✓ 해결" : "복습 필요"}
-                </span>
-              </div>
-              <BookmarkButton targetId={q.id} kind="question" />
-            </div>
-            <h2>{q.stem}</h2>
-            <p>
-              최근 오답: {answerText(q, w.answer)} · {date(w.updatedAt)}
-            </p>
-            <details>
-              <summary>표·그래프와 해설 펼치기</summary>
-              <Materials data={data} />
-              <Explanation q={q} answer={w.answer} />
-            </details>
-            <div className="actions">
-              <Link className="button primary" to={`/cbt?question=${q.id}`}>
-                재풀이
-                <ArrowRight size={15} />
-              </Link>
-              <Link className="button" to={`/lessons/${q.lessonId}`}>
-                <BookOpen size={16} />
-                연결 강의
-              </Link>
-              <button
-                onClick={() =>
-                  void run(
-                    updateProfile(session.userId, (p) => {
-                      const n = p.wrongNotes.find((n) => n.questionId === q.id);
-                      if (n) {
-                        n.resolved = !n.resolved;
-                        n.updatedAt = new Date().toISOString();
-                      }
-                    }),
-                  )
-                }
-              >
-                {w.resolved ? "복습 필요로 표시" : "해결 표시"}
-              </button>
-            </div>
-          </article>
-        );
-      })}
-      {!visible.length && (
-        <div className="empty panel">
-          <h2>이 조건의 오답이 없습니다.</h2>
-          <p>
-            {profile.wrongNotes.length
-              ? "필터를 바꾸거나 해결한 문제를 확인하세요."
-              : "제출한 풀이의 오답이 여기에 모입니다."}
-          </p>
-          <Link className="button primary" to="/cbt">
-            사례형 CBT 시작
-          </Link>
-        </div>
-      )}
-    </>
-  );
-}
+export { Records, WrongNotes } from "./RecordViews";

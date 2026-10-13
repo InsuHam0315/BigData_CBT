@@ -3,10 +3,10 @@
   "primary": 4,
   "supplement": 3,
   "lessons": 28,
-  "lessonSections": 168,
+  "lessonSections": 112,
   "workedExamples": 39,
   "selfChecks": 84,
-  "executableLabs": 28,
+  "executableLabs": 6,
   "cases": 39,
   "questions": 195,
   "numericRulesVerified": 39,
@@ -34,6 +34,33 @@
     "G": 45,
     "H": 30
   },
-  "mockBlueprints": 3,
+  "mockBlueprints": 5,
+  "fixedRoundQuestions": [
+    {
+      "id": "mock-1",
+      "count": 50,
+      "cases": 10
+    },
+    {
+      "id": "mock-2",
+      "count": 50,
+      "cases": 10
+    },
+    {
+      "id": "mock-3",
+      "count": 50,
+      "cases": 10
+    },
+    {
+      "id": "mock-4",
+      "count": 50,
+      "cases": 10
+    },
+    {
+      "id": "mock-5",
+      "count": 50,
+      "cases": 10
+    }
+  ],
   "status": "PASS"
 }

@@ -7,6 +7,7 @@ import {
   selectQuestions,
   shuffle,
   topicStats,
+  roundQuestions,
 } from "../src/engine";
 describe("grading and case extraction", () => {
   it("grades IDs after shuffling and rejects displayed numbers", () => {
@@ -39,7 +40,7 @@ describe("grading and case extraction", () => {
     expect(grade(e, "근거 있는 서술", true)).toBe(true);
     expect(grade(e, "", true)).toBe(false);
   });
-  it("retains cases, balances A-H and has no duplicates for 3 mocks", () => {
+  it("retains cases and balances A-H for legacy filtered review extraction", () => {
     for (const b of blueprints) {
       const { ids } = selectQuestions({
         count: 40,
@@ -57,6 +58,27 @@ describe("grading and case extraction", () => {
         expect(indices.at(-1)! - indices[0] + 1).toBe(indices.length);
       }
     }
+  });
+  it("publishes five fixed comprehensive rounds covering every question and Netflix chapter", () => {
+    expect(blueprints).toHaveLength(5);
+    const covered = new Set<string>();
+    const signatures = new Set<string>();
+    for (const round of blueprints) {
+      const ids = roundQuestions(round);
+      expect(ids).toHaveLength(50);
+      expect(new Set(ids).size).toBe(50);
+      signatures.add(ids.join(","));
+      for (const topic of "ABCDEFGH") expect(ids.some((id) => questionMap[id].topic === topic)).toBe(true);
+      for (const cid of round.caseIds) {
+        const indices = ids.flatMap((id, i) => questionMap[id].caseId === cid ? [i] : []);
+        expect(indices).toHaveLength(5);
+        expect(indices.at(-1)! - indices[0]).toBe(4);
+      }
+      ids.forEach((id) => covered.add(id));
+    }
+    expect(signatures.size).toBe(5);
+    expect([...covered].sort()).toEqual(questions.map((q) => q.id).sort());
+    for (const chapter of ["H1", "H2", "H3", "H4"]) expect([...covered].some((id) => questionMap[id].lessonId === chapter)).toBe(true);
   });
   it("returns limited honest counts, empty pool, and stable draft choice orders", () => {
     expect(selectQuestions({ pool: [], count: 40 }).ids).toEqual([]);

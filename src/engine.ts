@@ -7,8 +7,12 @@ import type {
   Question,
   Row,
   TopicId,
+  ExamBlueprint,
 } from "./types";
-import { cases, questionMap, questions, topics } from "./content";
+import { caseMap, cases, questionMap, questions, topics } from "./content";
+export function roundQuestions(round: ExamBlueprint): string[] {
+  return round.caseIds.flatMap((id) => caseMap[id].questionIds);
+}
 export function quantile(values: number[], p: number) {
   const s = [...values].sort((a, b) => a - b);
   const pos = (s.length - 1) * p;

@@ -1,37 +1,41 @@
-"""Document the published authored course; requires verified lab report."""
+"""Document the source-focused course and fixed comprehensive rounds."""
 from pathlib import Path
 import json
-
 root = Path(__file__).resolve().parents[1]
-lessons = json.loads((root / 'src/content/lessons.json').read_text(encoding='utf-8'))
-report = json.loads((root / 'docs/lesson-validation.json').read_text(encoding='utf-8'))
+read = lambda p: json.loads((root / p).read_text(encoding='utf-8'))
+lessons = read('src/content/lessons.json')
+rounds = read('src/content/blueprints.json')
+report = read('docs/lesson-validation.json')
 rows = {r['id']: r for r in report['lessons']}
-before = sum(r['bodyBefore'] for r in rows.values())
-after = sum(r['bodyAfter'] for r in rows.values())
-doc = f'''# 초심자용 전체 강의 보강 · 2026-10-13
+doc = '''# 노션 수업 중심 강의 개편 · 2026-10-13
 
-28개 강의 모두에 기초 개념과 설명 흐름을 보강했다. 본문(섹션 문단만 계산)은 {before:,}자에서 {after:,}자로 약 {after / before:.2f}배 늘었다. 각 강의는 6개 설명 섹션, 선수 강의 연결, 최소 7개 용어 비교, 입력·출력이 있는 독립 코드 실습, 3개 자가 점검, 핵심 정리를 갖춘다. 기존 사례 39개를 강의 안의 표·그래프·계산 풀이와 연결하고 정답뿐 아니라 선택지별 판단 근거를 보여 준다. 추가 자가 점검은 총 84개이며 기존 CBT 195문항과 별개다.
+28개 강의를 주자료의 개념·비교·코드·자료 해석 중심으로 다시 정리했다. 컴퓨터 입문을 위한 별도 설명을 줄이고 각 강의를 4개 설명 섹션으로 구성한다. 39개 단계별 사례 풀이와 84개 자가 점검, 핵심 정리와 필요한 선수 강의 연결을 유지한다. 이전의 6섹션·28개 추가 실행 예제 구성은 교체했다.
 
-처음 배우는 사용자를 위해 정의 → 비유/예시 → 작동 과정 → 비교와 조건 → 작은 계산 → 해석 한계를 연결했다. OS는 하드웨어부터, 분석은 행·열·관찰 단위부터, 텍스트·모델은 토큰·벡터·피처·타깃부터 설명한다. 날짜 변환 실패, 겹친 결측, 작품과 관계 수, 부분 연도, 행·열 분모, 반복 엣지, 평점 상관의 관측 조건, 학습 경계와 MAE를 손으로 따라가는 설명을 포함한다.
+## 범위와 학습 순서
 
-## 공부하는 순서
+개요 자료, 2주차 노션, 3주차 노션, 넷플릭스 노션 전체를 범위로 삼는다. 넷플릭스의 네트워크·텍스트·추천·회귀까지 포함한다. 학기 계획의 주차만으로 넷플릭스 심화를 제외하지 않는다. 웹사이트 PDF 3개는 같은 주제의 설명 보강만 사용한다. Titanic과 후반 학기 로드맵은 추가하지 않았다. PDF에 구체적 절차가 없는 Hadoop 설치·MapReduce 실습은 새 강의로 만들어 넣지 않는다.
 
-1. A1부터 순서대로 읽거나 강의 상단의 선수 강의 링크로 필요한 개념을 먼저 읽는다.
-2. 기초 설명 뒤 작은 사례 표에서 대상·단위·N·제외 조건을 확인한다.
-3. 계산 풀이와 각 선택지의 근거를 읽고 자신의 설명을 만든다.
-4. 코드 각 줄의 결과를 예상하고 실행 결과를 펼쳐 비교한다.
-5. 자가 점검의 답을 가린 상태에서 설명한 뒤 정답과 이유를 확인한다.
-6. 같은 자료로 CBT를 풀고 오답 연결 강의로 돌아온다. 읽기 완료는 이해 점수와 별개다.
+강의의 핵심·목표 → 개념·비교 → 코드·도식 해석 → 단계별 사례 → 자가 점검 → 종합 회차 → 오답 연결 강의 순서로 공부한다. 사례 풀이에서 분모·단위·제외 조건과 해석 한계를 확인한다. 읽기 완료는 이해 점수와 별개다.
 
-표시 시간은 설명 읽기와 작은 자료 풀이의 대략적인 학습 시간이며 개인별 속도에 따라 달라진다. 교수자의 실제 출제 규격이나 성적을 보장하는 수치는 아니다.
+Python 입출력 실습은 E2/F1/F2/F3/H3/H4의 6개다. 수업 코드를 확인하는 작은 가상 입력이며 외부 CSV 없이 실행된다. H4는 TF-IDF의 fit_transform/transform과 Ridge의 fit/predict를 명시적으로 보여 준다. A~D의 실행 흉내 예제는 개념 도식·흐름으로 교체한다. 원본 PDF·추출문·개인 기록·인증정보는 저장소에 포함하지 않는다.
 
-## 범위와 재현
+[실제 페이지 출처](source-map.md), [커버리지](coverage.md), [원문 오류 검토](content-issues.md)를 함께 확인한다.
 
-주자료 PDF 4개와 기존 실제 페이지 매핑을 유지한다. 웹사이트 PDF 3개는 동일 주제의 설명 보강만 사용한다. 신규 실제 시험 범위나 외부 데이터셋을 추가하지 않았다. [출처 지도](source-map.md), [범위 커버리지](coverage.md)에 강의별 근거가 있다. 설명·비유·예제는 직접 작성했다. 원본 PDF·추출문·사용자 기록·인증정보는 저장소에 포함하지 않는다.
+## 종합 회차
 
-기존 강의·사례·문항·선지 ID와 저장 구조를 유지한다. cases/questions/sources/topics/blueprints의 의미적 SHA-256은 이전 커밋 `d83d092`와 동일함을 검증한다. 따라서 기존 진도·오답·북마크·응시가 참조하는 대상은 유지된다. 개인 기록을 검사하거나 업로드하지 않았다.
+CBT와 모의고사는 같은 고정 세트를 연습/시험 모드로 제공한다. 단원 필터 대신 1~5회차 중 하나를 선택한다. 각 회차는 A~H 전 범위의 50문항·10개 공통 자료이며 같은 사례의 5문항이 연속해서 나온다. 연습은 문항별 확인, 시험은 제출 후 해설을 공개한다. 기본 75분은 조절 가능한 학습용 설정이며 실제 시험 규격은 미확정이다.
 
-`scripts/enrichment/`는 보강 설명과 실습의 작성 원본이다. `scripts/generate_content.py`가 이를 함께 적용하므로 재생성해도 보강이 사라지지 않는다. 코드 실습은 외부 파일 없이 동작하는 Python이며 브라우저에는 검증된 출력이 표시된다. A–D의 일부 코드는 개념 계산 모형으로, 실제 운영체제·클러스터 구현이 아니다. H3의 TF-IDF 및 H4의 Pipeline/Ridge 예제도 별도로 만든 작은 가상 입력이다.
+| 회차 | 고정 사례 순서 | 문항 |
+|---|---|---:|
+'''
+for b in rounds:
+    doc += f"| {b['title']} | {', '.join(b['caseIds'])} | {b['defaultCount']} |\n"
+doc += '''
+5회차 전체에 39개 사례·195개 고유 문항이 포함된다. 일부 사례는 회차 간 반복되지만 한 회차 안에 중복 문항은 없다. 250개 고유 문항이라는 의미는 아니다. 강의·자료·오답·북마크의 개별 복습은 `/practice`로 연결한다.
+
+## 재현과 검증
+
+`scripts/enrichment/course_focus.py`에 설명 선택·도식·회차 배분을 관리한다. `scripts/generate_content.py`가 이를 적용하므로 재생성해도 개편이 유지된다. 기존 강의·사례·문항·선지 ID와 저장 구조를 유지한다. cases/questions/sources/topics의 의미적 SHA-256은 기존 기준 커밋과 동일하다. blueprints는 종합 구성으로 변경했으며 기존 첫 3개 회차 ID를 유지하고 2개를 추가했다.
 
 ```sh
 python -m pip install -r scripts/requirements-lessons.txt
@@ -45,42 +49,21 @@ npm test
 npm run build
 ```
 
-## 검증 결과
+- 6개 코드 출력, 39개 수치 정답·9개 변환 출력 독립 검산 통과.
+- 출처·스키마·선수 관계·풀이 연결 검사 통과.
+- 5회차의 중복 방지·사례 연속·A~H 포함·전체 195문항 커버리지 검사 통과.
+- 자동 테스트 18개와 TypeScript·Vite 빌드 통과.
+- [자동 검산 데이터](lesson-validation.json), [브라우저 구조 검사](lesson-browser-validation.json), [기능 검증](functional-tests.md).
 
-- Python {report['python']}, NumPy {report['numpy']}, Pandas {report['pandas']}, scikit-learn {report['sklearn']}: 28개 실행 가능 실습의 출력이 모두 지정 출력과 일치.
-- 기존 39개 수치 정답 및 9개 변환 출력의 독립 검산 통과.
-- 콘텐츠 스키마, 선수 관계의 순서/순환 방지, 사례·풀이 연결, 근거 페이지 검사 통과.
-- 기존 자동 테스트 17개 및 TypeScript·Vite 빌드 통과.
-- 브라우저에서 28개 강의의 6섹션·실습·3문제 렌더링을 확인. 기본 데스크톱 및 390px 모바일 전 페이지 가로 넘침 없음. 모바일 목차, 코드 출력, 키보드 답 펼치기, 선수 링크, 추가 표, 라이트/다크 확인.
-- 모바일 HDFS 검증 메모의 긴 URL이 넘치는 문제를 발견해 줄바꿈으로 수정하고 재확인.
+## 강의별 구성
 
-검사 데이터는 [자동 검증](lesson-validation.json), [브라우저 검증](lesson-browser-validation.json), [기능 검증](functional-tests.md)에 있다. 브라우저 전수 점검은 구조·렌더링 검사이며 모든 문장을 교육 전문가가 검토했다는 의미는 아니다.
+본문 자수는 코드·표·풀이·자가 점검을 제외한 섹션 문단만 센다. NOT_APPLICABLE은 실행 예제가 없는 개념·자료 해석 강의다.
 
-## 강의별 변화
-
-본문 자수는 코드·표·풀이·자가 점검을 제외한 섹션 문단만 센다.
-
-| 강의 | 제목 | 본문 이전 → 보강 | 섹션 | 연결 풀이 | 추가 자가 점검 | 코드 출력 |
+| 강의 | 제목 | 본문 자수 | 섹션 | 사례 풀이 | 자가 점검 | Python 출력 |
 |---|---|---:|---:|---:|---:|---|
 '''
-for lesson in lessons:
-    r = rows[lesson['id']]
-    doc += f"| {lesson['id']} | {lesson['title']} | {r['bodyBefore']} → {r['bodyAfter']} | {r['sections']} | {r['workedCases']} | {r['selfChecks']} | {r['lab']} |\n"
-doc += '''
-## 기술 설명 확인에 사용한 공식 자료
-
-아래는 교재의 기술 설명을 확인하는 자료이며 별도의 시험 범위가 아니다.
-
-- 결측 처리와 반환 형식: [Pandas missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
-- 목록 펼치기와 교차표: [Pandas reshaping](https://pandas.pydata.org/docs/user_guide/reshaping.html), [crosstab](https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html)
-- 파티션 순서의 범위: [Apache Kafka 소개](https://kafka.apache.org/documentation/)
-- GNU의 실행·연구·수정·배포 자유: [GNU 자유 소프트웨어 정의](https://www.gnu.org/philosophy/free-sw.en.html)
-- TF-IDF 기본 가중치: [TfidfTransformer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html)
-- 내적과 벡터 길이로 계산하는 유사도: [cosine_similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
-- L2 규제 회귀: [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
-- 학습·테스트 경계와 전처리 누수: [scikit-learn common pitfalls](https://scikit-learn.org/stable/common_pitfalls.html)
-
-원문 오류와 추가 확인 내용은 [content-issues.md](content-issues.md)에 별도로 기록했다.
-'''
+for l in lessons:
+    r = rows[l['id']]
+    doc += f"| {l['id']} | {l['title']} | {r['bodyAfter']} | {r['sections']} | {r['workedCases']} | {r['selfChecks']} | {r['lab']} |\n"
 (root / 'docs/lesson-upgrade.md').write_text(doc, encoding='utf-8')
 print('lesson-upgrade.md generated')

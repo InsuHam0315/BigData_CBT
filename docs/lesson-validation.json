@@ -3,284 +3,284 @@
   "numpy": "2.3.5",
   "pandas": "3.0.1",
   "sklearn": "1.9.1",
-  "labsPassed": 28,
+  "labsPassed": 6,
   "lessons": [
     {
       "id": "A1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 557,
-      "bodyAfter": 2433,
-      "growth": 4.37,
+      "bodyAfter": 1510,
+      "growth": 2.71,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "A2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 490,
-      "bodyAfter": 2368,
-      "growth": 4.83,
+      "bodyAfter": 1457,
+      "growth": 2.97,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "A3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 536,
-      "bodyAfter": 2393,
-      "growth": 4.46,
+      "bodyAfter": 1473,
+      "growth": 2.75,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "A4",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 513,
-      "bodyAfter": 2385,
-      "growth": 4.65,
+      "bodyAfter": 1468,
+      "growth": 2.86,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "A5",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 539,
-      "bodyAfter": 2515,
-      "growth": 4.67,
+      "bodyAfter": 1375,
+      "growth": 2.55,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "B1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 488,
-      "bodyAfter": 2179,
-      "growth": 4.47,
+      "bodyAfter": 1319,
+      "growth": 2.7,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "B2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 549,
-      "bodyAfter": 2194,
-      "growth": 4.0,
+      "bodyAfter": 1358,
+      "growth": 2.47,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "B3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 480,
-      "bodyAfter": 2129,
-      "growth": 4.44,
+      "bodyAfter": 1337,
+      "growth": 2.79,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "C1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 541,
-      "bodyAfter": 2229,
-      "growth": 4.12,
+      "bodyAfter": 1372,
+      "growth": 2.54,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "C2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 583,
-      "bodyAfter": 2276,
-      "growth": 3.9,
+      "bodyAfter": 1439,
+      "growth": 2.47,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "C3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 471,
-      "bodyAfter": 2121,
-      "growth": 4.5,
+      "bodyAfter": 1320,
+      "growth": 2.8,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "C4",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 550,
-      "bodyAfter": 2236,
-      "growth": 4.07,
+      "bodyAfter": 1406,
+      "growth": 2.56,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "C5",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 521,
-      "bodyAfter": 2192,
-      "growth": 4.21,
+      "bodyAfter": 1377,
+      "growth": 2.64,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "D1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 493,
-      "bodyAfter": 2147,
-      "growth": 4.35,
+      "bodyAfter": 1294,
+      "growth": 2.62,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "D2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 519,
-      "bodyAfter": 2084,
-      "growth": 4.02,
+      "bodyAfter": 1295,
+      "growth": 2.5,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "D3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 578,
-      "bodyAfter": 2162,
-      "growth": 3.74,
+      "bodyAfter": 1388,
+      "growth": 2.4,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "E1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 542,
-      "bodyAfter": 2201,
-      "growth": 4.06,
+      "bodyAfter": 1408,
+      "growth": 2.6,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "E2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 515,
-      "bodyAfter": 2161,
-      "growth": 4.2,
+      "bodyAfter": 1323,
+      "growth": 2.57,
       "workedCases": 1,
       "selfChecks": 3,
       "lab": "PASS"
     },
     {
       "id": "F1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 527,
-      "bodyAfter": 2135,
-      "growth": 4.05,
+      "bodyAfter": 1303,
+      "growth": 2.47,
       "workedCases": 2,
       "selfChecks": 3,
       "lab": "PASS"
     },
     {
       "id": "F2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 529,
-      "bodyAfter": 2147,
-      "growth": 4.06,
+      "bodyAfter": 1336,
+      "growth": 2.53,
       "workedCases": 1,
       "selfChecks": 3,
       "lab": "PASS"
     },
     {
       "id": "F3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 595,
-      "bodyAfter": 2205,
-      "growth": 3.71,
+      "bodyAfter": 1369,
+      "growth": 2.3,
       "workedCases": 3,
       "selfChecks": 3,
       "lab": "PASS"
     },
     {
       "id": "G1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 497,
-      "bodyAfter": 1995,
-      "growth": 4.01,
+      "bodyAfter": 1227,
+      "growth": 2.47,
       "workedCases": 3,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "G2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 462,
-      "bodyAfter": 1946,
-      "growth": 4.21,
+      "bodyAfter": 1158,
+      "growth": 2.51,
       "workedCases": 3,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "G3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 447,
-      "bodyAfter": 2007,
-      "growth": 4.49,
+      "bodyAfter": 1272,
+      "growth": 2.85,
       "workedCases": 3,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "H1",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 486,
-      "bodyAfter": 2055,
-      "growth": 4.23,
+      "bodyAfter": 1257,
+      "growth": 2.59,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "H2",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 469,
-      "bodyAfter": 1956,
-      "growth": 4.17,
+      "bodyAfter": 1182,
+      "growth": 2.52,
       "workedCases": 1,
       "selfChecks": 3,
-      "lab": "PASS"
+      "lab": "NOT_APPLICABLE"
     },
     {
       "id": "H3",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 589,
-      "bodyAfter": 2379,
-      "growth": 4.04,
+      "bodyAfter": 1504,
+      "growth": 2.55,
       "workedCases": 2,
       "selfChecks": 3,
       "lab": "PASS"
     },
     {
       "id": "H4",
-      "sections": 6,
+      "sections": 4,
       "bodyBefore": 584,
-      "bodyAfter": 2314,
-      "growth": 3.96,
+      "bodyAfter": 1458,
+      "growth": 2.5,
       "workedCases": 2,
       "selfChecks": 3,
       "lab": "PASS"
