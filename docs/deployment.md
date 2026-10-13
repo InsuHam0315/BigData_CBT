@@ -6,7 +6,7 @@
 - 호스트: `insuham0315.github.io`. 참고한 소웨공 사이트와 같은 계정 서브도메인에서 `/BigData_CBT/` 프로젝트 경로를 제공한다.
 - 저장소/브랜치: `InsuHam0315/BigData_CBT`, `codex/bigdata-midterm-cbt`.
 - 방식: GitHub Pages `build_type=workflow`, HTTPS 강제, 수동 GitHub Actions.
-- 배포 콘텐츠 기준: [fdd40baac9ed57e871f21e2457f6458c75d53fd2](https://github.com/InsuHam0315/BigData_CBT/commit/fdd40baac9ed57e871f21e2457f6458c75d53fd2). 이후 안내·검증 문서와 캡처를 추가했으며 앱 코드와 콘텐츠는 변경하지 않았다.
+- 첫 공개 배포 콘텐츠 기준: [fdd40baac9ed57e871f21e2457f6458c75d53fd2](https://github.com/InsuHam0315/BigData_CBT/commit/fdd40baac9ed57e871f21e2457f6458c75d53fd2). 아래 표는 이 첫 배포의 검증 결과다. 이후 글씨 크기 개선 검증은 [기능 검증 문서](functional-tests.md), 최신 반영 버전은 [작업 브랜치](https://github.com/InsuHam0315/BigData_CBT/tree/codex/bigdata-midterm-cbt)와 [Pages 실행 기록](https://github.com/InsuHam0315/BigData_CBT/actions/workflows/pages.yml)을 확인한다.
 - [배포 실행 38265693195](https://github.com/InsuHam0315/BigData_CBT/actions/runs/38265693195): completed / success. 빌드 및 배포 job 모두 success.
 
 | 검사 | 결과 |
