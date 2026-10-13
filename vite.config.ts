@@ -9,7 +9,9 @@ export default defineConfig({
         codeSplitting: {
           groups: [
             { name: "vendor", test: /node_modules/ },
-            { name: "study-content", test: /src[\\/]content[\\/]/ },
+            { name: "lesson-content", test: /src[\\/]content[\\/]lessons\.json$/ },
+            { name: "case-content", test: /src[\\/]content[\\/]cases\.json$/ },
+            { name: "question-content", test: /src[\\/]content[\\/]questions\.json$/ },
           ],
         },
       },

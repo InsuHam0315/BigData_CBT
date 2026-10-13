@@ -36,8 +36,16 @@ const lessonSchema = z.object({
   topic: text,
   title: text,
   objectives: ids,
-  sections: z.array(z.object({ heading: text, body: ids })).min(2),
-  terms: z.array(z.array(text).length(3)).min(3),
+  intro: text,
+  minutes: z.number().int().min(20),
+  prerequisiteIds: z.array(text),
+  walkthrough: z.array(text).min(3),
+  workedExamples: z.array(z.object({ caseId: text, calculationId: text, conceptId: text })).min(1),
+  microLab: z.object({ code: text, output: text, notes: z.array(text).min(3), kind: text }),
+  selfChecks: z.array(z.object({ question: text, answer: text, explanation: text })).length(3),
+  keyPoints: z.array(text).length(3),
+  sections: z.array(z.object({ heading: text, body: ids })).min(6),
+  terms: z.array(z.array(text).length(3)).min(7),
   code: text,
   codeNotes: ids,
   readOrder: ids,
@@ -128,9 +136,24 @@ for (const l of lessons) {
   checkRefs(l.supplements, "supplement");
   for (const c of l.caseIds) assert.equal(caseMap[c].lessonId, l.id);
   assert(
-    l.sections.flatMap((s) => s.body).join("").length > 250,
-    "substantive lesson",
+    l.sections.flatMap((s) => s.body).join("").length > 1800,
+    `${l.id}: complete beginner explanation`,
   );
+  assert.equal(new Set(l.sections.map((s) => s.heading)).size, l.sections.length);
+  for (const prior of l.prerequisiteIds) {
+    assert(lessonMap[prior], `${l.id}: prerequisite exists`);
+    assert(lessons.indexOf(lessonMap[prior]) < lessons.indexOf(l), `${l.id}: prerequisite is earlier, preventing cycles`);
+  }
+  assert.deepEqual(l.workedExamples.map((example) => example.caseId), l.caseIds);
+  for (const example of l.workedExamples) {
+    assert.equal(caseMap[example.caseId].lessonId, l.id);
+    for (const id of [example.calculationId, example.conceptId]) {
+      assert.equal(questionMap[id].caseId, example.caseId);
+      assert.equal(questionMap[id].lessonId, l.id);
+    }
+    assert.equal(questionMap[example.calculationId].kind, "numeric");
+    assert.equal(questionMap[example.conceptId].kind, "choice");
+  }
 }
 for (const c of cases) {
   checkRefs(c.sources, "primary");
@@ -205,6 +228,10 @@ const report = {
   primary: 4,
   supplement: 3,
   lessons: lessons.length,
+  lessonSections: lessons.reduce((total, l) => total + l.sections.length, 0),
+  workedExamples: lessons.reduce((total, l) => total + l.workedExamples.length, 0),
+  selfChecks: lessons.reduce((total, l) => total + l.selfChecks.length, 0),
+  executableLabs: lessons.length,
   cases: cases.length,
   questions: questions.length,
   numericRulesVerified: numeric,

@@ -47,6 +47,7 @@ import {
 } from "./storage";
 import { topicStats } from "./engine";
 import { Code, Materials, Sources } from "./components/Materials";
+import { LessonPrimer, WorkedExamples, LessonLab, LessonSelfChecks, LessonSummary } from "./components/LessonStudy";
 import { Auth, Records, WrongNotes } from "./pages/Records";
 import { Quiz, QuizStart, Results } from "./pages/Quiz";
 import "./style.css";
@@ -545,6 +546,26 @@ function Classroom() {
         (p) => p.lessonId === lesson.id && p.completed,
       ),
       index = lessons.indexOf(lesson);
+    const anchors = [
+      ["start", "처음 배우는 분께"],
+      ["goals", "학습목표"],
+      ...lesson.sections.map((s, i) => [`section-${i}`, s.heading]),
+      ["worked", "표·그래프 단계별 풀이"],
+      ["terms", "용어와 비교"],
+      ["lab", "코드 입출력 따라가기"],
+      ["code", "수업 코드·도식"],
+      ["read", "읽는 순서"],
+      ["mistakes", "실수·시험 포인트"],
+      ["check", "확인 문제"],
+      ["self-checks", "자가 점검 3문제"],
+      ["summary", "핵심 정리"],
+      ["cases", "연결 사례"],
+    ];
+    const contents = anchors.map(([anchor, title]) => (
+      <button key={anchor} onClick={() => document.getElementById(anchor)?.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      })}>{title}</button>
+    ));
     return (
       <>
         <div className="lesson-top">
@@ -554,10 +575,15 @@ function Classroom() {
         <Heading
           eyebrow={`${lesson.topic} · ${lesson.id} · 약 ${lesson.minutes}분`}
           title={lesson.title}
-          description="요약 → 상세 이해 → 코드 읽기 → 확인 문제 → 사례 풀이"
+          description="기초부터 개념 이해 · 표와 그래프의 단계별 풀이 · 코드 입출력 · 자가 점검"
         />
         <div className="lesson-layout">
           <article className="lesson-article panel">
+            <details className="mobile-lesson-toc" key={`toc-${lesson.id}`}>
+              <summary>강의 목차 · 바로가기</summary>
+              <nav aria-label="강의 목차">{contents}</nav>
+            </details>
+            <LessonPrimer key={`start-${lesson.id}`} lesson={lesson} />
             <section id="goals">
               <h2>학습목표</h2>
               <ul>
@@ -577,6 +603,7 @@ function Classroom() {
                 ))}
               </section>
             ))}
+            <WorkedExamples key={`worked-${lesson.id}`} lesson={lesson} />
             <section id="terms">
               <h2>용어와 비교</h2>
               <div className="table-scroll">
@@ -600,8 +627,9 @@ function Classroom() {
                 </table>
               </div>
             </section>
+            <LessonLab key={`lab-${lesson.id}`} lesson={lesson} />
             <section id="code">
-              <h2>작게 읽는 코드·도식</h2>
+              <h2>수업 흐름 코드·도식 읽기</h2>
               <Code code={lesson.code} notes={lesson.codeNotes} />
             </section>
             <section id="read">
@@ -635,6 +663,8 @@ function Classroom() {
               </button>
               {check && <p className="explanation">{lesson.check.answer}</p>}
             </section>
+            <LessonSelfChecks key={`checks-${lesson.id}`} lesson={lesson} />
+            <LessonSummary lesson={lesson} />
             <section id="cases">
               <h2>배운 내용을 사례에 적용하기</h2>
               {lesson.caseIds.map((cid) => (
@@ -679,32 +709,7 @@ function Classroom() {
           </article>
           <aside className="lesson-toc panel">
             <h3>이 강의의 목차</h3>
-            {[
-              ["goals", "학습목표"],
-              ...lesson.sections.map((s, i) => [`section-${i}`, s.heading]),
-              ["terms", "용어와 비교"],
-              ["code", "코드·도식"],
-              ["read", "읽는 순서"],
-              ["mistakes", "실수·시험 포인트"],
-              ["check", "확인 문제"],
-              ["cases", "연결 사례"],
-            ].map(([anchor, t]) => (
-              <button
-                key={anchor}
-                onClick={() =>
-                  document
-                    .getElementById(anchor)
-                    ?.scrollIntoView({
-                      behavior: matchMedia("(prefers-reduced-motion: reduce)")
-                        .matches
-                        ? "auto"
-                        : "smooth",
-                    })
-                }
-              >
-                {t}
-              </button>
-            ))}
+            {contents}
             <span className="tag">{done ? "✓ 읽기 완료" : "읽는 중"}</span>
           </aside>
         </div>

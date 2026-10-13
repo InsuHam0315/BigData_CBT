@@ -75,3 +75,17 @@ Vitest는 선지 ID와 섞기, 숫자 오차/0/잘못된 단위 문자열, 짧�
 - 브라우저 오류/경고 0, strict TypeScript/production 빌드 PASS.
 
 [커진 글씨 — 데스크톱 다크](screenshots/typography-desktop-dark.jpg), [모바일 라이트](screenshots/typography-mobile-light.jpg).
+
+## 전체 강의 보강 검증 — 2026-10-13
+
+28강의 각각의 6개 설명 섹션·사례 풀이·독립 코드·3개 자가 점검을 데스크톱과 390px 모바일에서 전수 렌더링 확인했다. 모든 강의에서 페이지 가로 넘침이 없다. 긴 HDFS 공식 문서 URL의 모바일 넘침을 발견해 줄바꿈을 수정한 뒤 재확인했다. 코드는 별도 컨테이너 안에서 가로 스크롤되고 키보드로 초점을 줄 수 있다. 긴 용어 설명은 표 안에서 줄바꿈된다.
+
+H4의 코드 출력 펼치기와 자가 점검 정답을 Enter로 펼치기, H4→H3 선수 강의 링크, H3의 모바일 목차 이동·평점 표 추가 펼치기·TF-IDF 출력, F3의 라이트/다크 전환을 확인했다. 기존 로컬 게스트의 C24 미응답 초안이 새 빌드 새로고침 뒤에도 홈에 표시됨을 확인했다. 실사용 개인 계정·기록은 열거나 수정하지 않았다.
+
+28개 Python 실습(실제 TF-IDF·Pipeline/Ridge 포함)의 지정 출력이 일치했다. 기존 CBT 콘텐츠와 ID의 의미적 SHA-256을 유지했고, 기존 숫자 39개+출력 9개의 독립 검산, 17개 자동 테스트, 콘텐츠 검사, 빌드가 통과했다. GitHub Pages 배포에서도 동일 검산을 실행하도록 구성했다.
+
+[강의별 출력 검산](lesson-validation.json), [브라우저 검사 데이터](lesson-browser-validation.json), [상세 보강 내역](lesson-upgrade.md).
+
+![단계별 풀이](screenshots/lessons-desktop-worked.jpg)
+![모바일 코드 출력](screenshots/lessons-mobile-code.jpg)
+![모바일 라이트](screenshots/lessons-mobile-light.jpg)

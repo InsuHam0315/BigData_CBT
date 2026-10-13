@@ -517,6 +517,8 @@ for n,title,desc in [(1,'모의고사 1 · 범위 한 바퀴','각 주제의 첫
  offset=(n-1)*5
  ids+=remaining[offset:]+remaining[:offset]
  blueprints.append(dict(id=f'mock-{n}',title=title,description=desc,caseIds=ids,defaultCount=40,defaultMinutes=60))
+from enrichment import apply_enrichment
+apply_enrichment(lessons, cases, questions)
 for name,data in [('sources',sources),('topics',topics),('lessons',lessons),('cases',cases),('questions',questions),('blueprints',blueprints)]:
  (OUT/(name+'.json')).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(f'{len(lessons)} lessons / {len(cases)} cases / {len(questions)} questions')

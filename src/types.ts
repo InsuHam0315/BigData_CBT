@@ -19,6 +19,13 @@ export interface Lesson {
   topic: TopicId;
   title: string;
   minutes: number;
+  intro: string;
+  prerequisiteIds: string[];
+  walkthrough: string[];
+  workedExamples: { caseId: string; calculationId: string; conceptId: string }[];
+  microLab: { code: string; output: string; notes: string[]; kind: string };
+  selfChecks: { question: string; answer: string; explanation: string }[];
+  keyPoints: string[];
   tags: string[];
   objectives: string[];
   sections: { heading: string; body: string[] }[];

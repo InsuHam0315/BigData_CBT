@@ -4,6 +4,8 @@
 
 **28개 강의 / 39개 서로 다른 사례 / 195개 직접 작성한 예상 연습문제 / 학습용 모의고사 3개.** 객관식 117, 숫자 39, 짧은 답 15, 서술 자기 평가 24문항입니다. 기본 모의고사 40문항·60분은 조절 가능한 학습 설정이며 실제 시험 규격은 미확정입니다.
 
+2026-10-13 전체 강의를 초심자용으로 보강했습니다. 본문은 약 4.2배, 각 강의는 6개 설명 섹션과 선수 개념 링크·용어 비교·단계별 풀이·코드 입출력·자가 점검을 제공합니다. 강의 안에 사례 풀이 39개, 실행해 검증한 작은 Python 예제 28개, 추가 자가 점검 84개가 연결됩니다. [보강 내용과 강의별 검증](docs/lesson-upgrade.md)을 확인하세요.
+
 **[공개 학습실 바로가기](https://insuham0315.github.io/BigData_CBT/)** — GitHub Pages에 배포되어 휴대폰·다른 컴퓨터에서도 접속할 수 있습니다. 참고한 소웨공 사이트와 같은 `insuham0315.github.io` 서브도메인을 사용합니다. 로그인과 학습 기록은 접속한 브라우저에 저장하며 기기 간 자동 동기화는 없습니다.
 
 ![홈 화면](docs/screenshots/home-dark.jpg)
@@ -62,6 +64,8 @@ npm run preview
 - [계산·코드 출력 독립 검산](docs/answer-validation.md)
 - [기능·브라우저 검증 결과와 한계](docs/functional-tests.md)
 - [콘텐츠 자동 검사 결과](docs/content-validation.json)
+- [전체 강의 보강과 학습 안내](docs/lesson-upgrade.md)
+- [28개 코드 출력 검증](docs/lesson-validation.json)
 - [구조와 저장 계약](docs/architecture.md)
 
 정답의 독립 검산을 재실행하려면 Python 3.12 이상에서 다음을 사용하세요. 이 작업은 공개된 합성 JSON만 읽으며 PDF가 필요하지 않습니다.
@@ -72,7 +76,7 @@ python scripts/verify_answers.py
 python scripts/document_content.py
 ```
 
-콘텐츠 원본 작성본은 `scripts/generate_content.py`이고 앱은 `src/content/*.json`을 사용합니다. 콘텐츠 변경 후 생성 → 독립 검산 → `npm run validate` → 테스트/빌드를 수행하세요. 기존 사용자의 참조가 깨지므로 배포된 문제/선지 ID를 임의 변경하지 마세요.
+콘텐츠 원본 작성본은 `scripts/generate_content.py`와 `scripts/enrichment/`이고 앱은 `src/content/*.json`을 사용합니다. 콘텐츠 변경 후 생성 → 독립 검산 → `npm run validate` → 테스트/빌드를 수행하세요. 기존 사용자의 참조가 깨지므로 배포된 문제/선지 ID를 임의 변경하지 마세요. 보강 코드 출력도 확인하려면 `scripts/requirements-lessons.txt`를 설치하고 `python scripts/verify_lessons.py`를 실행합니다. 수동 Pages 배포는 이 Python 검산과 기존 정답 검산도 수행합니다.
 
 ## GitHub Pages 배포
 

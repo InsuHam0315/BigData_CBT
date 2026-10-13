@@ -1,0 +1,463 @@
+{
+  "desktop": [
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "소프트웨어 스택과 OS의 역할",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/A1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "프로그램, 프로세스, PCB와 시분할",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/A2"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "메모리 관리와 가상 메모리",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/A3"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "파일·디렉터리·블록·빈 공간",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/A4"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "Linux·오픈소스·배포판",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/A5"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "빅데이터 정의와 5V",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/B1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "활용 사례와 발전 과정",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/B2"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "정형·반정형·비정형, 시계열·공간",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/B3"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "분산 인프라·클라우드·엣지",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/C1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "크롤링·API·센서·ETL/ELT",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/C2"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "스트리밍·윈도우·중복 처리",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/C3"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "HDFS: 블록, 복제, 메타데이터",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/C4"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "NoSQL 모델·오브젝트 스토리지·레이크",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/C5"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "정제: 결측·중복·이상값·표준화",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/D1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "프로파일링·검증 규칙·메타데이터",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/D2"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "거버넌스·프라이버시·접근 제어",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/D3"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "분석 질문, 데이터 사전과 프로세스",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/E1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "분석 환경·원본 보존·재현성",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/E2"
+    },
+    {
+      "checks": 3,
+      "examples": 2,
+      "h1": "넷플릭스 결측 처리와 유효 N",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/F1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "문자열·날짜·분과 시즌 변환",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/F2"
+    },
+    {
+      "checks": 3,
+      "examples": 3,
+      "h1": "describe·집계·explode·교차표",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/F3"
+    },
+    {
+      "checks": 3,
+      "examples": 3,
+      "h1": "막대·히스토그램·박스플롯",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/G1"
+    },
+    {
+      "checks": 3,
+      "examples": 3,
+      "h1": "등록 추이·산점도·이중 축",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/G2"
+    },
+    {
+      "checks": 3,
+      "examples": 3,
+      "h1": "교차표·히트맵·분모 비교",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/G3"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "감독·배우 네트워크와 중심성",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/H1"
+    },
+    {
+      "checks": 3,
+      "examples": 1,
+      "h1": "텍스트 전처리와 워드클라우드",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/H2"
+    },
+    {
+      "checks": 3,
+      "examples": 2,
+      "h1": "TF-IDF·콘텐츠 추천·협업 필터링",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/H3"
+    },
+    {
+      "checks": 3,
+      "examples": 2,
+      "h1": "회귀·Ridge·학습/테스트·MAE",
+      "lab": true,
+      "overflow": false,
+      "sections": 6,
+      "url": "#/lessons/H4"
+    }
+  ],
+  "mobile": [
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/A1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/A2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/A3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/A4",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/A5",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/B1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/B2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/B3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/C1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/C2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/C3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/C4",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/C5",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/D1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/D2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/D3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/E1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/E2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/F1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/F2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/F3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/G1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/G2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/G3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/H1",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/H2",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/H3",
+      "width": 390
+    },
+    {
+      "checks": 3,
+      "mobileToc": "block",
+      "overflow": false,
+      "url": "#/lessons/H4",
+      "width": 390
+    }
+  ],
+  "interactions": [
+    "H4 keyboard self-check reveal",
+    "H4 Ridge lab output reveal",
+    "H4 → H3 prerequisite link",
+    "H3 mobile table expansion",
+    "H3 mobile TOC and output reveal",
+    "F3 light/dark theme toggle",
+    "C4 long reference URL wraps without page overflow after repair"
+  ]
+}

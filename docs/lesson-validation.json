@@ -1,0 +1,289 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "3.0.1",
+  "sklearn": "1.9.1",
+  "labsPassed": 28,
+  "lessons": [
+    {
+      "id": "A1",
+      "sections": 6,
+      "bodyBefore": 557,
+      "bodyAfter": 2433,
+      "growth": 4.37,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "A2",
+      "sections": 6,
+      "bodyBefore": 490,
+      "bodyAfter": 2368,
+      "growth": 4.83,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "A3",
+      "sections": 6,
+      "bodyBefore": 536,
+      "bodyAfter": 2393,
+      "growth": 4.46,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "A4",
+      "sections": 6,
+      "bodyBefore": 513,
+      "bodyAfter": 2385,
+      "growth": 4.65,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "A5",
+      "sections": 6,
+      "bodyBefore": 539,
+      "bodyAfter": 2515,
+      "growth": 4.67,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "B1",
+      "sections": 6,
+      "bodyBefore": 488,
+      "bodyAfter": 2179,
+      "growth": 4.47,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "B2",
+      "sections": 6,
+      "bodyBefore": 549,
+      "bodyAfter": 2194,
+      "growth": 4.0,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "B3",
+      "sections": 6,
+      "bodyBefore": 480,
+      "bodyAfter": 2129,
+      "growth": 4.44,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "C1",
+      "sections": 6,
+      "bodyBefore": 541,
+      "bodyAfter": 2229,
+      "growth": 4.12,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "C2",
+      "sections": 6,
+      "bodyBefore": 583,
+      "bodyAfter": 2276,
+      "growth": 3.9,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "C3",
+      "sections": 6,
+      "bodyBefore": 471,
+      "bodyAfter": 2121,
+      "growth": 4.5,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "C4",
+      "sections": 6,
+      "bodyBefore": 550,
+      "bodyAfter": 2236,
+      "growth": 4.07,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "C5",
+      "sections": 6,
+      "bodyBefore": 521,
+      "bodyAfter": 2192,
+      "growth": 4.21,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "D1",
+      "sections": 6,
+      "bodyBefore": 493,
+      "bodyAfter": 2147,
+      "growth": 4.35,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "D2",
+      "sections": 6,
+      "bodyBefore": 519,
+      "bodyAfter": 2084,
+      "growth": 4.02,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "D3",
+      "sections": 6,
+      "bodyBefore": 578,
+      "bodyAfter": 2162,
+      "growth": 3.74,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "E1",
+      "sections": 6,
+      "bodyBefore": 542,
+      "bodyAfter": 2201,
+      "growth": 4.06,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "E2",
+      "sections": 6,
+      "bodyBefore": 515,
+      "bodyAfter": 2161,
+      "growth": 4.2,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "F1",
+      "sections": 6,
+      "bodyBefore": 527,
+      "bodyAfter": 2135,
+      "growth": 4.05,
+      "workedCases": 2,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "F2",
+      "sections": 6,
+      "bodyBefore": 529,
+      "bodyAfter": 2147,
+      "growth": 4.06,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "F3",
+      "sections": 6,
+      "bodyBefore": 595,
+      "bodyAfter": 2205,
+      "growth": 3.71,
+      "workedCases": 3,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "G1",
+      "sections": 6,
+      "bodyBefore": 497,
+      "bodyAfter": 1995,
+      "growth": 4.01,
+      "workedCases": 3,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "G2",
+      "sections": 6,
+      "bodyBefore": 462,
+      "bodyAfter": 1946,
+      "growth": 4.21,
+      "workedCases": 3,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "G3",
+      "sections": 6,
+      "bodyBefore": 447,
+      "bodyAfter": 2007,
+      "growth": 4.49,
+      "workedCases": 3,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "H1",
+      "sections": 6,
+      "bodyBefore": 486,
+      "bodyAfter": 2055,
+      "growth": 4.23,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "H2",
+      "sections": 6,
+      "bodyBefore": 469,
+      "bodyAfter": 1956,
+      "growth": 4.17,
+      "workedCases": 1,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "H3",
+      "sections": 6,
+      "bodyBefore": 589,
+      "bodyAfter": 2379,
+      "growth": 4.04,
+      "workedCases": 2,
+      "selfChecks": 3,
+      "lab": "PASS"
+    },
+    {
+      "id": "H4",
+      "sections": 6,
+      "bodyBefore": 584,
+      "bodyAfter": 2314,
+      "growth": 3.96,
+      "workedCases": 2,
+      "selfChecks": 3,
+      "lab": "PASS"
+    }
+  ]
+}

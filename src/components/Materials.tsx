@@ -198,7 +198,7 @@ export function Code({ code, notes = [] }: { code: string; notes?: string[] }) {
       <div className="code-caption">
         코드 읽기 · 브라우저에서 임의 실행하지 않음
       </div>
-      <pre>
+      <pre tabIndex={0} aria-label="코드 읽기 예제">
         <code>{code}</code>
       </pre>
       {notes.length > 0 && (
