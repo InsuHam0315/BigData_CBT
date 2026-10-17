@@ -10,6 +10,18 @@ import type { CaseStudy, Row, SourceRef } from "../types";
 import { sourceMap } from "../content";
 import { DataChart } from "./Chart";
 import { Expand, Table2, BarChart3, ArrowUpDown, X } from "lucide-react";
+export function formatPages(pages: number[]) {
+  const sorted = [...new Set(pages)].sort((a,b)=>a-b), spans: string[] = [];
+  for(let i=0;i<sorted.length;i++) {
+    const first=sorted[i]; let last=first;
+    while(sorted[i+1]===last+1)last=sorted[++i];
+    spans.push(first===last?String(first):`${first}–${last}`);
+  }
+  return spans.join(', ');
+}
+export function SourceLine({ source }: { source: SourceRef }) {
+  return <p className="source-page">{sourceMap[source.sourceId].filename.normalize('NFC')} · PDF p{formatPages(source.pages)}</p>;
+}
 export function Sources({
   refs,
   supplements = [],
@@ -22,8 +34,7 @@ export function Sources({
       <strong>범위 근거 · PDF 실제 페이지</strong>
       {refs.map((r) => (
         <p key={r.sourceId + ":" + r.pages.join(",")}>
-          {sourceMap[r.sourceId].filename} · p{r.pages[0]}
-          {r.pages.length > 1 ? `~${r.pages.at(-1)}` : ""}
+          {sourceMap[r.sourceId].filename.normalize('NFC')} · p{formatPages(r.pages)}
         </p>
       ))}
       {supplements.length > 0 && (
@@ -31,7 +42,7 @@ export function Sources({
           <summary>설명 보강 자료</summary>
           {supplements.map((r, i) => (
             <p key={i}>
-              {sourceMap[r.sourceId].filename} · p{r.pages[0]}~{r.pages.at(-1)}
+              {sourceMap[r.sourceId].filename.normalize('NFC')} · p{formatPages(r.pages)}
             </p>
           ))}
         </details>

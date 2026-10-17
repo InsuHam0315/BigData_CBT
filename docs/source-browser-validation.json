@@ -1,0 +1,49 @@
+{
+  "base": "http://127.0.0.1:4173/BigData_CBT/",
+  "viewports": [
+    {
+      "width": 320,
+      "menuRoutes": 89,
+      "chapters": 8,
+      "maxOverflow": 0,
+      "oldBackup": true,
+      "chapterProgress": true,
+      "desktopCollapse": false
+    },
+    {
+      "width": 390,
+      "menuRoutes": 89,
+      "chapters": 8,
+      "maxOverflow": 0,
+      "oldBackup": true,
+      "chapterProgress": true,
+      "desktopCollapse": false
+    },
+    {
+      "width": 768,
+      "menuRoutes": 89,
+      "chapters": 8,
+      "maxOverflow": 0,
+      "oldBackup": true,
+      "chapterProgress": true,
+      "desktopCollapse": true
+    },
+    {
+      "width": 1440,
+      "menuRoutes": 89,
+      "chapters": 8,
+      "maxOverflow": 0,
+      "oldBackup": true,
+      "chapterProgress": true,
+      "desktopCollapse": true
+    }
+  ],
+  "errors": [],
+  "legacyLinks": 34,
+  "verifiedAt": "2026-10-18",
+  "sourceSections": 129,
+  "additionalSections": 112,
+  "correctionBlocks": 19,
+  "unchangedLessonIds": 28,
+  "unchangedQuestions": 195
+}

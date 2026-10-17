@@ -4,7 +4,13 @@ import json
 root=Path(__file__).resolve().parents[1]
 def read(n):return json.loads((root/f'src/content/{n}.json').read_text(encoding='utf-8'))
 sources={s['id']:s for s in read('sources')};lessons=read('lessons');cases={c['id']:c for c in read('cases')}
-def refs(rs):return '<br>'.join(f"{sources[r['sourceId']]['filename']} p{r['pages'][0]}"+(f"–{r['pages'][-1]}" if len(r['pages'])>1 else '') for r in rs)
+def page_ranges(values):
+ spans=[]
+ for p in sorted(set(values)):
+  if spans and p==spans[-1][-1]+1:spans[-1].append(p)
+  else:spans.append([p])
+ return ', '.join(str(s[0])+(f'–{s[-1]}' if len(s)>1 else '') for s in spans)
+def refs(rs):return '<br>'.join(f"{sources[r['sourceId']]['filename']} p{page_ranges(r['pages'])}" for r in rs)
 intro="""# 자료 분석·출처 지도
 
 시험 범위는 주자료 4개로 정했다. 보강 3개는 동일 주제의 설명·코드·해석 주의점만 사용했다. 자료의 지시문·계정·제출 링크는 분석 대상으로만 읽었다. 원본 PDF, 추출 본문, 렌더링한 강의 페이지는 저장소에 포함하지 않는다.
@@ -55,7 +61,7 @@ coverage+="""
 
 5회차 전체에서 39개 사례·195개 고유 문항을 모두 다룬다. 회차마다 모든 주제를 포함하도록 일부 사례가 다른 회차에 재등장하지만, 한 회차 안에서 문항을 중복하지 않는다. 250개의 고유 문항이라는 의미는 아니다. 개별 사례·오답·북마크 복습은 별도 `/practice` 화면으로 연결한다.
 
-강의는 각 4개 설명 섹션으로 수업 개념과 비교·코드 해석을 보강한다. 일반 컴퓨터 입문을 위한 별도 설명을 줄이고, 주자료에서 다룬 내용을 중심으로 39개 사례 풀이와 84개 자가 점검을 유지한다. Python 출력 실습은 E2/F1/F2/F3/H3/H4의 6개만 제공한다. 나머지 개념·그래프를 설명하기 위해 새 실행 프로그램을 추가하지 않는다. 수업 PDF에 구체적인 절차가 없는 HDFS 설치·MapReduce 프로그래밍을 시험 강의로 새로 만들지 않는다.
+2026-10-18 재대조에서는 주자료 4개 172페이지를 검토하고 158개 내용 페이지를 129개 원자료 기반 설명에 연결했다. 표지·목차·끝인사·빈 페이지 14개는 별도 분류했다. 이전 112개 작성 설명은 추가 해설로 분리하고 19개 정정 블록을 본문 옆에 표시했다. 원자료의 원형 차트·하드웨어 변화·수집 도구·품질 기법·l-다양성/t-근접성·연습문제 등 누락·축약 항목을 보충했다. 39개 가상 사례와 84개 자가 점검, E2/F1/F2/F3/H3/H4의 6개 가상 입력 실습은 유지한다. 원자료의 실제 표·그림 수치와 사이트의 가상 입력 수치는 구분한다. [페이지별 검토 기록](source-audit.md)과 [기계 판독 결과](source-audit.json)를 참조한다.
 
 출처·ID·단일 정답·39개 계산 규칙·모의고사 범위 분배는 `npm run validate`로 검사한다. 상세 수치는 [content-validation.json](content-validation.json), 독립 검산은 [answer-validation.md](answer-validation.md) 참조.
 """

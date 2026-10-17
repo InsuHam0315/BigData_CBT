@@ -1,5 +1,7 @@
 # 원문 검토와 검증 보충
 
+2026-10-18 재대조: 화면의 19개 정정 블록과 페이지별 근거는 `scripts/enrichment/source_aligned.py` 및 [페이지별 검토](source-audit.md)에 관리한다. Linux/macOS 계보, replacement·가상 메모리, 파일 메타데이터·FAT, OAuth와 폴링, HDFS HA의 JournalNode/ZooKeeper 역할, NoSQL 보장, 프라이버시·동의·데이터 계층, 산점도·빈도 해석, 네트워크 표본·이름 충돌, 추천 인덱스·Pearson, MAE 불일치를 원자료 기반 본문과 구별한다. 아래는 이전 검토에서 이어지는 상세 관찰이다.
+
 페이지는 PDF 파일의 실제 순서(1부터). 원문을 바꾸어 인용하지 않으며 아래 보충을 강의에 분리 표시한다.
 
 |위치|관찰|처리|

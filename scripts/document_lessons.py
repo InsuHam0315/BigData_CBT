@@ -7,15 +7,17 @@ lessons = read('src/content/lessons.json')
 rounds = read('src/content/blueprints.json')
 report = read('docs/lesson-validation.json')
 rows = {r['id']: r for r in report['lessons']}
-doc = '''# 노션 수업 중심 강의 개편 · 2026-10-13
+doc = '''# 원자료 대조와 강의 개편 · 2026-10-18
 
-28개 강의를 주자료의 개념·비교·코드·자료 해석 중심으로 다시 정리했다. 컴퓨터 입문을 위한 별도 설명을 줄이고 각 강의를 4개 설명 섹션으로 구성한다. 39개 단계별 사례 풀이와 84개 자가 점검, 핵심 정리와 필요한 선수 강의 연결을 유지한다. 이전의 6섹션·28개 추가 실행 예제 구성은 교체했다.
+주자료 4개 172페이지를 다시 대조해 원자료 기반 설명 129개를 작성했다. 설명마다 PDF 실제 페이지를 표시한다. 내용 페이지 158개와 표지·목차·끝인사·빈 페이지 14개를 구별하고 원자료의 실습 질문과 그림·코드 흐름까지 다룬다. 기존 28개 단원은 A~H 8개 장의 연속 페이지 안에서 같은 ID를 유지한다. [페이지별 검토 기록](source-audit.md)을 참조한다.
+
+기존 112개 작성 설명은 추가 해설로 분리했고, 오류·단순화·결과 불일치에 대한 정정 19개를 별도로 표시한다. 39개 가상 사례·195개 문항, 84개 자가 점검, 진도·백업·북마크·계정 구조와 메뉴 접기는 유지한다. 원자료의 가상 투자액·가상 사용자 평점과 사이트에서 만든 가상 입력도 서로 구별한다.
 
 ## 범위와 학습 순서
 
 개요 자료, 2주차 노션, 3주차 노션, 넷플릭스 노션 전체를 범위로 삼는다. 넷플릭스의 네트워크·텍스트·추천·회귀까지 포함한다. 학기 계획의 주차만으로 넷플릭스 심화를 제외하지 않는다. 웹사이트 PDF 3개는 같은 주제의 설명 보강만 사용한다. Titanic과 후반 학기 로드맵은 추가하지 않았다. PDF에 구체적 절차가 없는 Hadoop 설치·MapReduce 실습은 새 강의로 만들어 넣지 않는다.
 
-강의의 핵심·목표 → 개념·비교 → 코드·도식 해석 → 단계별 사례 → 자가 점검 → 종합 회차 → 오답 연결 강의 순서로 공부한다. 사례 풀이에서 분모·단위·제외 조건과 해석 한계를 확인한다. 읽기 완료는 이해 점수와 별개다.
+강의의 핵심·목표 → 원자료 기반 본문·페이지 → 추가 정정 → 펼쳐 보는 작성 해설·코드·도식 → 자가 점검 → 가상 사례 → 종합 회차 순서다. 원자료 기반 설명은 전사가 아니라 개념·표·코드 동작을 풀어 쓴 내용이며 반복 준비 코드는 묶어서 설명한다. 그림을 사이트에 복제하지 않았다. 읽기 완료는 이해 점수와 별개다.
 
 Python 입출력 실습은 E2/F1/F2/F3/H3/H4의 6개다. 수업 코드를 확인하는 작은 가상 입력이며 외부 CSV 없이 실행된다. H4는 TF-IDF의 fit_transform/transform과 Ridge의 fit/predict를 명시적으로 보여 준다. A~D의 실행 흉내 예제는 개념 도식·흐름으로 교체한다. 원본 PDF·추출문·개인 기록·인증정보는 저장소에 포함하지 않는다.
 
@@ -35,12 +37,13 @@ doc += '''
 
 ## 재현과 검증
 
-`scripts/enrichment/course_focus.py`에 설명 선택·도식·회차 배분을 관리한다. `scripts/generate_content.py`가 이를 적용하므로 재생성해도 개편이 유지된다. 기존 강의·사례·문항·선지 ID와 저장 구조를 유지한다. cases/questions/sources/topics의 의미적 SHA-256은 기존 기준 커밋과 동일하다. blueprints는 종합 구성으로 변경했으며 기존 첫 3개 회차 ID를 유지하고 2개를 추가했다.
+`scripts/enrichment/source_aligned.py`에 페이지별 본문·정정·내용 없는 페이지 분류를 관리한다. `scripts/generate_content.py`로 재생성해도 추가 해설 분리와 페이지 출처가 유지된다. `verify_source_alignment.py`는 페이지 누락·범위 밖 출처·중요 보충 항목과 원자료 가상 평점의 Pearson 불일치를 검사한다. 이 검사는 수동 자료 대조를 대체하지 않는다. 기존 강의·사례·문항·선지 ID와 저장 구조, cases/questions/sources/topics의 의미적 SHA-256을 유지한다.
 
 ```sh
 python -m pip install -r scripts/requirements-lessons.txt
 python scripts/generate_content.py
 python scripts/verify_lessons.py
+python scripts/verify_source_alignment.py
 python scripts/verify_answers.py
 python scripts/document_content.py
 python scripts/document_lessons.py
@@ -52,7 +55,7 @@ npm run build
 - 6개 코드 출력, 39개 수치 정답·9개 변환 출력 독립 검산 통과.
 - 출처·스키마·선수 관계·풀이 연결 검사 통과.
 - 5회차의 중복 방지·사례 연속·A~H 포함·전체 195문항 커버리지 검사 통과.
-- 자동 테스트 18개와 TypeScript·Vite 빌드 통과.
+- 자동 테스트 22개와 TypeScript·Vite 빌드 통과. 4개 화면 폭에서 356개 메뉴 경로, 모든 장의 본문·정정·추가 해설·가상 사례·이전 링크·진도·백업을 별도로 검사한다.
 - [자동 검산 데이터](lesson-validation.json), [브라우저 구조 검사](lesson-browser-validation.json), [기능 검증](functional-tests.md).
 
 ## 강의별 구성

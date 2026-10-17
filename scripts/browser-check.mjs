@@ -52,8 +52,20 @@ try{
    const members=lessons.filter(l=>l.topic===topic.id);
    assert.deepEqual(await page.locator('.chapter-unit').evaluateAll(nodes=>nodes.map(n=>n.id)),members.map(l=>l.id));
    assert.equal(await page.locator('.lesson-body-section').count(),members.reduce((n,l)=>n+l.sections.length,0));
+   assert.equal(await page.locator('.lesson-body-section>.source-page').count(),members.reduce((n,l)=>n+l.sections.length,0));
+   assert.equal(await page.locator('.source-correction').count(),members.reduce((n,l)=>n+l.corrections.length,0));
+   assert.equal(await page.locator('.lesson-extra-section').count(),members.reduce((n,l)=>n+l.additionalSections.length,0));
    const duplicates=await page.locator('[id]').evaluateAll(nodes=>{const ids=nodes.map(n=>n.id);return ids.filter((id,i)=>ids.indexOf(id)!==i);});assert.deepEqual(duplicates,[]);
    const first=members[0];
+   const unit=page.locator(`[data-lesson-id=${first.id}]`);
+   assert((await unit.locator('.lesson-body-section').first().innerText()).includes(first.sections[0].body[0]));
+   const additional=page.locator(`#${first.id}-additional`);
+   assert.equal(await additional.getAttribute('open'),null);
+   await additional.locator(':scope > summary').click();
+   assert(await additional.locator('.lesson-extra-section').first().isVisible());
+   assert((await additional.innerText()).includes(first.additionalSections[0].body[0]));
+   if(first.microLab)assert((await additional.locator(`#${first.id}-lab`).innerText()).includes('가상 입력'));
+   await additional.locator(':scope > summary').click();
    await page.locator(`[data-lesson-id=${first.id}]`).getByRole('button',{name:'답 확인',exact:true}).click();
    assert((await page.locator(`#${first.id}-answer`).innerText()).includes(first.check.answer));
    await page.locator(`#${first.id}-self-checks details`).first().locator('summary').click();
@@ -76,6 +88,9 @@ try{
   }
   const legacy=width===1440?lessons:[lessons[0],lessons.at(-1)];
   for(const l of legacy){await page.goto(base+'#/lessons/'+l.id);await page.locator(`[data-lesson-id=${l.id}]`).waitFor();await stable();assert.equal(await page.locator('.chapter-unit').count(),lessons.filter(x=>x.topic===l.topic).length);assert.equal(await page.locator('.nav-child[aria-current=page]').getAttribute('href'),`#/lessons/chapter/${l.topic}`);report.legacyLinks++;}
+  await page.goto(base+'#/lessons/chapter/H?at=H3-code');await page.locator('#H3-code').waitFor();await stable();
+  assert(await page.locator('#H3-additional').evaluate(e=>e.open));
+  assert((await page.locator('#H3-code').boundingBox()).y>=0);
   for(const topic of ['A','H']){await page.goto(base+'#/practice?topic='+topic);await page.getByRole('heading',{name:`${questions.filter(q=>q.topic===topic).length}문항 복습`,exact:true}).waitFor();}
   // Old per-lesson backup records still target the same IDs inside a chapter.
   await page.goto(base+'#/account?view=backup');await page.locator('input[type=file]').waitFor();

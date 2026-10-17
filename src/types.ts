@@ -14,6 +14,14 @@ export interface Topic {
   title: string;
   subtitle: string;
 }
+export interface SourceSection {
+  heading: string;
+  body: string[];
+  source: SourceRef;
+}
+export interface SourceCorrection extends SourceSection {
+  links: { title: string; url: string }[];
+}
 export interface Lesson {
   id: string;
   topic: TopicId;
@@ -29,7 +37,9 @@ export interface Lesson {
   keyPoints: string[];
   tags: string[];
   objectives: string[];
-  sections: { heading: string; body: string[] }[];
+  sections: SourceSection[];
+  additionalSections: { heading: string; body: string[] }[];
+  corrections: SourceCorrection[];
   terms: string[][];
   code: string;
   codeNotes: string[];

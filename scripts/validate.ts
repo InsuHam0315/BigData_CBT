@@ -45,7 +45,9 @@ const lessonSchema = z.object({
   codeKind: z.enum(["diagram", "python"]),
   selfChecks: z.array(z.object({ question: text, answer: text, explanation: text })).length(3),
   keyPoints: z.array(text).length(3),
-  sections: z.array(z.object({ heading: text, body: ids })).min(4),
+  sections: z.array(z.object({ heading: text, body: ids, source: ref })).min(4),
+  additionalSections: z.array(z.object({ heading: text, body: ids })).length(4),
+  corrections: z.array(z.object({ heading: text, body: ids, source: ref, links: z.array(z.object({ title: text, url: z.string().url() })) })),
   terms: z.array(z.array(text).length(3)).min(4),
   code: text,
   codeNotes: ids,
@@ -134,6 +136,7 @@ const checkRefs = (
 };
 for (const l of lessons) {
   checkRefs(l.sources, "primary");
+  for(const section of [...l.sections,...l.corrections])checkRefs([section.source], "primary");
   checkRefs(l.supplements, "supplement");
   for (const c of l.caseIds) assert.equal(caseMap[c].lessonId, l.id);
   assert(
@@ -231,6 +234,8 @@ const report = {
   supplement: 3,
   lessons: lessons.length,
   lessonSections: lessons.reduce((total, l) => total + l.sections.length, 0),
+  additionalSections: lessons.reduce((total, l) => total + l.additionalSections.length, 0),
+  correctionBlocks: lessons.reduce((total, l) => total + l.corrections.length, 0),
   workedExamples: lessons.reduce((total, l) => total + l.workedExamples.length, 0),
   selfChecks: lessons.reduce((total, l) => total + l.selfChecks.length, 0),
   executableLabs: lessons.filter((l) => l.microLab).length,

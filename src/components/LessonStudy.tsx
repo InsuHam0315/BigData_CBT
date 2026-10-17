@@ -6,7 +6,7 @@ import { Code, Materials } from "./Materials";
 export function LessonPrimer({ lesson }: { lesson: Lesson }) {
   return (
     <section id={`${lesson.id}-start`} className="lesson-primer">
-      <span className="eyebrow">START HERE</span>
+      <span className="eyebrow">사이트 작성 · 학습 안내</span>
       <h3>이 단원의 핵심</h3>
       <p>{lesson.intro}</p>
       {lesson.prerequisiteIds.length ? (
@@ -30,6 +30,7 @@ export function WorkedExamples({ lesson }: { lesson: Lesson }) {
   return (
     <section id={`${lesson.id}-worked`}>
       <span className="eyebrow">WORKED EXAMPLES</span>
+      <span className="content-label synthetic-label">학습용 가상 사례</span>
       <h3>표·그래프를 함께 읽는 풀이</h3>
       {lesson.walkthrough.map((p, i) => <p key={i}>{p}</p>)}
       {lesson.workedExamples.map((example, i) => {
@@ -72,7 +73,8 @@ export function LessonLab({ lesson }: { lesson: Lesson }) {
   return (
     <section id={`${lesson.id}-lab`}>
       <span className="eyebrow">INPUT → OUTPUT</span>
-      <h3>수업 코드의 출력 확인</h3>
+      <span className="content-label synthetic-label">학습용 가상 입력 · 사이트 재구성</span>
+      <h3>재구성한 코드의 출력 확인</h3>
       <p>{lesson.microLab.kind} · 노션에 나온 연산을 작은 가상 입력으로 재구성했습니다. 출력은 Python에서 실행해 확인했습니다.</p>
       <p className="muted">먼저 각 변수와 연산 뒤에 남는 값을 예상한 뒤 출력과 비교하세요.</p>
       <Code code={lesson.microLab.code} notes={lesson.microLab.notes} />
@@ -88,6 +90,7 @@ export function LessonSelfChecks({ lesson }: { lesson: Lesson }) {
   return (
     <section id={`${lesson.id}-self-checks`}>
       <span className="eyebrow">RECALL & EXPLAIN</span>
+      <span className="content-label">사이트 작성 · 자가 점검</span>
       <h3>답을 가리고 자가 점검</h3>
       <p>자신의 말로 답한 뒤 정답과 이유를 펼쳐 비교하세요. 이해가 어려운 항목은 위 설명과 풀이를 다시 읽고 사례형 CBT로 확인합니다.</p>
       {lesson.selfChecks.map((item, i) => (

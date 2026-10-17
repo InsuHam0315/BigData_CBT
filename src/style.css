@@ -2610,6 +2610,20 @@ details summary:hover {
 @media (prefers-reduced-motion: reduce) { .sidebar .nav-toggle svg { transition: none; } }
 
 /* One continuous page per A-H chapter, with the original lesson anchors. */
+.source-legend { margin:24px 0; padding:22px 26px; }
+.source-legend-items { display:flex; flex-wrap:wrap; gap:10px; }
+.content-label { display:inline-block; font-size:12px; font-weight:750; color:var(--accent); background:var(--accent-dim); padding:4px 9px; border:1px solid var(--line); border-radius:6px; }
+.source-page { font-size:13px; color:var(--muted); margin:4px 0 16px; }
+.source-section { border-top:1px solid var(--line); padding-top:25px; }
+.source-section h3 { margin:12px 0 6px; }
+.lesson-corrections { border:1px solid #ab834c; border-left:4px solid #ab834c; border-radius:10px; padding:22px; }
+.lesson-corrections .content-label,.correction-label { color:var(--text); border-color:#ab834c; background:transparent; }
+.source-correction h4 { font-size:18px; margin-bottom:8px; }
+.correction-links { font-size:14px; }
+.lesson-additional { border:1px dashed var(--line-strong); border-radius:10px; padding:20px; margin:26px 0; scroll-margin-top:100px; }
+.lesson-additional>summary { cursor:pointer; font-weight:750; }
+.lesson-extra-section { border-top:1px solid var(--line); padding-top:20px; margin-top:30px; }
+.synthetic-label { color:var(--text); border-style:dashed; background:transparent; }
 .sidebar-brand-row { display:flex; align-items:center; gap:4px; min-width:0; }
 .sidebar-brand-row .brand { flex:1; min-width:0; font-size:17px; gap:8px; }
 .sidebar-brand-row .brand small { font-size:10px; }

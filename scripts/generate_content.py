@@ -515,6 +515,10 @@ for n,ids in enumerate(ROUND_CASES,1):
  blueprints.append(dict(id=f'mock-{n}',title=f'종합모의고사 {n}회차',description='개요·개론·인프라·품질·넷플릭스 분석 전 범위를 섞은 고정 종합 문제입니다.',caseIds=ids,defaultCount=50,defaultMinutes=75))
 from enrichment import apply_enrichment
 apply_enrichment(lessons, cases, questions)
+from enrichment.source_aligned import apply_source_alignment
+apply_source_alignment(lessons)
 for name,data in [('sources',sources),('topics',topics),('lessons',lessons),('cases',cases),('questions',questions),('blueprints',blueprints)]:
- (OUT/(name+'.json')).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ target=OUT/(name+'.json')
+ if not target.exists() or json.loads(target.read_text(encoding='utf-8'))!=data:
+  target.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(f'{len(lessons)} lessons / {len(cases)} cases / {len(questions)} questions')
