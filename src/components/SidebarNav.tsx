@@ -7,6 +7,11 @@ import { useStudy } from "../context";
 type Item = { label: string; to: string; completed?: boolean };
 function current(to: string, path: string, search: string) {
   const [target, query = ""] = to.split("?");
+  if(target.startsWith('/lessons/chapter/')){
+    const legacy=lessons.find(l=>path===`/lessons/${l.id}`);
+    const topic=legacy?.topic??(path==='/lessons'?new URLSearchParams(search).get('topic'):null);
+    return target===(topic?`/lessons/chapter/${topic}`:path);
+  }
   if (target !== path) return false;
   const actual = new URLSearchParams(search), expected = new URLSearchParams(query);
   return [...actual].every(([k, v]) => expected.get(k) === v) && [...expected].every(([k, v]) => actual.get(k) === v);
@@ -32,7 +37,7 @@ export function SidebarNav() {
     : location.pathname === "/practice" ? (location.search.includes("wrong=1") ? "wrong" : "records")
     : groups.find((g) => g.path !== "/" && location.pathname.startsWith(g.path))?.id ?? "home";
   const [open, setOpen] = useState<Record<string, boolean>>({[active]: true});
-  useEffect(() => { setOpen((p) => ({...p, [active]: true})); }, [active]);
+  useEffect(() => { setOpen((p) => ({...p, [active]: true})); }, [active, location.pathname, location.search]);
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       const child = document.querySelector('.sidebar-nav a[aria-current="page"]');
@@ -55,10 +60,7 @@ export function SidebarNav() {
       </div>
       <div className="nav-children" id={`nav-${id}`} hidden={!open[id]}>
         {items.map(renderItem)}
-        {id === "lessons" && topics.map((t) => <div className="nav-topic" key={t.id}>
-          <Link className="nav-topic-title" to={`/lessons?topic=${t.id}`} aria-current={current(`/lessons?topic=${t.id}`, location.pathname, location.search) ? "page" : undefined}>{t.id} · {t.title}</Link>
-          {lessons.filter((l) => l.topic === t.id).map((l) => renderItem({label: `${l.id} · ${l.title}`, to: `/lessons/${l.id}`, completed: profile.progress.some((p) => p.lessonId === l.id && p.completed)}))}
-        </div>)}
+        {id === "lessons" && topics.map((t,i) => renderItem({label: `${i+1}장 · ${t.title}`, to: `/lessons/chapter/${t.id}`, completed: lessons.filter(l=>l.topic===t.id).every(l=>profile.progress.some(p=>p.lessonId===l.id&&p.completed))}))}
       </div>
     </div>)}
   </nav>;

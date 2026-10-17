@@ -29,6 +29,15 @@ jobs:
       - run: npm run validate
       - run: npm test
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Verify chapter pages and navigation
+        run: |
+          npm run preview > /tmp/bigdata-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl -sf http://127.0.0.1:4173/BigData_CBT/ > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run test:browser
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -80,6 +80,14 @@ python scripts/document_content.py
 
 콘텐츠 원본 작성본은 `scripts/generate_content.py`와 `scripts/enrichment/`이고 앱은 `src/content/*.json`을 사용합니다. 콘텐츠 변경 후 생성 → 독립 검산 → `npm run validate` → 테스트/빌드를 수행하세요. 기존 사용자의 참조가 깨지므로 배포된 문제/선지 ID를 임의 변경하지 마세요. 보강 코드 출력도 확인하려면 `scripts/requirements-lessons.txt`를 설치하고 `python scripts/verify_lessons.py`를 실행합니다. 수동 Pages 배포는 이 Python 검산과 기존 정답 검산도 수행합니다.
 
+## 장별 한 페이지와 메뉴 접기
+
+기존 A~H의 8개 주제는 각각 `/lessons/chapter/A`~`/lessons/chapter/H` 한 페이지로 읽습니다. 28개 단원의 본문 112절·용어·코드·자가 점검과 39개 가상 사례 풀이, 195개 문제 및 회차 데이터는 그대로 유지합니다. 이전 `/lessons/A1`·`/lessons/H4` 및 `?topic=` 주소는 해당 장의 관련 위치로 연결합니다.
+
+왼쪽 맨 위의 버튼으로 메뉴 전체를 접으면 본문이 넓어집니다. 상단의 펼치기 버튼으로 복원하며, 접힘 상태는 빅데이터 전용 설정으로 유지합니다. 모바일 메뉴는 Escape·배경 클릭·상단 닫기와 키보드 포커스 이동을 지원합니다. 장 전체 읽기 완료는 기존 단원 ID에 기록하므로 진도·북마크·과거 백업의 참조를 바꾸지 않습니다.
+
+`npm run test:browser`는 별도로 `npm run preview`를 실행한 뒤 사용합니다. 320·390·768·1440px에서 8장 전체, 세부 메뉴, 기존 강의 주소, 코드·풀이 펼침과 진도·백업을 격리 브라우저로 검증합니다. Pages는 기존처럼 수동 배포하며 이 브라우저 검사를 통과한 빌드를 게시합니다.
+
 ## GitHub Pages 배포
 
 Vite base는 GitHub 프로젝트 경로용 `/BigData_CBT/`, 라우터는 HashRouter입니다. 추후 커스텀 도메인 루트로 빌드하려면 환경 변수 `VITE_BASE_PATH=/`를 지정합니다. `#/lessons/H4` 같은 직접 접속/새로고침을 정적 호스팅에서 지원합니다. `.github/workflows/pages.yml`은 **workflow_dispatch만** 사용해 소스 push로 사이트를 게시하지 않습니다.

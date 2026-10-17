@@ -1,5 +1,12 @@
 # GitHub Pages 공개 배포 검증
 
+## 2026-10-18 장별 페이지 통합
+
+게시 대상은 기존 GitHub HTTPS 주소 `https://insuham0315.github.io/BigData_CBT/`입니다. A~H 각 한 페이지와 메뉴 전체 접기/펼치기를 적용하며, 도메인·Vite base·저장 키는 바꾸지 않습니다. 수동 배포 워크플로는 기존 콘텐츠·계산·단위·빌드 검사에 격리 Chromium의 장별/모바일/메뉴/백업 검사를 추가했습니다. 소스 push만으로 배포하지 않는 기존 방식을 유지합니다.
+
+장별 주소는 `#/lessons/chapter/A`~`#/lessons/chapter/H`, 기존 단원 링크는 장 내부 위치로 연결합니다. 공개 배포 성공은 [Pages 실행 기록](https://github.com/InsuHam0315/BigData_CBT/actions/workflows/pages.yml)에서 해당 커밋의 build/deploy 결과로 확인하며, 게시된 HTML·자산을 로컬 검증 빌드와 비교합니다. 아래 날짜별 항목은 이전 배포 이력입니다.
+
+
 ## GitHub 기본 HTTPS 주소로 임시 복구 · 2026-10-17
 
 사용자 요청에 따라 인증서 발급이 `bad_authz`로 멈춘 커스텀 도메인 연결을 잠시 해제하고 `https://insuham0315.github.io/BigData_CBT/`로 복구합니다. Vite base는 `/BigData_CBT/`이며 현재 수동 배포 워크플로를 유지합니다. 내도메인.한국의 DNS 레코드, 강의·문항·채점, 기존 학습 DB와 저장 키를 변경하지 않습니다. 아래는 커스텀 도메인에서 수행한 이전 검증 기록입니다.
