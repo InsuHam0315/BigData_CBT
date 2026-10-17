@@ -1,5 +1,11 @@
 # GitHub Pages 공개 배포 검증
 
+## 커스텀 도메인 경로 수정 · 2026-10-17
+
+현재 도메인은 `ist-bigdata.kro.kr`, CNAME 대상은 `insuham0315.github.io`입니다. 저장소 Pages의 Custom domain도 `ist-bigdata.kro.kr`로 연결합니다. 기존 `/BigData_CBT/` 경로의 JS·CSS 7개가 도메인 루트에서 404를 반환하는 문제를 확인하여 Vite base를 `/`로 변경했습니다. `VITE_BASE_PATH`로 필요할 때 다른 경로를 지정할 수 있습니다.
+
+강의·사례·문항·선지 ID, 채점과 사용자 저장 키는 이번 변경에서 수정하지 않습니다. 같은 수동 `workflow_dispatch` 워크플로로 검사·빌드·배포하며 소스 push만으로 자동 게시하지 않습니다. HTTPS 인증서 상태는 배포와 별도로 확인합니다. 도메인/HTTP/HTTPS 출처별 로컬 기록은 독립적이며 JSON 백업으로 이전합니다. 아래는 이전 배포 당시의 기록입니다.
+
 2026-10-12 공개 배포 요청에 따라 수행했다.
 
 - 공개 주소: [빅데이터 학습실](https://insuham0315.github.io/BigData_CBT/)
