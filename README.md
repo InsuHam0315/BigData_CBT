@@ -6,7 +6,7 @@
 
 2026-10-13 전체 강의를 수업 개념·비교·코드 해석 중심으로 개편했습니다. 과도한 입문 설명을 줄이고 강의마다 4개 설명 섹션, 39개 연결 사례 풀이와 84개 자가 점검을 제공합니다. Python 입출력 예제는 수업 코드 확인에 필요한 6개만 남겼습니다. 모든 왼쪽 메뉴를 펼쳐 강의·자료·회차·진도·응시·오답·북마크·백업 세부 페이지에 바로 접근할 수 있습니다. [개편 안내와 검증](docs/lesson-upgrade.md)을 확인하세요.
 
-**[공개 학습실 바로가기](https://ist-bigdata.kro.kr/)** — GitHub Pages에 배포되어 휴대폰·다른 컴퓨터에서도 접속할 수 있습니다. 2026-10-17부터 커스텀 도메인 `ist-bigdata.kro.kr`의 루트 경로를 사용합니다. 로그인과 학습 기록은 접속한 브라우저·출처에 저장하며 기기 간 자동 동기화는 없습니다. HTTPS 인증서의 발급 상태는 저장소 Pages 설정에서 확인합니다.
+**[공개 학습실 바로가기](https://insuham0315.github.io/BigData_CBT/)** — 커스텀 도메인의 인증서 발급 오류로 2026-10-17에 GitHub 기본 HTTPS 주소로 임시 복구했습니다. 로그인과 학습 기록은 접속한 브라우저·출처에 저장하며 기기 간 자동 동기화는 없습니다.
 
 ![홈 화면](docs/screenshots/home-dark.jpg)
 
@@ -19,7 +19,7 @@ npm ci
 npm run dev
 ```
 
-[개발 서버](http://127.0.0.1:5173/)는 **127.0.0.1:5173**에 고정됩니다. 사용 중이면 오류로 종료하며 다른 포트로 바꾸지 않습니다. Windows에서 `npm ci`를 다시 실행할 때는 기존 Vite 서버를 먼저 종료하세요. 실행 중인 네이티브 바이너리 때문에 재설치가 잠길 수 있습니다.
+[개발 서버](http://127.0.0.1:5173/BigData_CBT/)는 **127.0.0.1:5173**에 고정됩니다. 사용 중이면 오류로 종료하며 다른 포트로 바꾸지 않습니다. Windows에서 `npm ci`를 다시 실행할 때는 기존 Vite 서버를 먼저 종료하세요. 실행 중인 네이티브 바이너리 때문에 재설치가 잠길 수 있습니다.
 
 ```sh
 npm run validate
@@ -28,7 +28,7 @@ npm run build
 npm run preview
 ```
 
-[Production 미리보기](http://127.0.0.1:4173/)는 **127.0.0.1:4173**입니다. 개발 주소·미리보기 주소·GitHub Pages는 **각각 다른 기록 저장소**입니다. `localhost`와 `127.0.0.1`도 다릅니다. 학습할 때 하나의 주소를 계속 사용하고 주소를 옮길 때는 백업으로 기록을 옮기세요.
+[Production 미리보기](http://127.0.0.1:4173/BigData_CBT/)는 **127.0.0.1:4173**입니다. 개발 주소·미리보기 주소·GitHub Pages는 **각각 다른 기록 저장소**입니다. `localhost`와 `127.0.0.1`도 다릅니다. 학습할 때 하나의 주소를 계속 사용하고 주소를 옮길 때는 백업으로 기록을 옮기세요.
 
 ## 학습과 계정
 
@@ -82,7 +82,7 @@ python scripts/document_content.py
 
 ## GitHub Pages 배포
 
-Vite base는 커스텀 도메인용 `/`, 라우터는 HashRouter입니다. 원래 GitHub 프로젝트 경로로 빌드하려면 환경 변수 `VITE_BASE_PATH=/BigData_CBT/`를 지정합니다. `#/lessons/H4` 같은 직접 접속/새로고침을 정적 호스팅에서 지원합니다. `.github/workflows/pages.yml`은 **workflow_dispatch만** 사용해 소스 push로 사이트를 게시하지 않습니다.
+Vite base는 GitHub 프로젝트 경로용 `/BigData_CBT/`, 라우터는 HashRouter입니다. 추후 커스텀 도메인 루트로 빌드하려면 환경 변수 `VITE_BASE_PATH=/`를 지정합니다. `#/lessons/H4` 같은 직접 접속/새로고침을 정적 호스팅에서 지원합니다. `.github/workflows/pages.yml`은 **workflow_dispatch만** 사용해 소스 push로 사이트를 게시하지 않습니다.
 
 2026-10-12 후속 요청에 따라 GitHub Pages를 GitHub Actions 방식으로 활성화하고 **Publish Pages manually**를 실행해 공개 배포했습니다. [배포 실행](https://github.com/InsuHam0315/BigData_CBT/actions/runs/38265693195)의 콘텐츠 검사·테스트·빌드·배포가 성공했으며 HTTPS 실접속과 자산 5개의 로컬 빌드 일치를 확인했습니다. [공개 배포 검증](docs/deployment.md)에 결과를 기록했습니다.
 
