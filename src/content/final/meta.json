@@ -1,0 +1,17 @@
+{
+  "sourceSha256": "6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65",
+  "pages": 19,
+  "edition": "2026-10-19",
+  "questionsPerRound": 40,
+  "difficulty": {
+    "상": 2,
+    "중": 6,
+    "중하": 32
+  },
+  "answerPositions": [
+    10,
+    10,
+    10,
+    10
+  ]
+}

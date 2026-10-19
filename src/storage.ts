@@ -11,7 +11,7 @@ import type {
   WrongNote,
 } from "./types";
 import { grade, scoreDraft } from "./engine";
-import { lessons, lessonMap, questionMap } from "./content";
+import { allLessons as lessons, lessonMap, questionMap } from "./content";
 
 export const DB_NAME = "bigdata-midterm-cbt:v1";
 export const SESSION_KEY = "bigdata-midterm-cbt:tab-session:v1";

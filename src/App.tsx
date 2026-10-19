@@ -50,10 +50,11 @@ import {
 } from "./storage";
 import { topicStats } from "./engine";
 import { Code, Materials, Sources } from "./components/Materials";
-import { Classroom } from "./pages/Classroom";
+import { FinalHome, FinalGuide, LessonEntry, FinalStart } from "./pages/FinalStudy";
+import { finalLessons, finalTopics } from "./content";
 import { Auth, Records, WrongNotes } from "./pages/Records";
 import { Quiz, Results } from "./pages/Quiz";
-import { QuizStart, FocusPracticeStart } from "./pages/QuizStart";
+import { FocusPracticeStart } from "./pages/QuizStart";
 import { SidebarNav } from "./components/SidebarNav";
 import { Guide } from "./pages/Guide";
 import "./style.css";
@@ -104,7 +105,7 @@ function Shell() {
     window.addEventListener('keydown',close);
     return()=>{window.removeEventListener('keydown',close);previous?.focus();};
   }, [mobile]);
-  const completed = topics.filter(t=>lessons.filter(l=>l.topic===t.id).every(l=>profile.progress.some(p=>p.lessonId===l.id&&p.completed))).length;
+  const completed = finalLessons.filter(l=>profile.progress.some(p=>p.lessonId===l.id&&p.completed)).length;
   if (!ready)
     return (
       <div className="loading">
@@ -125,7 +126,7 @@ function Shell() {
             <Database size={22} />
           </span>
           <span>
-            빅데이터 학습실<small>MIDTERM STUDY LAB</small>
+            빅데이터 학습실<small>EXAM STUDY LAB</small>
           </span>
         </Link>
         <button className="sidebar-collapse icon-btn" title="왼쪽 메뉴 접기" aria-label="왼쪽 메뉴 접기" aria-expanded={mobile||!sidebarClosed} aria-controls="study-sidebar" onClick={closeSidebar}><PanelLeftClose size={19}/></button>
@@ -136,10 +137,10 @@ function Shell() {
           <div className="mini-progress">
             <span>강의 진행</span>
             <b>
-              {completed} / {topics.length}장
+              {completed} / {finalTopics.length}장
             </b>
           </div>
-          <progress max={topics.length} value={completed} />
+          <progress max={finalTopics.length} value={completed} />
           <p>자료를 읽고, 근거로 답하기.</p>
           <Link to="/account">
             <CircleUserRound size={17} />
@@ -160,7 +161,7 @@ function Shell() {
               {mobile ? <X /> : <Menu />}
             </button>
             <span className="crumb">
-              BIG DATA <span>/</span> 중간고사 학습
+              BIG DATA <span>/</span> 최종 범위 학습
             </span>
           </div>
           <div className="topbar-actions">
@@ -223,9 +224,12 @@ function Shell() {
             {notice}
           </div>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/guide" element={<Guide />} />
-            <Route path="/lessons/*" element={<Classroom />} />
+            <Route path="/" element={<FinalHome />} />
+            <Route path="/archive" element={<><div className="notice archive-notice">이전 자료 보관함 · 아래 자료는 이번 최종 범위와 구분해서 보세요.</div><Home /></>} />
+            <Route path="/archive/guide" element={<Guide />} />
+            <Route path="/archive/review" element={<Review />} />
+            <Route path="/guide" element={<FinalGuide />} />
+            <Route path="/lessons/*" element={<LessonEntry />} />
             <Route
               path="/reading"
               element={<Reading key={location.search} />}
@@ -233,12 +237,12 @@ function Shell() {
             <Route
               path="/cbt/:roundId?"
               element={
-                <QuizStart key={"cbt" + session.userId + location.pathname + location.search} />
+                <FinalStart key={"cbt" + session.userId + location.pathname + location.search} />
               }
             />
             <Route
               path="/mock/:roundId?"
-              element={<QuizStart key={"mock" + session.userId + location.pathname} mock />}
+              element={<FinalStart key={"mock" + session.userId + location.pathname} mock />}
             />
             <Route path="/practice" element={<FocusPracticeStart key={session.userId + location.search} />} />
             <Route path="/quiz" element={<Quiz key={session.userId} />} />
@@ -248,7 +252,7 @@ function Shell() {
             />
             <Route path="/wrong" element={<WrongNotes key={session.userId + location.search} />} />
             <Route path="/records" element={<Records />} />
-            <Route path="/review" element={<Review />} />
+            <Route path="/review" element={<FinalGuide />} />
             <Route path="/account" element={<Auth key={session.userId + location.search} />} />
             <Route
               path="*"
@@ -262,7 +266,7 @@ function Shell() {
           </Routes>
         </main>
         <footer>
-          직접 작성한 예상 연습문제 · 실제 시험 규격은 미확정{" "}
+          최종 범위 PDF 1~3장 · 직접 작성한 예상문제{" "}
           <span>원본 PDF는 로컬 분석 자료로 보존</span>
         </footer>
       </div>
@@ -550,6 +554,7 @@ function Reading() {
   if (!initial) {
     const visible = cases.filter((c) => kind === "graph" ? !!c.chart : kind === "code" ? !!c.code : kind === "table" ? !c.chart : true);
     return <>
+      <div className="notice archive-notice">이전 가상 데이터 자료입니다. <Link to="/lessons">최종 범위 필기노트 →</Link></div>
       <Heading eyebrow="DATA READING LAB" title={kind === "graph" ? "그래프 자료 읽기" : kind === "code" ? "코드 자료 읽기" : kind === "table" ? "표 중심 자료 읽기" : "자료를 읽고, 근거를 찾기."} description="수업 범위에 맞춘 가상 자료입니다. 각 자료에서 축·단위·분모·코드 순서와 해석의 한계를 확인하세요." />
       <div className="actions catalogue-tabs">{[["", "전체 자료"], ["table", "표 중심"], ["graph", "그래프"], ["code", "코드"]].map(([k, label]) => <Link key={k} className={`button ${kind === k ? "primary" : ""}`} to={k ? `/reading?kind=${k}` : "/reading"} aria-current={kind === k ? "page" : undefined}>{label}</Link>)}</div>
       <p className="muted">{visible.length}개 자료</p>

@@ -9,9 +9,9 @@ import type {
   TopicId,
   ExamBlueprint,
 } from "./types";
-import { caseMap, cases, questionMap, questions, topics } from "./content";
+import { caseMap, allCases as cases, questionMap, questions, allTopics as topics, isFinalQuestion } from "./content";
 export function roundQuestions(round: ExamBlueprint): string[] {
-  return round.caseIds.flatMap((id) => caseMap[id].questionIds);
+  return round.questionIds ? [...round.questionIds] : round.caseIds.flatMap((id) => caseMap[id].questionIds);
 }
 export function quantile(values: number[], p: number) {
   const s = [...values].sort((a, b) => a - b);
@@ -167,6 +167,11 @@ export function newDraft(
   shuffleChoices = true,
 ): ExamDraft {
   const stamp = new Date().toISOString();
+  // Balance the *displayed* answer positions, including when choices are mixed.
+  // Persist the order in the draft so reload/resume cannot change the key.
+  const balanced = ids.length > 0 && ids.every(isFinalQuestion);
+  const positions = balanced && shuffleChoices
+    ? shuffle(ids.map((_, i) => i % 4)) : [];
   return {
     userId,
     id: crypto.randomUUID(),
@@ -176,9 +181,16 @@ export function newDraft(
     title,
     questionIds: ids,
     choiceOrders: Object.fromEntries(
-      ids.map((id) => [
+      ids.map((id, index) => [
         id,
-        shuffleChoices
+        balanced && shuffleChoices
+          ? (() => {
+              const q = questionMap[id];
+              const other = shuffle(q.choices!.filter(c => c.id !== q.correctId).map(c => c.id));
+              other.splice(positions[index], 0, q.correctId!);
+              return other;
+            })()
+          : shuffleChoices
           ? shuffle(questionMap[id].choices?.map((c) => c.id) ?? [])
           : (questionMap[id].choices?.map((c) => c.id) ?? []),
       ]),

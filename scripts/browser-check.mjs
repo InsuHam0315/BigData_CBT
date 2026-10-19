@@ -27,7 +27,7 @@ try{
    return extra;
   };
   await page.goto(base+'#/lessons');await page.locator('.chapter-card').first().waitFor();
-  assert.equal(await page.locator('.chapter-card').count(),8);
+  assert.equal(await page.locator('.chapter-card').count(),3);
   if(width<=760){
    await page.getByRole('button',{name:'메뉴 열기',exact:true}).click();await page.locator('.sidebar.open').waitFor();
    await page.keyboard.press('Shift+Tab');assert(await page.locator('.sidebar').evaluate(e=>e.contains(document.activeElement)));

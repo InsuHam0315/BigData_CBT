@@ -1,4 +1,4 @@
-export type TopicId = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H";
+export type TopicId = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "F1" | "F2" | "F3";
 export interface Source {
   id: string;
   filename: string;
@@ -138,7 +138,7 @@ export interface Question {
   caseId: string;
   topic: TopicId;
   kind: QuestionKind;
-  difficulty: "기초" | "보통" | "심화";
+  difficulty: "기초" | "보통" | "심화" | "중하" | "중" | "상";
   skill: Skill;
   mistake: Mistake;
   stem: string;
@@ -166,6 +166,7 @@ export interface ExamBlueprint {
   title: string;
   description: string;
   caseIds: string[];
+  questionIds?: string[];
   defaultCount: number;
   defaultMinutes: number;
 }

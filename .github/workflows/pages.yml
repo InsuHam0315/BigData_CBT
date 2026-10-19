@@ -39,6 +39,7 @@ jobs:
             sleep 1
           done
           npm run test:browser
+          npm run test:final-browser
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

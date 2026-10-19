@@ -11,11 +11,12 @@ import { BookmarkButton, Heading, kindLabel } from "../components/UI";
 import { useStudy } from "../context";
 import {
   caseMap,
-  blueprints,
-  cases,
+  allBlueprints as blueprints,
+  isFinalQuestion,
+  allCases as cases,
   lessonMap,
   questionMap,
-  topics,
+  allTopics as topics,
 } from "../content";
 import type { Attempt, Question, ExamDraft } from "../types";
 import { grade, topicStats } from "../engine";
@@ -51,7 +52,7 @@ export function Explanation({ q, answer }: { q: Question; answer?: string }) {
           <li key={i}>{s}</li>
         ))}
       </ol>
-      {q.choices && (
+      {q.choices && !isFinalQuestion(q.id) && (
         <details>
           <summary>선지별 이유</summary>
           <ul>
@@ -178,7 +179,7 @@ export function Quiz() {
             : "전체 제출 후 오답·기록 저장"}
         </span>
       </div>
-      <div className="mobile-quiz-tabs">
+      <div className="mobile-quiz-tabs" hidden={isFinalQuestion(q.id)}>
         <button
           aria-pressed={mobileView === "question"}
           onClick={() => setMobileView("question")}
@@ -192,8 +193,9 @@ export function Quiz() {
           공통 자료
         </button>
       </div>
-      <div className="quiz-layout">
+      <div className={`quiz-layout ${isFinalQuestion(q.id) ? "final-quiz-layout" : ""}`}>
         <div
+          hidden={isFinalQuestion(q.id)}
           className={`quiz-material ${mobileView === "data" ? "show-mobile" : ""}`}
         >
           <Materials key={data.id} data={data} />
@@ -454,7 +456,7 @@ export function Results() {
         </Link>
         {round && <Link className="button" to={`${a.mode === "exam" ? "/mock" : "/cbt"}/${round.id}`}>같은 회차 다시 풀기</Link>}
       </div>
-      <section className="panel"><h2>이번 응시의 주제별 결과</h2>{topics.map((t) => <div className="weakness-row" key={t.id}><span>{t.title}</span>{stats[t.id] ? <><b>{stats[t.id].correct}/{stats[t.id].total} 정답</b><Link to={`/lessons?topic=${t.id}`}>강의 복습 →</Link></> : <small>채점된 응답 없음</small>}</div>)}<p className="muted">자기 평가 대기 응답은 평가를 마친 뒤 포함됩니다.</p></section>
+      <section className="panel"><h2>이번 응시의 주제별 결과</h2>{topics.filter(t=>stats[t.id]).map((t) => <div className="weakness-row" key={t.id}><span>{t.title}</span>{stats[t.id] ? <><b>{stats[t.id].correct}/{stats[t.id].total} 정답</b><Link to={`/lessons?topic=${t.id}`}>강의 복습 →</Link></> : <small>채점된 응답 없음</small>}</div>)}<p className="muted">자기 평가 대기 응답은 평가를 마친 뒤 포함됩니다.</p></section>
       <div className="filters">
         <label>
           결과 보기
@@ -480,10 +482,10 @@ export function Results() {
               <BookmarkButton targetId={qid} kind="question" />
             </div>
             <h2>{q.stem}</h2>
-            <details>
+            {!isFinalQuestion(q.id) && <details>
               <summary>공통 자료 다시 보기 · {caseMap[q.caseId].title}</summary>
               <Materials data={caseMap[q.caseId]} />
-            </details>
+            </details>}
             <Explanation q={q} answer={a.answers[qid] ?? ""} />
             {q.kind === "essay" && a.answers[qid]?.trim() && (
               <div className="actions">

@@ -1,0 +1,277 @@
+{
+  "edition": "2026-10-19",
+  "sourceSha256": "6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65",
+  "sourcePages": 19,
+  "chapters": 3,
+  "sections": 19,
+  "uniqueQuestions": 200,
+  "rounds": [
+    {
+      "id": "final-1",
+      "items": 40,
+      "difficulty": {
+        "상": 2,
+        "중": 6,
+        "중하": 32
+      },
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "chapters": {
+        "F1": 9,
+        "F2": 13,
+        "F3": 18
+      },
+      "uniqueLongestCorrect": 3,
+      "meanCorrectCharacters": 7.03,
+      "meanDistractorCharacters": 7.53
+    },
+    {
+      "id": "final-2",
+      "items": 40,
+      "difficulty": {
+        "상": 2,
+        "중": 6,
+        "중하": 32
+      },
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "chapters": {
+        "F1": 9,
+        "F2": 13,
+        "F3": 18
+      },
+      "uniqueLongestCorrect": 5,
+      "meanCorrectCharacters": 9.47,
+      "meanDistractorCharacters": 10.18
+    },
+    {
+      "id": "final-3",
+      "items": 40,
+      "difficulty": {
+        "상": 2,
+        "중": 6,
+        "중하": 32
+      },
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "chapters": {
+        "F1": 9,
+        "F2": 13,
+        "F3": 18
+      },
+      "uniqueLongestCorrect": 3,
+      "meanCorrectCharacters": 9.7,
+      "meanDistractorCharacters": 10.22
+    },
+    {
+      "id": "final-4",
+      "items": 40,
+      "difficulty": {
+        "상": 2,
+        "중": 6,
+        "중하": 32
+      },
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "chapters": {
+        "F1": 9,
+        "F2": 13,
+        "F3": 18
+      },
+      "uniqueLongestCorrect": 4,
+      "meanCorrectCharacters": 10.1,
+      "meanDistractorCharacters": 11.08
+    },
+    {
+      "id": "final-5",
+      "items": 40,
+      "difficulty": {
+        "상": 2,
+        "중": 6,
+        "중하": 32
+      },
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "chapters": {
+        "F1": 9,
+        "F2": 13,
+        "F3": 18
+      },
+      "uniqueLongestCorrect": 7,
+      "meanCorrectCharacters": 10.68,
+      "meanDistractorCharacters": 11.37
+    }
+  ],
+  "pageLedger": [
+    {
+      "lesson": "FN1",
+      "heading": "1. 학습의 출발점: 질문과 관찰 단위",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "lesson": "FN1",
+      "heading": "2. 빅데이터 처리·DevOps·생성형 AI의 역할",
+      "pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "lesson": "FN1",
+      "heading": "3. 파이프라인 다섯 단계와 실패 지점",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "lesson": "FN1",
+      "heading": "4. PDF 속 적용 사례: 센서와 Netflix",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "lesson": "FN1",
+      "heading": "5. 산출물 연결과 재현성 점검",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "1. 처리 규모를 판단하기 위한 기본 용어",
+      "pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "2. 5V를 측정 가능한 질문으로 바꾸기",
+      "pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "3. PDF의 학습용 계산: 적체와 보존 용량",
+      "pages": [
+        9
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "4. 스케일업·스케일아웃과 성능 비교",
+      "pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "5. 처리 계층과 운영체제 자원",
+      "pages": [
+        10,
+        11
+      ]
+    },
+    {
+      "lesson": "FN2",
+      "heading": "6. 생성형 AI 초안 검증과 기록",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "1. Kaggle과 분석 가능한 질문",
+      "pages": [
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "2. 12개 열과 실제 첫 세 행 읽기",
+      "pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "3. 원본 확인·결측·중복·이상값 진단",
+      "pages": [
+        15,
+        16
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "4. 정제·전처리·관계형 표의 차이",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "5. 단변량 EDA: 유형과 영화 길이",
+      "pages": [
+        13,
+        16,
+        17
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "6. 이변량 EDA: 장르×등급, 등급×길이",
+      "pages": [
+        17
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "7. 시간 EDA와 다중값 장르 해석",
+      "pages": [
+        18
+      ]
+    },
+    {
+      "lesson": "FN3",
+      "heading": "8. 시험 전 문장 교정과 분석 순서",
+      "pages": [
+        18,
+        19
+      ]
+    }
+  ],
+  "review": "19 pages read; diagrams/tables/code visually checked; source claims manually reviewed. Difficulty is an authoring target, not measured item difficulty. Length tests are a style guard, not proof that all test-taking cues are absent.",
+  "status": "PASS"
+}

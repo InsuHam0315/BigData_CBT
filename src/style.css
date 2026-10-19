@@ -2669,3 +2669,38 @@ details summary:hover {
   .chapter-article .lesson-body-section h3 { font-size:21px; }
   .chapter-unit-progress { text-align:left; }
 }
+/* Final-scope edition: keep chapter content continuous and the exam uncluttered. */
+[hidden] { display: none !important; }
+.scope-facts { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.scope-facts span { padding:7px 11px; border:1px solid var(--line); border-radius:8px; font-size:.85rem; }
+.final-hero { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(230px,1fr); }
+.final-blueprint { align-self:center; padding:30px; border:1px solid var(--line); border-radius:18px; background:var(--surface); }
+.final-blueprint strong { display:block; font-size:5rem; line-height:1.3; }
+.final-blueprint strong small { font-size:1rem; margin-left:8px; }
+.difficulty-bar { display:flex; height:12px; overflow:hidden; border-radius:10px; margin:18px 0; }
+.difficulty-bar span:nth-child(1) { width:80%; background:#62bbad; }
+.difficulty-bar span:nth-child(2) { width:15%; background:#8aaeff; }
+.difficulty-bar span:nth-child(3) { width:5%; background:#c49aff; }
+.final-chapter-grid, .final-round-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:20px; margin:24px 0; }
+.final-chapter-grid .chapter-card { display:block; min-width:0; }
+.final-chapter-grid h2 { font-size:1.25rem; }
+.final-chapter-grid p { line-height:1.8; }
+.final-round-grid .panel { min-width:0; padding:26px; }
+.final-note-layout { display:grid; grid-template-columns:minmax(0,1fr) 250px; align-items:start; gap:24px; }
+.final-note { min-width:0; padding:36px; line-height:1.95; }
+.final-note-section { scroll-margin-top:85px; padding:20px 0 30px; border-bottom:1px solid var(--line); }
+.final-note-section h2 { font-size:1.4rem; margin-bottom:8px; line-height:1.5; }
+.final-note-section p { margin:16px 0; }
+.final-toc { position:sticky; top:85px; max-height:calc(100vh - 110px); overflow:auto; padding:20px; }
+.final-toc h2 { font-size:1rem; }
+.final-toc button { display:block; width:100%; text-align:left; margin:8px 0; line-height:1.6; }
+.final-code, .final-added { margin:24px 0; padding:18px; border:1px solid var(--line); border-radius:10px; }
+.final-added { border-color:#9c8fe8; }
+.final-code summary, .final-added summary { cursor:pointer; font-weight:700; }
+.final-quiz-layout { display:block; max-width:1000px; margin:auto; }
+.final-quiz-layout .quiz-question { display:block !important; }
+.scope-chapter-counts { display:flex; flex-wrap:wrap; gap:8px; }
+.archive-notice { border-left:3px solid #b794ef; }
+@media(max-width:1100px) { .final-note-layout { grid-template-columns:1fr; } .final-toc { position:static; max-height:none; grid-row:1; } .final-toc button { display:inline-block; width:auto; margin:4px; } }
+@media(max-width:760px) { .final-hero { grid-template-columns:1fr; } .final-blueprint { padding:22px; } .final-blueprint strong { font-size:3.5rem; } .final-note { padding:22px; } }
+@media(max-width:390px) { .final-note { padding:16px; } .final-code, .final-added { padding:12px; } }

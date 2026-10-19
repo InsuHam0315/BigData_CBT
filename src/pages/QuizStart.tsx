@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ArrowRight, BookOpen, Timer } from "lucide-react";
-import { blueprints, caseMap, questionMap, questions, topics } from "../content";
+import { blueprints, caseMap, questionMap, allQuestions as questions, allTopics as topics } from "../content";
 import { useStudy } from "../context";
 import { newDraft, roundQuestions, selectQuestions } from "../engine";
 import { updateProfile } from "../storage";
