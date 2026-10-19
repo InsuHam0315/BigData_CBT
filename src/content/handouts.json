@@ -1,0 +1,246 @@
+[
+  {
+    "id": "environment",
+    "number": 1,
+    "title": "빅데이터환경 개요",
+    "filename": "1.빅데이터환경_개요_필기본.pdf",
+    "description": "소프트웨어·운영체제·프로세스·메모리·파일시스템 필기본",
+    "asset": "lecture-01-notes.pdf",
+    "pages": 63,
+    "bytes": 1786506,
+    "sha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "annotatedPages": [
+      8,
+      9,
+      12,
+      13,
+      15,
+      36,
+      41,
+      48,
+      50,
+      55
+    ],
+    "annotationCount": 22,
+    "textNotes": [
+      {
+        "page": 8,
+        "text": "소프트웨어, 하드웨어 얘기함"
+      },
+      {
+        "page": 50,
+        "text": "파일시스템 중요"
+      }
+    ],
+    "relatedLessons": [
+      "FN1",
+      "FN2"
+    ],
+    "contents": [
+      {
+        "page": 1,
+        "title": "과목 개요·목차"
+      },
+      {
+        "page": 6,
+        "title": "소프트웨어"
+      },
+      {
+        "page": 12,
+        "title": "운영체제"
+      },
+      {
+        "page": 32,
+        "title": "프로그램·프로세스"
+      },
+      {
+        "page": 41,
+        "title": "메모리 관리"
+      },
+      {
+        "page": 50,
+        "title": "파일·파일시스템"
+      },
+      {
+        "page": 62,
+        "title": "리눅스 배포판"
+      }
+    ]
+  },
+  {
+    "id": "bigdata",
+    "number": 2,
+    "title": "빅데이터란?",
+    "filename": "2.빅데이터란_필기본.pdf",
+    "description": "빅데이터 개념·5V·예시·역사·활용·데이터 형태 필기본",
+    "asset": "lecture-02-notes.pdf",
+    "pages": 15,
+    "bytes": 1113295,
+    "sha256": "cace8bfd8f5d46535d78738103620e3671d4a05422406be848f8a2889f594af9",
+    "annotatedPages": [
+      2,
+      3,
+      11,
+      12,
+      13
+    ],
+    "annotationCount": 7,
+    "textNotes": [],
+    "relatedLessons": [
+      "FN2"
+    ],
+    "contents": [
+      {
+        "page": 1,
+        "title": "개념과 정의"
+      },
+      {
+        "page": 2,
+        "title": "5V"
+      },
+      {
+        "page": 4,
+        "title": "데이터 예시"
+      },
+      {
+        "page": 6,
+        "title": "역사적 발전"
+      },
+      {
+        "page": 9,
+        "title": "응용 분야"
+      },
+      {
+        "page": 11,
+        "title": "데이터의 형태"
+      }
+    ]
+  },
+  {
+    "id": "infrastructure",
+    "number": 3,
+    "title": "빅데이터 인프라",
+    "filename": "3.인프라_필기본.pdf",
+    "description": "하드웨어·수집·저장·품질 관리·거버넌스와 보안 필기본",
+    "asset": "lecture-03-notes.pdf",
+    "pages": 25,
+    "bytes": 1474725,
+    "sha256": "afded364412261d43d09fad7130ce28a0391bc88310f5b0ba032cc346bde405b",
+    "annotatedPages": [
+      2,
+      3,
+      6,
+      7,
+      10,
+      13,
+      14
+    ],
+    "annotationCount": 12,
+    "textNotes": [],
+    "relatedLessons": [
+      "FN2"
+    ],
+    "contents": [
+      {
+        "page": 1,
+        "title": "하드웨어 인프라"
+      },
+      {
+        "page": 6,
+        "title": "데이터 수집"
+      },
+      {
+        "page": 13,
+        "title": "저장 시스템"
+      },
+      {
+        "page": 18,
+        "title": "데이터 품질 관리"
+      },
+      {
+        "page": 22,
+        "title": "거버넌스와 보안"
+      }
+    ]
+  },
+  {
+    "id": "netflix",
+    "number": 4,
+    "title": "Netflix 데이터 분석",
+    "filename": "4.넷플릭스_필기본.pdf",
+    "description": "분석 개요부터 전처리·EDA·시각화·심화 분석까지의 필기본",
+    "asset": "lecture-04-notes.pdf",
+    "pages": 66,
+    "bytes": 6670729,
+    "sha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "annotatedPages": [
+      3,
+      7,
+      12,
+      19,
+      21,
+      32,
+      40,
+      47,
+      51,
+      53,
+      56
+    ],
+    "annotationCount": 22,
+    "textNotes": [
+      {
+        "page": 19,
+        "text": "히스토그램, 히트맵"
+      }
+    ],
+    "relatedLessons": [
+      "FN3"
+    ],
+    "contents": [
+      {
+        "page": 1,
+        "title": "분석 개요"
+      },
+      {
+        "page": 4,
+        "title": "실습 환경"
+      },
+      {
+        "page": 7,
+        "title": "데이터 전처리"
+      },
+      {
+        "page": 12,
+        "title": "탐색적 분석(EDA)"
+      },
+      {
+        "page": 19,
+        "title": "시각화"
+      },
+      {
+        "page": 32,
+        "title": "관계 분석"
+      },
+      {
+        "page": 40,
+        "title": "네트워크 분석"
+      },
+      {
+        "page": 46,
+        "title": "텍스트 마이닝"
+      },
+      {
+        "page": 53,
+        "title": "콘텐츠 기반 추천"
+      },
+      {
+        "page": 56,
+        "title": "협업 필터링"
+      },
+      {
+        "page": 61,
+        "title": "머신러닝 적용"
+      }
+    ]
+  }
+]

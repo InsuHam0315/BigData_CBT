@@ -40,6 +40,7 @@ jobs:
           done
           npm run test:browser
           npm run test:final-browser
+          npm run test:handout-browser
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

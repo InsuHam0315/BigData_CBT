@@ -57,6 +57,7 @@ import { Quiz, Results } from "./pages/Quiz";
 import { FocusPracticeStart } from "./pages/QuizStart";
 import { SidebarNav } from "./components/SidebarNav";
 import { Guide } from "./pages/Guide";
+import { Handouts } from "./pages/Handouts";
 import "./style.css";
 function Shell() {
   const {
@@ -229,6 +230,7 @@ function Shell() {
             <Route path="/archive/guide" element={<Guide />} />
             <Route path="/archive/review" element={<Review />} />
             <Route path="/guide" element={<FinalGuide />} />
+            <Route path="/handouts/:documentId?" element={<Handouts key={location.pathname} />} />
             <Route path="/lessons/*" element={<LessonEntry />} />
             <Route
               path="/reading"
@@ -267,7 +269,7 @@ function Shell() {
         </main>
         <footer>
           최종 범위 PDF 1~3장 · 직접 작성한 예상문제{" "}
-          <span>원본 PDF는 로컬 분석 자료로 보존</span>
+          <span>학습 기록은 현재 브라우저에 보관</span>
         </footer>
       </div>
     </div>

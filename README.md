@@ -9,6 +9,7 @@
 - 매 회차 상 2·중 6·중하 32문항. 출제 목표이며 실측 정답률이 아닙니다.
 - 정답 1~4번 각 10문항. 선지 섞기를 켜도 표시 위치의 균형을 유지하고 저장된 순서를 복원합니다.
 - 문항별 해설·PDF 근거·연결 필기노트, 연습/시험 모드, 자동 저장·오답·기록·백업을 지원합니다.
+- 수업 필기자료실: 개요 63쪽·빅데이터란 15쪽·인프라 25쪽·Netflix 66쪽, 총 169쪽의 원본 PDF를 보기·다운로드할 수 있습니다. 형광펜·손글씨·메모를 보존하고 필기 있는 쪽과 목차로 바로 이동합니다.
 - 이전 28개 강의·39개 가상 사례·195문항과 ID는 보관함에 보존합니다. DB 이름과 백업 형식도 유지합니다.
 
 현재 범위의 페이지 연결과 선지 길이 검토: [검토 기록](docs/final-scope.md), [검증 수치](docs/final-scope-audit.json).
@@ -26,9 +27,10 @@ npm run preview
 # 미리보기 서버가 열린 상태에서:
 npm run test:browser
 npm run test:final-browser
+npm run test:handout-browser
 ```
 
-최종 범위 콘텐츠의 편집 원본은 `scripts/final_scope.py`와 `scripts/final_questions/round1.txt`~`round5.txt`입니다. `python scripts/final_scope.py`로 `src/content/final/`을 재생성합니다. 기존 자료는 기존 생성·검증 경로를 그대로 사용합니다. 원본 PDF·추출문·렌더 이미지·개인 계정·백업은 공개 저장소에 넣지 않습니다.
+최종 범위 콘텐츠의 편집 원본은 `scripts/final_scope.py`와 `scripts/final_questions/round1.txt`~`round5.txt`입니다. `python scripts/final_scope.py`로 `src/content/final/`을 재생성합니다. 기존 자료는 기존 생성·검증 경로를 그대로 사용합니다. 사용자가 사이트 추가를 요청한 필기본 4개만 `public/materials/lecture-01-notes.pdf`~`lecture-04-notes.pdf`에 원본 그대로 공개합니다. `scripts/import_handouts.py <원본 폴더>`로 복사·메타데이터를 갱신합니다. 그 외 원본 PDF·추출문·검토 렌더 이미지·개인 계정·백업은 공개 저장소에 넣지 않습니다. 필기자료실의 보충·심화 내용이 19쪽 최종 범위나 기존 200문항의 범위를 자동 확대하지 않습니다.
 
 ## 저장과 배포
 

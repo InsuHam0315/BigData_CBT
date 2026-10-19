@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, ChartNoAxesCombined, Check, ChevronDown, CircleUserRound, ClipboardList, FlaskConical, House, Layers, Target, Timer } from "lucide-react";
+import { BookOpen, ChartNoAxesCombined, Check, ChevronDown, CircleUserRound, ClipboardList, FlaskConical, FileText, House, Layers, Target, Timer } from "lucide-react";
 import { blueprints, lessons, topics, finalBlueprints, finalLessons } from "../content";
 import { useStudy } from "../context";
+import handouts from "../content/handouts.json";
 
 type Item = { label: string; to: string; completed?: boolean };
 function current(to: string, path: string, search: string) {
   const [target, query = ""] = to.split("?");
+  if (target.startsWith('/handouts/')) return target === path;
   if(target.startsWith('/lessons/chapter/')){
     const legacy=lessons.find(l=>path===`/lessons/${l.id}`);
     const topic=legacy?.topic??(path==='/lessons'?new URLSearchParams(search).get('topic'):null);
@@ -23,6 +25,7 @@ export function SidebarNav() {
   const groups = [
     { id: "home", label: "홈", path: "/", Icon: House, items: [{label: "학습 대시보드", to: "/"}, {label: "학습 순서·시험 범위", to: "/guide"}] },
     { id: "lessons", label: "강의 필기노트", path: "/lessons", Icon: BookOpen, items: [{label: "최종 범위 1~3장", to: "/lessons"}, ...finalLessons.map(l=>({label:l.title,to:`/lessons/${l.id}`,completed:profile.progress.some(p=>p.lessonId===l.id&&p.completed)}))] },
+    { id: "handouts", label: "수업 필기자료", path: "/handouts", Icon: FileText, items: [{label: "필기본 4개 전체", to: "/handouts"}, ...handouts.map(d=>({label:`${d.number}. ${d.title} · ${d.pages}쪽`,to:`/handouts/${d.id}`}))] },
     { id: "cbt", label: "최종 범위 문제 연습", path: "/cbt", Icon: FlaskConical, items: [{label: "연습 1~5회", to: "/cbt"}, ...finalBlueprints.map(b=>({label:b.title,to:`/cbt/${b.id}`}))] },
     { id: "mock", label: "모의고사 40문항", path: "/mock", Icon: Timer, items: [{label: "모의고사 1~5회", to: "/mock"}, ...finalBlueprints.map(b=>({label:b.title,to:`/mock/${b.id}`}))] },
     { id: "wrong", label: "오답노트", path: "/wrong", Icon: ClipboardList, items: [{label: "복습할 오답", to: "/wrong"}, {label: "모든 오답", to: "/wrong?view=all"}, {label: "해결한 오답", to: "/wrong?view=resolved"}, {label: "반복해서 틀린 문제", to: "/wrong?view=repeat"}, {label: "오답 다시 풀기", to: "/practice?wrong=1"}] },

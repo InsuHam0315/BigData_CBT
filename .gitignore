@@ -5,6 +5,10 @@ dist/
 *.pem
 *.key
 *.pdf
+!public/materials/lecture-01-notes.pdf
+!public/materials/lecture-02-notes.pdf
+!public/materials/lecture-03-notes.pdf
+!public/materials/lecture-04-notes.pdf
 tmp/
 test-results/
 playwright-report/
