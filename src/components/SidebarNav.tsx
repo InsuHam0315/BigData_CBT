@@ -31,6 +31,7 @@ export function SidebarNav() {
     { id: "handouts", label: "수업 필기자료", path: "/handouts", Icon: FileText, items: [{label: "필기본 4개 전체", to: "/handouts"}, ...handouts.map(d=>({label:`${d.number}. ${d.title} · ${d.pages}쪽`,to:`/handouts/${d.id}`}))] },
     { id: "cbt", label: "종합 CBT · PDF 4개", path: "/cbt", Icon: FlaskConical, items: [{label: "종합 연습 1~5회차", to: "/cbt"}, ...courseBlueprints.map(b=>({label:b.title,to:`/cbt/${b.id}`}))] },
     { id: "mock", label: "종합 모의고사 40문항", path: "/mock", Icon: Timer, items: [{label: "모의고사 1~5회차", to: "/mock"}, ...courseBlueprints.map(b=>({label:b.title,to:`/mock/${b.id}`}))] },
+    { id: "concept", label: "개념 종합 · 1~3장", path: "/cbt?scope=concept", Icon: FlaskConical, items: [{label:"개념 연습 1~5회차",to:"/cbt?scope=concept"},...finalBlueprints.map((b,i)=>({label:`개념 연습 ${i+1}회`,to:`/cbt/${b.id}`})),{label:"개념 모의고사 1~5회차",to:"/mock?scope=concept"},...finalBlueprints.map((b,i)=>({label:`개념 모의고사 ${i+1}회`,to:`/mock/${b.id}`}))] },
     { id: "wrong", label: "오답노트", path: "/wrong", Icon: ClipboardList, items: [{label: "복습할 오답", to: "/wrong"}, {label: "모든 오답", to: "/wrong?view=all"}, {label: "해결한 오답", to: "/wrong?view=resolved"}, {label: "반복해서 틀린 문제", to: "/wrong?view=repeat"}, {label: "오답 다시 풀기", to: "/practice?wrong=1"}] },
     { id: "records", label: "학습기록", path: "/records", Icon: Layers, items: [{label: "기록 개요", to: "/records"}, {label: "강의별 진도", to: "/records?view=progress"}, {label: "응시 이력·점수", to: "/records?view=attempts"}, {label: "취약점 분석", to: "/records?view=weakness"}, {label: "내 북마크", to: "/records?view=bookmarks"}] },
     { id: "review", label: "시험 범위·학습 안내", path: "/review", Icon: Target, items: [{label: "PDF 4개 범위와 출제 구성", to: "/review"}] },
@@ -38,7 +39,8 @@ export function SidebarNav() {
     { id: "account", label: "계정·백업", path: "/account", Icon: CircleUserRound, items: [{label: "로컬 로그인·프로필", to: "/account"}, {label: "로컬 회원가입", to: "/account?view=register"}, {label: "학습 기록 백업·복원", to: "/account?view=backup"}] },
   ];
   const oldLesson = /^\/lessons\/(?:chapter\/)?[A-H](?:\d+)?$/.test(location.pathname) && !/^\/lessons\/chapter\/F[123]$/.test(location.pathname);
-  const active = oldLesson || location.search.includes('archive=1') || location.pathname.startsWith('/archive') || location.pathname.startsWith('/reading') ? "archive" : location.pathname === "/guide" ? "home"
+  const conceptView = /^\/(cbt|mock)\/final-[1-5]$/.test(location.pathname) || /^(\/cbt|\/mock)$/.test(location.pathname)&&new URLSearchParams(location.search).get('scope')==='concept' || location.pathname==='/quiz'&&profile.draft?.questionIds.some(id=>/^F26R/.test(id));
+  const active = conceptView ? "concept" : oldLesson || location.search.includes('archive=1') || location.pathname.startsWith('/archive') || location.pathname.startsWith('/reading') ? "archive" : location.pathname === "/guide" ? "home"
     : location.pathname === "/quiz" ? (profile.draft?.mode === "exam" ? "mock" : "cbt")
     : location.pathname.startsWith("/results") ? "records"
     : location.pathname === "/practice" ? (location.search.includes("wrong=1") ? "wrong" : "records")

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ArrowRight, BookOpen, Timer } from "lucide-react";
-import { blueprints, caseMap, questionMap, allQuestions as questions, allTopics as topics } from "../content";
+import { blueprints, caseMap, questionMap, allQuestions as questions, reviewQuestions, allTopics as topics } from "../content";
 import { useStudy } from "../context";
 import { newDraft, roundQuestions, selectQuestions } from "../engine";
 import { updateProfile } from "../storage";
@@ -77,6 +77,7 @@ export function FocusPracticeStart() {
   const cid = params.get("case"), qid = params.get("question");
   const chapter=topics.find(t=>t.id===params.get('topic'));
   const bookmarks = params.get("bookmarks") === "1", wrong = params.get("wrong") === "1";
+  if(qid || bookmarks || wrong) pool = reviewQuestions;
   if (cid) pool = pool.filter((q) => q.caseId === cid);
   if (qid) pool = pool.filter((q) => q.id === qid);
   if(chapter)pool=pool.filter(q=>q.topic===chapter.id);

@@ -5,11 +5,12 @@ All questions are original practice items, not professor-authored exam questions
 """
 import json, random
 from pathlib import Path
+from final_questions.concept_revision import revise_row, REVISIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'src/content/final'
 SOURCE = {'id': 'FINAL19', 'filename': '빅데이터1-3장.pdf', 'role': 'primary', 'pages': 19}
-META = {'sourceSha256': '6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65', 'pages': 19, 'edition': '2026-10-19', 'questionsPerRound': 40, 'difficulty': {'상': 2, '중': 6, '중하': 32}, 'answerPositions': [10,10,10,10]}
+META = {'sourceSha256': '6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65', 'pages': 19, 'edition': '2026-10-21-concepts', 'questionsPerRound': 40, 'difficulty': {'상': 2, '중': 6, '중하': 32}, 'answerPositions': [10,10,10,10], 'archivedQuestionCount': 200}
 
 def section(pages, heading, *body):
     return {'heading': heading, 'body': list(body), 'source': {'sourceId':'FINAL19','pages':pages}}
@@ -132,21 +133,25 @@ def build():
         ids=[]
         for line in lines:
             if not line.strip() or line.startswith('#'):continue
-            chapter,page,diff,stem,correct,w1,w2,w3,why=line.split('|')
-            i=len(ids); qid=f'F{r:02d}Q{i+1:02d}'; ids.append(qid)
-            options=[correct,w1,w2,w3]
+            i=len(ids); previous_id=f'F{r:02d}Q{i+1:02d}'
+            item=revise_row(previous_id,line.split('|'))
+            chapter,page,diff,stem,why=[item[k] for k in ('chapter','page','difficulty','stem','explanation')]
+            qid=f'F26R{r:02d}Q{i+1:02d}'; ids.append(qid)
+            options=item['options']; correct=options[0]
             wrong=options[1:]; random.Random(r*100+i).shuffle(wrong)
             ordered=wrong[:]; ordered.insert(positions[i],correct)
             choices=[{'id':f'{qid}-{j+1}','text':s,'reason':why if s==correct else f'이 문항의 기준과 다릅니다. {why}'} for j,s in enumerate(ordered)]
-            bank.append(dict(id=qid,caseId=f'FC{chapter}',topic=f'F{chapter}',kind='choice',difficulty=diff,skill='개념 적용',mistake='개념',stem=stem,choices=choices,correctId=choices[positions[i]]['id'],explanation=why,steps=[f'최종 범위 PDF p{page}의 정의·조건과 선지를 비교합니다.'],commonError='용어·단위·관찰 대상 또는 판단 근거를 바꾸어 읽지 않습니다.',lessonId=f'FN{chapter}',sources=[{'sourceId':'FINAL19','pages':[int(p) for p in page.split(',')]}],origin='직접 작성한 예상 연습문제'))
+            bank.append(dict(id=qid,caseId=f'FC{chapter}',topic=f'F{chapter}',kind='choice',difficulty=diff,skill=item['skill'],mistake='개념',stem=stem,choices=choices,correctId=choices[positions[i]]['id'],explanation=why,steps=item['steps'],commonError=item['commonError'],exhibit=item['exhibit'],lessonId=f'FN{chapter}',sources=[{'sourceId':'FINAL19','pages':[int(p) for p in page.split(',')]}],origin='직접 작성한 예상 연습문제'))
         assert len(ids)==40,(r,len(ids))
         random.Random(1900+r).shuffle(ids)
-        rounds.append(dict(id=f'final-{r}',title=f'최종 범위 모의고사 {r}회',description='최종 범위 PDF 1~3장 · 4지선다 40문항',caseIds=[],questionIds=ids,defaultCount=40,defaultMinutes=60))
+        rounds.append(dict(id=f'final-{r}',title=f'개념 종합 모의고사 {r}회',description='1~3장 개념·표·코드·상황 적용 · 4지선다 40문항',caseIds=[],questionIds=ids,defaultCount=40,defaultMinutes=60))
     cases=[]
     for n in range(1,4):
-        cases.append(dict(id=f'FC{n}',topic=f'F{n}',title=topics[n-1]['title'],scenario='최종 범위 PDF 기반 직접 작성 예상문제입니다.',unit='문항',validN=0,exclusions='문제에 명시된 조건을 따릅니다.',assumptions=[],synthetic=True,numericOrigin='PDF의 수치와 새 학습용 가정은 문항에서 구분합니다.',columns=[],rows=[],code='',codeNotes=[],guide=[],lessonId=f'FN{n}',sources=lessons[n-1]['sources'],supplements=[],questionIds=[q['id'] for q in bank if q['topic']==f'F{n}']))
+        cases.append(dict(id=f'FC{n}',topic=f'F{n}',title=topics[n-1]['title'],scenario='개념을 상황에 적용하는 직접 작성 예상문제입니다.',unit='문항',validN=0,exclusions='문제에 명시된 조건을 따릅니다.',assumptions=[],synthetic=True,numericOrigin='계산·해석에 필요한 값은 각 문항에 제공됩니다.',columns=[],rows=[],code='',codeNotes=[],guide=[],lessonId=f'FN{n}',sources=lessons[n-1]['sources'],supplements=[],questionIds=[q['id'] for q in bank if q['topic']==f'F{n}']))
     for name,data in [('meta',META),('sources',[SOURCE]),('topics',topics),('lessons',lessons),('questions',bank),('cases',cases),('blueprints',rounds)]:
         (OUT/f'{name}.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Final scope: 3 chapters,',len(bank),'questions, 5 rounds')
+    audit=[{'previousId':f'F{r:02d}Q{i:02d}', 'id':f'F26R{r:02d}Q{i:02d}', 'review':REVISIONS.get(f'F{r:02d}Q{i:02d}',{}).get('category','concept-retained')} for r in range(1,6) for i in range(1,41)]
+    (ROOT/'docs/concept-question-review.json').write_text(json.dumps({'reviewed':200,'rewrittenStems':len(REVISIONS),'items':audit},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 if __name__=='__main__':build()

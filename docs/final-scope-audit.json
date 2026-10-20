@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-19",
+  "edition": "2026-10-21-concepts",
   "sourceSha256": "6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65",
   "sourcePages": 19,
   "chapters": 3,
@@ -25,9 +25,10 @@
         "F2": 13,
         "F3": 18
       },
+      "providedExhibits": 5,
       "uniqueLongestCorrect": 3,
-      "meanCorrectCharacters": 7.03,
-      "meanDistractorCharacters": 7.53
+      "meanCorrectCharacters": 7.33,
+      "meanDistractorCharacters": 7.95
     },
     {
       "id": "final-2",
@@ -48,9 +49,10 @@
         "F2": 13,
         "F3": 18
       },
+      "providedExhibits": 1,
       "uniqueLongestCorrect": 5,
-      "meanCorrectCharacters": 9.47,
-      "meanDistractorCharacters": 10.18
+      "meanCorrectCharacters": 9.38,
+      "meanDistractorCharacters": 9.91
     },
     {
       "id": "final-3",
@@ -71,9 +73,10 @@
         "F2": 13,
         "F3": 18
       },
+      "providedExhibits": 5,
       "uniqueLongestCorrect": 3,
-      "meanCorrectCharacters": 9.7,
-      "meanDistractorCharacters": 10.22
+      "meanCorrectCharacters": 10.57,
+      "meanDistractorCharacters": 11.18
     },
     {
       "id": "final-4",
@@ -94,9 +97,10 @@
         "F2": 13,
         "F3": 18
       },
-      "uniqueLongestCorrect": 4,
-      "meanCorrectCharacters": 10.1,
-      "meanDistractorCharacters": 11.08
+      "providedExhibits": 5,
+      "uniqueLongestCorrect": 3,
+      "meanCorrectCharacters": 10.3,
+      "meanDistractorCharacters": 11.38
     },
     {
       "id": "final-5",
@@ -117,9 +121,10 @@
         "F2": 13,
         "F3": 18
       },
-      "uniqueLongestCorrect": 7,
-      "meanCorrectCharacters": 10.68,
-      "meanDistractorCharacters": 11.37
+      "providedExhibits": 5,
+      "uniqueLongestCorrect": 5,
+      "meanCorrectCharacters": 9.93,
+      "meanDistractorCharacters": 10.85
     }
   ],
   "pageLedger": [

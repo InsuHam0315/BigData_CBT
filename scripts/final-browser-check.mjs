@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 const load=async name=>JSON.parse(await readFile(new URL(`../src/content/final/${name}.json`,import.meta.url),'utf8'));
 const [questions,rounds,lessons]=await Promise.all(['questions','blueprints','lessons'].map(load));
+const archive=await load('archive-questions');
 const map=Object.fromEntries(questions.map(q=>[q.id,q]));
 const base=process.env.CBT_BASE??'http://127.0.0.1:4173/BigData_CBT/';
 await mkdir('test-results',{recursive:true});
@@ -18,6 +19,12 @@ try{
   await page.goto(base);await page.getByRole('heading',{name:/PDF 4개 전체를/}).waitFor();
   assert.equal(await page.locator('.course-document-grid .chapter-card').count(),4);await overflow('home');
   await page.screenshot({path:`test-results/final-home-${width}.png`,fullPage:width===1440});
+  for(const mode of ['cbt','mock']){
+   await page.goto(`${base}#/${mode}?scope=concept`);
+   await page.getByRole('heading',{name:/개념 종합 (문제 연습|모의고사) 1~5회/,exact:true}).waitFor();
+   assert.equal(await page.locator('.final-round-grid article').count(),5);
+   await overflow('concept round list '+mode);
+  }
   for(const l of lessons){
    await page.goto(base+'#/lessons/'+l.id);await page.locator('.final-note-section').last().waitFor();
    assert.equal(await page.locator('.final-note-section').count(),l.sections.length);
@@ -46,6 +53,13 @@ try{
     assert.deepEqual(new Set(order),new Set(q.choices.map(c=>c.id)));
     positions[order.indexOf(q.correctId)]++;orderBefore.push(order);
     assert.equal(await page.locator('.quiz-material').isVisible(),false);
+    assert.equal(await page.locator('.question-panel .question-exhibit').count(),q.exhibit?1:0);
+    if(q.exhibit){
+     if(q.exhibit.code)assert.equal(await page.locator('.question-panel .question-exhibit pre').innerText(),q.exhibit.code);
+     assert.equal(await page.locator('.question-panel .question-exhibit tbody tr').count(),q.exhibit.rows.length);
+     for(const row of q.exhibit.rows)for(const cell of row)assert((await page.locator('.question-panel .question-exhibit').innerText()).includes(cell));
+     await overflow(q.id+' givens');
+    }
     if(mode==='mock')assert.equal(await page.locator('.question-panel .explanation').count(),0);
     await page.locator(`input[value="${q.correctId}"]`).click();
     await page.waitForFunction(value=>document.querySelector('.choice.selected input')?.value===value,q.correctId);
@@ -60,11 +74,23 @@ try{
    await page.locator('.result-summary').waitFor();
    assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));
    assert.equal(await page.locator('.result-question').count(),40);
+   assert.equal(await page.locator('.result-question .question-exhibit').count(),round.questionIds.filter(id=>map[id].exhibit).length);
    await page.reload();await page.locator('.result-summary').waitFor();
    await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(round.title));
    report.rounds.push({width,round:round.id,mode,mixed,answered:ids.length,total:40,positions,reloadAndGrading:true});
    console.log(`Verified ${width}px ${round.id}: ${ids.length} answers, grade + reload + records`);
   }
+  // A saved bookmark/deep link to the superseded wording must still be reviewable.
+  const old=archive.find(q=>q.id==='F01Q21');
+  await page.goto(`${base}#/practice?question=${old.id}`);
+  await page.getByRole('heading',{name:'1문항 복습',exact:true}).waitFor();
+  await page.getByRole('button',{name:'복습 시작',exact:true}).click();
+  await page.getByRole('heading',{name:old.stem,exact:true}).waitFor();
+  await page.locator(`input[value="${old.correctId}"]`).click();
+  await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id,old.correctId);
+  await page.getByRole('button',{name:'답안 확인',exact:true}).click();
+  await page.locator('.choice-correct').waitFor();
+  console.log(`Verified ${width}px archived question: original wording + answer retained`);
   await ctx.close();
  }
  assert.deepEqual(report.errors,[]);

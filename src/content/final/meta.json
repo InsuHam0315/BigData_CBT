@@ -1,7 +1,7 @@
 {
   "sourceSha256": "6cbe025e389ea127ef3755a7404d76ba09af031102442b8acfe1aabb9bfb4f65",
   "pages": 19,
-  "edition": "2026-10-19",
+  "edition": "2026-10-21-concepts",
   "questionsPerRound": 40,
   "difficulty": {
     "상": 2,
@@ -13,5 +13,6 @@
     10,
     10,
     10
-  ]
+  ],
+  "archivedQuestionCount": 200
 }

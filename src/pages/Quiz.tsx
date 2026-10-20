@@ -30,6 +30,7 @@ import {
 import { Materials, Sources } from "../components/Materials";
 import {SourceFigure} from '../components/SourceFigure';
 import {TeacherBadge} from '../components/ChapterSummary';
+import {QuestionExhibit} from '../components/QuestionExhibit';
 const isCompactQuestion=(id:string)=>isFinalQuestion(id)||isCourseQuestion(id);
 export function answerText(q: Question, value: string | undefined) {
   return !value?.trim()
@@ -47,6 +48,7 @@ export function correctText(q: Question) {
 }
 export function Explanation({ q, answer, result }: { q: Question; answer?: string; result?: boolean | null }) {
   const verdict = result === undefined && answer !== undefined ? grade(q, answer) : result;
+  const additionalSteps = q.steps.filter(step=>!q.explanation.includes(step));
   return (
     <div className={`explanation ${verdict === false ? 'is-incorrect' : ''}`}>
       <span className="eyebrow">WHY THIS ANSWER</span>
@@ -54,11 +56,11 @@ export function Explanation({ q, answer, result }: { q: Question; answer?: strin
       {answer !== undefined && <p className={`explanation-answer ${verdict === false ? 'incorrect' : verdict === true ? 'correct' : ''}`}>{verdict === false ? '× 내 답 (오답)' : verdict === true ? '✓ 내 답 (정답)' : '내 답'}: {answerText(q, answer)}</p>}
       <p>{q.explanation}</p>
       {!!q.figureIds?.length&&<details className="explanation-source"><summary>원본 차트 읽는 법</summary>{q.figureIds.map(id=><SourceFigure key={id} id={id}/>)}</details>}
-      <ol>
-        {q.steps.map((s, i) => (
+      {!!additionalSteps.length && <ol>
+        {additionalSteps.map((s, i) => (
           <li key={i}>{s}</li>
         ))}
-      </ol>
+      </ol>}
       {q.choices && !isFinalQuestion(q.id) && (
         <details>
           <summary>선지별 이유</summary>
@@ -261,7 +263,7 @@ export function Quiz() {
               {!!q.highlightIds?.length&&<TeacherBadge/>}
             </div>
             <h2 ref={questionHeading} tabIndex={-1} className="question-heading">{q.stem}</h2>
-            {!!q.exhibit&&<div className="question-exhibit">{q.exhibit.code&&<pre>{q.exhibit.code}</pre>}{q.exhibit.columns.length>0&&<div className="table-scroll"><table><caption>문항에서 제공한 자료</caption><thead><tr>{q.exhibit.columns.map(c=><th key={c} scope="col">{c}</th>)}</tr></thead><tbody>{q.exhibit.rows.map((row,i)=><tr key={i}>{row.map((cell,j)=><td key={j}>{cell}</td>)}</tr>)}</tbody></table></div>}</div>}
+            <QuestionExhibit q={q}/>
             {q.figureIds?.map(id=><SourceFigure key={id} id={id} mode="question"/>)}
             {q.kind === "choice" ? (
               <fieldset className="choices">
@@ -477,6 +479,7 @@ export function Results() {
               <BookmarkButton targetId={qid} kind="question" />
             </div>
             <h2>{q.stem}</h2>
+            <QuestionExhibit q={q}/>
             {!isCompactQuestion(q.id) && <details>
               <summary>공통 자료 다시 보기 · {caseMap[q.caseId].title}</summary>
               <Materials data={caseMap[q.caseId]} />

@@ -4,7 +4,7 @@ import lessonData from "./lessons.json";
 import caseData from "./cases.json";
 import questionData from "./questions.json";
 import blueprintData from "./blueprints.json";
-import { finalSources, finalTopics, finalLessons, finalCases, finalQuestions, finalBlueprints } from './final';
+import { finalSources, finalTopics, finalLessons, finalCases, finalQuestions, finalBlueprints, archivedFinalQuestions } from './final';
 export * from './final';
 import {courseSources,courseTopics,courseLessons,courseCases,courseQuestions,courseBlueprints} from './course';
 export * from './course';
@@ -25,9 +25,12 @@ export const blueprints = blueprintData as ExamBlueprint[];
 export const allLessons = [...courseLessons,...finalLessons, ...lessons];
 export const allCases = [...courseCases,...finalCases, ...cases];
 export const allQuestions = [...courseQuestions,...finalQuestions, ...questions];
+// Archived IDs stay available to saved drafts, results, bookmarks and backups.
+// New chapter/case practice uses allQuestions and never reintroduces old items.
+export const reviewQuestions = [...allQuestions, ...archivedFinalQuestions];
 export const allTopics = [...courseTopics,...finalTopics, ...topics.map(t=>({...t,title:`이전 자료 · ${t.title}`}))];
 export const allBlueprints = [...courseBlueprints,...finalBlueprints, ...blueprints];
 export const lessonMap = Object.fromEntries(allLessons.map((l) => [l.id, l]));
 export const caseMap = Object.fromEntries(allCases.map((c) => [c.id, c]));
-export const questionMap = Object.fromEntries(allQuestions.map((q) => [q.id, q]));
+export const questionMap = Object.fromEntries(reviewQuestions.map((q) => [q.id, q]));
 export const sourceMap = Object.fromEntries([...sources,...finalSources,...courseSources].map((s) => [s.id, s]));
