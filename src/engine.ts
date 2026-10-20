@@ -9,7 +9,7 @@ import type {
   TopicId,
   ExamBlueprint,
 } from "./types";
-import { caseMap, allCases as cases, questionMap, questions, allTopics as topics, isFinalQuestion } from "./content";
+import { caseMap, allCases as cases, questionMap, questions, allTopics as topics, isFinalQuestion,isCourseQuestion } from "./content";
 export function roundQuestions(round: ExamBlueprint): string[] {
   return round.questionIds ? [...round.questionIds] : round.caseIds.flatMap((id) => caseMap[id].questionIds);
 }
@@ -169,7 +169,7 @@ export function newDraft(
   const stamp = new Date().toISOString();
   // Balance the *displayed* answer positions, including when choices are mixed.
   // Persist the order in the draft so reload/resume cannot change the key.
-  const balanced = ids.length > 0 && ids.every(isFinalQuestion);
+  const balanced = ids.length > 0 && ids.every(id=>isFinalQuestion(id)||isCourseQuestion(id));
   const positions = balanced && shuffleChoices
     ? shuffle(ids.map((_, i) => i % 4)) : [];
   return {

@@ -1,0 +1,747 @@
+[
+  {
+    "id": "nf-monthly",
+    "documentId": "netflix",
+    "page": 19,
+    "imageIndex": 0,
+    "sectionId": "netflix-s4",
+    "title": "월별 콘텐츠 등록 수",
+    "axes": "가로=등록 월 · 세로=작품 수",
+    "steps": [
+      "아래의 1~12는 연도가 아니라 월이다.",
+      "막대 높이는 해당 월에 등록된 작품 건수다.",
+      "여러 해를 합친 월별 집계인지 확인한 뒤 높이를 비교한다."
+    ],
+    "takeaway": "이 그림에서는 12월 막대가 높다. 모든 연도의 매월 12월이 항상 최다라는 뜻은 아니다.",
+    "caution": "",
+    "asset": "nf-monthly.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      365.0
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 738,
+    "sha256": "ade33e260144b82d1b174875fdab148f0a23f946b71eb4b132666e14cf6e7f3f",
+    "pixelSha256": "97274380dcbaf23701ab24e0d477585c32c3d4420542587dea0c4c4c76e1c12c",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-types",
+    "documentId": "netflix",
+    "page": 23,
+    "imageIndex": 0,
+    "sectionId": "netflix-s5",
+    "title": "Movie와 TV Show의 작품 수",
+    "axes": "가로=작품 유형 · 세로=작품 수",
+    "steps": [
+      "Movie와 TV Show라는 두 범주를 찾는다.",
+      "같은 세로축에서 막대 높이를 비교한다.",
+      "세로축은 시청자 수나 매출이 아니라 보유 작품 수다."
+    ],
+    "takeaway": "이 카탈로그에서는 영화 작품이 더 많다. 영화 시청률이 더 높다는 결론은 낼 수 없다.",
+    "caution": "",
+    "asset": "nf-types.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      415.2500305175781
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 864,
+    "sha256": "d6acabf28300c24856e782012d5c4c7c16c567f8a7d45727ad52c443db2fc425",
+    "pixelSha256": "a22dc3f27d16be9e5f72202e107f9cac517343d7bb7b95260e1eecf678c8ff17",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-hist",
+    "documentId": "netflix",
+    "page": 23,
+    "imageIndex": 1,
+    "sectionId": "netflix-s5",
+    "title": "공개 연도 히스토그램",
+    "axes": "가로=release_year 구간 · 세로=구간별 빈도",
+    "steps": [
+      "가로축은 Movie/TV 같은 범주가 아니라 연도 수치의 구간이다.",
+      "막대 하나는 그 연도 구간에 속한 작품 수다.",
+      "오른쪽에 막대가 높으면 최근 연도 구간에 작품이 많이 모였다는 뜻이다."
+    ],
+    "takeaway": "히스토그램은 수치의 분포를 본다. 구간 수 bins를 바꾸면 모양도 달라질 수 있다.",
+    "caution": "원본의 부드러운 곡선은 밀도 추정선이다. 곡선 높이를 별도의 원시 건수로 더하지 않는다.",
+    "asset": "nf-hist.png",
+    "clip": [
+      70.0,
+      429.25,
+      526.25,
+      704.75
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 689,
+    "sha256": "de0554c1a06ae54c91d4c9211271d03455082dc8d885fff3b1f6e7e0aa8a3cdf",
+    "pixelSha256": "ca680bc3e8908ec2a4ea6ff8fe53b34b0b83554157aa78f082b12b0745638b03",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-pie",
+    "documentId": "netflix",
+    "page": 24,
+    "imageIndex": 0,
+    "sectionId": "netflix-s5",
+    "title": "작품 유형 구성비",
+    "axes": "조각=유형 · 조각의 넓이=전체 중 비율",
+    "steps": [
+      "원의 전체를 이 집계의 전체 작품 수로 둔다.",
+      "조각의 유형 이름과 표시된 퍼센트를 함께 읽는다.",
+      "같은 전처리 조건의 분모로 계산한 구성비끼리 비교한다."
+    ],
+    "takeaway": "큰 조각은 이 카탈로그에서 그 유형의 비중이 크다는 뜻이다. 인기도나 성장률은 아니다.",
+    "caution": "",
+    "asset": "nf-pie.png",
+    "clip": [
+      70.0,
+      70.00003051757812,
+      526.25,
+      530.75
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 1152,
+    "sha256": "cecf1c01bdcad214eb8475927ffbfea0d1e2da9732d974e3d0476a756dd69b3b",
+    "pixelSha256": "b90eba1cde879ee133d1fd59e7c01062411ad69e95ba1863a00e875e037de684",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-box",
+    "documentId": "netflix",
+    "page": 26,
+    "imageIndex": 0,
+    "sectionId": "netflix-s6",
+    "title": "관람 등급별 영화 상영 시간",
+    "axes": "가로=rating 범주 · 세로=상영 시간(분)",
+    "steps": [
+      "영화만 선택한 그림이며 TV 시즌 수와 섞지 않는다.",
+      "상자 안 선은 중앙값, 상자 아래·위는 Q1·Q3다.",
+      "상자 길이 Q3−Q1은 가운데 50%의 퍼짐이다. 바깥 점은 별도 표시된 관측값이다."
+    ],
+    "takeaway": "상자의 위치로 중심을, 길이로 퍼짐을 비교한다. 등급이 높아서 영화가 길어졌다는 인과관계는 증명하지 못한다.",
+    "caution": "바깥 점이라고 자동으로 입력 오류이거나 삭제 대상인 것은 아니다.",
+    "asset": "nf-box.png",
+    "clip": [
+      70.0,
+      298.0,
+      526.25,
+      565.25
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 669,
+    "sha256": "ac4ce0c95ccec01eb65f2a4d6679e85e4649528b4717cd48845115d901603131",
+    "pixelSha256": "af52e06410efdc7f4a17f931be564b87933b458e3dec16fe97f604d78d239e9f",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-year-month",
+    "documentId": "netflix",
+    "page": 27,
+    "imageIndex": 0,
+    "sectionId": "netflix-s6",
+    "title": "연도×월 등록량 히트맵",
+    "axes": "행=등록 연도 · 열=등록 월 · 셀=등록 건수",
+    "steps": [
+      "왼쪽 연도 하나와 아래 월 하나를 고른다.",
+      "교차한 칸의 숫자가 그 연도·월의 등록 건수다.",
+      "오른쪽 색 범례에서 어떤 색이 큰 값인지 확인한다."
+    ],
+    "takeaway": "같은 색 범례 안에서 큰 수가 모인 시기를 찾는다. 색이 항상 진할수록 크다는 암기 대신 범례를 읽는다.",
+    "caution": "",
+    "asset": "nf-year-month.png",
+    "clip": [
+      70.0,
+      264.25,
+      526.25,
+      601.25
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 844,
+    "sha256": "98c79fd19a5db96dd93abce2dfb2fcca17d8ea330060f4711b0bb21e92a980ee",
+    "pixelSha256": "0cb95d2f17ac54123dc54005fdf812355b2e0db6b716300c3a0574ec49d10d42",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-scatter",
+    "documentId": "netflix",
+    "page": 28,
+    "imageIndex": 0,
+    "sectionId": "netflix-s6",
+    "title": "공개 연도와 등록 연도 산점도",
+    "axes": "한 점=작품 · x=공개 연도 · y=등록 연도",
+    "steps": [
+      "점 하나를 골라 아래 축에서 공개 연도를 읽는다.",
+      "같은 점의 왼쪽 축에서 등록 연도를 읽는다.",
+      "예를 들어 (1960,2020)은 1960년 작품이 2020년에 등록된 경우다."
+    ],
+    "takeaway": "등록 연도가 더 늦으면 y>x이며 y=x 대각선 위쪽이다. 두 연도가 가깝다는 사실만으로 오리지널 작품임을 확정하지 않는다.",
+    "caution": "원문 p29의 “대각선 아래=구작” 설명은 이 축 배치와 맞지 않는다. 그림은 그대로 보존하고 좌표 해석을 바로잡았다.",
+    "asset": "nf-scatter.png",
+    "clip": [
+      70.0,
+      246.25,
+      526.25,
+      542.0
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 740,
+    "sha256": "0d14055927c4e80bf50fdf82ae0b59939d7a60469086d0fab234e82d57a901b3",
+    "pixelSha256": "080874e7d778670752a34984621d4d79b61098dee40f1f5be868267e08d59a04",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-trend",
+    "documentId": "netflix",
+    "page": 30,
+    "imageIndex": 0,
+    "sectionId": "netflix-s7",
+    "title": "등록 연도별 콘텐츠 수 추이",
+    "axes": "가로=등록 연도 · 세로=작품 수",
+    "steps": [
+      "연도를 시간 순서로 왼쪽부터 읽는다.",
+      "선의 높이는 현재 자료에 남아 있는 작품의 해당 등록 연도 건수다.",
+      "끝의 2021년이 전체 1년을 포함하는지 먼저 확인한다."
+    ],
+    "takeaway": "2021년은 부분 연도다. 낮아진 마지막 점만으로 연간 등록 전략의 축소를 단정하지 않는다.",
+    "caution": "",
+    "asset": "nf-trend.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      317.75
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 620,
+    "sha256": "e08b242e352b12b3ab3c723f7d4666fb084c78747ec55c19d87aade3cab09a3d",
+    "pixelSha256": "62810186bb050eb67daade1f2bf1cec69b1edda1d8f5a6ffcce9170c8e7bb2d6",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-invest-dual",
+    "documentId": "netflix",
+    "page": 31,
+    "imageIndex": 0,
+    "sectionId": "netflix-s7",
+    "title": "가상 투자액과 등록 수의 이중 축",
+    "axes": "가로=연도 · 왼쪽/오른쪽 세로축은 서로 다른 단위",
+    "steps": [
+      "각 계열의 색과 연결된 세로축을 찾는다.",
+      "투자액과 등록 수의 단위가 다르므로 높이를 직접 빼지 않는다.",
+      "같이 변하는 경향과 원인·결과의 주장을 구분한다."
+    ],
+    "takeaway": "이 투자액은 수업용 가상 데이터다. 그림만으로 Netflix의 실제 투자 성과나 인과 효과를 계산할 수 없다.",
+    "caution": "",
+    "asset": "nf-invest-dual.png",
+    "clip": [
+      70.0,
+      382.0,
+      526.25,
+      642.5
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 652,
+    "sha256": "89da4fb63f0052c3bb24bf7d2abb261f72ca2a0677b93a2042ef6499948d7355",
+    "pixelSha256": "4fbf793657c7cbf6829d4cd36be4d7202e32367a882ba042984c97d0c7281e38",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-invest-scatter",
+    "documentId": "netflix",
+    "page": 32,
+    "imageIndex": 0,
+    "sectionId": "netflix-s7",
+    "title": "가상 투자액과 등록 수 산점도",
+    "axes": "한 점=연도별 가상 투자액·등록 수의 짝",
+    "steps": [
+      "한 점이 어느 두 값의 짝인지 축 제목부터 읽는다.",
+      "점들이 함께 증가하는 방향인지 살핀다.",
+      "회귀선과 주변 띠는 데이터의 요약 표현이며 원인 증명선이 아니다."
+    ],
+    "takeaway": "양의 관계가 보여도 가상 투자액이 등록 증가의 실제 원인이라고 말할 수 없다.",
+    "caution": "",
+    "asset": "nf-invest-scatter.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      360.5
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 727,
+    "sha256": "42a9e9b66785ad6d6bb3f34b18fe0339647fe789b4d613c8800d0c60b652cf81",
+    "pixelSha256": "e269a0255e1a832025bc51c589ddde9c84c10cd1e6bc0db666bf47179ebbfa62",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-country-genre",
+    "documentId": "netflix",
+    "page": 39,
+    "imageIndex": 0,
+    "sectionId": "netflix-s8",
+    "title": "주요 국가×주요 장르 히트맵",
+    "axes": "행=첫 번째 국가 · 열=첫 번째 장르 · 셀=작품 수",
+    "steps": [
+      "행의 국가와 열의 장르가 만나는 칸을 찾는다.",
+      "숫자를 읽고 오른쪽 범례와 색을 대조한다.",
+      "수업 코드는 첫 국가·첫 장르만 대표값으로 쓰고 상위 항목만 남겼다."
+    ],
+    "takeaway": "India–Dramas 382 같은 칸은 이 선택 규칙의 보유 작품 건수다. 그 국가 이용자의 장르 선호를 직접 측정하지 않는다.",
+    "caution": "",
+    "asset": "nf-country-genre.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      448.25
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 946,
+    "sha256": "51ca5d4e85440970d6d363197eac2846fa7ff6ab02cda6f756f7d9a88df5cd4f",
+    "pixelSha256": "96cffb58234cda886af97fb609e79a53acca4bc47d817ec2bfe7c652b467c070",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-genre-rating",
+    "documentId": "netflix",
+    "page": 37,
+    "imageIndex": 0,
+    "sectionId": "netflix-s8",
+    "title": "장르×관람 등급 히트맵",
+    "axes": "행=장르 · 열=관람 등급 · 셀=조합 건수",
+    "steps": [
+      "장르 하나와 등급 하나의 교차 칸을 읽는다.",
+      "한 작품이 복수 장르 관계에 들어갈 수 있음을 기억한다.",
+      "장르 안의 등급 비중을 비교하려면 해당 행 합을 분모로 쓴다."
+    ],
+    "takeaway": "건수의 크기와 행 백분율은 다른 질문이다. 큰 장르가 모든 칸에서 큰 수를 보이는 효과와 구성 차이를 구별한다.",
+    "caution": "",
+    "asset": "nf-genre-rating.png",
+    "clip": [
+      70.0,
+      350.5,
+      526.25,
+      651.5
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 753,
+    "sha256": "af65cccd8268f13d23e91d7311414fe5f9a5d8465241d211a4ef1f33fa884c79",
+    "pixelSha256": "2273e68486c2d0bd47623e0cc52d1401e6ab7971c2ad8ffbec93332f1ee4e1cc",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-network",
+    "documentId": "netflix",
+    "page": 45,
+    "imageIndex": 0,
+    "sectionId": "netflix-s9",
+    "title": "감독–배우 협업 네트워크",
+    "axes": "노드=감독·배우 · 선=같은 작품의 감독–배우 관계",
+    "steps": [
+      "점을 세는 대신 먼저 점과 선의 정의를 확인한다.",
+      "붉은 큰 점은 감독, 푸른 작은 점은 배우라는 수업의 표시 규칙이다.",
+      "한 노드에 연결된 서로 다른 이웃 수를 중심성과 연결해 읽는다."
+    ],
+    "takeaway": "배치의 거리·색·점 크기만으로 흥행이나 친밀도를 알 수 없다. 감독 30명을 먼저 고른 표본의 영향도 고려한다.",
+    "caution": "",
+    "asset": "nf-network.png",
+    "clip": [
+      70.0,
+      70.00003051757812,
+      526.25,
+      505.25
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 1089,
+    "sha256": "a3ca45096cf4b691757bcf2a022809fa547dc212417a963b1d7ff0d982c4379d",
+    "pixelSha256": "fd04a45a4a047e83e1f35a9a76ab4aa7a565d6db0e36d35e40e061533555a2ad",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-word-all",
+    "documentId": "netflix",
+    "page": 51,
+    "imageIndex": 0,
+    "sectionId": "netflix-s10",
+    "title": "전체 줄거리 워드클라우드",
+    "axes": "글자 크기=단어 빈도·가중치",
+    "steps": [
+      "큰 단어를 찾되 색과 위치를 순위라고 읽지 않는다.",
+      "분석 대상은 작품 description이며 시청 후기 전체가 아니다.",
+      "불용어로 뺀 단어와 합친 문서 범위를 확인한다."
+    ],
+    "takeaway": "love·life·family 같은 단어가 두드러진다. 그 단어가 큰 이유를 이용자 선호나 감정 점수로 바로 바꾸지 않는다.",
+    "caution": "",
+    "asset": "nf-word-all.png",
+    "clip": [
+      70.0,
+      69.99998474121094,
+      526.25,
+      316.25
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 616,
+    "sha256": "5dbc05a365808991050a587760ff14e64d89afdad49b08c6d86133bed8e9bd49",
+    "pixelSha256": "e1f41b456602916e39c842a7b921ac6fd14683e5d6f9f1bf15918ddbaf12a28e",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-word-drama",
+    "documentId": "netflix",
+    "page": 51,
+    "imageIndex": 1,
+    "sectionId": "netflix-s10",
+    "title": "Dramas 줄거리 워드클라우드",
+    "axes": "대상=Dramas 포함 작품의 description",
+    "steps": [
+      "장르 필터가 적용된 일부 작품의 문서임을 확인한다.",
+      "큰 글씨가 그 범위에서 자주 나타나는 단어다.",
+      "다른 그림과 글자 크기를 비교할 때 빈도 스케일이 같은지도 확인한다."
+    ],
+    "takeaway": "장르별 텍스트 특징을 탐색하는 그림이다. 단어가 크다는 사실만으로 그 작품의 실제 줄거리를 단정하지 않는다.",
+    "caution": "",
+    "asset": "nf-word-drama.png",
+    "clip": [
+      70.0,
+      330.25,
+      283.25,
+      446.75
+    ],
+    "scale": 2.5,
+    "width": 534,
+    "height": 292,
+    "sha256": "ecad53511a76aaa2dca8884fb7aeff9bf61144d83c4b8c7e35503b6b68a535c5",
+    "pixelSha256": "03ba57733755d4f87bd6aff5b3b9109e72ca03c5b5563b82ce7307b2b610e187",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-word-comedy",
+    "documentId": "netflix",
+    "page": 51,
+    "imageIndex": 2,
+    "sectionId": "netflix-s10",
+    "title": "Comedies 줄거리 워드클라우드",
+    "axes": "대상=Comedies 포함 작품의 description",
+    "steps": [
+      "어떤 장르의 설명문을 모았는지 확인한다.",
+      "단어 크기는 빈도·가중치 표현이다.",
+      "정확한 차이를 말하려면 원래 빈도표와 집계 조건도 함께 본다."
+    ],
+    "takeaway": "워드클라우드는 빠른 탐색에 유용하다. 글자 위치가 사건 순서이거나 작은 단어가 무의미하다는 뜻은 아니다.",
+    "caution": "",
+    "asset": "nf-word-comedy.png",
+    "clip": [
+      313.75,
+      330.25,
+      526.25,
+      446.0
+    ],
+    "scale": 2.5,
+    "width": 532,
+    "height": 290,
+    "sha256": "bdd1508b7e075e1c2ddfd6aa0563eb30154db62ab29443a71514788a45fb378d",
+    "pixelSha256": "a0d196293c8ab7ea2c3f5116c8dc66135d5c166c8534b70d11bc689c46f3d09c",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "nf-item-corr",
+    "documentId": "netflix",
+    "page": 61,
+    "imageIndex": 0,
+    "sectionId": "netflix-s12",
+    "title": "원문 아이템 유사도 히트맵",
+    "axes": "행·열=작품 · 셀=평점 기반 상관계수",
+    "steps": [
+      "같은 작품의 대각선과 다른 작품의 조합을 구별한다.",
+      "수치의 범위와 색 범례를 읽는다. 빈 칸은 0이라고 가정하지 않는다.",
+      "상관을 구하려면 공통 평가자와 평점의 변동성이 필요하다."
+    ],
+    "takeaway": "유사도 표라는 표현 방식은 배우되, 이 그림의 수치를 검증된 추천 성능으로 암기하지 않는다.",
+    "caution": "원문 가상 평점에서는 The Matrix가 공통 평가자에게 모두 5점이고 Inception은 평가자가 한 명뿐이다. The Matrix 관련 상관은 NaN일 수 있다. p57의 두 작품 상관 1.0 설명이나 이 그림의 The Matrix 관련 숫자를 검증 없이 채택하지 않는다. 원본은 수정하지 않았다.",
+    "asset": "nf-item-corr.png",
+    "clip": [
+      70.0,
+      70.0,
+      526.25,
+      473.0
+    ],
+    "scale": 2.5,
+    "width": 1141,
+    "height": 1008,
+    "sha256": "70ca9e56ba58f481dcba10f5b3c6dc950bc8b17b2c12b009149429cb72a8b2c5",
+    "pixelSha256": "cd142b0d3b54a56062e362923a5432a7ce53e68dc77d9602cce51959dad6bff0",
+    "sourceSha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-history",
+    "documentId": "environment",
+    "page": 10,
+    "imageIndex": null,
+    "sectionId": "environment-s1",
+    "title": "컴퓨터 발전의 분기",
+    "axes": "화살표=발전·분기의 설명",
+    "steps": [
+      "화살표의 출발과 도착을 따라간다.",
+      "대형·미니·워크스테이션·개인용이라는 변화와 병렬·분산의 분기를 구분한다."
+    ],
+    "takeaway": "한 줄의 단일 계보가 아니라 여러 방향으로 발전한 흐름이다.",
+    "caution": "",
+    "asset": "env-history.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "24838f8b15eb1b1d9b8eab374d6b7e182fd72071928c0b1da70e63f5ea5e14fe",
+    "pixelSha256": "b00d19c13a0761e39a98f0a896a605e18ee36cb2edcec602b1a830aaef735c2a",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-os",
+    "documentId": "environment",
+    "page": 20,
+    "imageIndex": null,
+    "sectionId": "environment-s2",
+    "title": "운영체제의 계층과 시스템 호출",
+    "axes": "위=응용 프로그램 · 아래=하드웨어",
+    "steps": [
+      "응용·유틸리티, 인터페이스, 시스템 호출, 커널·드라이버, 하드웨어를 차례로 찾는다.",
+      "응용의 요청이 통제된 통로를 거쳐 자원 제어로 이어진다."
+    ],
+    "takeaway": "시스템 호출은 응용이 커널 서비스를 요청하는 통로다.",
+    "caution": "",
+    "asset": "env-os.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "521a5dd5b489779ee5e9fff2ccde57439616c9573c32e8e01d603a2cd554af99",
+    "pixelSha256": "231cc0a9c1378458fc340194a9b150629d4bb77ff821c35a7a47aefb1556aa20",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-state",
+    "documentId": "environment",
+    "page": 36,
+    "imageIndex": null,
+    "sectionId": "environment-s4",
+    "title": "프로세스 네 가지 상태",
+    "axes": "원=상태 · 화살표=상태 전이",
+    "steps": [
+      "생성·준비·실행·완료를 찾는다.",
+      "준비→실행은 디스패치, 실행→준비는 타임아웃이다.",
+      "생성 시 PCB를 만들고 완료 시 회수하는 표기를 확인한다."
+    ],
+    "takeaway": "준비는 CPU 차례 대기, 실행은 CPU를 실제 사용하는 상태다.",
+    "caution": "",
+    "asset": "env-state.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "e2085eedf0661d80b276e7816276e441350aab82315c9fd486096f4165041bb5",
+    "pixelSha256": "5d58705beafc006cdbc29c5b5f52f0cded115f8585a20f99e3fd86ea10efde7c",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-memory",
+    "documentId": "environment",
+    "page": 41,
+    "imageIndex": null,
+    "sectionId": "environment-s5",
+    "title": "일괄 처리와 시분할의 메모리 비유",
+    "axes": "도마=메모리 작업 공간이라는 원문의 비유",
+    "steps": [
+      "왼쪽 한 작업과 오른쪽 여러 작업의 그림을 비교한다.",
+      "여러 프로세스의 공간을 배분하고 서로 보호해야 함을 연결한다."
+    ],
+    "takeaway": "그림은 동시 배치의 비유다. 한 CPU의 시분할과 여러 CPU의 병렬 실행을 같은 것으로 읽지 않는다.",
+    "caution": "",
+    "asset": "env-memory.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "73726116df4eb8d3b481cada36535c72f5fa3a6f7ac159d328828f5e50f3aa3b",
+    "pixelSha256": "618fabec4f0cf74de5ff842ec3fe4c7d79324c0e1758889ff5d9ab33b57f5c77",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-placement",
+    "documentId": "environment",
+    "page": 45,
+    "imageIndex": null,
+    "sectionId": "environment-s5",
+    "title": "메모리 배치와 분할",
+    "axes": "그림=메모리의 구역 배치 비유",
+    "steps": [
+      "가져온 작업을 메모리의 어느 위치에 둘지 묻는다.",
+      "같은 크기의 구역과 프로세스 크기에 따른 분할을 구별한다."
+    ],
+    "takeaway": "가져오기는 언제, 배치는 어디, 교체는 무엇을 내보낼지의 질문이다.",
+    "caution": "",
+    "asset": "env-placement.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "6cd3cc04261b8886b22cff7b6571477a70e19bf531988ce95bf2a480eb117e29",
+    "pixelSha256": "4aeeff1dc3392bf97f6cbe48108729a9bc2894a6fd2d37feeaff8c97726d9cd1",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-files",
+    "documentId": "environment",
+    "page": 56,
+    "imageIndex": null,
+    "sectionId": "environment-s6",
+    "title": "파일 테이블과 저장 블록",
+    "axes": "왼쪽=파일 이름·블록 위치 · 오른쪽=저장장치",
+    "steps": [
+      "파일 하나를 고른다.",
+      "파일 테이블의 블록 번호를 오른쪽 격자에서 찾는다.",
+      "같은 파일의 블록이 붙어 있는지 흩어져 있는지 비교한다."
+    ],
+    "takeaway": "파일 이름과 물리적 위치를 연결하는 관리 정보가 필요하다.",
+    "caution": "",
+    "asset": "env-files.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "f9b5931d6aa67f7f8e48f4ebb9fbffc3dea51d4ef55b0bfe7207cd31a859b72d",
+    "pixelSha256": "baae39d54f8673c45bf9972aa8e67a4ccbf49e8dfb714eae732f8b8013e2962b",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-fragment",
+    "documentId": "environment",
+    "page": 58,
+    "imageIndex": null,
+    "sectionId": "environment-s7",
+    "title": "저장장치 단편화",
+    "axes": "왼쪽=초기 상태 · 오른쪽=조각난 상태",
+    "steps": [
+      "같은 파일의 조각이 어떤 위치에 있는지 본다.",
+      "파일 조각이 멀리 떨어지면 HDD의 탐색 부담이 커질 수 있다."
+    ],
+    "takeaway": "흩어진 파일을 다시 모으는 조각모음의 목적과 연결한다. SSD에 HDD의 효과를 그대로 적용하지 않는다.",
+    "caution": "",
+    "asset": "env-fragment.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "cf6e72880bd9a34553612ae4d591cbefc88e25f6336e68fbeb3d15b3eb5b9585",
+    "pixelSha256": "bd1345076e9f76f1adafd2b8b0c84276c95f1c739061b003b7e73c1b696de17d",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  },
+  {
+    "id": "env-free",
+    "documentId": "environment",
+    "page": 61,
+    "imageIndex": null,
+    "sectionId": "environment-s7",
+    "title": "파일 삭제와 빈 공간 관리",
+    "axes": "그림=빈 블록을 다시 할당하는 흐름",
+    "steps": [
+      "삭제 전 파일이 쓰던 블록을 찾는다.",
+      "파일 관리 정보와 빈 공간 목록의 변화를 구별한다.",
+      "새 파일이 빈 블록을 재사용하는 순서를 따른다."
+    ],
+    "takeaway": "삭제 즉시 모든 실제 바이트가 지워진다는 뜻은 아니다. 덮어쓰기와 장치 동작에 따라 복구 가능성이 달라진다.",
+    "caution": "",
+    "asset": "env-free.png",
+    "clip": [
+      0.0,
+      0.0,
+      720.0,
+      540.0
+    ],
+    "scale": 2.5,
+    "width": 1800,
+    "height": 1350,
+    "sha256": "5fb772b84e26c877a174edeb71ce02035205e121d82f34b5ef7cff80c501fe99",
+    "pixelSha256": "d7cacd7cef72225792f0e5382e32e37533aba06a5b874dc2c94c898a9a19e62b",
+    "sourceSha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+    "capture": "Actual PDF raster capture; no chart data or labels redrawn."
+  }
+]

@@ -13,6 +13,7 @@ import {
   caseMap,
   allBlueprints as blueprints,
   isFinalQuestion,
+  isCourseQuestion,
   allCases as cases,
   lessonMap,
   questionMap,
@@ -26,6 +27,9 @@ import {
   submitDraft,
 } from "../storage";
 import { Materials, Sources } from "../components/Materials";
+import {SourceFigure} from '../components/SourceFigure';
+import {TeacherBadge} from '../components/ChapterSummary';
+const isCompactQuestion=(id:string)=>isFinalQuestion(id)||isCourseQuestion(id);
 export function answerText(q: Question, value: string | undefined) {
   return !value?.trim()
     ? "미응답"
@@ -47,6 +51,7 @@ export function Explanation({ q, answer }: { q: Question; answer?: string }) {
       <h3>정답 · {correctText(q)}</h3>
       {answer !== undefined && <p>내 답: {answerText(q, answer)}</p>}
       <p>{q.explanation}</p>
+      {!!q.figureIds?.length&&<details className="explanation-source"><summary>원본 차트 읽는 법</summary>{q.figureIds.map(id=><SourceFigure key={id} id={id}/>)}</details>}
       <ol>
         {q.steps.map((s, i) => (
           <li key={i}>{s}</li>
@@ -75,7 +80,7 @@ export function Explanation({ q, answer }: { q: Question; answer?: string }) {
         </>
       )}
       <p className="mistake-note">흔한 오류: {q.commonError}</p>
-      <Link className="button" to={`/lessons/${q.lessonId}`}>
+      <Link className="button" to={q.documentId?`/notebook/${q.documentId}?chapter=${q.notebookChapterId}`:`/lessons/${q.lessonId}`}>
         연결 강의 · {lessonMap[q.lessonId].title}
         <ArrowRight size={14} />
       </Link>
@@ -90,6 +95,13 @@ export function Quiz() {
   const [now, setNow] = useState(Date.now()),
     [mobileView, setMobileView] = useState<"question" | "data">("question");
   const submitting = useRef(false);
+  const questionHeading=useRef<HTMLHeadingElement>(null);
+  useEffect(()=>{
+    if(!draft)return;
+    setMobileView('question');
+    const frame=requestAnimationFrame(()=>{questionHeading.current?.focus({preventScroll:true});questionHeading.current?.scrollIntoView({block:'start'});});
+    return()=>cancelAnimationFrame(frame);
+  },[draft?.id,draft?.index]);
   const finish = async (expired = false) => {
     if (!draft || submitting.current) return;
     submitting.current = true;
@@ -179,7 +191,7 @@ export function Quiz() {
             : "전체 제출 후 오답·기록 저장"}
         </span>
       </div>
-      <div className="mobile-quiz-tabs" hidden={isFinalQuestion(q.id)}>
+      <div className="mobile-quiz-tabs" hidden={isCompactQuestion(q.id)}>
         <button
           aria-pressed={mobileView === "question"}
           onClick={() => setMobileView("question")}
@@ -193,9 +205,9 @@ export function Quiz() {
           공통 자료
         </button>
       </div>
-      <div className={`quiz-layout ${isFinalQuestion(q.id) ? "final-quiz-layout" : ""}`}>
+      <div className={`quiz-layout ${isCompactQuestion(q.id) ? "final-quiz-layout" : ""}`}>
         <div
-          hidden={isFinalQuestion(q.id)}
+          hidden={isCompactQuestion(q.id)}
           className={`quiz-material ${mobileView === "data" ? "show-mobile" : ""}`}
         >
           <Materials key={data.id} data={data} />
@@ -216,8 +228,11 @@ export function Quiz() {
               <span className="tag">{q.difficulty}</span>
               <span className="tag">{kindLabel[q.kind]}</span>
               <span className="tag">{q.skill}</span>
+              {!!q.highlightIds?.length&&<TeacherBadge/>}
             </div>
-            <h2>{q.stem}</h2>
+            <h2 ref={questionHeading} tabIndex={-1} className="question-heading">{q.stem}</h2>
+            {!!q.exhibit&&<div className="question-exhibit">{q.exhibit.code&&<pre>{q.exhibit.code}</pre>}{q.exhibit.columns.length>0&&<div className="table-scroll"><table><caption>문항에서 제공한 자료</caption><thead><tr>{q.exhibit.columns.map(c=><th key={c} scope="col">{c}</th>)}</tr></thead><tbody>{q.exhibit.rows.map((row,i)=><tr key={i}>{row.map((cell,j)=><td key={j}>{cell}</td>)}</tr>)}</tbody></table></div>}</div>}
+            {q.figureIds?.map(id=><SourceFigure key={id} id={id} mode="question"/>)}
             {q.kind === "choice" ? (
               <fieldset className="choices">
                 <legend className="sr-only">정답 선택</legend>
@@ -482,7 +497,7 @@ export function Results() {
               <BookmarkButton targetId={qid} kind="question" />
             </div>
             <h2>{q.stem}</h2>
-            {!isFinalQuestion(q.id) && <details>
+            {!isCompactQuestion(q.id) && <details>
               <summary>공통 자료 다시 보기 · {caseMap[q.caseId].title}</summary>
               <Materials data={caseMap[q.caseId]} />
             </details>}

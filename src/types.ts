@@ -1,9 +1,10 @@
-export type TopicId = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "F1" | "F2" | "F3";
+export type TopicId = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "F1" | "F2" | "F3" | "P1" | "P2" | "P3" | "P4";
 export interface Source {
   id: string;
   filename: string;
   role: "primary" | "supplement";
   pages: number;
+  handoutId?: string;
 }
 export interface SourceRef {
   sourceId: string;
@@ -160,6 +161,12 @@ export interface Question {
   lessonId: string;
   sources: SourceRef[];
   origin: "직접 작성한 예상 연습문제";
+  documentId?: string;
+  concept?: string;
+  highlightIds?: string[];
+  notebookChapterId?: string;
+  figureIds?: string[];
+  exhibit?: { columns: string[]; rows: string[][]; code?: string } | null;
 }
 export interface ExamBlueprint {
   id: string;

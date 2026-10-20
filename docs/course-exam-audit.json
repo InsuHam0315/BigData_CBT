@@ -1,0 +1,114 @@
+{
+  "edition": "2026-10-21",
+  "status": "PASS",
+  "documents": 4,
+  "academicSourcePages": 158,
+  "chapterCoverage": 22,
+  "uniqueQuestions": 200,
+  "actualHighlightsCovered": 44,
+  "capturedFigures": 25,
+  "figuresUsedInQuestions": 24,
+  "rounds": [
+    {
+      "id": "course-1",
+      "count": 40,
+      "highlighted": 25,
+      "regular": 15,
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "figures": 13,
+      "uniqueLongestCorrect": 3,
+      "documents": {
+        "environment": 10,
+        "bigdata": 6,
+        "infrastructure": 10,
+        "netflix": 14
+      }
+    },
+    {
+      "id": "course-2",
+      "count": 40,
+      "highlighted": 25,
+      "regular": 15,
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "figures": 9,
+      "uniqueLongestCorrect": 6,
+      "documents": {
+        "environment": 10,
+        "bigdata": 6,
+        "infrastructure": 10,
+        "netflix": 14
+      }
+    },
+    {
+      "id": "course-3",
+      "count": 40,
+      "highlighted": 25,
+      "regular": 15,
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "figures": 11,
+      "uniqueLongestCorrect": 11,
+      "documents": {
+        "environment": 10,
+        "bigdata": 6,
+        "infrastructure": 10,
+        "netflix": 14
+      }
+    },
+    {
+      "id": "course-4",
+      "count": 40,
+      "highlighted": 25,
+      "regular": 15,
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "figures": 12,
+      "uniqueLongestCorrect": 7,
+      "documents": {
+        "environment": 10,
+        "bigdata": 6,
+        "infrastructure": 10,
+        "netflix": 14
+      }
+    },
+    {
+      "id": "course-5",
+      "count": 40,
+      "highlighted": 25,
+      "regular": 15,
+      "positions": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "figures": 11,
+      "uniqueLongestCorrect": 6,
+      "documents": {
+        "environment": 10,
+        "bigdata": 6,
+        "infrastructure": 10,
+        "netflix": 14
+      }
+    }
+  ],
+  "review": "Original scenario questions; source chart labels and axes visually checked. Previous IDs and answer keys retained. Difficulty is an authoring target, not measured success rates."
+}

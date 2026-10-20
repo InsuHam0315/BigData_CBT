@@ -6,6 +6,11 @@ import {ChapterSummary,TeacherBadge} from '../components/ChapterSummary';
 import {Heading} from '../components/UI';
 import {formatPages} from '../components/Materials';
 import './Notebook.css';
+import {SourceFigure,sourceFigures} from '../components/SourceFigure';
+import {courseQuestions,courseLessonDocument} from '../content';
+import {useStudy} from '../context';
+import {readLesson} from '../storage';
+const emphasizedFigures=new Set(courseQuestions.filter(q=>q.highlightIds?.length).flatMap(q=>q.figureIds??[]));
 
 function Evidence({document,pages}:{document:NoteDocument;pages:number[]}){
  return <Link className="notebook-evidence" to={`/handouts/${document.id}?page=${pages[0]}`}><FileText size={13}/>원본 p{formatPages(pages)} ↗</Link>;
@@ -39,13 +44,16 @@ function ChapterView({chapter,document,summaryOnly,query,teacherOnly}:{chapter:N
  if((summaryOnly&&!points.length)||(!summaryOnly&&!sections.length&&!points.length))return null;
  return <article className="notebook-chapter" id={chapter.id}>
   <header className="notebook-chapter-title"><span className="eyebrow">{document.title}</span><h2>{chapter.title}</h2></header>
-  {!summaryOnly&&sections.map(section=><section className="notebook-section" key={section.id} id={section.id}><h3>{section.title}</h3><div className="notebook-blocks">{section.blocks.map(block=><Block key={block.id} document={document} block={block}/>)}</div></section>)}
+  {!summaryOnly&&sections.map(section=><section className="notebook-section" key={section.id} id={section.id}><h3>{section.title}</h3><div className="notebook-blocks">{section.blocks.map(block=><Block key={block.id} document={document} block={block}/>)}{sourceFigures.filter(f=>f.sectionId===section.id&&(!teacherOnly||emphasizedFigures.has(f.id))&&(!query.trim()||(f.title+' '+f.axes+' '+f.steps.join(' ')).toLocaleLowerCase('ko').includes(query.trim().toLocaleLowerCase('ko')))).map(f=><SourceFigure key={f.id} id={f.id}/>)}</div></section>)}
   {!!points.length&&<ChapterSummary id={`${chapter.id}-summary`} title={summaryOnly?'Summary · '+chapter.title:'Summary · 이 장의 핵심 필기'} items={points}/>}
  </article>;
 }
 
 export default function Notebook(){
  const {documentId}=useParams();
+ const {profile,session,run}=useStudy();
+ const lessonId=Object.keys(courseLessonDocument).find(id=>courseLessonDocument[id]===documentId);
+ const done=profile.progress.some(p=>p.lessonId===lessonId&&p.completed);
  const document=notebookDocuments.find(d=>d.id===documentId);
  const [params,setParams]=useSearchParams();
  const summaryOnly=params.get('view')==='summary',urlQuery=params.get('q')??'',urlTeacherOnly=params.get('highlight')==='1';
@@ -55,6 +63,8 @@ export default function Notebook(){
  useEffect(()=>{setQuery(urlQuery);},[urlQuery]);
  useEffect(()=>{setTeacherOnly(urlTeacherOnly);},[urlTeacherOnly]);
  const [message,setMessage]=useState('');
+ const targetChapter=params.get('chapter');
+ useEffect(()=>{if(!targetChapter)return;const frame=requestAnimationFrame(()=>window.document.getElementById(targetChapter)?.scrollIntoView({block:'start'}));return()=>cancelAnimationFrame(frame);},[documentId,targetChapter]);
  const [tocOpen,setTocOpen]=useState(()=>window.matchMedia('(min-width: 1150px)').matches);
  useEffect(()=>{setMessage('');},[documentId,summaryOnly,query,teacherOnly]);
  const change=(name:string,value:string)=>{const next=new URLSearchParams(params);if(query)next.set('q',query);else next.delete('q');if(teacherOnly)next.set('highlight','1');else next.delete('highlight');if(value)next.set(name,value);else next.delete(name);setParams(next,{replace:true});};
@@ -75,10 +85,10 @@ export default function Notebook(){
  return <div className={`notebook-page${summaryOnly?' summary-mode':''}`}>
   <div className="notebook-intro">{document&&<Link className="back-link" to="/notebook"><ArrowLeft size={15}/>전체 필기노트</Link>}<Heading eyebrow="WRITE IT DOWN · PDF 전체 정리" title={document?document.title+(summaryOnly?' · Summary':' · 필기노트'):summaryOnly?'모든 장 Summary':'필기할 문장만, 또렷하게.'} description="용어는 한 문장으로, 차이는 표로, 과정은 흐름으로. 형광펜이 없는 내용도 함께 정리했습니다."/></div>
   <nav className="notebook-book-tabs" aria-label="필기노트 자료 선택">{notebookDocuments.map(d=><Link key={d.id} className={`button${d.id===document?.id?' primary':''}`} to={`/notebook/${d.id}${summaryOnly?'?view=summary':''}`} aria-current={d.id===document?.id?'page':undefined}><span>{String(d.number).padStart(2,'0')}</span>{d.title}</Link>)}</nav>
-  {isIndex?<>
+  {document&&lessonId&&<div className="actions"><button className={done?"button":"button primary"} onClick={()=>void run(readLesson(session.userId,lessonId,!done))}>{done?"이 PDF 읽기 완료 해제":"이 PDF 읽기 완료"}</button><Link className="button" to="/figures">원본 차트 읽는 법</Link></div>}{isIndex?<>
    <section className="notebook-welcome panel"><div><span className="eyebrow">전체 학습 내용 + 교수님 강조</span><h2>긴 강의와 나란히 보는, 나의 필기본.</h2><p>PDF 4개·169쪽의 학습 내용을 새로 정리했습니다. <strong>노란 표시와 ★ 교수님 강조</strong>는 원본 형광펜을 대조한 부분입니다. 표시가 없는 내용도 모두 읽을 수 있습니다.</p><p>각 장 끝에는 핵심 문장만 모은 Summary가 있습니다. 원래 강의 설명과 수업 PDF도 그대로 볼 수 있습니다.</p></div><Link className="button primary" to="/notebook?view=summary">22개 장 Summary 모아보기<ArrowRight size={17}/></Link></section>
    <div className="notebook-card-grid">{notebookDocuments.map(d=><article className="panel notebook-card" key={d.id}><span className="eyebrow">NOTEBOOK {String(d.number).padStart(2,'0')}</span><h2>{d.title}</h2><p>{d.chapters.length}개 장 · 원본 {d.pageCount}쪽 · 형광펜 {d.highlightCount}곳</p><ul>{d.chapters.map(c=><li key={c.id}>{c.title}</li>)}</ul><div className="actions"><Link className="button primary" to={`/notebook/${d.id}`}><BookOpen size={16}/>전체 필기</Link><Link className="button" to={`/notebook/${d.id}?view=summary`}>Summary</Link></div></article>)}</div>
-   <p className="notebook-scope-note">이 노트는 요청한 PDF 4개의 전체 학습 내용입니다. 현재 모의고사 5회차의 기준인 19쪽 최종 범위와는 구분합니다. <Link to="/guide">시험 범위 안내</Link> · <Link to="/lessons">자세한 강의노트</Link> · <Link to="/handouts">원본 자료실</Link></p>
+   <p className="notebook-scope-note">이 노트는 요청한 PDF 4개의 전체 학습 내용입니다. 새 종합 CBT·모의고사 5회차도 이 PDF 4개 전체를 기준으로 합니다. <Link to="/guide">시험 범위 안내</Link> · <Link to="/lessons">자세한 강의노트</Link> · <Link to="/handouts">원본 자료실</Link></p>
   </>:<>
    <div className="notebook-toolbar"><div className="notebook-mode" aria-label="필기 보기 방식"><Link className={`button${!summaryOnly?' primary':''}`} to={document?root:'/notebook'}>전체 필기</Link><Link className={`button${summaryOnly?' primary':''}`} to={`${root}?view=summary`}>Summary만</Link></div><label className="notebook-search"><Search size={17}/><input aria-label="필기 내용 검색" placeholder="용어·코드·설명 검색" value={query} onChange={e=>{setQuery(e.target.value);change('q',e.target.value);}}/></label><label className="checkbox-label notebook-highlight-toggle"><input type="checkbox" checked={teacherOnly} onChange={e=>{setTeacherOnly(e.target.checked);change('highlight',e.target.checked?'1':'');}}/>교수님 강조만</label><div className="notebook-output-actions"><button onClick={()=>void copy()} disabled={!content.length}><Copy size={15}/>필기 복사</button><button onClick={()=>window.print()}><Printer size={15}/>인쇄</button></div></div>
    <div role="status" aria-live="polite" className="notebook-feedback">{message||`${content.length}개 장 표시 · ${teacherOnly?'교수님 강조 보기':'일반 내용과 교수님 강조 모두 보기'}`}</div>

@@ -10,6 +10,7 @@ import type { CaseStudy, Row, SourceRef } from "../types";
 import { sourceMap } from "../content";
 import { DataChart } from "./Chart";
 import { Expand, Table2, BarChart3, ArrowUpDown, X } from "lucide-react";
+import {Link} from 'react-router-dom';
 export function formatPages(pages: number[]) {
   const sorted = [...new Set(pages)].sort((a,b)=>a-b), spans: string[] = [];
   for(let i=0;i<sorted.length;i++) {
@@ -20,7 +21,8 @@ export function formatPages(pages: number[]) {
   return spans.join(', ');
 }
 export function SourceLine({ source }: { source: SourceRef }) {
-  return <p className="source-page">{sourceMap[source.sourceId].filename.normalize('NFC')} · PDF p{formatPages(source.pages)}</p>;
+  const s=sourceMap[source.sourceId];const label=`${s.filename.normalize('NFC')} · PDF p${formatPages(source.pages)}`;
+  return <p className="source-page">{s.handoutId?<Link to={`/handouts/${s.handoutId}?page=${source.pages[0]}`}>{label} ↗</Link>:label}</p>;
 }
 export function Sources({
   refs,
@@ -34,7 +36,7 @@ export function Sources({
       <strong>범위 근거 · PDF 실제 페이지</strong>
       {refs.map((r) => (
         <p key={r.sourceId + ":" + r.pages.join(",")}>
-          {sourceMap[r.sourceId].filename.normalize('NFC')} · p{formatPages(r.pages)}
+          {sourceMap[r.sourceId].handoutId?<Link to={`/handouts/${sourceMap[r.sourceId].handoutId}?page=${r.pages[0]}`}>{sourceMap[r.sourceId].filename.normalize('NFC')} · p{formatPages(r.pages)} ↗</Link>:<>{sourceMap[r.sourceId].filename.normalize('NFC')} · p{formatPages(r.pages)}</>}
         </p>
       ))}
       {supplements.length > 0 && (

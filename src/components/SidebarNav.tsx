@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BookOpen, ChartNoAxesCombined, Check, ChevronDown, CircleUserRound, ClipboardList, FlaskConical, FileText, House, Layers, Target, Timer } from "lucide-react";
-import { blueprints, lessons, topics, finalBlueprints, finalLessons } from "../content";
+import { blueprints, lessons, topics, finalBlueprints, finalLessons,courseBlueprints } from "../content";
 import { useStudy } from "../context";
 import handouts from "../content/handouts.json";
+import figures from '../content/source-figures.json';
 
 type Item = { label: string; to: string; completed?: boolean };
 function current(to: string, path: string, search: string) {
@@ -24,14 +25,15 @@ export function SidebarNav() {
   const { profile } = useStudy();
   const groups = [
     { id: "home", label: "홈", path: "/", Icon: House, items: [{label: "학습 대시보드", to: "/"}, {label: "학습 순서·시험 범위", to: "/guide"}] },
-    { id: "lessons", label: "강의 필기노트", path: "/lessons", Icon: BookOpen, items: [{label: "최종 범위 1~3장", to: "/lessons"}, ...finalLessons.map(l=>({label:l.title,to:`/lessons/${l.id}`,completed:profile.progress.some(p=>p.lessonId===l.id&&p.completed)}))] },
+    { id: "lessons", label: "보충 강의 · 19쪽", path: "/lessons", Icon: BookOpen, items: [{label: "19쪽 보충 강의 전체", to: "/lessons"}, ...finalLessons.map(l=>({label:l.title,to:`/lessons/${l.id}`,completed:profile.progress.some(p=>p.lessonId===l.id&&p.completed)}))] },
     { id: "notebook", label: "필기용 핵심노트", path: "/notebook", Icon: BookOpen, items: [{label: "PDF 전체 필기", to: "/notebook"}, ...handouts.map(d=>({label:`${d.number}. ${d.title}`,to:`/notebook/${d.id}`})), {label:"모든 장 Summary",to:"/notebook?view=summary"}] },
+    { id: "figures", label: "원본 차트 읽기", path: "/figures", Icon: ChartNoAxesCombined, items: [{label:"원본 차트·그림 25개",to:"/figures"},...figures.map(f=>({label:f.title,to:`/figures/${f.id}`}))] },
     { id: "handouts", label: "수업 필기자료", path: "/handouts", Icon: FileText, items: [{label: "필기본 4개 전체", to: "/handouts"}, ...handouts.map(d=>({label:`${d.number}. ${d.title} · ${d.pages}쪽`,to:`/handouts/${d.id}`}))] },
-    { id: "cbt", label: "최종 범위 문제 연습", path: "/cbt", Icon: FlaskConical, items: [{label: "연습 1~5회", to: "/cbt"}, ...finalBlueprints.map(b=>({label:b.title,to:`/cbt/${b.id}`}))] },
-    { id: "mock", label: "모의고사 40문항", path: "/mock", Icon: Timer, items: [{label: "모의고사 1~5회", to: "/mock"}, ...finalBlueprints.map(b=>({label:b.title,to:`/mock/${b.id}`}))] },
+    { id: "cbt", label: "종합 CBT · PDF 4개", path: "/cbt", Icon: FlaskConical, items: [{label: "종합 연습 1~5회차", to: "/cbt"}, ...courseBlueprints.map(b=>({label:b.title,to:`/cbt/${b.id}`}))] },
+    { id: "mock", label: "종합 모의고사 40문항", path: "/mock", Icon: Timer, items: [{label: "모의고사 1~5회차", to: "/mock"}, ...courseBlueprints.map(b=>({label:b.title,to:`/mock/${b.id}`}))] },
     { id: "wrong", label: "오답노트", path: "/wrong", Icon: ClipboardList, items: [{label: "복습할 오답", to: "/wrong"}, {label: "모든 오답", to: "/wrong?view=all"}, {label: "해결한 오답", to: "/wrong?view=resolved"}, {label: "반복해서 틀린 문제", to: "/wrong?view=repeat"}, {label: "오답 다시 풀기", to: "/practice?wrong=1"}] },
     { id: "records", label: "학습기록", path: "/records", Icon: Layers, items: [{label: "기록 개요", to: "/records"}, {label: "강의별 진도", to: "/records?view=progress"}, {label: "응시 이력·점수", to: "/records?view=attempts"}, {label: "취약점 분석", to: "/records?view=weakness"}, {label: "내 북마크", to: "/records?view=bookmarks"}] },
-    { id: "review", label: "시험 범위·학습 안내", path: "/review", Icon: Target, items: [{label: "최종 시험 범위와 출제 구성", to: "/review"}] },
+    { id: "review", label: "시험 범위·학습 안내", path: "/review", Icon: Target, items: [{label: "PDF 4개 범위와 출제 구성", to: "/review"}] },
     { id: "archive", label: "이전 자료 보관함", path: "/archive", Icon: ChartNoAxesCombined, items: [{label:"이전 강의 전체 (범위 구분)",to:"/lessons?archive=1"}, ...topics.map(t=>({label:`이전 · ${t.title}`,to:`/lessons/chapter/${t.id}`})),{label:"이전 가상 데이터 자료",to:"/reading"}, ...blueprints.map(b=>({label:`이전 · ${b.title}`,to:`/cbt/${b.id}`})),{label:"이전 학습 안내",to:"/archive/guide"}] },
     { id: "account", label: "계정·백업", path: "/account", Icon: CircleUserRound, items: [{label: "로컬 로그인·프로필", to: "/account"}, {label: "로컬 회원가입", to: "/account?view=register"}, {label: "학습 기록 백업·복원", to: "/account?view=backup"}] },
   ];

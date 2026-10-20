@@ -58,8 +58,11 @@ import { FocusPracticeStart } from "./pages/QuizStart";
 import { SidebarNav } from "./components/SidebarNav";
 import { Guide } from "./pages/Guide";
 import { Handouts } from "./pages/Handouts";
+import {CourseHome,CourseGuide,CourseStart} from './pages/CourseStudy';
+import {courseLessons} from './content';
 import "./style.css";
 const Notebook = lazy(() => import('./pages/Notebook'));
+const Figures = lazy(() => import('./pages/Figures'));
 function Shell() {
   const {
     session,
@@ -107,7 +110,7 @@ function Shell() {
     window.addEventListener('keydown',close);
     return()=>{window.removeEventListener('keydown',close);previous?.focus();};
   }, [mobile]);
-  const completed = finalLessons.filter(l=>profile.progress.some(p=>p.lessonId===l.id&&p.completed)).length;
+  const completed = courseLessons.filter(l=>profile.progress.some(p=>p.lessonId===l.id&&p.completed)).length;
   if (!ready)
     return (
       <div className="loading">
@@ -139,10 +142,10 @@ function Shell() {
           <div className="mini-progress">
             <span>강의 진행</span>
             <b>
-              {completed} / {finalTopics.length}장
+              {completed} / 4개 PDF
             </b>
           </div>
-          <progress max={finalTopics.length} value={completed} />
+          <progress max={4} value={completed} />
           <p>자료를 읽고, 근거로 답하기.</p>
           <Link to="/account">
             <CircleUserRound size={17} />
@@ -163,7 +166,7 @@ function Shell() {
               {mobile ? <X /> : <Menu />}
             </button>
             <span className="crumb">
-              BIG DATA <span>/</span> 최종 범위 학습
+              BIG DATA <span>/</span> PDF 4개 전체 학습
             </span>
           </div>
           <div className="topbar-actions">
@@ -226,13 +229,15 @@ function Shell() {
             {notice}
           </div>
           <Routes>
-            <Route path="/" element={<FinalHome />} />
+            <Route path="/" element={<CourseHome />} />
             <Route path="/archive" element={<><div className="notice archive-notice">이전 자료 보관함 · 아래 자료는 이번 최종 범위와 구분해서 보세요.</div><Home /></>} />
             <Route path="/archive/guide" element={<Guide />} />
             <Route path="/archive/review" element={<Review />} />
-            <Route path="/guide" element={<FinalGuide />} />
+            <Route path="/guide" element={<CourseGuide />} />
+            <Route path="/archive/final-guide" element={<FinalGuide />} />
             <Route path="/handouts/:documentId?" element={<Handouts key={location.pathname} />} />
             <Route path="/notebook/:documentId?" element={<Suspense fallback={<p role="status">필기노트를 불러오는 중…</p>}><Notebook key={location.pathname}/></Suspense>} />
+            <Route path="/figures/:figureId?" element={<Suspense fallback={<p role="status">원본 그림을 불러오는 중…</p>}><Figures key={location.pathname}/></Suspense>} />
             <Route path="/lessons/*" element={<LessonEntry />} />
             <Route
               path="/reading"
@@ -241,12 +246,12 @@ function Shell() {
             <Route
               path="/cbt/:roundId?"
               element={
-                <FinalStart key={"cbt" + session.userId + location.pathname + location.search} />
+                <CourseStart key={"cbt" + session.userId + location.pathname + location.search} />
               }
             />
             <Route
               path="/mock/:roundId?"
-              element={<FinalStart key={"mock" + session.userId + location.pathname} mock />}
+              element={<CourseStart key={"mock" + session.userId + location.pathname} mock />}
             />
             <Route path="/practice" element={<FocusPracticeStart key={session.userId + location.search} />} />
             <Route path="/quiz" element={<Quiz key={session.userId} />} />
@@ -256,7 +261,7 @@ function Shell() {
             />
             <Route path="/wrong" element={<WrongNotes key={session.userId + location.search} />} />
             <Route path="/records" element={<Records />} />
-            <Route path="/review" element={<FinalGuide />} />
+            <Route path="/review" element={<CourseGuide />} />
             <Route path="/account" element={<Auth key={session.userId + location.search} />} />
             <Route
               path="*"
@@ -270,7 +275,7 @@ function Shell() {
           </Routes>
         </main>
         <footer>
-          최종 범위 PDF 1~3장 · 직접 작성한 예상문제{" "}
+          PDF 4개 전체 범위 · 직접 작성한 예상문제{" "}
           <span>학습 기록은 현재 브라우저에 보관</span>
         </footer>
       </div>

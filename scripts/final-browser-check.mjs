@@ -15,8 +15,8 @@ try{
   page.on('pageerror',e=>report.errors.push(e.message));
   page.on('response',r=>{if(r.status()>=400)report.errors.push(`${r.status()} ${r.url()}`);});
   const overflow=async label=>{const n=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);assert(n<=1,`${width} ${label}: ${n}px overflow`);report.overflow.push({width,label,extra:n});};
-  await page.goto(base);await page.getByRole('heading',{name:/시험 범위에/}).waitFor();
-  assert.equal(await page.locator('.final-chapter-grid .chapter-card').count(),3);await overflow('home');
+  await page.goto(base);await page.getByRole('heading',{name:/PDF 4개 전체를/}).waitFor();
+  assert.equal(await page.locator('.course-document-grid .chapter-card').count(),4);await overflow('home');
   await page.screenshot({path:`test-results/final-home-${width}.png`,fullPage:width===1440});
   for(const l of lessons){
    await page.goto(base+'#/lessons/'+l.id);await page.locator('.final-note-section').last().waitFor();

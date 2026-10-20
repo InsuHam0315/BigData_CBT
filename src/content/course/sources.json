@@ -1,0 +1,30 @@
+[
+  {
+    "id": "HANDOUT_environment",
+    "filename": "1.빅데이터환경_개요_필기본.pdf",
+    "role": "primary",
+    "pages": 63,
+    "handoutId": "environment"
+  },
+  {
+    "id": "HANDOUT_bigdata",
+    "filename": "2.빅데이터란_필기본.pdf",
+    "role": "primary",
+    "pages": 15,
+    "handoutId": "bigdata"
+  },
+  {
+    "id": "HANDOUT_infrastructure",
+    "filename": "3.인프라_필기본.pdf",
+    "role": "primary",
+    "pages": 25,
+    "handoutId": "infrastructure"
+  },
+  {
+    "id": "HANDOUT_netflix",
+    "filename": "4.넷플릭스_필기본.pdf",
+    "role": "primary",
+    "pages": 66,
+    "handoutId": "netflix"
+  }
+]

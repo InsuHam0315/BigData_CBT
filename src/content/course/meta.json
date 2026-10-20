@@ -1,0 +1,42 @@
+{
+  "edition": "2026-10-21",
+  "documents": 4,
+  "pages": 169,
+  "rounds": 5,
+  "questionsPerRound": 40,
+  "emphasizedPerRound": 25,
+  "emphasizedPercent": 62.5,
+  "sourceFiles": [
+    {
+      "id": "environment",
+      "sha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+      "pages": 63
+    },
+    {
+      "id": "bigdata",
+      "sha256": "cace8bfd8f5d46535d78738103620e3671d4a05422406be848f8a2889f594af9",
+      "pages": 15
+    },
+    {
+      "id": "infrastructure",
+      "sha256": "afded364412261d43d09fad7130ce28a0391bc88310f5b0ba032cc346bde405b",
+      "pages": 25
+    },
+    {
+      "id": "netflix",
+      "sha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+      "pages": 66
+    }
+  ],
+  "difficulty": {
+    "중하": 32,
+    "중": 6,
+    "상": 2
+  },
+  "documentCounts": {
+    "environment": 10,
+    "bigdata": 6,
+    "infrastructure": 10,
+    "netflix": 14
+  }
+}
