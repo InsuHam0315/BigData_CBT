@@ -43,7 +43,9 @@ try{
   const paths=await page.locator('.sidebar-nav a').evaluateAll(nodes=>[...new Set(nodes.map(n=>n.getAttribute('href')))]);
   let maximum=0;
   for(const path of paths){
-   await page.goto(base+path);await page.getByRole('main').waitFor();await stable();
+   await page.goto(base+path);await page.getByRole('main').waitFor();
+   if(path.startsWith('#/notebook'))await page.locator('.notebook-page').waitFor();
+   await stable();
    const text=await page.getByRole('main').innerText();assert(text.length>30&&!/페이지를 찾을 수 없습니다|강의를 찾을 수 없습니다|자료를 찾을 수 없습니다/.test(text),path);
    maximum=Math.max(maximum,await overflow(path));
   }
