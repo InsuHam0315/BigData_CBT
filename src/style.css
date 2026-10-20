@@ -2707,7 +2707,9 @@ details summary:hover {
 .handouts-announcement { display:flex; align-items:center; justify-content:space-between; gap:24px; margin:26px 0; padding:26px; border-left:3px solid var(--violet); }
 .handouts-announcement h2 { font-size:1.35rem; margin:8px 0; }
 .handouts-announcement p { margin:0; color:var(--muted); }
-.handouts-announcement .button { flex-shrink:0; }
+.handouts-announcement > div { min-width:0; }
+.handouts-announcement .button { flex-shrink:1; min-width:0; max-width:100%; }
+.handouts-announcement .button svg { flex-shrink:0; }
 .handout-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin:28px 0; }
 .handout-card { min-width:0; padding:28px; }
 .handout-card h2 { margin:18px 0 10px; }

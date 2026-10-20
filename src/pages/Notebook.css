@@ -1,6 +1,8 @@
 .notebook-page { --marker: #f5d86b; --marker-fill: rgba(245,216,107,.16); }
 :root[data-theme="light"] .notebook-page { --marker: #775800; --marker-fill: #fff1a8; }
 .notebook-intro .page-heading { margin-bottom: 24px; }
+.notebook-intro h1 { word-break: keep-all; }
+.notebook-page .button { min-width: 0; max-width: 100%; white-space: normal; }
 .notebook-book-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
 .notebook-book-tabs .button { font-size: .92rem; }
 .notebook-book-tabs .button span { font-size: .76rem; opacity: .7; }
