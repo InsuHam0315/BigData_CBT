@@ -86,6 +86,7 @@ try{
   await page.getByRole('heading',{name:'1문항 복습',exact:true}).waitFor();
   await page.getByRole('button',{name:'복습 시작',exact:true}).click();
   await page.getByRole('heading',{name:old.stem,exact:true}).waitFor();
+  await page.getByRole('link',{name:'개념 적용판 새 회차 선택 →',exact:true}).waitFor();
   await page.locator(`input[value="${old.correctId}"]`).click();
   await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id,old.correctId);
   await page.getByRole('button',{name:'답안 확인',exact:true}).click();
