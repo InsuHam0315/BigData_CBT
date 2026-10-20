@@ -91,6 +91,8 @@ try{
   await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id,old.correctId);
   await page.getByRole('button',{name:'답안 확인',exact:true}).click();
   await page.locator('.choice-correct').waitFor();
+  await page.getByRole('link',{name:'개념 적용판 새 회차 선택 →',exact:true}).click();
+  await page.getByRole('heading',{name:'개념 종합 문제 연습 1~5회',exact:true}).waitFor();
   console.log(`Verified ${width}px archived question: original wording + answer retained`);
   await ctx.close();
  }

@@ -81,6 +81,10 @@ describe('final PDF scope and examination specification',()=>{
    expect(reviewQuestions.some(x=>x.id===q.id)).toBe(true);
   }
   expect(finalBlueprints.flatMap(r=>r.questionIds!)).not.toContain('F01Q21');
+  expect(selectQuestions({pool:[questionMap.F01Q21],count:1,random:false}).ids).toEqual(['F01Q21']);
+  const mixed=[questionMap.F01Q21,questionMap.F26R01Q21,questionMap.F05Q23];
+  expect(new Set(selectQuestions({pool:mixed,count:3,random:false}).ids)).toEqual(new Set(mixed.map(q=>q.id)));
+  expect(new Set(selectQuestions({pool:archivedFinalQuestions,count:200,random:false}).ids)).toEqual(new Set(archivedFinalQuestions.map(q=>q.id)));
  });
  it('restores and submits an old draft without reinterpreting its answers, bookmarks or wrong notes',async()=>{
   const owner='pre-concept-owner',target='pre-concept-restored',ids=['F01Q21','F05Q23'];

@@ -124,9 +124,15 @@ export function selectQuestions({
 }): { ids: string[]; available: number } {
   if (!pool.length) return { ids: [], available: 0 };
   const allowed = new Set(pool.map((q) => q.id));
-  const groups = cases.filter((c) =>
-    c.questionIds.some((id) => allowed.has(id)),
-  );
+  // A saved review can contain archived IDs that are no longer in a case's
+  // active question list. Keep active order, then include those saved items.
+  const groups = cases.map(c=>({
+    ...c,
+    questionIds: [
+      ...c.questionIds.filter(id=>allowed.has(id)),
+      ...pool.filter(q=>q.caseId===c.id&&!c.questionIds.includes(q.id)).map(q=>q.id),
+    ],
+  })).filter(c=>c.questionIds.length>0);
   const ordered = random
     ? shuffle(groups)
     : [...groups].sort((a, b) => {
@@ -150,7 +156,7 @@ export function selectQuestions({
     if (selected.length + ids.length <= count) selected.push(...ids);
   }
   // 목표가 사례 하나보다 작으면 한 사례 안에서만 잘라 반환.
-  if (!selected.length)
+  if (!selected.length && finalGroups.length)
     selected.push(
       ...finalGroups[0].questionIds
         .filter((id) => allowed.has(id))
