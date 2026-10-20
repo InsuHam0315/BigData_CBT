@@ -5,10 +5,11 @@ import {createHash} from 'node:crypto';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 const load=async name=>JSON.parse(await readFile(new URL('../src/content/'+name+'.json',import.meta.url),'utf8'));
 const [figures,questions,rounds]=await Promise.all(['source-figures','course/questions','course/blueprints'].map(load));
+const archived=await load('course/archive-questions');
 const questionMap=Object.fromEntries(questions.map(q=>[q.id,q]));
 const base=process.env.CBT_BASE??'http://127.0.0.1:4173/BigData_CBT/';
 const browser=await chromium.launch(process.platform==='win32'?{channel:'msedge',headless:true}:{headless:true});
-const report={base,captures:[],views:[],rounds:[],errors:[]};await mkdir('test-results',{recursive:true});
+const report={base,edition:'concept-v2',captures:[],views:[],rounds:[],archive:[],errors:[]};await mkdir('test-results',{recursive:true});
 try{
  const assetContext=await browser.newContext();
  for(const f of figures){const response=await assetContext.request.get(base+'figures/'+f.asset);assert.equal(response.status(),200);assert.equal(createHash('sha256').update(await response.body()).digest('hex'),f.sha256);report.captures.push(f.id);}
@@ -41,6 +42,15 @@ try{
    const ids=width===1440?round.questionIds:round.questionIds.slice(0,6),positions=[0,0,0,0];
    for(let i=0;i<ids.length;i++){
     const q=questionMap[ids[i]];await page.getByRole('heading',{name:q.stem,exact:true}).waitFor();
+    assert.match(q.id,/^C26V2R/);
+    assert.equal(await page.locator('.question-panel > .question-exhibit').count(),q.exhibit?1:0);
+    if(q.exhibit){
+     if(q.exhibit.code)assert.equal(await page.locator('.question-panel > .question-exhibit pre').innerText(),q.exhibit.code);
+     if(q.exhibit.columns.length){
+      assert.deepEqual(await page.locator('.question-panel > .question-exhibit th').allTextContents(),q.exhibit.columns);
+      assert.deepEqual(await page.locator('.question-panel > .question-exhibit tbody tr').evaluateAll(rows=>rows.map(row=>[...row.querySelectorAll('td')].map(cell=>cell.textContent))),q.exhibit.rows);
+     }
+    }
     const order=await page.locator('.choices input').evaluateAll(nodes=>nodes.map(n=>n.value));positions[order.indexOf(q.correctId)]++;
     assert.equal(await page.locator('.question-panel > .question-source-figure').count(),q.figureIds.length);
     assert.equal(await page.locator('.question-panel .source-figure-reading').count(),0);
@@ -54,8 +64,27 @@ try{
    if(width===1440)assert.deepEqual(positions,[10,10,10,10]);
    if(await page.locator('.palette-toggle').isVisible())await page.getByRole('button',{name:'문제 번호',exact:true}).click();
    await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));assert.equal(await page.locator('.result-question').count(),40);
+   assert.equal(await page.locator('.result-question .question-exhibit').count(),round.questionIds.filter(id=>questionMap[id].exhibit).length);
    await page.reload();await page.locator('.result-summary').waitFor();await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(round.title));
    report.rounds.push({width,id:round.id,mode,mixed,answered:ids.length,total:40,positions,reloadAndGrade:true,noPrematureHints:true});console.log(`Verified full course ${width}px ${round.id}: ${ids.length} answers, original charts, persisted grading`);
+  }
+  if(width===390||width===1440){
+   const old=archived.find(q=>q.id==='C26R04Q14');
+   await page.goto(`${base}#/practice?question=${old.id}`);
+   await page.getByRole('heading',{name:'1문항 복습',exact:true}).waitFor();
+   await page.getByRole('button',{name:'복습 시작',exact:true}).click();
+   await page.getByRole('heading',{name:old.stem,exact:true}).waitFor();
+   await page.getByRole('link',{name:'개념 적용 개정판 · 새 회차 선택 →',exact:true}).waitFor();
+   await page.locator(`input[value="${old.correctId}"]`).click();
+   await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id,old.correctId);
+   await page.getByRole('button',{name:'답안 확인',exact:true}).click();
+   await page.locator('.choice-correct').waitFor();
+   await page.reload();await page.getByRole('heading',{name:old.stem,exact:true}).waitFor();
+   assert(await page.locator(`input[value="${old.correctId}"]`).isChecked());
+   await page.getByRole('link',{name:'개념 적용 개정판 · 새 회차 선택 →',exact:true}).click();
+   await page.getByRole('heading',{name:'종합 CBT 1~5회차',exact:true}).waitFor();
+   await page.locator('.course-concept-notice').waitFor();
+   report.archive.push({width,id:old.id,originalAnswerAndReload:true,newEditionLink:true});
   }
   await context.close();
  }

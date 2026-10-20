@@ -264,6 +264,7 @@ export function Quiz() {
             </div>
             <h2 ref={questionHeading} tabIndex={-1} className="question-heading">{q.stem}</h2>
             {/^F\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>개정 전 문제입니다. 저장된 답안을 위해 당시 내용을 유지합니다.</p><Link className="button" to={draft.mode==='exam'?'/mock?scope=concept':'/cbt?scope=concept'}>개념 적용판 새 회차 선택 →</Link></div>}
+            {/^C26R\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>PDF 4개 범위의 개정 전 문제입니다. 저장된 답안과 오답 기록을 위해 당시 내용을 유지합니다.</p><Link className="button" to={draft.mode==='exam'?'/mock':'/cbt'}>개념 적용 개정판 · 새 회차 선택 →</Link></div>}
             <QuestionExhibit q={q}/>
             {q.figureIds?.map(id=><SourceFigure key={id} id={id} mode="question"/>)}
             {q.kind === "choice" ? (

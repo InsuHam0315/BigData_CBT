@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-21",
+  "edition": "2026-10-21-concept-v2",
   "status": "PASS",
   "documents": 4,
   "academicSourcePages": 158,
@@ -21,7 +21,7 @@
         10
       ],
       "figures": 13,
-      "uniqueLongestCorrect": 3,
+      "uniqueLongestCorrect": 2,
       "documents": {
         "environment": 10,
         "bigdata": 6,
@@ -41,7 +41,7 @@
         10
       ],
       "figures": 9,
-      "uniqueLongestCorrect": 6,
+      "uniqueLongestCorrect": 5,
       "documents": {
         "environment": 10,
         "bigdata": 6,
@@ -61,7 +61,7 @@
         10
       ],
       "figures": 11,
-      "uniqueLongestCorrect": 11,
+      "uniqueLongestCorrect": 8,
       "documents": {
         "environment": 10,
         "bigdata": 6,
@@ -81,7 +81,7 @@
         10
       ],
       "figures": 12,
-      "uniqueLongestCorrect": 7,
+      "uniqueLongestCorrect": 5,
       "documents": {
         "environment": 10,
         "bigdata": 6,
@@ -101,7 +101,7 @@
         10
       ],
       "figures": 11,
-      "uniqueLongestCorrect": 6,
+      "uniqueLongestCorrect": 3,
       "documents": {
         "environment": 10,
         "bigdata": 6,
@@ -110,5 +110,11 @@
       }
     }
   ],
-  "review": "Original scenario questions; source chart labels and axes visually checked. Previous IDs and answer keys retained. Difficulty is an authoring target, not measured success rates."
+  "conceptReview": {
+    "retained": 96,
+    "rewritten": 93,
+    "wording-only": 11
+  },
+  "questionsWithExhibits": 28,
+  "review": "All 200 items reviewed for concept application and self-contained givens. Previously saved course IDs and answer keys retained in the archive; fresh rounds use new IDs. Difficulty is an authoring target, not measured success rates."
 }

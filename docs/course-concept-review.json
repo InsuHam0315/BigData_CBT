@@ -1,0 +1,2613 @@
+{
+  "edition": "2026-10-21-concept-v2",
+  "reviewed": 200,
+  "decisions": {
+    "retained": 96,
+    "rewritten": 93,
+    "wording-only": 11
+  },
+  "questionsWithExhibits": 28,
+  "questionsWithFigures": 56,
+  "items": [
+    {
+      "id": "C26V2R01Q01",
+      "previousId": "C26R01Q01",
+      "key": "bigdata:applications:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "온라인 구매·검색 기록과 POS를 연결해 추천과 상품 재고를 개선한다. 활용에 가장 알맞은 것은?"
+    },
+    {
+      "id": "C26V2R01Q02",
+      "previousId": "C26R01Q02",
+      "key": "netflix:environment:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "패키지를 설치했는데 VS Code 노트북에서 import 오류가 난다. 가장 먼저 할 점검은?"
+    },
+    {
+      "id": "C26V2R01Q03",
+      "previousId": "C26R01Q03",
+      "key": "environment:storage:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "원본 그림의 오른쪽처럼 같은 파일의 조각이 여러 위치에 흩어져 있다. 이 상태는?"
+    },
+    {
+      "id": "C26V2R01Q04",
+      "previousId": "C26R01Q04",
+      "key": "bigdata:structured:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "고객번호·구매일·금액을 정해진 열에 저장한 주문 테이블은?"
+    },
+    {
+      "id": "C26V2R01Q05",
+      "previousId": "C26R01Q05",
+      "key": "environment:virtual:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프로세스에 가상 주소 공간을 제공하고 필요한 내용을 RAM과 저장장치에 연결해 관리하는 기술은?"
+    },
+    {
+      "id": "C26V2R01Q06",
+      "previousId": "C26R01Q06",
+      "key": "netflix:goals:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "그림은 카탈로그의 Movie·TV Show 작품 수다. type·country·listed_in은 있지만 사용자 시청 기록은 없다. 이 자료로 직접 답할 수 있는 질문은?"
+    },
+    {
+      "id": "C26V2R01Q07",
+      "previousId": "C26R01Q07",
+      "key": "environment:memorywork:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "SSD에 저장된 분석 프로그램을 CPU로 실행하려 한다. 명령과 데이터를 사용할 작업 공간에 관한 올바른 설계는?"
+    },
+    {
+      "id": "C26V2R01Q08",
+      "previousId": "C26R01Q08",
+      "key": "netflix:text:1",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "제시한 워드클라우드에서 love의 글자가 크게 보인다. 크기가 표현하는 것은?"
+    },
+    {
+      "id": "C26V2R01Q09",
+      "previousId": "C26R01Q09",
+      "key": "environment:manager:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "메모리 관리자가 새 작업을 메모리 어느 구역에 둘지 결정한다. 해당 작업은?"
+    },
+    {
+      "id": "C26V2R01Q10",
+      "previousId": "C26R01Q10",
+      "key": "infrastructure:distributed:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "서버 한 대의 RAM과 CPU를 더 높은 사양으로 바꿨다. 확장 방식은?"
+    },
+    {
+      "id": "C26V2R01Q11",
+      "previousId": "C26R01Q11",
+      "key": "infrastructure:hardware:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "분석 중 표를 펼친 작업 공간이 부족하다. 계산 중인 데이터를 담는 자원으로 우선 살필 것은?"
+    },
+    {
+      "id": "C26V2R01Q12",
+      "previousId": "C26R01Q12",
+      "key": "infrastructure:quality:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "빈 나이를 중앙값으로 채운 뒤 처리 전후 건수를 기록한다. 해당 품질 작업은?"
+    },
+    {
+      "id": "C26V2R01Q13",
+      "previousId": "C26R01Q13",
+      "key": "bigdata:3v:1",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "3V 중 매일 쌓이는 파일 용량이 커져 저장 공간을 확장해야 하는 문제는?"
+    },
+    {
+      "id": "C26V2R01Q14",
+      "previousId": "C26R01Q14",
+      "key": "netflix:eda:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 TV Show 요약이 아래와 같다. 올바른 해석은?"
+    },
+    {
+      "id": "C26V2R01Q15",
+      "previousId": "C26R01Q15",
+      "key": "environment:states:1",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "준비 중이던 작업에 CPU 차례가 배정됐다. 해당 화살표는?"
+    },
+    {
+      "id": "C26V2R01Q16",
+      "previousId": "C26R01Q16",
+      "key": "infrastructure:metadata:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "컬럼 자료형과 파티션 구조를 데이터 카탈로그에 등록한다. 어느 메타데이터인가?"
+    },
+    {
+      "id": "C26V2R01Q17",
+      "previousId": "C26R01Q17",
+      "key": "environment:linux:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "응용이 파일 읽기를 OS에 정해진 방식으로 요청한다. 이 요청 통로의 이름은?"
+    },
+    {
+      "id": "C26V2R01Q18",
+      "previousId": "C26R01Q18",
+      "key": "bigdata:origins:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "설비의 진동과 온도로 고장 징후를 찾는 예측 정비에서 가장 직접적인 원천은?"
+    },
+    {
+      "id": "C26V2R01Q19",
+      "previousId": "C26R01Q19",
+      "key": "netflix:othercharts:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "상자그림을 읽는 학습용 예에서 A 등급 영화의 Q1=80분, 중앙값=95분, Q3=110분이다. 상자의 길이와 뜻은?"
+    },
+    {
+      "id": "C26V2R01Q20",
+      "previousId": "C26R01Q20",
+      "key": "environment:process:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "디스크에 저장한 분석 스크립트를 실행해 메모리에 올려 작업 중이다. 실행 중인 작업은?"
+    },
+    {
+      "id": "C26V2R01Q21",
+      "previousId": "C26R01Q21",
+      "key": "netflix:mae:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "표에 제시한 네 예측만의 평균 절대 오차(MAE)는 얼마인가?"
+    },
+    {
+      "id": "C26V2R01Q22",
+      "previousId": "C26R01Q22",
+      "key": "netflix:relations:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 country=\"India, United States\", listed_in=\"Dramas, Comedies\"에 아래 대표값 코드를 적용했다. 이 작품이 기여하는 교차 칸은?"
+    },
+    {
+      "id": "C26V2R01Q23",
+      "previousId": "C26R01Q23",
+      "key": "infrastructure:collection:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "웹 페이지에서 HTML 요소를 찾아 상품 정보를 가져온다. 가장 직접적인 수집 방식은?"
+    },
+    {
+      "id": "C26V2R01Q24",
+      "previousId": "C26R01Q24",
+      "key": "infrastructure:etl:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "원천을 읽고 날짜 형식을 정리한 다음 분석 저장소에 넣는다. 작업 순서는?"
+    },
+    {
+      "id": "C26V2R01Q25",
+      "previousId": "C26R01Q25",
+      "key": "infrastructure:nosql:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "웹 세션을 무작위 세션ID로 저장하고, 요청 때 그 ID에 대응하는 값을 바로 가져온다. 가장 직접적인 저장 모델은?"
+    },
+    {
+      "id": "C26V2R01Q26",
+      "previousId": "C26R01Q26",
+      "key": "environment:osroles:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프로그램 A가 B의 메모리 영역에 쓰려는 동작을 OS가 차단했다. 가장 직접적인 역할은?"
+    },
+    {
+      "id": "C26V2R01Q27",
+      "previousId": "C26R01Q27",
+      "key": "netflix:preprocess:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "director·cast·country의 결측을 Unknown으로 채웠다. 이후 국가별 집계에서 Unknown이 가장 많다면 어떤 해석이 맞는가?"
+    },
+    {
+      "id": "C26V2R01Q28",
+      "previousId": "C26R01Q28",
+      "key": "environment:format:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "빠른 포맷 후 파일 목록이 비었다. 이것만으로 기존 데이터의 모든 바이트가 덮어써졌다고 판단할 수 있는가?"
+    },
+    {
+      "id": "C26V2R01Q29",
+      "previousId": "C26R01Q29",
+      "key": "netflix:content:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "장르·감독·배우·줄거리를 합친 soup를 TF-IDF로 바꾸고 코사인 유사도를 구했다. 추천 방식은?"
+    },
+    {
+      "id": "C26V2R01Q30",
+      "previousId": "C26R01Q30",
+      "key": "netflix:heatmap:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "연도×월 히트맵에서 2019년 행·12월 열의 칸이 진하다. 범례상 진한 색이 큰 건수라면 직접 설명할 수 있는 것은?"
+    },
+    {
+      "id": "C26V2R01Q31",
+      "previousId": "C26R01Q31",
+      "key": "bigdata:unstructured:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "제품 사진·통화 녹음·자유로운 리뷰 본문을 구조 기준으로 묶으면?"
+    },
+    {
+      "id": "C26V2R01Q32",
+      "previousId": "C26R01Q32",
+      "key": "netflix:histogram:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "공개 연도 히스토그램에서 한 막대가 높다. 그 막대에 속한 관측들을 어떻게 묶어 센 것인가?"
+    },
+    {
+      "id": "C26V2R01Q33",
+      "previousId": "C26R01Q33",
+      "key": "bigdata:history:1",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사용자가 블로그·위키·영상의 생산자로 참여하면서 데이터가 늘어났다. 이 변화를 설명하는 흐름은?"
+    },
+    {
+      "id": "C26V2R01Q34",
+      "previousId": "C26R01Q34",
+      "key": "infrastructure:hdfs:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "HDFS에서 파일 경로와 블록 위치를 알아내려 한다. 해당 메타데이터를 관리하는 역할은?"
+    },
+    {
+      "id": "C26V2R01Q35",
+      "previousId": "C26R01Q35",
+      "key": "infrastructure:security:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "네트워크·호스트·앱에 여러 통제를 두어 하나가 실패해도 보호를 이어 간다. 해당 원칙은?"
+    },
+    {
+      "id": "C26V2R01Q36",
+      "previousId": "C26R01Q36",
+      "key": "netflix:regression:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "전체 작품의 텍스트로 TF-IDF를 먼저 fit한 뒤 train/test를 나눴다. 테스트 정보를 학습에 쓰는 누수를 줄이려면?"
+    },
+    {
+      "id": "C26V2R01Q37",
+      "previousId": "C26R01Q37",
+      "key": "environment:software:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사진을 편집하는 앱과 그 앱에 CPU·메모리를 배분하는 소프트웨어를 구분한다. 자원을 배분하는 쪽은?"
+    },
+    {
+      "id": "C26V2R01Q38",
+      "previousId": "C26R01Q38",
+      "key": "netflix:collaborative:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래는 학습용 사용자 평점이다. 두 작품의 피어슨 상관을 계산하려 할 때 먼저 발견할 문제는?"
+    },
+    {
+      "id": "C26V2R01Q39",
+      "previousId": "C26R01Q39",
+      "key": "infrastructure:privacy:1",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사용자 ID를 대체 코드로 바꾸고 대응표를 별도로 관리한다. 해당 접근은?"
+    },
+    {
+      "id": "C26V2R01Q40",
+      "previousId": "C26R01Q40",
+      "key": "netflix:network:1",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "네트워크에서 감독 A와 배우 B를 같은 작품에 참여했을 때 연결했다. 두 점 사이 선 한 개가 직접 뜻하는 것은?"
+    },
+    {
+      "id": "C26V2R02Q01",
+      "previousId": "C26R02Q01",
+      "key": "bigdata:3v:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "매초 센서 값이 계속 들어와 정해진 지연 안에 처리해야 한다. 3V 중 중심 특성은?"
+    },
+    {
+      "id": "C26V2R02Q02",
+      "previousId": "C26R02Q02",
+      "key": "environment:storage:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "HDD에서 떨어진 파일 조각을 다시 모아 헤드 이동을 줄이려 한다. 이 작업은?"
+    },
+    {
+      "id": "C26V2R02Q03",
+      "previousId": "C26R02Q03",
+      "key": "netflix:regression:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "Ridge 회귀의 alpha를 크게 바꿨다. alpha는 L2 규제의 세기일 때 올바른 판단은?"
+    },
+    {
+      "id": "C26V2R02Q04",
+      "previousId": "C26R02Q04",
+      "key": "netflix:content:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "두 단어가 한 작품 설명에 같은 횟수로 등장했다. 단어 A는 거의 모든 작품에, B는 소수 작품에만 등장한다. TF-IDF에서 희소성을 고려하는 이유는?"
+    },
+    {
+      "id": "C26V2R02Q05",
+      "previousId": "C26R02Q05",
+      "key": "netflix:relations:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 작품의 listed_in이 \"Dramas, Comedies\"다. 모든 장르 관계를 explode한 표에서 이 작품이 두 행이 됐다. 전체 관계 합을 해석하면?"
+    },
+    {
+      "id": "C26V2R02Q06",
+      "previousId": "C26R02Q06",
+      "key": "bigdata:unstructured:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래 학습용 기록에는 키–값 구조가 있지만 상품마다 선택 속성이 다르다. 구조 기준으로 가장 가까운 분류는?"
+    },
+    {
+      "id": "C26V2R02Q07",
+      "previousId": "C26R02Q07",
+      "key": "netflix:preprocess:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 작품은 2010년에 공개됐고 date_added는 \" January 2, 2020 \"이다. 아래 코드로 만든 added_year의 값과 의미는?"
+    },
+    {
+      "id": "C26V2R02Q08",
+      "previousId": "C26R02Q08",
+      "key": "environment:linux:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "Ubuntu와 Debian이 같은 Linux 커널 계열을 사용하면서 설치 도구와 패키지 구성이 다르다. 이 묶음은?"
+    },
+    {
+      "id": "C26V2R02Q09",
+      "previousId": "C26R02Q09",
+      "key": "environment:memorywork:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "두 분석 작업을 번갈아 실행한다. 메모리에 두 작업의 내용이 함께 있을 때 필요한 설계는?"
+    },
+    {
+      "id": "C26V2R02Q10",
+      "previousId": "C26R02Q10",
+      "key": "netflix:eda:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 관람 등급 요약이 아래와 같다. top=TV-MA, freq=4에서 직접 알 수 있는 것은?"
+    },
+    {
+      "id": "C26V2R02Q11",
+      "previousId": "C26R02Q11",
+      "key": "bigdata:origins:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "게시물의 해시태그·좋아요·친구 관계를 분석하려 한다. 중심 원천은?"
+    },
+    {
+      "id": "C26V2R02Q12",
+      "previousId": "C26R02Q12",
+      "key": "netflix:heatmap:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "국가×장르 그림은 첫 국가·첫 장르만 대표값으로 선택한 작품 건수다. India–Dramas 칸이 크다는 사실로 가능한 해석은?"
+    },
+    {
+      "id": "C26V2R02Q13",
+      "previousId": "C26R02Q13",
+      "key": "environment:format:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "파일 이름으로 저장된 블록을 찾고 빈 공간을 관리하는 체계 전체를 무엇이라 하는가?"
+    },
+    {
+      "id": "C26V2R02Q14",
+      "previousId": "C26R02Q14",
+      "key": "infrastructure:metadata:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "매출의 업무 정의와 승인된 소유자를 문서화한다. 어느 메타데이터인가?"
+    },
+    {
+      "id": "C26V2R02Q15",
+      "previousId": "C26R02Q15",
+      "key": "netflix:othercharts:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "산점도의 x축은 공개 연도, y축은 등록 연도다. 학습용 작품의 좌표가 (2000, 2020)이라면 y=x 선과의 위치와 의미는?"
+    },
+    {
+      "id": "C26V2R02Q16",
+      "previousId": "C26R02Q16",
+      "key": "netflix:histogram:2",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "제시한 히스토그램의 오른쪽 최근 연도 구간에 높은 막대가 많다. 직접 읽을 수 있는 결론은?"
+    },
+    {
+      "id": "C26V2R02Q17",
+      "previousId": "C26R02Q17",
+      "key": "infrastructure:hardware:2",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 종류의 행렬 연산을 대량 병렬 처리하려는 상황에서 적합한 장치는?"
+    },
+    {
+      "id": "C26V2R02Q18",
+      "previousId": "C26R02Q18",
+      "key": "netflix:environment:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "read_csv가 파일을 찾지 못한다. 원본을 삭제하거나 그래프를 바꾸기 전에 할 점검은?"
+    },
+    {
+      "id": "C26V2R02Q19",
+      "previousId": "C26R02Q19",
+      "key": "infrastructure:privacy:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 공개 표에서 준식별자는 연령대와 지역뿐이다. 같은 준식별자 조합별 인원이 아래와 같을 때, 이 표가 만족하는 가장 큰 k는?"
+    },
+    {
+      "id": "C26V2R02Q20",
+      "previousId": "C26R02Q20",
+      "key": "netflix:text:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "Dramas 설명문으로 만든 워드클라우드에서 어떤 단어가 크다. 이 결과를 장르 특징으로 해석할 때 지켜야 할 범위는?"
+    },
+    {
+      "id": "C26V2R02Q21",
+      "previousId": "C26R02Q21",
+      "key": "infrastructure:etl:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "원천 자료를 먼저 레이크에 보관한 뒤 저장된 자료를 변환한다. 순서는?"
+    },
+    {
+      "id": "C26V2R02Q22",
+      "previousId": "C26R02Q22",
+      "key": "infrastructure:nosql:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "상품마다 색상·크기·보증 정보 같은 선택 속성이 다르며 상품 하나를 중첩 JSON 객체로 읽고 쓴다. 가장 가까운 모델은?"
+    },
+    {
+      "id": "C26V2R02Q23",
+      "previousId": "C26R02Q23",
+      "key": "infrastructure:hdfs:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "NameNode가 파일의 블록 위치를 알려 주었다. 클라이언트가 그 블록의 실제 내용을 읽을 대상은?"
+    },
+    {
+      "id": "C26V2R02Q24",
+      "previousId": "C26R02Q24",
+      "key": "environment:manager:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "메모리가 부족하여 어떤 내용을 내보낼지 선택한다. 해당 작업은?"
+    },
+    {
+      "id": "C26V2R02Q25",
+      "previousId": "C26R02Q25",
+      "key": "infrastructure:security:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사내 네트워크에서 접속해도 데이터 접근 권한을 검증한다. 해당 접근은?"
+    },
+    {
+      "id": "C26V2R02Q26",
+      "previousId": "C26R02Q26",
+      "key": "environment:virtual:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "일부 메모리 내용을 스왑 공간으로 옮기면서 프로세스의 주소 공간을 관리한다. 중심 개념은?"
+    },
+    {
+      "id": "C26V2R02Q27",
+      "previousId": "C26R02Q27",
+      "key": "environment:osroles:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "여러 작업이 프린터를 요청하자 OS가 사용 순서를 정했다. 가장 직접적인 역할은?"
+    },
+    {
+      "id": "C26V2R02Q28",
+      "previousId": "C26R02Q28",
+      "key": "environment:states:2",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "분석 작업이 끝나지 않았지만 CPU 할당 시간이 만료됐다. 다음 상태 전이는?"
+    },
+    {
+      "id": "C26V2R02Q29",
+      "previousId": "C26R02Q29",
+      "key": "infrastructure:distributed:2",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "여러 서버가 통신하며 큰 저장·계산 작업을 나누어 수행한다. 이 환경의 핵심 개념은?"
+    },
+    {
+      "id": "C26V2R02Q30",
+      "previousId": "C26R02Q30",
+      "key": "netflix:goals:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "플랫폼 등록량의 시간 변화를 분석하려 한다. date_added는 등록일, release_year는 최초 공개 연도일 때 집계할 기준은?"
+    },
+    {
+      "id": "C26V2R02Q31",
+      "previousId": "C26R02Q31",
+      "key": "netflix:mae:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "동일한 테스트셋에서 모델 A의 MAE=6.22년, B의 MAE=4.83년이다. 오차의 절대 감소 폭은?"
+    },
+    {
+      "id": "C26V2R02Q32",
+      "previousId": "C26R02Q32",
+      "key": "environment:software:2",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "작성한 소스 프로그램을 기계가 실행할 수 있는 형태로 바꾸는 도구는?"
+    },
+    {
+      "id": "C26V2R02Q33",
+      "previousId": "C26R02Q33",
+      "key": "netflix:network:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 단순 무방향 그래프에서 A는 같은 배우 B와 5번 작업했고 이웃은 B 한 명뿐이다. C는 서로 다른 배우 3명과 한 번씩 작업했다. 같은 그래프의 연결 중심성이 더 큰 쪽은?"
+    },
+    {
+      "id": "C26V2R02Q34",
+      "previousId": "C26R02Q34",
+      "key": "bigdata:history:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "큰 작업을 나누어 여러 컴퓨터에서 처리하는 모델과 생태계의 확산을 고르면?"
+    },
+    {
+      "id": "C26V2R02Q35",
+      "previousId": "C26R02Q35",
+      "key": "bigdata:applications:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "기온과 과거 전력 사용량으로 내일 필요한 공급량을 준비한다. 해당 활용은?"
+    },
+    {
+      "id": "C26V2R02Q36",
+      "previousId": "C26R02Q36",
+      "key": "environment:process:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아직 실행하지 않은 편집기 실행 파일이 SSD에 보관되어 있다. 그 정적인 코드 자체는?"
+    },
+    {
+      "id": "C26V2R02Q37",
+      "previousId": "C26R02Q37",
+      "key": "bigdata:structured:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "센서 데이터가 매초 추가되지만 모든 행은 센서ID·시각·온도라는 같은 열 정의를 따른다. 구조와 시간 특성을 함께 설명하면?"
+    },
+    {
+      "id": "C26V2R02Q38",
+      "previousId": "C26R02Q38",
+      "key": "infrastructure:collection:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "서비스가 정한 요청 주소와 매개변수로 JSON 응답을 받는다. 중심 방식은?"
+    },
+    {
+      "id": "C26V2R02Q39",
+      "previousId": "C26R02Q39",
+      "key": "netflix:collaborative:2",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래 학습용 평점에 corr(min_periods=2)를 적용한다. A와 B의 상관이 NaN일 수 있는 직접적인 이유는?"
+    },
+    {
+      "id": "C26V2R02Q40",
+      "previousId": "C26R02Q40",
+      "key": "infrastructure:quality:2",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 온도 값이 매우 크다. 센서 오류인지 실제 극한 상황인지 확인한다. 해당 작업은?"
+    },
+    {
+      "id": "C26V2R03Q01",
+      "previousId": "C26R03Q01",
+      "key": "netflix:relations:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 교차표에서 “각 장르 안의 TV-PG 비중”을 비교한다. A와 B의 비율은?"
+    },
+    {
+      "id": "C26V2R03Q02",
+      "previousId": "C26R03Q02",
+      "key": "infrastructure:quality:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "회사 이름의 오타·약칭을 비교해 같은 회사를 가리키는지 판단한다. 관련 작업은?"
+    },
+    {
+      "id": "C26V2R03Q03",
+      "previousId": "C26R03Q03",
+      "key": "bigdata:applications:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "유전자·환경·생활·진료 정보를 연결해 개인의 질병 특성을 연구한다. 해당 활용은?"
+    },
+    {
+      "id": "C26V2R03Q04",
+      "previousId": "C26R03Q04",
+      "key": "netflix:othercharts:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "등록량 선그래프의 마지막 연도는 일부 달만 포함한다. 마지막 점이 이전 연도보다 낮을 때 가장 적절한 비교는?"
+    },
+    {
+      "id": "C26V2R03Q05",
+      "previousId": "C26R03Q05",
+      "key": "netflix:histogram:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 release_year 자료로 bins=20과 bins=50인 히스토그램을 만들었다. 막대의 모양이 달라졌을 때 올바른 판단은?"
+    },
+    {
+      "id": "C26V2R03Q06",
+      "previousId": "C26R03Q06",
+      "key": "infrastructure:security:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "데이터의 소유·변경 승인·공유 기준과 책임자를 정한다. 중심 체계는?"
+    },
+    {
+      "id": "C26V2R03Q07",
+      "previousId": "C26R03Q07",
+      "key": "environment:memorywork:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "“CSV가 SSD에 저장되어 있으니 읽고 계산할 때 RAM은 필요 없다”는 설명을 고치면?"
+    },
+    {
+      "id": "C26V2R03Q08",
+      "previousId": "C26R03Q08",
+      "key": "netflix:network:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "등장 횟수가 많은 감독 30명과 관련 작품만 골라 협업망을 만들었다. 이 네트워크의 중심성 순위를 전체 영화계 순위로 확대하기 전에 고려할 것은?"
+    },
+    {
+      "id": "C26V2R03Q09",
+      "previousId": "C26R03Q09",
+      "key": "environment:virtual:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "RAM이 부족해 일부 내용을 스왑에 두고 필요할 때 다시 가져온다. 저장장치 접근이 자주 발생한다면 가능한 결과는?"
+    },
+    {
+      "id": "C26V2R03Q10",
+      "previousId": "C26R03Q10",
+      "key": "environment:storage:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "새 파일을 저장하기 전 사용 가능한 블록을 찾기 위해 참조하는 목록은?"
+    },
+    {
+      "id": "C26V2R03Q11",
+      "previousId": "C26R03Q11",
+      "key": "netflix:content:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "작품의 내용 특징 벡터 A=[1,1], B=[2,2], C=[1,0]을 코사인 유사도로 비교한다. A와 더 가까운 방향을 가진 후보는?"
+    },
+    {
+      "id": "C26V2R03Q12",
+      "previousId": "C26R03Q12",
+      "key": "bigdata:unstructured:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "이메일에서 헤더와 자유로운 본문이 함께 존재한다. 전체 자료의 부분 구조를 강조한 분류는?"
+    },
+    {
+      "id": "C26V2R03Q13",
+      "previousId": "C26R03Q13",
+      "key": "infrastructure:hardware:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프로그램의 일반 연산과 제어를 담당하는 프로세서 자원을 고르면?"
+    },
+    {
+      "id": "C26V2R03Q14",
+      "previousId": "C26R03Q14",
+      "key": "environment:linux:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프린터 모델마다 다른 제어 방식을 OS와 연결하는 소프트웨어는?"
+    },
+    {
+      "id": "C26V2R03Q15",
+      "previousId": "C26R03Q15",
+      "key": "infrastructure:nosql:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "행 키로 대량 기록을 찾고, 관련 열들을 컬럼 계열로 묶어 접근하려 한다. 이 저장 구조와 가장 가까운 NoSQL 모델은?"
+    },
+    {
+      "id": "C26V2R03Q16",
+      "previousId": "C26R03Q16",
+      "key": "environment:format:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 실험에서 A 작업은 파일 관리 구조만 초기화하고, B 작업은 데이터 영역 전체의 초기화·검사도 수행한다. B가 더 오래 걸릴 수 있는 이유는?"
+    },
+    {
+      "id": "C26V2R03Q17",
+      "previousId": "C26R03Q17",
+      "key": "infrastructure:metadata:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 결과표가 어느 원본에서 어떤 변환을 거쳤는지 추적한다. 가장 관련 있는 정보는?"
+    },
+    {
+      "id": "C26V2R03Q18",
+      "previousId": "C26R03Q18",
+      "key": "netflix:text:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "Comedies 워드클라우드에서 두 단어가 가깝게 배치됐다. “두 단어가 항상 같은 문장에서 나온다”고 결론 내리기 전에 할 점검은?"
+    },
+    {
+      "id": "C26V2R03Q19",
+      "previousId": "C26R03Q19",
+      "key": "netflix:heatmap:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "장르×관람 등급 히트맵의 한 칸에서 TV-PG와 가족 영화 장르가 함께 나타난 작품 관계 수를 읽었다. 이 값을 사용자 별점으로 해석할 수 없는 이유는?"
+    },
+    {
+      "id": "C26V2R03Q20",
+      "previousId": "C26R03Q20",
+      "key": "infrastructure:etl:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "하루 동안 모은 거래를 다음 날 새벽에 한 번 집계한다. 처리 방식은?"
+    },
+    {
+      "id": "C26V2R03Q21",
+      "previousId": "C26R03Q21",
+      "key": "bigdata:3v:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 분석에 고객 표·리뷰 글·사진·음성 파일이 함께 들어온다. 3V 중 무엇이 두드러지는가?"
+    },
+    {
+      "id": "C26V2R03Q22",
+      "previousId": "C26R03Q22",
+      "key": "bigdata:history:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "자체 대형 전산실 없이 필요한 분석 자원을 서비스로 빌린다. 해당 흐름은?"
+    },
+    {
+      "id": "C26V2R03Q23",
+      "previousId": "C26R03Q23",
+      "key": "environment:manager:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프로세스의 데이터를 지금 가져올지 나중에 가져올지 정한다. 해당 작업은?"
+    },
+    {
+      "id": "C26V2R03Q24",
+      "previousId": "C26R03Q24",
+      "key": "bigdata:origins:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "구매 전 어느 페이지에서 오래 머물다가 이탈했는지 분석한다. 필요한 원천은?"
+    },
+    {
+      "id": "C26V2R03Q25",
+      "previousId": "C26R03Q25",
+      "key": "infrastructure:privacy:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 개인이 자료에 포함되는지 여부가 공개 결과에 주는 영향을 제한한다. 해당 접근은?"
+    },
+    {
+      "id": "C26V2R03Q26",
+      "previousId": "C26R03Q26",
+      "key": "netflix:mae:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 두 예측의 실제−예측 오차는 +3년과 −3년이다. MAE는?"
+    },
+    {
+      "id": "C26V2R03Q27",
+      "previousId": "C26R03Q27",
+      "key": "netflix:collaborative:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아이템 유사도 표의 한 칸이 NaN이다. 이를 곧바로 “두 작품의 유사도가 0”이라고 설명하기 전에 해야 할 일은?"
+    },
+    {
+      "id": "C26V2R03Q28",
+      "previousId": "C26R03Q28",
+      "key": "environment:process:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "OS가 분석 작업을 생성하면서 식별·상태 등 관리 정보를 따로 마련했다. 이 정보 묶음은?"
+    },
+    {
+      "id": "C26V2R03Q29",
+      "previousId": "C26R03Q29",
+      "key": "environment:software:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "보고서 파일의 본문과 표를 편집하는 프로그램은 어느 분류에 가장 직접 해당하는가?"
+    },
+    {
+      "id": "C26V2R03Q30",
+      "previousId": "C26R03Q30",
+      "key": "netflix:regression:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래 학습용 코드에서 y가 release_year다. 모델 출력의 의미와 평가 오차의 단위로 맞는 것은?"
+    },
+    {
+      "id": "C26V2R03Q31",
+      "previousId": "C26R03Q31",
+      "key": "infrastructure:distributed:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "장비를 추가하고 데이터와 작업을 여러 노드로 나눴다. 확장 방식은?"
+    },
+    {
+      "id": "C26V2R03Q32",
+      "previousId": "C26R03Q32",
+      "key": "netflix:goals:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "카탈로그에서 특정 장르와 특정 관람 등급이 함께 많이 나타났다. 이 결과만으로 가능한 결론은?"
+    },
+    {
+      "id": "C26V2R03Q33",
+      "previousId": "C26R03Q33",
+      "key": "infrastructure:collection:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "공장 장치의 온도 이벤트를 기기에서 계속 받아 모은다. 중심 원천·수집은?"
+    },
+    {
+      "id": "C26V2R03Q34",
+      "previousId": "C26R03Q34",
+      "key": "environment:osroles:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사용자가 아이콘을 눌러 명령을 내리고 창에서 결과를 확인한다. 해당 역할은?"
+    },
+    {
+      "id": "C26V2R03Q35",
+      "previousId": "C26R03Q35",
+      "key": "netflix:preprocess:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "93 min과 4 Seasons에서 숫자만 뽑아 (93+4)/2를 “평균 콘텐츠 길이”라고 보고했다. 무엇을 고쳐야 하는가?"
+    },
+    {
+      "id": "C26V2R03Q36",
+      "previousId": "C26R03Q36",
+      "key": "environment:states:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "새 작업의 PCB를 만든 뒤 CPU 차례를 기다리게 했다. 해당 흐름은?"
+    },
+    {
+      "id": "C26V2R03Q37",
+      "previousId": "C26R03Q37",
+      "key": "bigdata:structured:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "거래 표에 자유로운 메모 열 하나가 추가됐다. 거래의 계좌·시각·금액은 여전히 고정 열이다. 알맞은 판단은?"
+    },
+    {
+      "id": "C26V2R03Q38",
+      "previousId": "C26R03Q38",
+      "key": "netflix:eda:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 cast 값이 \"A, B\"와 \"A, C\"인 두 작품에 아래 코드를 적용했다. 배우 A의 빈도와 펼친 전체 행 수는?"
+    },
+    {
+      "id": "C26V2R03Q39",
+      "previousId": "C26R03Q39",
+      "key": "netflix:environment:3",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 분석을 다른 PC에서 다시 실행하게 하려면 어떤 준비가 가장 알맞은가?"
+    },
+    {
+      "id": "C26V2R03Q40",
+      "previousId": "C26R03Q40",
+      "key": "infrastructure:hdfs:3",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 HDFS 블록의 사본을 서로 다른 세 노드에 두었다. 한 노드만 고장 났고 나머지 노드와 통신은 정상이다. 복제가 돕는 일은?"
+    },
+    {
+      "id": "C26V2R04Q01",
+      "previousId": "C26R04Q01",
+      "key": "infrastructure:hdfs:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 HDFS 조건: 파일은 300 MiB, 블록 크기는 128 MiB, 복제 계수는 3이다. 마지막 부분 블록도 하나로 세면 논리 블록 수와 전체 블록 사본 수는?"
+    },
+    {
+      "id": "C26V2R04Q02",
+      "previousId": "C26R04Q02",
+      "key": "infrastructure:metadata:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "품질 모니터링에서 지난달과 이번 달의 입력 분포가 달라졌다. 이 현상은?"
+    },
+    {
+      "id": "C26V2R04Q03",
+      "previousId": "C26R04Q03",
+      "key": "infrastructure:collection:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "페이지의 태그 구조가 바뀐 뒤 기존 CSS 선택자로 값을 찾지 못한다. 먼저 점검할 수집 방식은?"
+    },
+    {
+      "id": "C26V2R04Q04",
+      "previousId": "C26R04Q04",
+      "key": "bigdata:applications:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "공장 장비의 이상 진동을 분석한 결과를 실제 점검 일정에 반영한다. 해당 활용은?"
+    },
+    {
+      "id": "C26V2R04Q05",
+      "previousId": "C26R04Q05",
+      "key": "netflix:eda:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "등록 월별 건수를 value_counts()로 구했더니 가장 많은 월부터 정렬됐다. 1~12월의 순서로 변화를 보려면 무엇을 고쳐야 하는가?"
+    },
+    {
+      "id": "C26V2R04Q06",
+      "previousId": "C26R04Q06",
+      "key": "environment:manager:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 작업의 잘못된 접근이 OS 영역을 훼손하지 못하게 했다. 해당 기능은?"
+    },
+    {
+      "id": "C26V2R04Q07",
+      "previousId": "C26R04Q07",
+      "key": "bigdata:3v:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "처리할 데이터가 TB에서 PB 규모로 늘었다. 형식은 같다고 할 때 우선 연결되는 3V는?"
+    },
+    {
+      "id": "C26V2R04Q08",
+      "previousId": "C26R04Q08",
+      "key": "environment:software:4",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "여러 파일을 하나의 압축 파일로 묶고 풀어 주는 관리 도구의 분류는?"
+    },
+    {
+      "id": "C26V2R04Q09",
+      "previousId": "C26R04Q09",
+      "key": "environment:virtual:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "두 프로세스에서 같은 가상 주소 값이 보인다. 이 사실만으로 두 프로세스가 같은 물리 RAM 영역을 덮어쓴다고 결론 내릴 수 있는가?"
+    },
+    {
+      "id": "C26V2R04Q10",
+      "previousId": "C26R04Q10",
+      "key": "netflix:text:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "설명문은 그대로 두고 show·movie·series를 불용어로 추가했더니 그림에 나타나는 단어 순서와 크기가 달라졌다. 원인으로 적절한 것은?"
+    },
+    {
+      "id": "C26V2R04Q11",
+      "previousId": "C26R04Q11",
+      "key": "infrastructure:quality:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "서로 다른 날짜 표기와 cm·m를 같은 형식·단위로 정리한다. 해당 작업은?"
+    },
+    {
+      "id": "C26V2R04Q12",
+      "previousId": "C26R04Q12",
+      "key": "netflix:network:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래 코드는 감독 점을 150, 배우 점을 30 크기로 표시한다. 그림의 큰 점을 “연결 중심성이 높은 사람”이라고 설명해도 되는가?"
+    },
+    {
+      "id": "C26V2R04Q13",
+      "previousId": "C26R04Q13",
+      "key": "infrastructure:privacy:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "평문을 노출하지 않고 암호문 상태에서 지원되는 계산을 수행하려 한다. 해당 기술은?"
+    },
+    {
+      "id": "C26V2R04Q14",
+      "previousId": "C26R04Q14",
+      "key": "netflix:mae:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "전체 테스트셋 MAE는 4.83년인데, 그중 공개한 네 샘플의 MAE는 1.75년이다. 두 값이 다를 때 올바른 판단은?"
+    },
+    {
+      "id": "C26V2R04Q15",
+      "previousId": "C26R04Q15",
+      "key": "bigdata:unstructured:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "자유로운 영상 파일을 저장하면서 위치 태그도 붙였다. 영상 본체의 구조 분류는?"
+    },
+    {
+      "id": "C26V2R04Q16",
+      "previousId": "C26R04Q16",
+      "key": "bigdata:history:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "센서 데이터의 일부를 생성 현장 가까이에서 처리해 통신 부담을 줄이려 한다. 해당 방향은?"
+    },
+    {
+      "id": "C26V2R04Q17",
+      "previousId": "C26R04Q17",
+      "key": "netflix:collaborative:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 공통 사용자 세 명의 평점은 아래와 같다. A를 높게 평가한 사람이 B도 높게 평가하는지 확인하는 아이템 협업 방식에서 직접 비교하는 것은?"
+    },
+    {
+      "id": "C26V2R04Q18",
+      "previousId": "C26R04Q18",
+      "key": "bigdata:structured:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "A.csv는 고객ID·나이·지역의 동일한 열을 따르고, B.txt는 구분 필드 없는 자유로운 문장이다. 구조를 판별하는 가장 알맞은 기준은?"
+    },
+    {
+      "id": "C26V2R04Q19",
+      "previousId": "C26R04Q19",
+      "key": "environment:process:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "동일한 앱을 두 번 실행하여 별개의 작업으로 관리한다. 각 실행 인스턴스를 부르는 말은?"
+    },
+    {
+      "id": "C26V2R04Q20",
+      "previousId": "C26R04Q20",
+      "key": "infrastructure:security:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "분석가가 쓸 수 있는 자료를 찾아 의미·소유자·품질을 확인하게 한다. 관련 도구는?"
+    },
+    {
+      "id": "C26V2R04Q21",
+      "previousId": "C26R04Q21",
+      "key": "environment:memorywork:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "한 작업이 다른 작업의 계산 중인 값을 덮어써 결과가 바뀌었다. 메모리 사용에서 보완해야 할 원칙은?"
+    },
+    {
+      "id": "C26V2R04Q22",
+      "previousId": "C26R04Q22",
+      "key": "bigdata:origins:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "EMR, CT 영상, 유전체 정보를 함께 활용하는 연구다. 원천 분야는?"
+    },
+    {
+      "id": "C26V2R04Q23",
+      "previousId": "C26R04Q23",
+      "key": "netflix:relations:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "아래 학습용 표에서 “TV-PG 관계 중 A 장르의 비중”을 구한다. 적절한 계산은?"
+    },
+    {
+      "id": "C26V2R04Q24",
+      "previousId": "C26R04Q24",
+      "key": "netflix:content:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "The Matrix로 유사도를 정렬했더니 자기 자신이 가장 앞에 나온다. 추천 후보 구성에서 할 처리는?"
+    },
+    {
+      "id": "C26V2R04Q25",
+      "previousId": "C26R04Q25",
+      "key": "environment:states:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "실행하던 프로그램이 정상적으로 모든 작업을 마쳤다. 해당 전이는?"
+    },
+    {
+      "id": "C26V2R04Q26",
+      "previousId": "C26R04Q26",
+      "key": "infrastructure:etl:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "센서 이벤트가 계속 들어오며 도착 흐름에 맞춰 집계를 갱신한다. 처리 방식은?"
+    },
+    {
+      "id": "C26V2R04Q27",
+      "previousId": "C26R04Q27",
+      "key": "netflix:histogram:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 연도 구간을 [2000, 2010), [2010, 2020)으로 정했다. 왼쪽 경계 포함·오른쪽 경계 제외일 때 2005·2010·2019년 작품의 구간별 건수는?"
+    },
+    {
+      "id": "C26V2R04Q28",
+      "previousId": "C26R04Q28",
+      "key": "infrastructure:distributed:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "큰 파일을 네트워크로 계속 옮기는 대신 그 블록을 가진 노드 가까이서 계산한다. 관련 원리는?"
+    },
+    {
+      "id": "C26V2R04Q29",
+      "previousId": "C26R04Q29",
+      "key": "netflix:othercharts:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "가상 투자액과 등록 작품 수를 서로 다른 세로축에 그렸다. 두 선의 화면 높이가 같은 지점에서 올바른 해석은?"
+    },
+    {
+      "id": "C26V2R04Q30",
+      "previousId": "C26R04Q30",
+      "key": "infrastructure:hardware:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "프로그램 종료 뒤에도 원본 파일을 보관할 자원을 고르면?"
+    },
+    {
+      "id": "C26V2R04Q31",
+      "previousId": "C26R04Q31",
+      "key": "netflix:environment:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "CSV에서 결측을 정리하고 열별 집계를 만든 뒤 막대그래프를 그리려 한다. 도구와 작업의 연결로 적절한 것은?"
+    },
+    {
+      "id": "C26V2R04Q32",
+      "previousId": "C26R04Q32",
+      "key": "infrastructure:nosql:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사람·기관과 그 사이 관계를 노드·엣지로 탐색하려 한다. 가장 직접적인 모델은?"
+    },
+    {
+      "id": "C26V2R04Q33",
+      "previousId": "C26R04Q33",
+      "key": "netflix:preprocess:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "전처리 후 모든 열의 결측 수가 0이고 행 수가 줄었다. 이 출력만으로 “데이터 품질 문제가 모두 해결됐다”고 할 수 있는가?"
+    },
+    {
+      "id": "C26V2R04Q34",
+      "previousId": "C26R04Q34",
+      "key": "netflix:heatmap:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "같은 교차 빈도표를 두 히트맵으로 그렸는데 색상표의 방향을 반대로 설정했다. 값의 크기를 비교할 때 기준으로 삼을 것은?"
+    },
+    {
+      "id": "C26V2R04Q35",
+      "previousId": "C26R04Q35",
+      "key": "netflix:goals:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "description은 작품의 줄거리 설명문이다. 여기서 많이 등장하는 키워드를 찾았을 때 결과를 적절하게 소개하면?"
+    },
+    {
+      "id": "C26V2R04Q36",
+      "previousId": "C26R04Q36",
+      "key": "environment:osroles:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "CPU가 놀지 않도록 실행 가능한 작업을 선택해 자원 활용도를 높이려는 목표는?"
+    },
+    {
+      "id": "C26V2R04Q37",
+      "previousId": "C26R04Q37",
+      "key": "environment:format:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "파일 A의 내용은 남아 있지만 이름과 블록 위치를 연결하던 관리 정보가 손상됐다. 가장 직접적으로 어려워지는 작업은?"
+    },
+    {
+      "id": "C26V2R04Q38",
+      "previousId": "C26R04Q38",
+      "key": "environment:storage:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "파일의 관리 정보를 삭제한 뒤 그 블록을 재사용 가능 목록에 넣었다. 어떤 관리 정보가 갱신되는가?"
+    },
+    {
+      "id": "C26V2R04Q39",
+      "previousId": "C26R04Q39",
+      "key": "netflix:regression:4",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "장르·감독·배우·국가·설명을 합쳐 soup를 만들었다. “피처를 더 넣었으므로 성능이 반드시 향상된다”는 결론을 검증하려면?"
+    },
+    {
+      "id": "C26V2R04Q40",
+      "previousId": "C26R04Q40",
+      "key": "environment:linux:4",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "OS에서 프로세스·메모리 같은 핵심 관리 기능을 모은 부분을 고르면?"
+    },
+    {
+      "id": "C26V2R05Q01",
+      "previousId": "C26R05Q01",
+      "key": "infrastructure:nosql:5",
+      "decision": "wording-only",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "각 문서가 선택 필드를 가질 수 있는 상품 카탈로그를 다룬다. 이 접근에 가까운 모델은?"
+    },
+    {
+      "id": "C26V2R05Q02",
+      "previousId": "C26R05Q02",
+      "key": "netflix:histogram:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "히스토그램 위에 KDE 곡선을 함께 그렸다. “막대 높이와 곡선 높이를 더하면 더 정확한 작품 수다”라는 해석이 잘못된 이유는?"
+    },
+    {
+      "id": "C26V2R05Q03",
+      "previousId": "C26R05Q03",
+      "key": "netflix:heatmap:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 교차표에서 A 장르의 TV-PG 작품은 40개, B는 30개다. “A에서 TV-PG 비중도 더 높다”고 판단하기 전에 필요한 정보는?"
+    },
+    {
+      "id": "C26V2R05Q04",
+      "previousId": "C26R05Q04",
+      "key": "infrastructure:security:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "설계 단계부터 최소 수집과 처리 목적 등 개인정보보호를 고려한다. 해당 원칙은?"
+    },
+    {
+      "id": "C26V2R05Q05",
+      "previousId": "C26R05Q05",
+      "key": "netflix:othercharts:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "그림의 점은 연도별 가상 투자액과 등록 작품 수의 짝이다. 우상향 경향과 회귀선이 보일 때 적절한 보고는?"
+    },
+    {
+      "id": "C26V2R05Q06",
+      "previousId": "C26R05Q06",
+      "key": "environment:memorywork:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "OS와 분석 프로그램이 같은 RAM 장치에 올라와 있다. 실행 공간과 보호를 함께 설명한 것은?"
+    },
+    {
+      "id": "C26V2R05Q07",
+      "previousId": "C26R05Q07",
+      "key": "environment:storage:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 조건: 저장 공간은 20 GiB 남았지만 파일시스템의 단일 파일 상한은 약 4 GiB다. 6 GiB 파일 하나를 복사할 때 맞는 판단은?"
+    },
+    {
+      "id": "C26V2R05Q08",
+      "previousId": "C26R05Q08",
+      "key": "bigdata:origins:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사진 파일에 촬영 시각·위치·필터 이름이 함께 저장돼 있다. 사진 자체를 설명하는 이 정보는?"
+    },
+    {
+      "id": "C26V2R05Q09",
+      "previousId": "C26R05Q09",
+      "key": "netflix:relations:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "첫 국가·첫 장르만 고른 교차표를 “모든 공동 제작 국가와 모든 장르가 반영된 결과”라고 설명했다. 수정 방법으로 알맞은 것은?"
+    },
+    {
+      "id": "C26V2R05Q10",
+      "previousId": "C26R05Q10",
+      "key": "environment:process:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "작업을 종료하면서 OS가 회수하는 프로세스 관리 정보 구조는?"
+    },
+    {
+      "id": "C26V2R05Q11",
+      "previousId": "C26R05Q11",
+      "key": "environment:format:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "저장장치를 재사용하려고 빠른 포맷을 수행했다. “파일 탐색기에 안 보인다”와 “데이터를 완전히 지웠다”의 관계를 설명한 것은?"
+    },
+    {
+      "id": "C26V2R05Q12",
+      "previousId": "C26R05Q12",
+      "key": "environment:virtual:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "저장장치의 일부를 밀려난 메모리 내용 보관에 활용한다. 이 기능이 속하는 설명으로 가장 알맞은 것은?"
+    },
+    {
+      "id": "C26V2R05Q13",
+      "previousId": "C26R05Q13",
+      "key": "netflix:text:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "서로 다른 장르의 워드클라우드를 따로 만들었다. A의 love가 B보다 크게 보인다고 빈도가 정확히 2배라고 말하기 어려운 이유는?"
+    },
+    {
+      "id": "C26V2R05Q14",
+      "previousId": "C26R05Q14",
+      "key": "environment:software:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "응용 프로그램에 실행 환경을 제공하고 장치·저장공간을 함께 관리하는 기반 소프트웨어는?"
+    },
+    {
+      "id": "C26V2R05Q15",
+      "previousId": "C26R05Q15",
+      "key": "infrastructure:distributed:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "노드 하나가 고장 나도 나머지가 계속 작동할 수 있도록 협력·실패 처리를 설계한다. 중심 환경은?"
+    },
+    {
+      "id": "C26V2R05Q16",
+      "previousId": "C26R05Q16",
+      "key": "infrastructure:hardware:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "CSV는 2 GB지만 분석 도구로 펼치면 작업 데이터가 10 GB이고, 현재 사용 가능한 RAM은 4 GB다. 우선 점검할 자원 문제는?"
+    },
+    {
+      "id": "C26V2R05Q17",
+      "previousId": "C26R05Q17",
+      "key": "netflix:mae:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "동일한 테스트셋의 MAE가 6.22년에서 4.83년으로 줄었다. 초기 오차를 기준으로 한 상대 감소율은 약 얼마인가?"
+    },
+    {
+      "id": "C26V2R05Q18",
+      "previousId": "C26R05Q18",
+      "key": "bigdata:applications:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "검색·리뷰·고객 동선 분석을 실제 상품 배치와 추천에 반영한다. 중심 활용은?"
+    },
+    {
+      "id": "C26V2R05Q19",
+      "previousId": "C26R05Q19",
+      "key": "netflix:eda:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 두 작품의 장르는 각각 \"Dramas, Comedies\"와 \"Dramas\"다. split·explode 뒤 장르별 빈도를 합하면 고유 작품 수와 어떤 관계인가?"
+    },
+    {
+      "id": "C26V2R05Q20",
+      "previousId": "C26R05Q20",
+      "key": "infrastructure:etl:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "분석 저장소에는 표준 날짜형만 허용된다. 외부 CSV의 날짜 문자열을 정리한 뒤 넣도록 설계했다. 맞는 파이프라인은?"
+    },
+    {
+      "id": "C26V2R05Q21",
+      "previousId": "C26R05Q21",
+      "key": "infrastructure:collection:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "수집 코드가 페이지 모양 대신 서비스가 명시한 필드·응답 규약을 따른다. 어느 방식인가?"
+    },
+    {
+      "id": "C26V2R05Q22",
+      "previousId": "C26R05Q22",
+      "key": "bigdata:structured:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "상품코드·가격·재고가 같은 열 정의를 따르는 표를 구조 기준으로 고르면?"
+    },
+    {
+      "id": "C26V2R05Q23",
+      "previousId": "C26R05Q23",
+      "key": "environment:linux:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "GNU·GPL에서 자유 소프트웨어의 자유를 가장 알맞게 이해한 것은?"
+    },
+    {
+      "id": "C26V2R05Q24",
+      "previousId": "C26R05Q24",
+      "key": "infrastructure:hdfs:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "파일 이름과 블록 위치 정보는 조회되지만 해당 블록의 모든 사본을 읽을 수 없다. 이 상황에서 맞는 판단은?"
+    },
+    {
+      "id": "C26V2R05Q25",
+      "previousId": "C26R05Q25",
+      "key": "netflix:content:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "사용자 평점이 전혀 없는 새 작품에도 장르·출연진·설명이 있다. 이 특징으로 기존 작품과 비교해 후보를 만들려면 어떤 접근이 적절한가?"
+    },
+    {
+      "id": "C26V2R05Q26",
+      "previousId": "C26R05Q26",
+      "key": "netflix:collaborative:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "새 작품은 아직 평가자가 없고, 기존 두 작품은 공통 평가자 한 명뿐이다. 이 데이터만으로 아이템 간 평점 상관을 안정적인 추천 근거로 쓰기 어려운 이유는?"
+    },
+    {
+      "id": "C26V2R05Q27",
+      "previousId": "C26R05Q27",
+      "key": "bigdata:3v:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "하루 한 번 받던 기록을 초당 여러 건씩 받아 연속 처리하게 됐다. 변화의 중심인 3V는?"
+    },
+    {
+      "id": "C26V2R05Q28",
+      "previousId": "C26R05Q28",
+      "key": "environment:osroles:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "작업별로 메모리 공간을 할당하고 종료 뒤 회수한다. 어떤 관리 역할의 사례인가?"
+    },
+    {
+      "id": "C26V2R05Q29",
+      "previousId": "C26R05Q29",
+      "key": "netflix:network:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 관계망의 A와 B가 같은 직접 이웃 수를 갖는다. A가 화면 중앙에 배치됐다는 이유만으로 연결 중심성이 더 높다고 할 수 있는가?"
+    },
+    {
+      "id": "C26V2R05Q30",
+      "previousId": "C26R05Q30",
+      "key": "infrastructure:quality:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "A는 다양한 원본을 우선 보관한 뒤 읽을 때 구조를 적용한다. B는 정의한 분석 스키마에 맞춰 넣는다. 맞는 연결은?"
+    },
+    {
+      "id": "C26V2R05Q31",
+      "previousId": "C26R05Q31",
+      "key": "netflix:regression:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 TfidfVectorizer의 max_features=5000이고 전처리 후 후보 어휘는 1200개다. 생성 가능한 피처 수를 적절하게 설명하면?"
+    },
+    {
+      "id": "C26V2R05Q32",
+      "previousId": "C26R05Q32",
+      "key": "environment:manager:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "가져온 작업을 같은 크기 구역 중 어디에 담을지 정한다. 어느 질문에 답하는가?"
+    },
+    {
+      "id": "C26V2R05Q33",
+      "previousId": "C26R05Q33",
+      "key": "infrastructure:metadata:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "원본 파일에서 집계 결과까지 처리 이력과 품질 로그를 연결해 둔다. 관련 분류는?"
+    },
+    {
+      "id": "C26V2R05Q34",
+      "previousId": "C26R05Q34",
+      "key": "netflix:goals:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "파이 차트의 Movie 비율을 검산하려 한다. “같은 정제·필터를 통과한 전체 작품”을 기준으로 할 때 계산식은?"
+    },
+    {
+      "id": "C26V2R05Q35",
+      "previousId": "C26R05Q35",
+      "key": "environment:states:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "준비 큐의 A를 골라 CPU를 배정했다. 이어 A의 시간 할당량이 끝났지만 계산은 남아 있다. 두 사건의 전이 순서는?"
+    },
+    {
+      "id": "C26V2R05Q36",
+      "previousId": "C26R05Q36",
+      "key": "netflix:preprocess:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "학습용 표는 100행이다. date_added 결측은 8행, rating 결측은 5행이며 그중 3행은 둘 다 결측이다. 아래 dropna 뒤 남는 행 수는?"
+    },
+    {
+      "id": "C26V2R05Q37",
+      "previousId": "C26R05Q37",
+      "key": "bigdata:unstructured:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "웹 로그가 시각·요청 주소·상태 코드를 구분하고, 일부 줄에는 선택 속성도 있다. 자유로운 글과 달리 자동 추출을 도울 근거는?"
+    },
+    {
+      "id": "C26V2R05Q38",
+      "previousId": "C26R05Q38",
+      "key": "bigdata:history:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "상품마다 속성이 달라지고 데이터가 늘 때 장비를 추가해 분산하려 한다. NoSQL 도입을 검토하는 이유로 적절한 것은?"
+    },
+    {
+      "id": "C26V2R05Q39",
+      "previousId": "C26R05Q39",
+      "key": "infrastructure:privacy:5",
+      "decision": "rewritten",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "준식별자가 같은 집단마다 5명이 있어 k=5를 만족하지만, 한 집단의 민감값이 모두 동일하다. 추가로 필요한 점검은?"
+    },
+    {
+      "id": "C26V2R05Q40",
+      "previousId": "C26R05Q40",
+      "key": "netflix:environment:5",
+      "decision": "retained",
+      "checks": [
+        "concept-in-source",
+        "self-contained-givens",
+        "one-correct-answer",
+        "explanation-and-distractors"
+      ],
+      "stem": "노트북의 Select Kernel과 conda activate로 선택한 환경이 서로 다르다. 우선 해결할 점검 범주는?"
+    }
+  ]
+}

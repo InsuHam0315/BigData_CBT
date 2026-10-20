@@ -5,6 +5,7 @@ import {courseQuestions,courseBlueprints,courseLessons,courseTopics,sourceMap,qu
 import figures from '../src/content/source-figures.json';
 import notebook from '../src/content/notebook.json';
 import audit from '../docs/notebook-source-audit.json';
+import conceptReview from '../docs/course-concept-review.json';
 import {roundQuestions} from '../src/engine';
 
 assert.equal(courseQuestions.length,200);assert.equal(courseBlueprints.length,5);assert.equal(courseTopics.length,4);assert.equal(courseLessons.length,4);
@@ -23,6 +24,9 @@ const reports=courseBlueprints.map(round=>{
  const positions=[0,0,0,0];let longest=0;
  for(const q of items){
   assert(!seen.has(q.id));seen.add(q.id);assert.equal(q.kind,'choice');assert.equal(q.choices?.length,4);assert.equal(new Set(q.choices!.map(c=>c.text)).size,4);assert(q.explanation.length>=15);
+  assert.match(q.id,/^C26V2R0[1-5]Q\d{2}$/);
+  assert(!/PDF|교수님|수업|원문|p\d+|쪽수|몇 쪽/.test(q.stem),'No document recall: '+q.id);
+  if(q.exhibit)for(const row of q.exhibit.rows)assert.equal(row.length,q.exhibit.columns.length);
   const answer=q.choices!.find(c=>c.id===q.correctId)!;assert(answer);positions[q.choices!.indexOf(answer)]++;if(q.choices!.filter(c=>c!==answer).every(c=>c.text.length<answer.text.length))longest++;
   assert.equal(lessonMap[q.lessonId].topic,q.topic);assert(q.documentId);const doc=notebook.documents.find(d=>d.id===q.documentId)!;assert(doc.chapters.some(c=>c.id===q.notebookChapterId));chapters.add(q.notebookChapterId!);
   for(const h of q.highlightIds??[]){assert(highlightIds.has(h));used.add(h);const p=Number(h.split('-p')[1].split('-a')[0]);assert(q.sources.some(s=>s.pages.includes(p)));assert(h.startsWith(doc.id+'-p'));}
@@ -36,5 +40,6 @@ const reports=courseBlueprints.map(round=>{
 });
 assert.equal(new Set(courseQuestions.map(q=>q.stem)).size,200);assert.deepEqual([...used].sort(),[...highlightIds].sort());assert.equal(chapters.size,22);assert.equal(figures.length,25);assert.equal(figures.filter(f=>f.documentId==='netflix').length,17);
 assert(figures.filter(f=>f.documentId==='netflix').every(f=>usedFigures.has(f.id)),'Every original Netflix chart is also used in a practice question');
-const report={edition:'2026-10-21',status:'PASS',documents:4,academicSourcePages:158,chapterCoverage:22,uniqueQuestions:seen.size,actualHighlightsCovered:used.size,capturedFigures:figures.length,figuresUsedInQuestions:usedFigures.size,rounds:reports,review:'Original scenario questions; source chart labels and axes visually checked. Previous IDs and answer keys retained. Difficulty is an authoring target, not measured success rates.'};
+assert.equal(conceptReview.reviewed,200);assert.deepEqual(new Set(conceptReview.items.map(x=>x.id)),seen);
+const report={edition:'2026-10-21-concept-v2',status:'PASS',documents:4,academicSourcePages:158,chapterCoverage:22,uniqueQuestions:seen.size,actualHighlightsCovered:used.size,capturedFigures:figures.length,figuresUsedInQuestions:usedFigures.size,rounds:reports,conceptReview:conceptReview.decisions,questionsWithExhibits:conceptReview.questionsWithExhibits,review:'All 200 items reviewed for concept application and self-contained givens. Previously saved course IDs and answer keys retained in the archive; fresh rounds use new IDs. Difficulty is an authoring target, not measured success rates.'};
 writeFileSync('docs/course-exam-audit.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
