@@ -26,6 +26,7 @@ jobs:
       - run: python scripts/verify_lessons.py
       - run: python scripts/verify_source_alignment.py
       - run: python scripts/verify_answers.py
+      - run: python scripts/verify_notebook.py
       - run: npm ci
       - run: npm run validate
       - run: npm test
@@ -41,6 +42,7 @@ jobs:
           npm run test:browser
           npm run test:final-browser
           npm run test:handout-browser
+          npm run test:notebook-browser
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

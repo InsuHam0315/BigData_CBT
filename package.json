@@ -9,9 +9,10 @@
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
     "test": "vitest run",
     "test:browser": "node scripts/browser-check.mjs",
-    "validate": "tsx scripts/validate.ts && tsx scripts/validate-final.ts",
+    "validate": "tsx scripts/validate.ts && tsx scripts/validate-final.ts && tsx scripts/validate-notebook.ts",
     "test:final-browser": "node scripts/final-browser-check.mjs",
-    "test:handout-browser": "node scripts/handout-browser-check.mjs"
+    "test:handout-browser": "node scripts/handout-browser-check.mjs",
+    "test:notebook-browser": "node scripts/notebook-browser-check.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.55.0",

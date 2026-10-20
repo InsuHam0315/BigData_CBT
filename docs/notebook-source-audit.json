@@ -1,0 +1,1879 @@
+{
+  "edition": "2026-10-21",
+  "documents": [
+    {
+      "id": "environment",
+      "sha256": "affdc688e7aa8b86ad544bd6dd903a9029d90476cc8cdd6264fd36dda509c202",
+      "pages": 63,
+      "academicPages": 54,
+      "chapters": 5,
+      "sections": 8,
+      "blocks": 50,
+      "highlightAnnotations": [
+        {
+          "id": "environment-p8-a1",
+          "page": 8,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p9-a1",
+          "page": 9,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p12-a1",
+          "page": 12,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p13-a1",
+          "page": 13,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p13-a2",
+          "page": 13,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p15-a1",
+          "page": 15,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p36-a4",
+          "page": 36,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p41-a2",
+          "page": 41,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p41-a3",
+          "page": 41,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p48-a1",
+          "page": 48,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p48-a2",
+          "page": 48,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p55-a1",
+          "page": 55,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p55-a2",
+          "page": 55,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p55-a3",
+          "page": 55,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "environment-p55-a5",
+          "page": 55,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        }
+      ],
+      "pageLedger": [
+        {
+          "page": 1,
+          "sections": [],
+          "excludedReason": "표지·소속",
+          "highlights": []
+        },
+        {
+          "page": 2,
+          "sections": [],
+          "excludedReason": "과목 목차",
+          "highlights": []
+        },
+        {
+          "page": 3,
+          "sections": [],
+          "excludedReason": "단원 목차",
+          "highlights": []
+        },
+        {
+          "page": 4,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 5,
+          "sections": [],
+          "excludedReason": "단원 구분",
+          "highlights": []
+        },
+        {
+          "page": 6,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 7,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 8,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p8-a1"
+          ]
+        },
+        {
+          "page": 9,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p9-a1"
+          ]
+        },
+        {
+          "page": 10,
+          "sections": [
+            "environment-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 11,
+          "sections": [],
+          "excludedReason": "단원 구분",
+          "highlights": []
+        },
+        {
+          "page": 12,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p12-a1"
+          ]
+        },
+        {
+          "page": 13,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p13-a1",
+            "environment-p13-a2"
+          ]
+        },
+        {
+          "page": 14,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 15,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p15-a1"
+          ]
+        },
+        {
+          "page": 16,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 17,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 18,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 19,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 20,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 21,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 22,
+          "sections": [
+            "environment-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 23,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 24,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 25,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 26,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 27,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 28,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 29,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 30,
+          "sections": [
+            "environment-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 31,
+          "sections": [],
+          "excludedReason": "단원 구분",
+          "highlights": []
+        },
+        {
+          "page": 32,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 33,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 34,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 35,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 36,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p36-a4"
+          ]
+        },
+        {
+          "page": 37,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 38,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 39,
+          "sections": [
+            "environment-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 40,
+          "sections": [],
+          "excludedReason": "단원 구분",
+          "highlights": []
+        },
+        {
+          "page": 41,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p41-a2",
+            "environment-p41-a3"
+          ]
+        },
+        {
+          "page": 42,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 43,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 44,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 45,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 46,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 47,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 48,
+          "sections": [
+            "environment-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p48-a1",
+            "environment-p48-a2"
+          ]
+        },
+        {
+          "page": 49,
+          "sections": [],
+          "excludedReason": "단원 구분",
+          "highlights": []
+        },
+        {
+          "page": 50,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 51,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 52,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 53,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 54,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 55,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "environment-p55-a1",
+            "environment-p55-a2",
+            "environment-p55-a3",
+            "environment-p55-a5"
+          ]
+        },
+        {
+          "page": 56,
+          "sections": [
+            "environment-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 57,
+          "sections": [
+            "environment-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 58,
+          "sections": [
+            "environment-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 59,
+          "sections": [
+            "environment-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 60,
+          "sections": [
+            "environment-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 61,
+          "sections": [
+            "environment-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 62,
+          "sections": [
+            "environment-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 63,
+          "sections": [],
+          "excludedReason": "Q&A·연락처",
+          "highlights": []
+        }
+      ]
+    },
+    {
+      "id": "bigdata",
+      "sha256": "cace8bfd8f5d46535d78738103620e3671d4a05422406be848f8a2889f594af9",
+      "pages": 15,
+      "academicPages": 14,
+      "chapters": 5,
+      "sections": 5,
+      "blocks": 24,
+      "highlightAnnotations": [
+        {
+          "id": "bigdata-p2-a1",
+          "page": 2,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "bigdata-p2-a2",
+          "page": 2,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "bigdata-p3-a1",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "bigdata-p11-a1",
+          "page": 11,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "bigdata-p12-a2",
+          "page": 12,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "bigdata-p13-a1",
+          "page": 13,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        }
+      ],
+      "pageLedger": [
+        {
+          "page": 1,
+          "sections": [
+            "bigdata-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 2,
+          "sections": [
+            "bigdata-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "bigdata-p2-a1",
+            "bigdata-p2-a2"
+          ]
+        },
+        {
+          "page": 3,
+          "sections": [
+            "bigdata-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "bigdata-p3-a1"
+          ]
+        },
+        {
+          "page": 4,
+          "sections": [
+            "bigdata-s1",
+            "bigdata-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 5,
+          "sections": [
+            "bigdata-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 6,
+          "sections": [
+            "bigdata-s2",
+            "bigdata-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 7,
+          "sections": [
+            "bigdata-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 8,
+          "sections": [
+            "bigdata-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 9,
+          "sections": [
+            "bigdata-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 10,
+          "sections": [
+            "bigdata-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 11,
+          "sections": [
+            "bigdata-s4",
+            "bigdata-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "bigdata-p11-a1"
+          ]
+        },
+        {
+          "page": 12,
+          "sections": [
+            "bigdata-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "bigdata-p12-a2"
+          ]
+        },
+        {
+          "page": 13,
+          "sections": [
+            "bigdata-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "bigdata-p13-a1"
+          ]
+        },
+        {
+          "page": 14,
+          "sections": [
+            "bigdata-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 15,
+          "sections": [],
+          "excludedReason": "다음 장 안내·쪽번호만 있음",
+          "highlights": []
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "sha256": "afded364412261d43d09fad7130ce28a0391bc88310f5b0ba032cc346bde405b",
+      "pages": 25,
+      "academicPages": 25,
+      "chapters": 5,
+      "sections": 13,
+      "blocks": 87,
+      "highlightAnnotations": [
+        {
+          "id": "infrastructure-p2-a1",
+          "page": 2,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p3-a1",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p3-a2",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p3-a3",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p3-a4",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p6-a1",
+          "page": 6,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p7-a1",
+          "page": 7,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p10-a2",
+          "page": 10,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p13-a1",
+          "page": 13,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "infrastructure-p14-a1",
+          "page": 14,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        }
+      ],
+      "pageLedger": [
+        {
+          "page": 1,
+          "sections": [
+            "infrastructure-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 2,
+          "sections": [
+            "infrastructure-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p2-a1"
+          ]
+        },
+        {
+          "page": 3,
+          "sections": [
+            "infrastructure-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p3-a1",
+            "infrastructure-p3-a2",
+            "infrastructure-p3-a3",
+            "infrastructure-p3-a4"
+          ]
+        },
+        {
+          "page": 4,
+          "sections": [
+            "infrastructure-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 5,
+          "sections": [
+            "infrastructure-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 6,
+          "sections": [
+            "infrastructure-s2"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p6-a1"
+          ]
+        },
+        {
+          "page": 7,
+          "sections": [
+            "infrastructure-s2",
+            "infrastructure-s3"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p7-a1"
+          ]
+        },
+        {
+          "page": 8,
+          "sections": [
+            "infrastructure-s3",
+            "infrastructure-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 9,
+          "sections": [
+            "infrastructure-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 10,
+          "sections": [
+            "infrastructure-s4",
+            "infrastructure-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p10-a2"
+          ]
+        },
+        {
+          "page": 11,
+          "sections": [
+            "infrastructure-s5",
+            "infrastructure-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 12,
+          "sections": [
+            "infrastructure-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 13,
+          "sections": [
+            "infrastructure-s7"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p13-a1"
+          ]
+        },
+        {
+          "page": 14,
+          "sections": [
+            "infrastructure-s7",
+            "infrastructure-s8"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "infrastructure-p14-a1"
+          ]
+        },
+        {
+          "page": 15,
+          "sections": [
+            "infrastructure-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 16,
+          "sections": [
+            "infrastructure-s8",
+            "infrastructure-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 17,
+          "sections": [
+            "infrastructure-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 18,
+          "sections": [
+            "infrastructure-s9",
+            "infrastructure-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 19,
+          "sections": [
+            "infrastructure-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 20,
+          "sections": [
+            "infrastructure-s10",
+            "infrastructure-s11"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 21,
+          "sections": [
+            "infrastructure-s11"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 22,
+          "sections": [
+            "infrastructure-s11",
+            "infrastructure-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 23,
+          "sections": [
+            "infrastructure-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 24,
+          "sections": [
+            "infrastructure-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 25,
+          "sections": [
+            "infrastructure-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        }
+      ]
+    },
+    {
+      "id": "netflix",
+      "sha256": "a9a6723c047e0cbfbc58d67a0953c320df751f0b7d95d011c4bf0c1328bce032",
+      "pages": 66,
+      "academicPages": 65,
+      "chapters": 7,
+      "sections": 13,
+      "blocks": 84,
+      "highlightAnnotations": [
+        {
+          "id": "netflix-p3-a1",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p3-a2",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p3-a3",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p3-a4",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p3-a5",
+          "page": 3,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p7-a1",
+          "page": 7,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p12-a2",
+          "page": 12,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p21-a1",
+          "page": 21,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p32-a1",
+          "page": 32,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p40-a1",
+          "page": 40,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p51-a1",
+          "page": 51,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p53-a1",
+          "page": 53,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        },
+        {
+          "id": "netflix-p56-a1",
+          "page": 56,
+          "color": [
+            1.0,
+            0.941176,
+            0.4
+          ]
+        }
+      ],
+      "pageLedger": [
+        {
+          "page": 1,
+          "sections": [
+            "netflix-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 2,
+          "sections": [
+            "netflix-s1"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 3,
+          "sections": [
+            "netflix-s1"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p3-a1",
+            "netflix-p3-a2",
+            "netflix-p3-a3",
+            "netflix-p3-a4",
+            "netflix-p3-a5"
+          ]
+        },
+        {
+          "page": 4,
+          "sections": [
+            "netflix-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 5,
+          "sections": [
+            "netflix-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 6,
+          "sections": [
+            "netflix-s2"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 7,
+          "sections": [
+            "netflix-s2",
+            "netflix-s3"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p7-a1"
+          ]
+        },
+        {
+          "page": 8,
+          "sections": [
+            "netflix-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 9,
+          "sections": [
+            "netflix-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 10,
+          "sections": [
+            "netflix-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 11,
+          "sections": [
+            "netflix-s3"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 12,
+          "sections": [
+            "netflix-s3",
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p12-a2"
+          ]
+        },
+        {
+          "page": 13,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 14,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 15,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 16,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 17,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 18,
+          "sections": [
+            "netflix-s4"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 19,
+          "sections": [
+            "netflix-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 20,
+          "sections": [
+            "netflix-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 21,
+          "sections": [
+            "netflix-s5"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p21-a1"
+          ]
+        },
+        {
+          "page": 22,
+          "sections": [
+            "netflix-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 23,
+          "sections": [
+            "netflix-s5"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 24,
+          "sections": [
+            "netflix-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 25,
+          "sections": [
+            "netflix-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 26,
+          "sections": [
+            "netflix-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 27,
+          "sections": [
+            "netflix-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 28,
+          "sections": [
+            "netflix-s6"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 29,
+          "sections": [
+            "netflix-s6",
+            "netflix-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 30,
+          "sections": [
+            "netflix-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 31,
+          "sections": [
+            "netflix-s7"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 32,
+          "sections": [
+            "netflix-s7",
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p32-a1"
+          ]
+        },
+        {
+          "page": 33,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 34,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 35,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 36,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 37,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 38,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 39,
+          "sections": [
+            "netflix-s8"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 40,
+          "sections": [
+            "netflix-s8",
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p40-a1"
+          ]
+        },
+        {
+          "page": 41,
+          "sections": [
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 42,
+          "sections": [
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 43,
+          "sections": [
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 44,
+          "sections": [
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 45,
+          "sections": [
+            "netflix-s9"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 46,
+          "sections": [
+            "netflix-s9",
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 47,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 48,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 49,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 50,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 51,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p51-a1"
+          ]
+        },
+        {
+          "page": 52,
+          "sections": [
+            "netflix-s10"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 53,
+          "sections": [
+            "netflix-s10",
+            "netflix-s11"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p53-a1"
+          ]
+        },
+        {
+          "page": 54,
+          "sections": [
+            "netflix-s11"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 55,
+          "sections": [
+            "netflix-s11"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 56,
+          "sections": [
+            "netflix-s11",
+            "netflix-s12"
+          ],
+          "excludedReason": null,
+          "highlights": [
+            "netflix-p56-a1"
+          ]
+        },
+        {
+          "page": 57,
+          "sections": [
+            "netflix-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 58,
+          "sections": [
+            "netflix-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 59,
+          "sections": [
+            "netflix-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 60,
+          "sections": [
+            "netflix-s12"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 61,
+          "sections": [
+            "netflix-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 62,
+          "sections": [
+            "netflix-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 63,
+          "sections": [
+            "netflix-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 64,
+          "sections": [
+            "netflix-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 65,
+          "sections": [
+            "netflix-s13"
+          ],
+          "excludedReason": null,
+          "highlights": []
+        },
+        {
+          "page": 66,
+          "sections": [],
+          "excludedReason": "빈 마지막 쪽·쪽번호만 있음",
+          "highlights": []
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "review": "All 169 pages read; graphical OS evolution/distribution tables and all 33 annotation-bearing pages rendered and visually checked. 158 academic pages summarized; 11 covers, repeated dividers, contact or blank pages accounted for separately. The ledger checks traceability; semantic coverage also received manual source review."
+}

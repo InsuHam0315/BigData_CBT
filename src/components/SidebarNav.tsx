@@ -25,6 +25,7 @@ export function SidebarNav() {
   const groups = [
     { id: "home", label: "홈", path: "/", Icon: House, items: [{label: "학습 대시보드", to: "/"}, {label: "학습 순서·시험 범위", to: "/guide"}] },
     { id: "lessons", label: "강의 필기노트", path: "/lessons", Icon: BookOpen, items: [{label: "최종 범위 1~3장", to: "/lessons"}, ...finalLessons.map(l=>({label:l.title,to:`/lessons/${l.id}`,completed:profile.progress.some(p=>p.lessonId===l.id&&p.completed)}))] },
+    { id: "notebook", label: "필기용 핵심노트", path: "/notebook", Icon: BookOpen, items: [{label: "PDF 전체 필기", to: "/notebook"}, ...handouts.map(d=>({label:`${d.number}. ${d.title}`,to:`/notebook/${d.id}`})), {label:"모든 장 Summary",to:"/notebook?view=summary"}] },
     { id: "handouts", label: "수업 필기자료", path: "/handouts", Icon: FileText, items: [{label: "필기본 4개 전체", to: "/handouts"}, ...handouts.map(d=>({label:`${d.number}. ${d.title} · ${d.pages}쪽`,to:`/handouts/${d.id}`}))] },
     { id: "cbt", label: "최종 범위 문제 연습", path: "/cbt", Icon: FlaskConical, items: [{label: "연습 1~5회", to: "/cbt"}, ...finalBlueprints.map(b=>({label:b.title,to:`/cbt/${b.id}`}))] },
     { id: "mock", label: "모의고사 40문항", path: "/mock", Icon: Timer, items: [{label: "모의고사 1~5회", to: "/mock"}, ...finalBlueprints.map(b=>({label:b.title,to:`/mock/${b.id}`}))] },

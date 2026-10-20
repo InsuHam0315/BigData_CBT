@@ -1,0 +1,112 @@
+.notebook-page { --marker: #f5d86b; --marker-fill: rgba(245,216,107,.16); }
+:root[data-theme="light"] .notebook-page { --marker: #775800; --marker-fill: #fff1a8; }
+.notebook-intro .page-heading { margin-bottom: 24px; }
+.notebook-book-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+.notebook-book-tabs .button { font-size: .92rem; }
+.notebook-book-tabs .button span { font-size: .76rem; opacity: .7; }
+.notebook-welcome { display: flex; align-items: center; gap: 30px; padding: 30px; border-top: 3px solid var(--accent); }
+.notebook-welcome h2 { margin: 10px 0; }
+.notebook-welcome p { color: var(--muted); max-width: 66ch; }
+.notebook-welcome > .button { flex-shrink: 0; }
+.notebook-card-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 24px; }
+.notebook-card { padding: 28px; display: flex; flex-direction: column; }
+.notebook-card h2 { margin: 12px 0 0; }
+.notebook-card > p { color: var(--muted); font-size: .9rem; }
+.notebook-card ul { padding-left: 22px; margin: 8px 0 24px; }
+.notebook-card li { margin: 6px 0; }
+.notebook-card .actions { margin-top: auto; }
+.notebook-scope-note { color: var(--muted); font-size: .86rem; margin: 26px 0; }
+.notebook-scope-note a { text-decoration: underline; text-underline-offset: 3px; }
+.notebook-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--glass); }
+.notebook-mode, .notebook-output-actions { display: flex; gap: 8px; }
+.notebook-toolbar .button,.notebook-toolbar button { font-size: .86rem; min-height: 42px; padding: 9px 12px; }
+.notebook-search { display: flex; flex-direction: row; align-items: center; gap: 8px; flex: 1 1 220px; min-width: 0; border: 1px solid var(--line-strong); border-radius: 9px; padding-left: 12px; }
+.notebook-search input { min-width: 0; width: 100%; border: 0; background: transparent; padding: 9px; }
+.notebook-highlight-toggle { display: flex; align-items: center; flex-direction: row; gap: 8px; font-size: .86rem; margin: 0; }
+.notebook-highlight-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+.notebook-feedback { color: var(--muted); font-size: .82rem; min-height: 30px; margin: 10px 2px 20px; }
+.notebook-layout { display: grid; grid-template-columns: minmax(0,1fr) 218px; align-items: start; gap: 22px; }
+.notebook-paper { min-width: 0; }
+.notebook-chapter { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px; margin-bottom: 28px; scroll-margin-top: 100px; }
+.notebook-chapter-title { padding-bottom: 22px; margin-bottom: 26px; border-bottom: 2px solid var(--line); }
+.notebook-chapter-title h2 { margin: 7px 0 0; font-size: 1.5rem; line-height: 1.5; }
+.notebook-section { scroll-margin-top: 100px; margin: 30px 0; }
+.notebook-section > h3 { color: var(--accent); font-size: 1.12rem; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.notebook-blocks { display: grid; gap: 22px; }
+.note-entry { font-size: 1.06rem; line-height: 1.85; }
+.note-definition { margin: 0; }
+.note-definition strong { color: var(--text); font-weight: 800; }
+.note-entry ul { padding-left: 24px; margin: 9px 0; color: var(--muted); font-size: .98rem; }
+.note-entry li { margin: 5px 0; }
+.teacher-term { background: linear-gradient(transparent 48%,var(--marker-fill) 48%,var(--marker-fill) 94%,transparent 94%); padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.notebook-page .teacher-badge { color: var(--marker); border-color: color-mix(in srgb,var(--marker) 40%,transparent); background: var(--marker-fill); }
+.notebook-evidence { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: .74rem; line-height: 1.5; margin-top: 7px; text-decoration: underline; text-underline-offset: 3px; }
+.notebook-evidence:hover { color: var(--accent); }
+.note-correction { border-left: 3px solid var(--violet); padding: 10px 14px; margin: 12px 0 6px; background: color-mix(in srgb,var(--violet) 8%,transparent); font-size: .9rem; }
+.note-correction a { text-decoration: underline; }
+.note-table,.note-flow { margin: 0; min-width: 0; }
+.note-table figcaption,.note-flow figcaption { font-size: 1.04rem; margin-bottom: 12px; }
+.note-table-scroll { overflow-x: auto; border: 1px solid var(--line-strong); border-radius: 10px; }
+.note-table table { border-collapse: collapse; margin: 0; font-size: .95rem; width: 100%; table-layout: auto; }
+.note-table th,.note-table td { padding: 13px 15px; text-align: left; vertical-align: top; white-space: normal; overflow-wrap: anywhere; border-bottom: 1px solid var(--line); line-height: 1.8; }
+.note-table thead th { background: var(--surface-alt); color: var(--muted); font-size: .86rem; }
+.note-table tbody th { min-width: 115px; font-weight: 700; }
+.note-table tbody tr:last-child > * { border-bottom: 0; }
+.note-table .teacher-row { background: color-mix(in srgb,var(--marker-fill) 45%,transparent); }
+.note-table .teacher-badge { margin: 5px 0 0; }
+.note-table-tip { margin: 10px 0 0; color: var(--muted); font-size: .9rem; }
+.note-flow ol { display: flex; flex-wrap: wrap; list-style: none; gap: 12px; padding: 0; margin: 0; }
+.note-flow li { display: flex; gap: 10px; flex: 1 1 150px; align-items: center; padding: 14px; background: var(--surface-alt); border: 1px solid var(--line); border-radius: 10px; font-size: .93rem; position: relative; }
+.flow-index { color: var(--accent); font-size: .72rem; font-weight: 800; align-self: flex-start; }
+.flow-arrow { flex-shrink: 0; margin-left: auto; color: var(--accent); }
+.notebook-toc { position: sticky; top: 96px; padding: 16px; max-height: calc(100vh - 120px); overflow-y: auto; }
+.notebook-toc-toggle { width: 100%; justify-content: flex-start; padding: 0 0 10px; background: none; border: 0; font-size: .9rem; }
+.notebook-toc-toggle > span { margin-left: auto; font-size: .7rem; color: var(--muted); }
+.notebook-toc nav { display: grid; gap: 3px; }
+.notebook-toc nav > button,.notebook-toc nav > a { font-size: .8rem; display: block; text-align: left; background: none; border: 0; padding: 10px 6px; font-weight: 500; }
+.notebook-toc nav small { display: block; color: var(--muted); font-size: .7rem; }
+.notebook-toc nav > a { color: var(--accent); border-top: 1px solid var(--line); }
+.summary-mode .notebook-chapter { padding-bottom: 20px; }
+.summary-mode .chapter-summary { margin-top: 0; }
+@media(max-width:1150px) {
+ .notebook-layout { grid-template-columns: minmax(0,1fr); }
+ .notebook-toc { position: static; order: -1; max-height: none; }
+ .notebook-toc nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .notebook-welcome { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+@media(max-width:600px) {
+ .notebook-book-tabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+ .notebook-book-tabs .button { font-size: .8rem; padding: 10px 7px; }
+ .notebook-card-grid { grid-template-columns: minmax(0,1fr); }
+ .notebook-card,.notebook-welcome { padding: 22px; }
+ .notebook-chapter { padding: 20px 16px; }
+ .notebook-chapter-title h2 { font-size: 1.3rem; }
+ .notebook-toolbar { padding: 12px; gap: 12px; }
+ .notebook-search { flex-basis: 100%; }
+ .notebook-output-actions { margin-left: auto; }
+ .notebook-toolbar button { padding: 8px; font-size: .76rem; }
+ .notebook-highlight-toggle { font-size: .8rem; }
+ .notebook-toc nav { grid-template-columns: minmax(0,1fr); }
+ .note-table th,.note-table td { padding: 10px; }
+ .note-table tbody th { min-width: 85px; }
+ .note-flow li { flex-basis: 100%; }
+}
+@media print {
+ @page { size: A4; margin: 17mm; }
+ body:has(.notebook-page) { color: #111; background: white; }
+ body:has(.notebook-page) .sidebar,body:has(.notebook-page) .topbar,body:has(.notebook-page) footer,body:has(.notebook-page) .skip,
+ .notebook-page .notebook-book-tabs,.notebook-page .notebook-toolbar,.notebook-page .notebook-feedback,.notebook-page .notebook-toc,.notebook-page .back-link { display: none !important; }
+ body:has(.notebook-page) .app-shell,body:has(.notebook-page) .main-wrap { display: block; margin: 0; width: 100%; }
+ body:has(.notebook-page) #main { padding: 0; margin: 0; max-width: none; }
+ .notebook-page { --text:#111; --muted:#444; --surface:white; --surface-alt:#f3f3f3; --accent:#125f54; --violet:#554281; --line:#ccc; --line-strong:#bbb; --marker:#584500; --marker-fill:#fff1a8; font-size: 11pt; }
+ .notebook-layout { display: block; }
+ .notebook-chapter { border: 0; padding: 0; border-radius: 0; break-before: page; }
+ .notebook-chapter:first-child { break-before: auto; }
+ .notebook-chapter-title,.notebook-section > h3,.summary-heading { break-after: avoid; }
+ .note-entry,.note-flow,.summary-point { break-inside: avoid; }
+ .note-table-scroll { overflow: visible; }
+ .note-table tr { break-inside: avoid; }
+ .notebook-evidence { font-size: 8pt; }
+ .notebook-page .chapter-summary { box-shadow: none; }
+ .notebook-page .teacher-term,.notebook-page .teacher-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

@@ -1,5 +1,5 @@
 import { Heading, BookmarkButton } from "./components/UI";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import {
   HashRouter,
   Link,
@@ -59,6 +59,7 @@ import { SidebarNav } from "./components/SidebarNav";
 import { Guide } from "./pages/Guide";
 import { Handouts } from "./pages/Handouts";
 import "./style.css";
+const Notebook = lazy(() => import('./pages/Notebook'));
 function Shell() {
   const {
     session,
@@ -231,6 +232,7 @@ function Shell() {
             <Route path="/archive/review" element={<Review />} />
             <Route path="/guide" element={<FinalGuide />} />
             <Route path="/handouts/:documentId?" element={<Handouts key={location.pathname} />} />
+            <Route path="/notebook/:documentId?" element={<Suspense fallback={<p role="status">필기노트를 불러오는 중…</p>}><Notebook key={location.pathname}/></Suspense>} />
             <Route path="/lessons/*" element={<LessonEntry />} />
             <Route
               path="/reading"
