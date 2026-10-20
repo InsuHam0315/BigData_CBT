@@ -13,6 +13,11 @@ try {
   const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'}),page=await ctx.newPage();
   page.on('pageerror',e=>report.errors.push(e.message));
   const overflow=async()=>assert(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)<=1,`${width} overflow`);
+  const choose=async value=>{
+   await page.locator(`.choices input[value="${value}"]`).click();
+   // Answers render after the IndexedDB transaction resolves.
+   await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id&&document.querySelector('.choice.selected input').checked,value);
+  };
   const openNumbers=async()=>{if(width<1200&&await page.locator('.palette-toggle').getAttribute('aria-expanded')==='false')await page.getByRole('button',{name:'문제 번호',exact:true}).click();};
   const expectNavigationVisible=async()=>{
    const [n,h]=await Promise.all([page.locator('.quiz-navigation').boundingBox(),page.locator('.topbar').boundingBox()]);
@@ -23,7 +28,7 @@ try {
   await page.locator('.question-panel h2').waitFor();
   const id=await page.locator('.question-panel .tags .tag').first().innerText(),q=map[id];
   const wrong=q.choices.find(c=>c.id!==q.correctId).id;
-  await page.locator(`.choices input[value="${wrong}"]`).check();
+  await choose(wrong);
   assert.equal(await page.locator('.choice-incorrect,.choice-correct').count(),0,'No correctness before checking');
   await page.getByRole('button',{name:'답안 확인',exact:true}).click();
   await page.locator('.palette button[aria-label="1번 오답"]').waitFor({state:'attached'});
@@ -32,6 +37,7 @@ try {
   assert.match(await page.locator('.explanation-answer').innerText(),/내 답 \(오답\)/);
   for(const theme of ['dark','light']){
    if(await page.locator('html').getAttribute('data-theme')!==theme)await page.getByRole('button',{name:'테마 전환',exact:true}).click();
+   await page.waitForFunction(t=>document.documentElement.dataset.theme===t,theme);
    const colors=await page.evaluate(()=>['.choice-incorrect','.choice-incorrect .choice-number','.palette .is-incorrect','.explanation-answer','.grade-status.incorrect'].map(s=>getComputedStyle(document.querySelector(s)).color));
    assert(colors.every(c=>c===colors[0]),`${width} ${theme}: wrong answer colors disagree`);
    assert.notEqual(colors[0],await page.locator('.choice-correct .choice-number').evaluate(e=>getComputedStyle(e).color));
@@ -50,19 +56,19 @@ try {
   await page.getByRole('button',{name:'다음',exact:true}).click();await page.waitForFunction(()=>document.querySelector('.quiz-navigation strong').textContent==='2 / 40');
   await openNumbers();await page.getByRole('button',{name:'1번 오답',exact:true}).click();await page.locator('.choice-incorrect').waitFor();await expectNavigationVisible();
   if(width<1200)assert.equal(await page.locator('.palette-panel').isVisible(),false);
-  await page.locator(`.choices input[value="${q.correctId}"]`).check();
+  await choose(q.correctId);
   await page.waitForFunction(()=>!document.querySelector('.choice-incorrect,.choice-correct,.palette .is-incorrect'));
   await page.getByRole('button',{name:'답안 확인',exact:true}).click();await page.locator('.palette .is-correct').waitFor({state:'attached'});
   assert.equal(await page.locator('.choice-incorrect').count(),0);assert.match(await page.locator('.explanation-answer').innerText(),/내 답 \(정답\)/);
   // Put the wrong answer back, then verify the submitted result keeps that feedback.
-  await page.locator(`.choices input[value="${wrong}"]`).check();await page.getByRole('button',{name:'답안 확인',exact:true}).click();
+  await choose(wrong);await page.getByRole('button',{name:'답안 확인',exact:true}).click();await page.locator('.choice-incorrect').waitFor();
   await openNumbers();await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();
   assert(await page.locator('.result-question').first().getAttribute('class').then(c=>c.includes('result-incorrect')));
   assert.match(await page.locator('.result-question .explanation-answer').first().innerText(),/오답/);
   // New exam: choosing a wrong option must not reveal answers or palette grades.
   await page.goto(base+'#/mock/'+edition);await page.getByRole('button',{name:'시험 시작',exact:true}).click();await page.locator('.question-panel h2').waitFor();
   const examId=await page.locator('.question-panel .tags .tag').first().innerText(),eq=map[examId];
-  await page.locator(`.choices input[value="${eq.choices.find(c=>c.id!==eq.correctId).id}"]`).check();
+  await choose(eq.choices.find(c=>c.id!==eq.correctId).id);
   assert.equal(await page.locator('.choice-incorrect,.choice-correct,.palette .is-incorrect,.palette .is-correct,.question-panel .explanation').count(),0);
   await overflow();await ctx.close();
   report.views.push({width,edition,redFeedback:true,themes:2,stickyNavigation:true,paletteJump:true,reload:true,noExamLeak:true});

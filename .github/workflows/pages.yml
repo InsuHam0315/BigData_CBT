@@ -40,12 +40,12 @@ jobs:
             if curl -sf http://127.0.0.1:4173/BigData_CBT/ > /dev/null; then break; fi
             sleep 1
           done
+          npm run test:quiz-navigation
           npm run test:browser
           npm run test:final-browser
           npm run test:handout-browser
           npm run test:notebook-browser
           npm run test:course-browser
-          npm run test:quiz-navigation
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
