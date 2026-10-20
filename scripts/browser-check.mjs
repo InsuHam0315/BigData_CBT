@@ -39,7 +39,7 @@ try{
    await page.getByRole('button',{name:'메뉴 열기',exact:true}).click();
   }
   for(const toggle of await page.locator('.nav-toggle').all())if(await toggle.getAttribute('aria-expanded')==='false')await toggle.click();
-  assert.equal(await page.locator('.nav-toggle[aria-expanded=true]').count(),13);
+  assert.equal(await page.locator('.nav-toggle[aria-expanded=true]').count(),12);
   const paths=await page.locator('.sidebar-nav a').evaluateAll(nodes=>[...new Set(nodes.map(n=>n.getAttribute('href')))]);
   let maximum=0;
   for(const path of paths){

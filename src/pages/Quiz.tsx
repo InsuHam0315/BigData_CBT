@@ -21,6 +21,7 @@ import {
   allTopics as topics,
 } from "../content";
 import type { Attempt, Question, ExamDraft } from "../types";
+import {questionSection, roundStartPath} from "../assessment";
 import { grade, topicStats } from "../engine";
 import {
   evaluateEssay,
@@ -263,8 +264,8 @@ export function Quiz() {
               {!!q.highlightIds?.length&&<TeacherBadge/>}
             </div>
             <h2 ref={questionHeading} tabIndex={-1} className="question-heading">{q.stem}</h2>
-            {/^F\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>개정 전 문제입니다. 저장된 답안을 위해 당시 내용을 유지합니다.</p><Link className="button" to={draft.mode==='exam'?'/mock?scope=concept':'/cbt?scope=concept'}>개념 적용판 새 회차 선택 →</Link></div>}
-            {/^C26R\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>PDF 4개 범위의 개정 전 문제입니다. 저장된 답안과 오답 기록을 위해 당시 내용을 유지합니다.</p><Link className="button" to={draft.mode==='exam'?'/mock':'/cbt'}>개념 적용 개정판 · 새 회차 선택 →</Link></div>}
+            {/^F\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>개정 전 문제입니다. 저장된 답안을 위해 당시 내용을 유지합니다.</p><Link className="button" to="/cbt">개념 적용판 새 회차 선택 →</Link></div>}
+            {/^C26R\d{2}Q\d{2}$/.test(q.id)&&<div className="notice"><p>PDF 4개 범위의 개정 전 문제입니다. 저장된 답안과 오답 기록을 위해 당시 내용을 유지합니다.</p><Link className="button" to="/mock">개념 적용 개정판 · 새 회차 선택 →</Link></div>}
             <QuestionExhibit q={q}/>
             {q.figureIds?.map(id=><SourceFigure key={id} id={id} mode="question"/>)}
             {q.kind === "choice" ? (
@@ -413,7 +414,8 @@ export function Results() {
       (filter === "pending" && a.grades[qid] === null),
   );
   const stats = topicStats([a]);
-  const round = blueprints.find((b) => a.title.startsWith(b.title));
+  const round = blueprints.find(b => b.questionIds?.length === a.questionIds.length && a.questionIds.every(id => b.questionIds!.includes(id))) ?? blueprints.find(b => a.title.startsWith(b.title));
+  const section = questionSection(a.questionIds) ?? (a.mode === "exam" ? "mock" : "cbt");
   return (
     <>
       <Heading
@@ -450,10 +452,10 @@ export function Results() {
         <Link className="button" to="/records">
           내 기록
         </Link>
-        <Link className="button primary" to="/cbt">
-          종합 회차 선택
+        <Link className="button primary" to={`/${section}`}>
+          {section === "cbt" ? "1~3장 CBT 회차 선택" : "필기본 4개 모의고사 회차 선택"}
         </Link>
-        {round && <Link className="button" to={`${a.mode === "exam" ? "/mock" : "/cbt"}/${round.id}`}>같은 회차 다시 풀기</Link>}
+        {round && <Link className="button" to={roundStartPath(round.id, section)}>같은 회차 다시 풀기</Link>}
       </div>
       <section className="panel"><h2>이번 응시의 주제별 결과</h2>{topics.filter(t=>stats[t.id]).map((t) => <div className="weakness-row" key={t.id}><span>{t.title}</span>{stats[t.id] ? <><b>{stats[t.id].correct}/{stats[t.id].total} 정답</b><Link to={`/lessons?topic=${t.id}`}>강의 복습 →</Link></> : <small>채점된 응답 없음</small>}</div>)}<p className="muted">자기 평가 대기 응답은 평가를 마친 뒤 포함됩니다.</p></section>
       <div className="filters">

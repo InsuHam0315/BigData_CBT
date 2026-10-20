@@ -9,7 +9,7 @@ const base=process.env.CBT_BASE??'http://127.0.0.1:4173/BigData_CBT/';
 const browser=await chromium.launch({headless:true});
 const report={views:[],errors:[]};await mkdir('test-results',{recursive:true});
 try {
- for(const width of [320,390,768,1199,1440])for(const edition of ['course-1','final-1']){
+ for(const width of [320,390,768,1199,1440])for(const roundNumber of [1,2]){
   const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'}),page=await ctx.newPage();
   page.on('pageerror',e=>report.errors.push(e.message));
   const overflow=async()=>assert(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)<=1,`${width} overflow`);
@@ -24,9 +24,10 @@ try {
    assert(n.y>=h.y+h.height,`${width}: navigation hidden under app header`);
    assert(n.y+n.height<=1000,`${width}: navigation below viewport`);
   };
-  await page.goto(base+'#/cbt/'+edition);await page.getByRole('button',{name:'연습 시작',exact:true}).click();
+  await page.goto(base+'#/cbt/final-'+roundNumber);await page.getByRole('button',{name:'연습 시작',exact:true}).click();
   await page.locator('.question-panel h2').waitFor();
   const id=await page.locator('.question-panel .tags .tag').first().innerText(),q=map[id];
+  assert.match(id,/^F26R/);
   const wrong=q.choices.find(c=>c.id!==q.correctId).id;
   await choose(wrong);
   assert.equal(await page.locator('.choice-incorrect,.choice-correct').count(),0,'No correctness before checking');
@@ -66,13 +67,14 @@ try {
   assert(await page.locator('.result-question').first().getAttribute('class').then(c=>c.includes('result-incorrect')));
   assert.match(await page.locator('.result-question .explanation-answer').first().innerText(),/오답/);
   // New exam: choosing a wrong option must not reveal answers or palette grades.
-  await page.goto(base+'#/mock/'+edition);await page.getByRole('button',{name:'시험 시작',exact:true}).click();await page.locator('.question-panel h2').waitFor();
+  await page.goto(base+'#/mock/course-'+roundNumber);await page.getByRole('button',{name:'시험 시작',exact:true}).click();await page.locator('.question-panel h2').waitFor();
   const examId=await page.locator('.question-panel .tags .tag').first().innerText(),eq=map[examId];
+  assert.match(examId,/^C26V2R/);
   await choose(eq.choices.find(c=>c.id!==eq.correctId).id);
   assert.equal(await page.locator('.choice-incorrect,.choice-correct,.palette .is-incorrect,.palette .is-correct,.question-panel .explanation').count(),0);
   await overflow();await ctx.close();
-  report.views.push({width,edition,redFeedback:true,themes:2,stickyNavigation:true,paletteJump:true,reload:true,noExamLeak:true});
-  console.log(`Verified quiz feedback/navigation ${width}px ${edition}: red wrong choice, palette, edit/reset, reload, exam secrecy`);
+  report.views.push({width,roundNumber,redFeedback:true,themes:2,stickyNavigation:true,paletteJump:true,reload:true,noExamLeak:true});
+  console.log(`Verified quiz feedback/navigation ${width}px final-${roundNumber} / course-${roundNumber}: red wrong choice, palette, edit/reset, reload, exam secrecy`);
  }
  assert.deepEqual(report.errors,[]);
 }finally{await writeFile('test-results/quiz-navigation-report.json',JSON.stringify(report,null,2));await browser.close();}

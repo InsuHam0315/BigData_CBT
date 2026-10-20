@@ -25,7 +25,7 @@
 ## 접근과 기록 보존
 
 - 왼쪽 **개념 종합 · 1~3장**에서 연습·모의고사 각 1~5회를 선택한다.
-- 목록 주소: `#/cbt?scope=concept`, `#/mock?scope=concept`.
+- 현재 목록 주소: `#/cbt`. 이전 `#/cbt?scope=concept`, `#/mock?scope=concept`도 출제 자료를 유지해 CBT 목록으로 이동합니다. [출제 자료별 분리](assessment-split.md).
 - 기존 `#/cbt/final-1` ~ `final-5`, `#/mock/final-1` ~ `final-5`는 개정판을 시작한다.
 - PDF 4개 전체를 사용하는 `course-1` ~ `course-5` 회차는 계속 제공한다.
 - 새 문항은 `F26R01Q01` ~ `F26R05Q40` ID를 쓴다. 이전 `F01Q01` ~ `F05Q40` 200문항의 내용·선지·정답은 보관한다.

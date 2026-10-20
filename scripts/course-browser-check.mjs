@@ -36,8 +36,13 @@ try{
   report.views.push({width,captures:25,noOverflow:true,zoomKeyboard:true,notebookFigures:17,progressPersisted:true});
   // All five rounds at phone and desktop sizes; two intermediate widths above
   // exercise every figure, notebook integration and native zoom behavior.
+  await page.goto(base+'#/mock');await page.getByRole('heading',{name:'종합 모의고사 1~5회차',exact:true}).waitFor();
+  assert.equal(await page.locator('.assessment-scope li').count(),4);
+  assert.deepEqual(await page.locator('.course-round-grid a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href'))),rounds.map(r=>'#/mock/'+r.id));
+  await overflow('mock source list');
+  await page.goto(base+'#/cbt/course-3');await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'#/mock/course-3');
   if(width===390||width===1440)for(let r=0;r<rounds.length;r++){
-   const round=rounds[r],mode=r===4?'cbt':'mock';await page.goto(`${base}#/${mode}/${round.id}`);await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();
+   const round=rounds[r],mode='mock';await page.goto(`${base}#/${mode}/${round.id}`);await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();
    const mixed=r%2===0;await page.getByRole('checkbox').setChecked(mixed);await page.getByRole('button',{name:mode==='cbt'?'연습 시작':'시험 시작',exact:true}).click();await page.locator('.palette button').last().waitFor({state:'attached'});assert.equal(await page.locator('.palette button').count(),40);
    const ids=width===1440?round.questionIds:round.questionIds.slice(0,6),positions=[0,0,0,0];
    for(let i=0;i<ids.length;i++){
@@ -58,12 +63,13 @@ try{
     if(i===0)await overflow('exam');
     await page.locator(`.choices input[value="${q.correctId}"]`).click();await page.waitForFunction(id=>document.querySelector('.choice.selected input')?.value===id,q.correctId);
     if(i===2){await page.reload();await page.getByRole('heading',{name:q.stem,exact:true}).waitFor();assert.deepEqual(await page.locator('.choices input').evaluateAll(nodes=>nodes.map(n=>n.value)),order);assert(await page.locator(`input[value="${q.correctId}"]`).isChecked());}
-    if(mode==='cbt'&&i===0){await page.getByRole('button',{name:'답안 확인',exact:true}).click();await page.locator('.question-panel .explanation').waitFor();assert((await page.locator('.question-panel .explanation').innerText()).includes('필기본.pdf'));assert((await page.locator('.question-panel .explanation > a').getAttribute('href')).startsWith('#/notebook/'));}
     if(i<ids.length-1)await page.getByRole('button',{name:'다음',exact:true}).click();
    }
    if(width===1440)assert.deepEqual(positions,[10,10,10,10]);
    if(await page.locator('.palette-toggle').isVisible())await page.getByRole('button',{name:'문제 번호',exact:true}).click();
    await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));assert.equal(await page.locator('.result-question').count(),40);
+   assert.equal(await page.getByRole('link',{name:'같은 회차 다시 풀기',exact:true}).getAttribute('href'),`#/mock/${round.id}`);
+   assert((await page.locator('.result-question .explanation').first().innerText()).includes('필기본.pdf'));
    assert.equal(await page.locator('.result-question .question-exhibit').count(),round.questionIds.filter(id=>questionMap[id].exhibit).length);
    await page.reload();await page.locator('.result-summary').waitFor();await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(round.title));
    report.rounds.push({width,id:round.id,mode,mixed,answered:ids.length,total:40,positions,reloadAndGrade:true,noPrematureHints:true});console.log(`Verified full course ${width}px ${round.id}: ${ids.length} answers, original charts, persisted grading`);
@@ -82,7 +88,7 @@ try{
    await page.reload();await page.getByRole('heading',{name:old.stem,exact:true}).waitFor();
    assert(await page.locator(`input[value="${old.correctId}"]`).isChecked());
    await page.getByRole('link',{name:'개념 적용 개정판 · 새 회차 선택 →',exact:true}).click();
-   await page.getByRole('heading',{name:'종합 CBT 1~5회차',exact:true}).waitFor();
+   await page.getByRole('heading',{name:'종합 모의고사 1~5회차',exact:true}).waitFor();
    await page.locator('.course-concept-notice').waitFor();
    report.archive.push({width,id:old.id,originalAnswerAndReload:true,newEditionLink:true});
   }

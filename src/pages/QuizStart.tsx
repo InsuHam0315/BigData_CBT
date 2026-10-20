@@ -38,7 +38,7 @@ export function QuizStart({ mock = false }: { mock?: boolean }) {
     {round && <Link className="back-link" to={base}>← 전체 회차</Link>}
     <Heading eyebrow={mock ? "COMPREHENSIVE EXAM" : "COMPREHENSIVE PRACTICE"}
       title={round?.title ?? (mock ? "종합모의고사" : "회차별 종합문제 연습")}
-      description={mock ? "전 범위를 섞은 고정 문제 세트입니다. 제출 후 점수와 해설을 확인합니다." : "모의고사와 같은 종합 세트를 연습합니다. 문항별 답안 확인으로 근거와 해설을 읽을 수 있습니다."} />
+      description={mock ? "전 범위를 섞은 고정 문제 세트입니다. 제출 후 점수와 해설을 확인합니다." : "이전 자료 보관함의 종합 문제를 연습합니다. 문항별 답안 확인으로 근거와 해설을 읽을 수 있습니다."} />
     {profile.draft && <div className="notice resume-banner"><Timer size={18} /><span>진행 중: {profile.draft.title}. 새 응시를 시작하면 진행 중 풀이가 교체됩니다.</span><Link className="button" to="/quiz">이어서 풀기</Link></div>}
     {!round ? <>
       <div className="notice">노션 측 4개 자료 전체 · 넷플릭스 심화 포함 · 5회차에 전체 39개 사례를 배분했습니다. 각 회차는 50문항이며 같은 회차의 문제 구성은 유지됩니다.</div>

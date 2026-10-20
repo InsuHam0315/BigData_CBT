@@ -21,10 +21,14 @@ try{
   await page.screenshot({path:`test-results/final-home-${width}.png`,fullPage:width===1440});
   for(const mode of ['cbt','mock']){
    await page.goto(`${base}#/${mode}?scope=concept`);
-   await page.getByRole('heading',{name:/개념 종합 (문제 연습|모의고사) 1~5회/,exact:true}).waitFor();
+   await page.getByRole('heading',{name:'종합 CBT 1~5회차',exact:true}).waitFor();
    assert.equal(await page.locator('.final-round-grid article').count(),5);
+   assert.equal(new URL(page.url()).hash,'#/cbt');
+   assert.match(await page.locator('.assessment-scope').innerText(),/빅데이터1-3장.pdf/);
+   assert.deepEqual(await page.locator('.final-round-grid a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href'))),rounds.map(r=>'#/cbt/'+r.id));
    await overflow('concept round list '+mode);
   }
+  await page.goto(base+'#/mock/final-3');await page.getByRole('heading',{name:'CBT 3회차',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'#/cbt/final-3');
   for(const l of lessons){
    await page.goto(base+'#/lessons/'+l.id);await page.locator('.final-note-section').last().waitFor();
    assert.equal(await page.locator('.final-note-section').count(),l.sections.length);
@@ -39,7 +43,7 @@ try{
    report.notes.push({width,id:l.id,sections:l.sections.length,persisted:true});
   }
   for(let r=0;r<rounds.length;r++){
-   const round=rounds[r],mode=r===4?'cbt':'mock';
+   const round=rounds[r],mode='cbt';
    await page.goto(`${base}#/${mode}/${round.id}`);await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();
    const mixed=r%2===0;await page.getByRole('checkbox').setChecked(mixed);
    await page.getByRole('button',{name:mode==='cbt'?'연습 시작':'시험 시작',exact:true}).click();
@@ -60,7 +64,7 @@ try{
      for(const row of q.exhibit.rows)for(const cell of row)assert((await page.locator('.question-panel .question-exhibit').innerText()).includes(cell));
      await overflow(q.id+' givens');
     }
-    if(mode==='mock')assert.equal(await page.locator('.question-panel .explanation').count(),0);
+    assert.match(await page.locator('.question-panel .tags .tag').first().innerText(),/^F26R/);
     await page.locator(`input[value="${q.correctId}"]`).click();
     await page.waitForFunction(value=>document.querySelector('.choice.selected input')?.value===value,q.correctId);
     if(i===0){await overflow('quiz');if(r===0)await page.screenshot({path:`test-results/final-quiz-${width}.png`,fullPage:false});}
@@ -74,9 +78,10 @@ try{
    await page.locator('.result-summary').waitFor();
    assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));
    assert.equal(await page.locator('.result-question').count(),40);
+   assert.equal(await page.getByRole('link',{name:'같은 회차 다시 풀기',exact:true}).getAttribute('href'),`#/cbt/${round.id}`);
    assert.equal(await page.locator('.result-question .question-exhibit').count(),round.questionIds.filter(id=>map[id].exhibit).length);
    await page.reload();await page.locator('.result-summary').waitFor();
-   await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(round.title));
+   await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(`CBT ${r+1}회차 · 빅데이터1-3장.pdf`));
    report.rounds.push({width,round:round.id,mode,mixed,answered:ids.length,total:40,positions,reloadAndGrading:true});
    console.log(`Verified ${width}px ${round.id}: ${ids.length} answers, grade + reload + records`);
   }
@@ -92,7 +97,7 @@ try{
   await page.getByRole('button',{name:'답안 확인',exact:true}).click();
   await page.locator('.choice-correct').waitFor();
   await page.getByRole('link',{name:'개념 적용판 새 회차 선택 →',exact:true}).click();
-  await page.getByRole('heading',{name:'개념 종합 문제 연습 1~5회',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'종합 CBT 1~5회차',exact:true}).waitFor();
   console.log(`Verified ${width}px archived question: original wording + answer retained`);
   await ctx.close();
  }

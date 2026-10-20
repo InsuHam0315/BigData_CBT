@@ -1,3 +1,4 @@
+import { AssessmentEntry } from "./pages/AssessmentEntry";
 import { Heading, BookmarkButton } from "./components/UI";
 import { lazy, Suspense, useEffect, useState } from "react";
 import {
@@ -50,7 +51,7 @@ import {
 } from "./storage";
 import { topicStats } from "./engine";
 import { Code, Materials, Sources } from "./components/Materials";
-import { FinalHome, FinalGuide, LessonEntry, FinalStart } from "./pages/FinalStudy";
+import { FinalGuide, LessonEntry } from "./pages/FinalStudy";
 import { finalLessons, finalTopics } from "./content";
 import { Auth, Records, WrongNotes } from "./pages/Records";
 import { Quiz, Results } from "./pages/Quiz";
@@ -58,7 +59,7 @@ import { FocusPracticeStart } from "./pages/QuizStart";
 import { SidebarNav } from "./components/SidebarNav";
 import { Guide } from "./pages/Guide";
 import { Handouts } from "./pages/Handouts";
-import {CourseHome,CourseGuide,CourseStart} from './pages/CourseStudy';
+import {CourseHome,CourseGuide} from './pages/CourseStudy';
 import {courseLessons} from './content';
 import "./style.css";
 import "./pages/Quiz.css";
@@ -167,7 +168,7 @@ function Shell() {
               {mobile ? <X /> : <Menu />}
             </button>
             <span className="crumb">
-              BIG DATA <span>/</span> PDF 4개 전체 학습
+              BIG DATA <span>/</span> CBT · 모의고사 학습
             </span>
           </div>
           <div className="topbar-actions">
@@ -247,12 +248,12 @@ function Shell() {
             <Route
               path="/cbt/:roundId?"
               element={
-                <CourseStart key={"cbt" + session.userId + location.pathname + location.search} />
+                <AssessmentEntry section="cbt" key={"cbt" + session.userId + location.pathname + location.search} />
               }
             />
             <Route
               path="/mock/:roundId?"
-              element={<CourseStart key={"mock" + session.userId + location.pathname} mock />}
+              element={<AssessmentEntry section="mock" key={"mock" + session.userId + location.pathname + location.search} />}
             />
             <Route path="/practice" element={<FocusPracticeStart key={session.userId + location.search} />} />
             <Route path="/quiz" element={<Quiz key={session.userId} />} />
@@ -276,7 +277,7 @@ function Shell() {
           </Routes>
         </main>
         <footer>
-          PDF 4개 전체 범위 · 직접 작성한 예상문제{" "}
+          1~3장 CBT · 필기본 4개 모의고사 · 직접 작성한 예상문제{" "}
           <span>학습 기록은 현재 브라우저에 보관</span>
         </footer>
       </div>

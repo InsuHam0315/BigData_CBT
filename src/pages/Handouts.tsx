@@ -27,7 +27,7 @@ export function Handouts() {
     <Heading eyebrow="LECTURE HANDOUTS" title="수업 필기자료실" description="제공한 필기본 4개를 원본 그대로 모았습니다. 형광펜·손글씨·텍스트 메모와 표·그림을 함께 확인하세요."/>
     <div className="scope-facts"><span>PDF 4개</span><span>전체 169쪽</span><span>원본 보기·다운로드</span><span>필기 있는 쪽 바로가기</span></div>
     <div className="handout-grid">{handouts.map(d=><article className="panel handout-card" key={d.id}><div className="handout-number"><FileText size={22}/><span>{String(d.number).padStart(2,'0')}</span></div><h2>{d.title}</h2><p>{d.description}</p><div className="tags"><span className="tag">{d.pages}쪽</span><span className="tag">{size(d.bytes)}</span><span className="tag">필기 표시 {d.annotatedPages.length}쪽</span></div><div className="actions"><Link className="button primary" to={`/handouts/${d.id}`}>필기본 보기<ArrowRight size={16}/></Link><a className="button" href={handoutUrl(d.asset)} download={d.filename}><Download size={16}/>다운로드</a><Link className="button" to={`/notebook/${d.id}`}>핵심 필기·Summary</Link></div><small className="muted handout-filename">{d.filename}</small></article>)}</div>
-    <section className="notice">새 종합 CBT·모의고사 5회차는 이 PDF 4개 전체를 기준으로 합니다. 형광펜 강조 개념의 비중을 높이고 원본 차트를 문항 안에 제공합니다. <Link to="/guide">시험 범위 안내 →</Link></section>
+    <section className="notice">모의고사 5회차는 이 PDF 4개 전체를 기준으로 합니다. CBT는 별도 자료인 빅데이터1-3장.pdf에서 출제합니다. 형광펜 강조 개념의 비중을 높이고 원본 차트를 문항 안에 제공합니다. <Link to="/guide">시험 범위 안내 →</Link></section>
   </>;
   const requested=params.get('page')??'1';
   const parsed=/^\d+$/.test(requested)?Number(requested):1;
