@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Check,
   Flag,
+  ListOrdered,
   Timer,
 } from "lucide-react";
 import { BookmarkButton, Heading, kindLabel } from "../components/UI";
@@ -44,12 +45,13 @@ export function correctText(q: Question) {
       ? `${q.numeric!.value} ${q.numeric!.unit}`
       : q.modelAnswer;
 }
-export function Explanation({ q, answer }: { q: Question; answer?: string }) {
+export function Explanation({ q, answer, result }: { q: Question; answer?: string; result?: boolean | null }) {
+  const verdict = result === undefined && answer !== undefined ? grade(q, answer) : result;
   return (
-    <div className="explanation">
+    <div className={`explanation ${verdict === false ? 'is-incorrect' : ''}`}>
       <span className="eyebrow">WHY THIS ANSWER</span>
       <h3>정답 · {correctText(q)}</h3>
-      {answer !== undefined && <p>내 답: {answerText(q, answer)}</p>}
+      {answer !== undefined && <p className={`explanation-answer ${verdict === false ? 'incorrect' : verdict === true ? 'correct' : ''}`}>{verdict === false ? '× 내 답 (오답)' : verdict === true ? '✓ 내 답 (정답)' : '내 답'}: {answerText(q, answer)}</p>}
       <p>{q.explanation}</p>
       {!!q.figureIds?.length&&<details className="explanation-source"><summary>원본 차트 읽는 법</summary>{q.figureIds.map(id=><SourceFigure key={id} id={id}/>)}</details>}
       <ol>
@@ -93,12 +95,15 @@ export function Quiz() {
     navigate = useNavigate(),
     draft = profile.draft;
   const [now, setNow] = useState(Date.now()),
-    [mobileView, setMobileView] = useState<"question" | "data">("question");
+    [mobileView, setMobileView] = useState<"question" | "data">("question"),
+    [paletteOpen, setPaletteOpen] = useState(false);
   const submitting = useRef(false);
   const questionHeading=useRef<HTMLHeadingElement>(null);
+  const paletteToggle=useRef<HTMLButtonElement>(null);
   useEffect(()=>{
     if(!draft)return;
     setMobileView('question');
+    setPaletteOpen(false);
     const frame=requestAnimationFrame(()=>{questionHeading.current?.focus({preventScroll:true});questionHeading.current?.scrollIntoView({block:'start'});});
     return()=>cancelAnimationFrame(frame);
   },[draft?.id,draft?.index]);
@@ -205,7 +210,32 @@ export function Quiz() {
           공통 자료
         </button>
       </div>
-      <div className={`quiz-layout ${isCompactQuestion(q.id) ? "final-quiz-layout" : ""}`}>
+      <div className="quiz-workspace" onKeyDown={e=>{
+        if(e.key==='Escape'&&paletteOpen){setPaletteOpen(false);paletteToggle.current?.focus();}
+      }}>
+        <nav className="quiz-navigation" aria-label="문제 이동">
+          <button disabled={draft.index===0} onClick={()=>patch(d=>{d.index--;})}><ArrowLeft size={16}/>이전</button>
+          <strong aria-live="polite">{draft.index+1} / {draft.questionIds.length}</strong>
+          <button disabled={draft.index===draft.questionIds.length-1} onClick={()=>patch(d=>{d.index++;})}>다음<ArrowRight size={16}/></button>
+          <button ref={paletteToggle} className="palette-toggle" aria-label="문제 번호" aria-expanded={paletteOpen} aria-controls="question-palette" onClick={()=>setPaletteOpen(v=>!v)}><ListOrdered size={16}/>번호</button>
+        </nav>
+        <aside id="question-palette" className={`panel palette-panel ${paletteOpen?'is-open':''}`} aria-label="문제 번호 이동">
+          <h3>문제 번호</h3>
+          <div className="palette">
+            {draft.questionIds.map((id,i)=>{
+              const verdict=draft.mode==='practice'&&draft.checked.includes(id)?grade(questionMap[id],draft.answers[id],draft.selfGrades[id]):null;
+              const status=verdict===false?'오답':verdict===true?'정답':draft.answers[id]?.trim()?'응답':'미응답';
+              return <button key={id} aria-label={`${i+1}번 ${status}${draft.reviewed.includes(id)?' 검토':''}`} aria-current={draft.index===i?'step':undefined}
+                className={`${draft.answers[id]?.trim()?'answered':''} ${verdict===false?'is-incorrect':verdict===true?'is-correct':''} ${draft.reviewed.includes(id)?'reviewed':''} ${i===draft.index?'current':''}`}
+                onClick={()=>{setPaletteOpen(false);if(i===draft.index)requestAnimationFrame(()=>{questionHeading.current?.focus({preventScroll:true});questionHeading.current?.scrollIntoView({block:'start'});});patch(d=>{d.index=i;});}}>
+                {i+1}{verdict!==null&&<span className="palette-verdict" aria-hidden="true">{verdict?'✓':'×'}</span>}{draft.reviewed.includes(id)&&<Flag size={9}/>}
+              </button>;
+            })}
+          </div>
+          <p className="muted palette-legend">빈 칸=미응답 · 채움=응답<br/>{draft.mode==='practice'&&<><span className="correct">✓ 정답</span> · <span className="incorrect">× 오답</span> · </>}⚑ 검토 · 테두리=현재</p>
+          <button className="primary submit" disabled={submitting.current} onClick={()=>void finish(false)}>전체 제출 · 미응답 {draft.questionIds.length-answered}개</button>
+        </aside>
+        <div className={`quiz-layout ${isCompactQuestion(q.id) ? "final-quiz-layout" : ""}`}>
         <div
           hidden={isCompactQuestion(q.id)}
           className={`quiz-material ${mobileView === "data" ? "show-mobile" : ""}`}
@@ -241,7 +271,7 @@ export function Quiz() {
                   return (
                     <label
                       key={id}
-                      className={`choice ${answer === id ? "selected" : ""}`}
+                      className={`choice ${answer === id ? "selected" : ""} ${checked && id===q.correctId?'choice-correct':''} ${checked && answer===id && result===false?'choice-incorrect':''}`}
                     >
                       <input
                         type="radio"
@@ -251,13 +281,14 @@ export function Quiz() {
                         onChange={() => setAnswer(id)}
                       />
                       <span className="choice-number">{i + 1}</span>
-                      <span>{choice.text}</span>
+                      <span className="choice-text">{choice.text}</span>
+                      {checked && (id===q.correctId || answer===id) && <span className="choice-verdict">{id===q.correctId?'✓ 정답':'× 내 오답'}</span>}
                     </label>
                   );
                 })}
               </fieldset>
             ) : (
-              <label className="answer-input">
+              <label className={`answer-input ${result===false?'answer-incorrect':''}`}>
                 {q.kind === "numeric"
                   ? `${q.numeric!.unit} · ${q.numeric!.rounding} · 허용 오차 ±${q.numeric!.tolerance}`
                   : q.kind === "essay"
@@ -266,6 +297,7 @@ export function Quiz() {
                 {q.kind === "essay" ? (
                   <textarea
                     aria-label="서술 답안"
+                    aria-invalid={result===false || undefined}
                     rows={6}
                     maxLength={10000}
                     value={answer}
@@ -277,6 +309,7 @@ export function Quiz() {
                       q.kind === "numeric" ? "숫자 답안" : "짧은 답안"
                     }
                     type="text"
+                    aria-invalid={result===false || undefined}
                     inputMode={q.kind === "numeric" ? "decimal" : "text"}
                     maxLength={1000}
                     value={answer}
@@ -323,6 +356,7 @@ export function Quiz() {
               <>
                 <p
                   className={`grade-status ${result === true ? "correct" : result === false ? "incorrect" : ""}`}
+                  role="status"
                 >
                   {result === null
                     ? "서술 답안 · 자기 평가 대기"
@@ -330,7 +364,7 @@ export function Quiz() {
                       ? "✓ 정답"
                       : "× 오답"}
                 </p>
-                <Explanation q={q} answer={answer} />
+                <Explanation q={q} answer={answer} result={result} />
                 {q.kind === "essay" && (
                   <div className="actions">
                     <button
@@ -349,62 +383,8 @@ export function Quiz() {
                 )}
               </>
             )}
-            <div className="prev-next">
-              <button
-                disabled={draft.index === 0}
-                onClick={() =>
-                  patch((d) => {
-                    d.index--;
-                  })
-                }
-              >
-                <ArrowLeft size={16} />
-                이전
-              </button>
-              <button
-                disabled={draft.index === draft.questionIds.length - 1}
-                onClick={() =>
-                  patch((d) => {
-                    d.index++;
-                  })
-                }
-              >
-                다음
-                <ArrowRight size={16} />
-              </button>
-            </div>
           </section>
-          <section className="panel palette-panel">
-            <h3>문제 번호</h3>
-            <div className="palette">
-              {draft.questionIds.map((id, i) => (
-                <button
-                  key={id}
-                  aria-label={`${i + 1}번 ${draft.answers[id]?.trim() ? "응답" : "미응답"}${draft.reviewed.includes(id) ? " 검토" : ""}`}
-                  aria-current={draft.index === i ? "step" : undefined}
-                  className={`${draft.answers[id]?.trim() ? "answered" : ""} ${draft.reviewed.includes(id) ? "reviewed" : ""} ${i === draft.index ? "current" : ""}`}
-                  onClick={() =>
-                    patch((d) => {
-                      d.index = i;
-                    })
-                  }
-                >
-                  {i + 1}
-                  {draft.reviewed.includes(id) && <Flag size={9} />}
-                </button>
-              ))}
-            </div>
-            <p className="muted">
-              빈 칸=미응답 · 채움=응답 · ⚑=검토 · 테두리=현재
-            </p>
-            <button
-              className="primary submit"
-              disabled={submitting.current}
-              onClick={() => void finish(false)}
-            >
-              전체 제출 · 미응답 {draft.questionIds.length - answered}개
-            </button>
-          </section>
+        </div>
         </div>
       </div>
     </>
@@ -486,7 +466,7 @@ export function Results() {
         const q = questionMap[qid],
           g = a.grades[qid];
         return (
-          <article className="panel result-question" key={qid}>
+          <article className={`panel result-question ${g===false?'result-incorrect':''}`} key={qid}>
             <div className="question-top">
               <span
                 className={`tag ${g ? "correct" : g === false ? "incorrect" : ""}`}
@@ -501,7 +481,7 @@ export function Results() {
               <summary>공통 자료 다시 보기 · {caseMap[q.caseId].title}</summary>
               <Materials data={caseMap[q.caseId]} />
             </details>}
-            <Explanation q={q} answer={a.answers[qid] ?? ""} />
+            <Explanation q={q} answer={a.answers[qid] ?? ""} result={g} />
             {q.kind === "essay" && a.answers[qid]?.trim() && (
               <div className="actions">
                 <button

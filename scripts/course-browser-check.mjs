@@ -37,7 +37,7 @@ try{
   // exercise every figure, notebook integration and native zoom behavior.
   if(width===390||width===1440)for(let r=0;r<rounds.length;r++){
    const round=rounds[r],mode=r===4?'cbt':'mock';await page.goto(`${base}#/${mode}/${round.id}`);await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();
-   const mixed=r%2===0;await page.getByRole('checkbox').setChecked(mixed);await page.getByRole('button',{name:mode==='cbt'?'연습 시작':'시험 시작',exact:true}).click();await page.locator('.palette button').last().waitFor();assert.equal(await page.locator('.palette button').count(),40);
+   const mixed=r%2===0;await page.getByRole('checkbox').setChecked(mixed);await page.getByRole('button',{name:mode==='cbt'?'연습 시작':'시험 시작',exact:true}).click();await page.locator('.palette button').last().waitFor({state:'attached'});assert.equal(await page.locator('.palette button').count(),40);
    const ids=width===1440?round.questionIds:round.questionIds.slice(0,6),positions=[0,0,0,0];
    for(let i=0;i<ids.length;i++){
     const q=questionMap[ids[i]];await page.getByRole('heading',{name:q.stem,exact:true}).waitFor();
@@ -51,7 +51,9 @@ try{
     if(mode==='cbt'&&i===0){await page.getByRole('button',{name:'답안 확인',exact:true}).click();await page.locator('.question-panel .explanation').waitFor();assert((await page.locator('.question-panel .explanation').innerText()).includes('필기본.pdf'));assert((await page.locator('.question-panel .explanation > a').getAttribute('href')).startsWith('#/notebook/'));}
     if(i<ids.length-1)await page.getByRole('button',{name:'다음',exact:true}).click();
    }
-   if(width===1440)assert.deepEqual(positions,[10,10,10,10]);await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));assert.equal(await page.locator('.result-question').count(),40);
+   if(width===1440)assert.deepEqual(positions,[10,10,10,10]);
+   if(await page.locator('.palette-toggle').isVisible())await page.getByRole('button',{name:'문제 번호',exact:true}).click();
+   await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));assert.equal(await page.locator('.result-question').count(),40);
    await page.reload();await page.locator('.result-summary').waitFor();await page.goto(base+'#/records?view=attempts');await page.getByRole('heading',{name:'응시 이력',exact:true}).waitFor();assert((await page.getByRole('main').innerText()).includes(round.title));
    report.rounds.push({width,id:round.id,mode,mixed,answered:ids.length,total:40,positions,reloadAndGrade:true,noPrematureHints:true});console.log(`Verified full course ${width}px ${round.id}: ${ids.length} answers, original charts, persisted grading`);
   }

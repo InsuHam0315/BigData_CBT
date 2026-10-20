@@ -45,6 +45,7 @@ jobs:
           npm run test:handout-browser
           npm run test:notebook-browser
           npm run test:course-browser
+          npm run test:quiz-navigation
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -13,7 +13,8 @@
     "test:final-browser": "node scripts/final-browser-check.mjs",
     "test:handout-browser": "node scripts/handout-browser-check.mjs",
     "test:notebook-browser": "node scripts/notebook-browser-check.mjs",
-    "test:course-browser": "node scripts/course-browser-check.mjs"
+    "test:course-browser": "node scripts/course-browser-check.mjs",
+    "test:quiz-navigation": "node scripts/quiz-navigation-browser-check.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.55.0",

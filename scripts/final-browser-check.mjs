@@ -36,7 +36,7 @@ try{
    await page.goto(`${base}#/${mode}/${round.id}`);await page.getByRole('heading',{name:'응시 설정 · 40문항',exact:true}).waitFor();
    const mixed=r%2===0;await page.getByRole('checkbox').setChecked(mixed);
    await page.getByRole('button',{name:mode==='cbt'?'연습 시작':'시험 시작',exact:true}).click();
-   await page.locator('.palette button').last().waitFor();assert.equal(await page.locator('.palette button').count(),40);
+   await page.locator('.palette button').last().waitFor({state:'attached'});assert.equal(await page.locator('.palette button').count(),40);
    const positions=[0,0,0,0],orderBefore=[];
    const ids=width===1440?round.questionIds:round.questionIds.slice(0,8);
    for(let i=0;i<ids.length;i++){
@@ -55,6 +55,7 @@ try{
     if(i<ids.length-1)await page.getByRole('button',{name:'다음',exact:true}).click();
    }
    if(width===1440)assert.deepEqual(positions,[10,10,10,10]);
+   if(await page.locator('.palette-toggle').isVisible())await page.getByRole('button',{name:'문제 번호',exact:true}).click();
    await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();
    await page.locator('.result-summary').waitFor();
    assert((await page.locator('.result-summary').innerText()).includes(`${ids.length} / 40`));

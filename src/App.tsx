@@ -61,6 +61,7 @@ import { Handouts } from "./pages/Handouts";
 import {CourseHome,CourseGuide,CourseStart} from './pages/CourseStudy';
 import {courseLessons} from './content';
 import "./style.css";
+import "./pages/Quiz.css";
 const Notebook = lazy(() => import('./pages/Notebook'));
 const Figures = lazy(() => import('./pages/Figures'));
 function Shell() {
