@@ -141,7 +141,7 @@ export function Quiz() {
   const q = questionMap[draft.questionIds[draft.index]],
     data = caseMap[q.caseId],
     answer = draft.answers[q.id] ?? "",
-    checked = draft.mode === "practice" && draft.checked.includes(q.id),
+    checked = draft.checked.includes(q.id),
     result = checked ? grade(q, answer, draft.selfGrades[q.id]) : null,
     remaining =
       draft.endsAt === null
@@ -169,7 +169,7 @@ export function Quiz() {
         <div>
           <span className="eyebrow">
             {draft.mode === "exam"
-              ? "EXAM MODE · 제출 후 해설 공개"
+              ? "EXAM MODE · 문항별 답안 확인 가능"
               : "PRACTICE MODE · 확인 후 해설 공개"}
           </span>
           <h1>{draft.title}</h1>
@@ -226,7 +226,7 @@ export function Quiz() {
           <h3>문제 번호</h3>
           <div className="palette">
             {draft.questionIds.map((id,i)=>{
-              const verdict=draft.mode==='practice'&&draft.checked.includes(id)?grade(questionMap[id],draft.answers[id],draft.selfGrades[id]):null;
+              const verdict=draft.checked.includes(id)?grade(questionMap[id],draft.answers[id],draft.selfGrades[id]):null;
               const status=verdict===false?'오답':verdict===true?'정답':draft.answers[id]?.trim()?'응답':'미응답';
               return <button key={id} aria-label={`${i+1}번 ${status}${draft.reviewed.includes(id)?' 검토':''}`} aria-current={draft.index===i?'step':undefined}
                 className={`${draft.answers[id]?.trim()?'answered':''} ${verdict===false?'is-incorrect':verdict===true?'is-correct':''} ${draft.reviewed.includes(id)?'reviewed':''} ${i===draft.index?'current':''}`}
@@ -235,7 +235,7 @@ export function Quiz() {
               </button>;
             })}
           </div>
-          <p className="muted palette-legend">빈 칸=미응답 · 채움=응답<br/>{draft.mode==='practice'&&<><span className="correct">✓ 정답</span> · <span className="incorrect">× 오답</span> · </>}⚑ 검토 · 테두리=현재</p>
+          <p className="muted palette-legend">빈 칸=미응답 · 채움=응답<br/><span className="correct">✓ 정답</span> · <span className="incorrect">× 오답</span> · ⚑ 검토 · 테두리=현재</p>
           <button className="primary submit" disabled={submitting.current} onClick={()=>void finish(false)}>전체 제출 · 미응답 {draft.questionIds.length-answered}개</button>
         </aside>
         <div className={`quiz-layout ${isCompactQuestion(q.id) ? "final-quiz-layout" : ""}`}>
@@ -342,7 +342,6 @@ export function Quiz() {
                   ? "검토 표시 해제"
                   : "나중에 검토"}
               </button>
-              {draft.mode === "practice" && (
                 <button
                   className="primary"
                   disabled={!answer.trim()}
@@ -355,7 +354,6 @@ export function Quiz() {
                   답안 확인
                   <Check size={16} />
                 </button>
-              )}
             </div>
             {checked && (
               <>

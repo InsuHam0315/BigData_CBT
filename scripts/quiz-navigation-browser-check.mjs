@@ -66,15 +66,42 @@ try {
   await openNumbers();await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();await page.locator('.result-summary').waitFor();
   assert(await page.locator('.result-question').first().getAttribute('class').then(c=>c.includes('result-incorrect')));
   assert.match(await page.locator('.result-question .explanation-answer').first().innerText(),/오답/);
-  // New exam: choosing a wrong option must not reveal answers or palette grades.
+  // The four-PDF mock has the same per-question check, including saved exams.
+  // Merely choosing an option still must not reveal answers or palette grades.
   await page.goto(base+'#/mock/course-'+roundNumber);await page.getByRole('button',{name:'시험 시작',exact:true}).click();await page.locator('.question-panel h2').waitFor();
+  assert(await page.getByRole('button',{name:'답안 확인',exact:true}).isVisible());
+  assert(await page.getByRole('button',{name:'답안 확인',exact:true}).isDisabled());
   const examId=await page.locator('.question-panel .tags .tag').first().innerText(),eq=map[examId];
   assert.match(examId,/^C26V2R/);
-  await choose(eq.choices.find(c=>c.id!==eq.correctId).id);
+  const examWrong=eq.choices.find(c=>c.id!==eq.correctId).id;
+  await choose(examWrong);
   assert.equal(await page.locator('.choice-incorrect,.choice-correct,.palette .is-incorrect,.palette .is-correct,.question-panel .explanation').count(),0);
+  await page.getByRole('button',{name:'답안 확인',exact:true}).click();
+  await page.locator('.choice-incorrect').waitFor();
+  assert.equal(await page.locator('.choice-correct').count(),1);
+  assert.match(await page.locator('.question-panel .explanation').innerText(),/내 답 \(오답\)/);
+  await page.reload();await page.locator('.choice-incorrect').waitFor();
+  assert.match(await page.locator('.quiz-header .eyebrow').innerText(),/EXAM MODE/);
+  assert.match(await page.locator('.timer').innerText(),/\d+:\d+/);
+  assert(await page.locator(`.choices input[value="${examWrong}"]`).isChecked());
+  await page.getByRole('button',{name:'다음',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('.quiz-navigation strong').textContent==='2 / 40');
+  assert.equal(await page.locator('.question-panel .explanation,.choice-correct,.choice-incorrect').count(),0);
+  assert(await page.getByRole('button',{name:'답안 확인',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'이전',exact:true}).click();await page.locator('.choice-incorrect').waitFor();
+  await choose(eq.correctId);
+  await page.waitForFunction(()=>!document.querySelector('.choice-incorrect,.choice-correct,.question-panel .explanation,.palette .is-incorrect'));
+  await page.getByRole('button',{name:'답안 확인',exact:true}).click();
+  await page.locator('.palette .is-correct').waitFor({state:'attached'});
+  assert.match(await page.locator('.explanation-answer').innerText(),/내 답 \(정답\)/);
+  // Individual checks do not submit the round. Overall submission still grades it.
+  await openNumbers();await page.getByRole('button',{name:/전체 제출 · 미응답/}).click();
+  await page.locator('.result-summary').waitFor();
+  assert.match(await page.locator('.result-summary').innerText(),/1 \/ 40/);
+  assert.equal(await page.locator('.result-question').count(),40);
   await overflow();await ctx.close();
-  report.views.push({width,roundNumber,redFeedback:true,themes:2,stickyNavigation:true,paletteJump:true,reload:true,noExamLeak:true});
-  console.log(`Verified quiz feedback/navigation ${width}px final-${roundNumber} / course-${roundNumber}: red wrong choice, palette, edit/reset, reload, exam secrecy`);
+  report.views.push({width,roundNumber,redFeedback:true,themes:2,stickyNavigation:true,paletteJump:true,reload:true,mockIndividualCheck:true,noRevealBeforeCheck:true,mockCheckReloadAndEdit:true,overallSubmit:true});
+  console.log(`Verified quiz feedback/navigation ${width}px final-${roundNumber} / course-${roundNumber}: per-question check in both banks, edit/reset, reload, overall submission`);
  }
  assert.deepEqual(report.errors,[]);
 }finally{await writeFile('test-results/quiz-navigation-report.json',JSON.stringify(report,null,2));await browser.close();}

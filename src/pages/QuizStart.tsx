@@ -38,7 +38,7 @@ export function QuizStart({ mock = false }: { mock?: boolean }) {
     {round && <Link className="back-link" to={base}>← 전체 회차</Link>}
     <Heading eyebrow={mock ? "COMPREHENSIVE EXAM" : "COMPREHENSIVE PRACTICE"}
       title={round?.title ?? (mock ? "종합모의고사" : "회차별 종합문제 연습")}
-      description={mock ? "전 범위를 섞은 고정 문제 세트입니다. 제출 후 점수와 해설을 확인합니다." : "이전 자료 보관함의 종합 문제를 연습합니다. 문항별 답안 확인으로 근거와 해설을 읽을 수 있습니다."} />
+      description={mock ? "전 범위를 섞은 고정 문제 세트입니다. 문항별 답안 확인으로 해설을 읽고, 전체 제출하면 점수가 기록됩니다." : "이전 자료 보관함의 종합 문제를 연습합니다. 문항별 답안 확인으로 근거와 해설을 읽을 수 있습니다."} />
     {profile.draft && <div className="notice resume-banner"><Timer size={18} /><span>진행 중: {profile.draft.title}. 새 응시를 시작하면 진행 중 풀이가 교체됩니다.</span><Link className="button" to="/quiz">이어서 풀기</Link></div>}
     {!round ? <>
       <div className="notice">노션 측 4개 자료 전체 · 넷플릭스 심화 포함 · 5회차에 전체 39개 사례를 배분했습니다. 각 회차는 50문항이며 같은 회차의 문제 구성은 유지됩니다.</div>
@@ -58,7 +58,7 @@ export function QuizStart({ mock = false }: { mock?: boolean }) {
     </> : <section className="panel round-setup">
       <div className="mode-links"><Link className={`button ${!mock ? "primary" : ""}`} to={`/cbt/${round.id}`} aria-current={!mock ? "page" : undefined}>연습 모드</Link><Link className={`button ${mock ? "primary" : ""}`} to={`/mock/${round.id}`} aria-current={mock ? "page" : undefined}>시험 모드</Link></div>
       <div className="round-facts"><strong>{round.defaultCount}문항</strong><span>공통 자료 {round.caseIds.length}개</span><span>전 범위 · 고정 구성</span></div>
-      <p>{mock ? "시간 제한이 있으며 답과 해설은 전체 제출 후 공개됩니다." : "문제마다 답안을 확인하고 해설을 읽을 수 있습니다. 시간 제한은 없습니다."} 미응답은 오답으로 채점하고, 서술 답안은 자기 평가 후 점수를 확정합니다.</p>
+      <p>{mock ? "시간 제한이 있으며 문제마다 답안과 해설을 확인할 수 있습니다." : "문제마다 답안을 확인하고 해설을 읽을 수 있습니다. 시간 제한은 없습니다."} 미응답은 오답으로 채점하고, 서술 답안은 자기 평가 후 점수를 확정합니다.</p>
       <div className="checks">{mock && <label>시험 시간 (분)<input aria-label="시험 시간 (분)" type="number" min={1} max={240} value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} /></label>}<label className="checkbox-label"><input type="checkbox" checked={mix} onChange={(e) => setMix(e.target.checked)} />선지 순서 섞기</label></div>
       <div className="notice">문제 구성과 사례 순서는 고정됩니다. 같은 표·그래프에 연결된 문항은 연속해서 제시됩니다.</div>
       <button className="primary" disabled={starting} onClick={() => void start()}>{starting ? "준비 중…" : profile.draft ? `진행 중 풀이를 교체하고 ${mock ? "시험" : "연습"} 시작` : `${mock ? "시험" : "연습"} 시작`}<ArrowRight size={16} /></button>
